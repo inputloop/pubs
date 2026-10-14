@@ -1,4 +1,6 @@
-# inputloop/pub: a projection of /h/pub (H:\pub), the publication shelf: papers, posts, persona sheets, the canon and the books
+# inputloop/pubs: a projection of /h/pub (H:\pub), the publication shelf: papers, posts, persona sheets, the canon and the books
+
+The repository is named `pubs`, the folder `pub`: both spellings are meant (his word, 2026-10-14: "pubs/pub is not a local rename or a typo: I'd like to support this different spelling in that context"). `pubs` names the collection of publications as it travels; `pub` names the shelf where they land.
 
 The reading room where finished writing lands (its own RECIPE.org says how).
 
