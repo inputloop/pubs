@@ -1,0 +1,28 @@
+#+TITLE: Magic Number Theory
+#+SUBTITLE: publication stage · papers · <H>:/pub/papers/magic-number-theory/
+#+AUTHOR: Corwin Brust (keeper) · written with Mentat · corwin@bru.st
+#+DATE: 2026-09-27
+
+* What this is
+
+When a number is a count and when it is a quota: the essay (with his Fork A ruling), the dialectic on nine as a window, the literate recipe that replays its receipts, and the review it prompted.
+
+* What travels
+
+- =ESSAY-2026-09-26-magic-number-theory.md=
+- =ESSAY-2026-09-27-nine-as-a-window.md=
+- =RECIPE-2026-09-26-magic-number-theory.org=
+- =REVIEW-2026-09-26-ingest-writing-firing.md=
+- this README, and =COPYING=.
+
+* Checking it
+
+=.c4/PROVENANCE.tsv= names where each file came from and its hash when it was lifted; =pb1ck=
+re-hashes them and reads the item for anything of the machine it was made on.
+
+* Status
+
+The copies here write the machine paths their masters name in placeholder form (=<F>:\...=, =<f>:/...=,
+=<home>=, =<mnt>/=); the masters keep them, and =.c4/PROVENANCE.tsv= says so.
+
+Pre-branding: see =COPYING=.

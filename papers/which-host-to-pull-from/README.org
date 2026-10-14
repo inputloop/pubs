@@ -1,0 +1,23 @@
+#+TITLE: Which Host to Pull From
+#+SUBTITLE: publication stage · papers · <H>:/pub/papers/which-host-to-pull-from/
+#+AUTHOR: Corwin Brust (keeper) · written with Mentat · corwin@bru.st
+#+DATE: 2026-09-27
+
+* What this is
+
+The transport card: ask all three hosts, pull from the first that another agrees with; what to do if none answer. With its own test.
+
+* What travels
+
+- =CARD-2026-09-27-which-host-to-pull-from.md=
+- =CARD-2026-09-27-which-host-to-pull-from.test.py=
+- this README, and =COPYING=.
+
+* Checking it
+
+=.c4/PROVENANCE.tsv= names where each file came from and its hash when it was lifted; =pb1ck=
+re-hashes them and reads the item for anything of the machine it was made on.
+
+* Status
+
+Pre-branding: see =COPYING=.

@@ -1,0 +1,35 @@
+#+TITLE: Over the fence: the stile server
+#+SUBTITLE: publication stage · papers · <H>:/pub/papers/stile/
+#+AUTHOR: Corwin Brust (keeper) · written with Mentat · corwin@bru.st
+#+DATE: 2026-09-28
+
+* What this is
+
+A LENS on careful ways to carry work across a narrow gate between two machines, and a fourth MCP server written in Emacs Lisp to teach MCP to people who know Emacs Lisp: design, test, how-to, and the receipts of a real carry.
+
+* What travels
+
+- =LENS-2026-09-28-over-the-fence.md=
+- =DESIGN-2026-09-28-stile-server.md=
+- =QAPLAN-2026-09-28-stile-server.md=
+- =QA-PASSES.md=
+- =HOWTO-2026-09-28-learn-mcp-from-emacs-lisp.md=
+- =CONTEST-2026-09-28-name-this.md=
+- =c4-stile-mcp.el=
+- =stile-plants.el=
+- =stile-test.sh=
+- =SHA256SUMS.code=
+- =NOTE-2026-09-28-stile-rulings.md= (added 2026-09-28)
+- this README, and =COPYING=.
+
+* Checking it
+
+=.c4/PROVENANCE.tsv= names where each file came from and its hash when it was lifted; =pb1ck=
+re-hashes them and reads the item for anything of the machine it was made on.
+
+* Status
+
+The copies here write the machine paths their masters name in placeholder form (=<F>:\...=, =<f>:/...=,
+=<home>=, =<mnt>/=); the masters keep them, and =.c4/PROVENANCE.tsv= says so.
+
+Pre-branding: see =COPYING=.

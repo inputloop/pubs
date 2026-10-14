@@ -1,0 +1,91 @@
+#+TITLE: The persona shelf
+#+SUBTITLE: publication stage · <H>:/pub/persona/ · persona ships separately
+#+AUTHOR: Corwin Brust (keeper) · written with Mentat · corwin@bru.st
+#+DATE: 2026-09-25
+
+* What this is
+
+The publication shelf for persona: the characters, places and person-models that books and programs
+are written with. A persona ships separately from the book it appears in and from the program that
+reads it. The same sheet serves both, and neither carries it inside. (The Google Drive arc
+=ComputerPeople/persona/= is a different thing: a complete offsite store, not a publication.)
+
+Each item is its own folder: the sheet, its README, its COPYING, and =.c4/PROVENANCE.tsv= (where each
+file came from, and its hash when it was lifted). =pb2ps= lands them and =pb1ck= checks them.
+
+* Also on this shelf, minted for each build
+
+- =TERMS-OF-SERVICE.md= and =PRIVACY.md=: vibrobeast's Terms and Privacy Policy, minted by
+  =bin/tp2mt= during =make dist= for that build and no other. Every sentence about what the servers do
+  is checked against their source first. Every filter is named, and one that isn't named doesn't exist.
+- =corwin/=: the contributing personality, the person whose defaults these terms are.
+
+* The shelf
+
+| item | actor | what | license |
+|---|---|---|---|
+| corwin | person-model | the contributing personality (CORWIN v1.3), at his word (=.c4/consent=) | CC BY 4.0 |
+| mentat | system | the instrument at the seat | CC BY 4.0 |
+| penumbra | system | eclipse-pass's fond archivist | CC BY 4.0 |
+| shopgarden | place | the Garden, as C4 sees it | CC BY 4.0 |
+| pub-item | place | an ITEM sheet: pub, the three shelves | CC BY 4.0 |
+| ilunga, pell, roux-abara, vanth | fiction | the four game-book authors | CC BY 4.0 |
+| solberg-maas | fiction | the four books' editor | CC BY 4.0 |
+| merlin | synthetic | a withhold-experiment stand-in, not a person | CC BY 4.0 |
+| gh7 | host | the bakery on the ring (the host; gw7 is the node it runs on) | CC BY 4.0 |
+
+* What is not here, and why (said, not silently left out)
+
+- *gw7* is now *gh7*, at his word (2026-09-25): gw7 is the node on the wheel, gh7 the host persona.
+  The first landing is kept at =.c4/retired/gw7-2026-09-25/=. His machines may be named (=../.c4/hosts=);
+  =pb1ck= shows each one as HOST, and paths are still what it catches.
+- *bryant*: a model of a real person, so the shelf's own consent rule applies (a line in
+  =.c4/consent=, recording how the word came and which version it covers; see RECIPE.org, CREDITS
+  AND HOLDS). =pb2ps= refuses it by name until then.
+- *kelsey-mtb-stub*, *bryant-mtb-stub*: seeds that their people haven't filled yet.
+- Where a copy writes a machine path as =<F>:\...=, =<home>= or =<mnt>/=, it says so in its README and
+  PROVENANCE, and the master keeps the real path (=pb2ps --scrub=). Names are never rewritten.
+
+
+* Terms
+
+# TERMS:begin v2 2026-10-10
+TERMS (default licensing, v2, 2026-10-10). Corwin Brust and Bryant Frankford pool their tools,
+writing and models into one shared collection and offer it together. Unless a work says
+otherwise, everything in the collection, and what our tools make for us, is offered under
+these terms:
+
+- Writing and art -- prose, books, papers, posts, persona sheets, skill files, READMEs and
+  other documentation, images, terms of service and privacy policies -- under Creative
+  Commons Attribution-ShareAlike 4.0 International (CC-BY-SA-4.0).
+- Code -- scripts, programs, libraries, templates, and the configuration and data that run
+  them -- under the GNU General Public License as published by the Free Software Foundation,
+  either version 3 of the License, or (at your option) any later version; or, at your choice,
+  under the GNU Lesser General Public License, version 3 or (at your option) any later
+  version (GPL-3.0-or-later OR LGPL-3.0-or-later). The Lesser licence is offered so that an
+  application can take our parts in without taking on more.
+- The Technology Architecture (TA) model alone, written for companies to take in, under
+  Creative Commons Attribution 4.0 International (CC-BY-4.0), without ShareAlike. Essays
+  already published keep the licence they went out with.
+
+These terms ask something of you only when you publish: when you give a program or a text
+to other people. Using a thing -- running an application built with these parts, the way you
+use a ticket machine or a cash machine -- is not publishing it, and changes you keep to
+yourself stay yours. What our tools make for you is yours, under whatever terms you choose.
+
+Credit for the collection: Corwin Brust and Bryant Frankford, with K Smith as editor of the
+works she edited. Each work names its own makers, first the one whose work it most is.
+
+Two permissions Corwin adds for the parts he holds the copyright on:
+(a) his technical work under the GNU Affero GPL is also available, as used in these works,
+    under the terms above;
+(b) his writing may be included whole, recomposed, used to derive voice or language, or
+    quoted in part, without credit or source notes, with or without quotation marks.
+
+A work in the collection that fits none of the lines above takes the one that most asks that
+published changes come with their sources. These terms are stated alike in every document
+that carries them, and the copies are checked against one another.
+
+Other people's work keeps its own terms. We change these terms together, and the build that
+carries a change says so.
+# TERMS:end

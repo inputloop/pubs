@@ -1,0 +1,26 @@
+Pass 3, one rule for every file (review B's ask): a src-block line is SUPPORTED if verbatim in the packet
+(whitespace folded, comment stripped); MARKED if the line or its block contains '[added'; else UNSUPPORTED.
+Persona RECIPEs were patched after pass 1 (3 lines each, 'usage from the script header'); those lines are
+counted apart as PATCH, not as the reader's. Cold RECIPEs are the counted bytes of pass 1.
+
+cold-arch         0952a974e9be8d14  supported 1  marked 6  unsupported 1  patch 0
+      sudo sh arch/mkdoor.sh [WORKDIR] [OUTDIR]
+cold-guix         21cb4272e588c6b4  supported 1  marked 3  unsupported 1  patch 0
+      cd writing/door-images/guix
+cold-parabola     6e5c050307bdd13f  supported 2  marked 3  unsupported 1  patch 0
+      sudo sh writing/door-images/parabola/mkdoor.sh writing/door-images/arch
+cold-proxmox      c942d892cd69e2c8  supported 1  marked 3  unsupported 2  patch 0
+      sudo sh writing/door-images/arch/mkdoor.sh /tmp/c4door-work out
+      sudo sh writing/door-images/parabola/mkdoor.sh writing/door-images/arch /tmp/c4door-parabo
+persona-arch      7e4e8368fe0aa816  supported 1  marked 0  unsupported 4  patch 3
+      sudo sh writing/door-images/arch/mkdoor.sh [WORKDIR] [OUTDIR]
+      cp releng-packages.x86_64 writing/door-images/arch/profile/packages.x86_64
+      printf 'emacs-nox\ngit\ngnupg\n' >> writing/door-images/arch/profile/packages.x86_64
+      sudo sh writing/door-images/arch/mkdoor.sh
+persona-guix      2282578c96865f13  supported 1  marked 1  unsupported 1  patch 3
+      cd writing/door-images/guix
+persona-parabola  73ca159397644001  supported 1  marked 0  unsupported 1  patch 3
+      sudo sh writing/door-images/parabola/mkdoor.sh writing/door-images/arch [WORKDIR] [OUTDIR]
+persona-proxmox   db569c26f5abc0c9  supported 1  marked 2  unsupported 2  patch 3
+      sudo sh writing/door-images/arch/mkdoor.sh
+      sudo sh writing/door-images/parabola/mkdoor.sh writing/door-images/arch

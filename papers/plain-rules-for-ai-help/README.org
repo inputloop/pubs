@@ -1,0 +1,41 @@
+#+TITLE: Plain Rules for AI Help: eight rules and a one-page card (working draft 0.0.3)
+#+SUBTITLE: publication stage · papers · <H>:/pub/papers/plain-rules-for-ai-help/
+#+AUTHOR: Corwin Brust (keeper) · written with Mentat · corwin@bru.st
+#+DATE: 2026-10-01
+
+* What this is
+
+A minimal, reusable model for any person or group that gets help from an AI system: people not in the room first, keep the record by adding, say who helped, whose rule it is, checks that can fail, quote the organization's rule, record where it meets a person, write it so the people affected can check it by hand. No owner yet; drafted by an AI assistant for the keeper's review.
+
+* What travels
+
+- =MODEL-2026-09-30-plain-rules-for-ai-help.md=
+- =CARD-2026-09-30-plain-rules-for-ai-help.md=
+- =SPEC-model-check.md=
+- =model-check.sh=
+- =model_check.py=
+- =make-card.awk=
+- =make-card.sh= (added 2026-10-01)
+- this README, and =COPYING=.
+
+* Checking it
+
+=.c4/PROVENANCE.tsv= names where each file came from and its hash when it was lifted; =pb1ck=
+re-hashes them and reads the item for anything of the machine it was made on.
+
+* Status
+
+Pre-branding: see =COPYING=.
+
+* Running the model's own check (added 2026-09-30 by the instrument)
+
+=sh model-check.sh MODEL-2026-09-30-plain-rules-for-ai-help.md= (or =python3 model_check.py …=) checks the model's
+form: every rule has an owner line and a check that names what makes it RED and what makes it NOT CHECKED; every
+evidence id resolves; every quote of an organization's rule is word for word. The evidence lives in the keeper's
+Technology Architecture record, so *here, on its own, the check answers NOT CHECKED (exit 77)*. That is the
+honest answer: it could not look. Run it from the root of that record and it answers OK.
+
+Before you rely on a check, have someone who did not write it plant faults in it. This model's own Rule 5
+asks for that, and the pilot behind it is why: authors' own plants were all caught, others' faults 1 of 55.
+
+The one-page card is regenerated from the model by =make-card.awk=, never edited by hand.

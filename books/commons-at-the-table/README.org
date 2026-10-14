@@ -1,0 +1,27 @@
+#+TITLE: The Commons at the Table
+#+SUBTITLE: publication stage · a game book · <H>:/pub/books/commons-at-the-table/
+#+AUTHOR: Kirra Vanth (for Corwin) · savannah: carlc · corwin@bru.st
+#+DATE: 2026-09-25
+
+* What this is
+
+*The Commons at the Table*, by Kirra Vanth, edited by Henriette Solberg-Maas: one of four standalone game books written
+by four rolled authors on one subject -- roll up somebody and live with it -- for two audiences, the
+person running a table and the person running a system. The authors and the editor are characters,
+rolled, not chosen; the rights are Corwin's.
+
+* What travels
+
+- =commons-at-the-table.md= -- the book (Markdown; the source).
+- =commons-at-the-table.txt= -- the same book as plain text, rendered from the Markdown (76 columns, ASCII).
+- this README, and =COPYING=.
+
+* Checking it
+
+Every odds claim the book makes is marked in the Markdown (=<!-- GB:claim ... -->=) and checked
+against a full dice enumeration by =gb1md --lint=; at landing it read: OK 6 - WARN 1 - FAULT 0.
+The plain text is byte-for-byte what =gb1md --txt --ascii= renders from the Markdown.
+
+* Status
+
+Editor: K Smith. Draft 3 applied K Smith's grades on draft 1 (human readers' group, 2026-09-13; Voice, Clarity and Potential, each out of 5). License: CC BY 4.0, with an additional permission; see =COPYING=.

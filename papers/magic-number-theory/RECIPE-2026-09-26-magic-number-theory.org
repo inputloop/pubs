@@ -1,0 +1,633 @@
+# Tools in this file: GPL-3.0-or-later. Prose: CC BY 4.0. Lab copy (h/), unsigned. Copyright (C) 2026 Corwin Brust.
+#+TITLE: RECIPE · 26 September 2026 — Magic Number Theory: the kit that replays it
+#+AUTHOR: Corwin Brust (keeper) · written by Mentat (for Corwin)
+#+PROPERTY: header-args :tangle no
+
+* UNPACK(1) — how to open this kit
+#+begin_example
+NAME
+    RECIPE-2026-09-26-magic-number-theory.org — the ordered steps that reproduce every number in
+    ESSAY-2026-09-26-magic-number-theory.md, as a literate kit: prose that unpacks into its own tools,
+    carries its own checks, and proves they can fail.
+
+UNPACK
+    In Emacs:       C-c C-v t          (M-x org-babel-tangle), from inside an empty folder
+    Without Emacs:  mkdir recipe-magic-number-2026-09-26 && cd recipe-magic-number-2026-09-26
+                    awk '/^#\+begin_src sh :tangle unpack.sh$/{f=1;next} f&&/^#\+end_src/{exit} f' \
+                        ../RECIPE-2026-09-26-magic-number-theory.org > unpack.sh
+                    sh unpack.sh ../RECIPE-2026-09-26-magic-number-theory.org
+                    (the first line lifts unpack.sh out of this file; the second opens the rest)
+    Unpack WRITES files (mn-probes, mn-sweep, mn-grain, c4check, unpack.sh, checks.c4, sweep.card).
+    It runs nothing. Basenames only, into the current folder.
+
+THEN
+    sh c4check checks.c4        # the kit is whole, its tools parse, and every checker can fail
+    sh mn-probes                # the essay's receipts, in words: CHECK can go red, GAUGE never does
+    sh mn-grain table           # which house number, if any -- the keeper's finesse as a lookup
+    perl mn-sweep --prove-red   # the threshold gauge proves itself on planted curves
+
+SAFETY
+    c4check EXECUTES the cmd: lines it reads. Run it on a kit you trust. mn-probes reads the tree and
+    writes nothing; it never reads Z/. sweep.card is the one step that touches Z/, and it waits on his yes.
+#+end_example
+
+* WHAT THIS COOKS
+
+The essay argues about numbers; this recipe is where its numbers can be *re-made* by a stranger, in the
+tree, without trusting the essay. It keeps the essay's own distinction in its output, because the
+distinction is the argument:
+
+- a *CHECK* is something that must not drift. It has an expected value and it can go RED. The urgent pile
+  on 2026-09-26 is 39, and two readers in two languages (awk and Python) must agree on every day of it.
+- a *GAUGE* is something to be weighed. It prints what was seen on 2026-09-26 beside what is found now,
+  and it never says pass or fail. The tree grows; a count that moves is news, not a fault. Asking a gauge
+  a check's question is the failure the companion paper names: "a number nobody validated, wearing a
+  test's authority" (=pub/papers/red-first-then-counted/=).
+
+Four languages carry the work, on purpose (his rule of 2026-09-14: when something gets past our tests,
+add coverage in a language separate from the work under test). The tool whose thresholds the sweep
+reads, =bin/cl1ix=, is Python; the sweep is Perl. The probes are sh, and the one receipt that matters
+most (P2) is computed twice, in awk and in Python, and must agree.
+
+* THE GRAIN — which house number, if any (the keeper's finesse, 2026-09-26)
+
+His reprompt, verbatim: "sometimes we really are counting and it's silly to invent a reason to stop
+counting at a number because we happen to have numbers and also like to stop counting when we aren't sure
+the max ... If we are setting a unknown number we might well (nearly always should when we have no
+specific direction otherwise to guess) reach for the magic number when applying it. The finesse is how:
+the only meaningful guide I have offered so far are the names for the magic stops on the dial: GRAIN,
+GREAT, GRAND."
+
+Four readers took that as a third take, blind to one another (=magic-number-theory/arms-2026-09-26/R3-*.md=). They agreed
+on the procedure below. The ring reading is theirs, not his; his units are recorded as withheld
+(=AS4CE0001/memory/as-ce-slide.md=), and his word overrides every line of it.
+
+1. *Are you already counting?* Then use the count. Do not stop it at a house number because the maximum is
+   unknown; finish it, or say plainly that you stopped and why. (=mn-grain counted N=)
+2. *Setting a number nobody can count or derive?* Reach for the dial, and pick the stop by the *ring the
+   number must serve*, the reading =h/ms1dg= gives its ceremony dial ("the size of the RING the ceremony is
+   meant to convince"):
+   - *GRAIN, 4* — a small ring; the default when nothing says otherwise. His hand-edit of 2026-09-04:
+     "GRAIN: (default)4 or GREAT:9, or GRAND:17".
+   - *GREAT, 9* — strangers take part, or the plan travels among several parties.
+   - *GRAND, 17* — it must stand on a shelf, or hold between organizations.
+   Never climb for size: a long thing for a small ring is still GRAIN.
+3. *Write the name beside the number*: "9 (GREAT, from the dial)". The name is the disclosure.
+4. *Left of the grain is not magic.* Below 4 the dial is plain doubling (2 a pair, 1 yourself, and the halves
+   below), "rational numbers that make sense as doubling" in his words; those need no confession. The
+   magic is counting *up*: 9 = 2×4+1 and 17 = 2×9−1.
+5. *Staged reach counts up the stops.* When one horizon will not do (a falsifier's settlement dates),
+   use the ladder: 4 GRAIN · 9 GREAT · 17 GRAND, each checkpoint for a wider ring. (=mn-grain ladder=)
+
+Open on his word, and said here so nobody has to fish for it: the persona grid sizes a persona by length
+("4 for a tiny sketch, 9 for a short work, 17 for a long one"), which step 2's "never climb for size"
+would forbid; and the 17% drift budget is a share, left of the grain, where step 4 says a halving would be
+the natural pick. Either ruling reshapes this section.
+
+* STEPS — replaying the essay, in order
+
+1. *Unpack* (above), into =magic-number-theory/recipe-magic-number-2026-09-26/= beside the essay.
+2. *Check the kit*: =sh c4check checks.c4=. Every line should read PASS; =checker-can-fail= and
+   =sweep-can-fail= prove the checks are not rubber stamps.
+3. *Replay the receipts*: =sh mn-probes= (add =--series= for the urgent pile day by day, =--list= for the
+   P3 lines). P1 the fiction cast's trait rolls; P2 the urgent pile, twice; P3 every line that names the
+   house numbers; P4 bare comparisons in code, and the five threshold lines two readers flagged; P5 the
+   eclipse pick's reproducibility (needs =ECLIPSE_PASS= and =ROSTER=); and the stop rule his ruling removed.
+4. *Read the full count of P3.* The essay first sampled 17 of 236 lines. By his clarification that was the
+   antipattern in the essay's own hands: the population was counted, so the sample stopped a count at a
+   house number. Two blind readers then classified every line (=magic-number-theory/arms-2026-09-26/P3FULL-READER-C.tsv=,
+   =-D.tsv=; the inventory is =P3-INVENTORY.txt=, Z/ excluded). Their result is in the essay's Movement X.
+5. *Sweep the thresholds (his yes first)*: =sweep.card=. Counts only, hashed items, nothing of anyone's
+   words leaves =.private/=.
+6. *Ask the grain*: =sh mn-grain table=, then =mn-grain <ring>= for the number you are about to set.
+
+* WHAT A RUN SAID ON 2026-09-26
+
+Run on Avalon's Linux workspace (Ubuntu 22.04, GNU awk 5.1, Perl 5, Python 3) from the unpacked kit in
+=magic-number-theory/recipe-magic-number-2026-09-26/=, 2026-09-26 around 12:35Z. What each line says, then the lines.
+
+- The kit: =sh c4check checks.c4= read *11 checks, 11 pass, 0 fail*.
+- The checks can fail: with two planted faults (a line of =mn-sweep= doctored, the Z/ exclusion removed
+  from =mn-probes=), four checks went FAIL (=tools-match-recipe=, =sweep-can-fail=,
+  =sweep-walks-the-curve=, =probes-never-read-Z=); a fresh unpack brought all 11 back to PASS.
+- A CHECK can go red on the data too: =AS_OF=2026-08-29 sh mn-probes p2= reads 85, not 39, says RED, and
+  exits 1, while the two readers still agree with each other.
+- The receipts, as found:
+
+#+begin_example
+CHECK ok   P1    cast sheets that record a --traits roll -- expected 5, found 5
+CHECK ok   P1    the trait counts they used (every one at GRAIN) -- expected --traits 4, found --traits 4
+CHECK ok   P2    urgent pile on 2026-09-26, read by awk -- expected 39, found 39
+CHECK ok   P2    urgent pile on 2026-09-26, read by python -- expected 39, found 39
+CHECK ok   P2    the two readings, day by day -- expected agree, found agree
+GAUGE      P3    lines naming the house numbers, Z/ excluded -- seen 323 lines on 2026-09-26, found 323 lines now
+GAUGE      P3    distinct by text -- seen 235 distinct on 2026-09-26, found 235 distinct now
+GAUGE      P4    bare comparisons against 4, 9 or 17 in bin/ lib/ f/ h/ -- seen 95 lines on 2026-09-26, found 95 lines now
+CHECK ok   P4    flagged threshold lines still as the essay quotes them (a red means the essay is stale) -- expected 5, found 5
+GAUGE      P4    of those, right of the grain (9, 17): the magic ones -- seen 2 at GREAT or above on 2026-09-26, found 2 at GREAT or above now
+GAUGE      P5    not run -- set ECLIPSE_PASS and ROSTER to the eclipse script and the project roster
+CHECK ok   stop  the invented stop rule, as an instruction in chapter 15 (his ruling: "I didn't specify a stop rule, you added that yourself") -- expected absent, found absent
+CHECK ok   stop  the corrected rule: a pass ends when its input is read -- expected present, found present
+-- no CHECK red. GAUGE lines are to be weighed, not passed. --
+#+end_example
+
+- P5 was run in the cloud workspace, not here: three seeded picks under mawk 1.3.4 gave three different
+  sets; under gawk the same seed gave bryant, dragaera, dev.ghostwheel.chat every time (essay, Movement VIII).
+- A correction the recipe owes the essay's first draft: P3's figures of 325 lines and 236 distinct *included
+  lines from =Z/chatlog/.private/=* (seven, when the search was rerun at about 12:10Z), because that
+  search did not exclude Z/. None of the seventeen drawn
+  lines came from Z/, and no reader saw one; the inventory written for the full count had them removed the
+  moment they were noticed, and every search in this kit now excludes Z/ by name (=probes-never-read-Z=).
+  The figures above (323, 235) are the Z/-free ones.
+
+* TOOLS — tangled from here
+** mn-probes — the receipts, in words (sh, with awk and Python inside)
+CHECK lines carry an expected value and can go red; GAUGE lines print what was seen beside what is found. Never reads Z/.
+#+begin_src sh :tangle mn-probes
+#!/bin/sh
+# mn-probes -- replay the receipts behind ESSAY-2026-09-26-magic-number-theory, in words.
+#   Two kinds of line, and the difference is the essay's own argument:
+#     CHECK  something that must not drift. It has an expected value and can go RED.
+#     GAUGE  something to be weighed. It prints the number found beside the number seen on
+#            2026-09-26 and never says pass or fail -- a count that moves is news, not a fault.
+#
+# Copyright (C) 2026 Corwin Brust <corwin@bru.st>.  Authored by Mentat (for Corwin).
+# SPDX-License-Identifier: GPL-3.0-or-later
+#
+# usage: mn-probes [all|p1|p2|p3|p4|p5|stop] [--series] [--list]
+#   Run from anywhere inside the c4 tree, or set C4_ROOT. Reads the tree; writes nothing.
+#   NEVER reads Z/ (his more sensitive material): every search below excludes it by name.
+#   p5 needs ECLIPSE_PASS=/path/to/eclipse_pass.sh and ROSTER=/path/to/projects.tsv; else it says so.
+#   AS_OF (default 2026-09-26) is the last bank date P2 reads, so its expected value holds.
+# exit: 0 no CHECK red · 1 at least one CHECK red · 2 usage or no tree
+set -u
+what=all; series=0; list=0
+for a in "$@"; do
+  case $a in
+    all|p1|p2|p3|p4|p5|stop) what=$a ;;
+    --series) series=1 ;; --list) list=1 ;;
+    -h|--help) sed -n '2,19p' "$0"; exit 0 ;;
+    *) printf 'mn-probes: unknown argument %s\n' "$a" >&2; exit 2 ;;
+  esac
+done
+
+root=${C4_ROOT:-}
+if [ -z "$root" ]; then d=$(pwd); while [ "$d" != / ]; do [ -f "$d/bin/c4prime" ] && { root=$d; break; }; d=$(dirname "$d"); done; fi
+[ -n "$root" ] && [ -f "$root/bin/c4prime" ] || { echo 'mn-probes: no c4 tree found (cd into it, or set C4_ROOT)' >&2; exit 2; }
+cd "$root" || exit 2
+AS_OF=${AS_OF:-2026-09-26}
+red=0
+check() { # check NAME EXPECTED ACTUAL WORDS
+  if [ "$2" = "$3" ]; then printf 'CHECK ok   %-5s %s -- expected %s, found %s\n' "$1" "$4" "$2" "$3"
+  else printf 'CHECK RED  %-5s %s -- expected %s, found %s\n' "$1" "$4" "$2" "$3"; red=1; fi; }
+gauge() { printf 'GAUGE      %-5s %s -- seen %s on 2026-09-26, found %s now\n' "$1" "$4" "$2" "$3"; }
+on() { [ "$what" = all ] || [ "$what" = "$1" ]; }
+
+EXCL='--exclude-dir=.git --exclude-dir=tmp --exclude-dir=dist --exclude-dir=archive --exclude-dir=.arc --exclude-dir=Z --exclude-dir=arms-2026-09-26 --exclude-dir=recipe-magic-number-2026-09-26'
+SELF='--exclude=ESSAY-2026-09-26-magic-number-theory.md --exclude=HYPOTHESIS-2026-09-26-magic-number-* --exclude=RECIPE-2026-09-26-magic-number-theory.org'
+
+if on p1; then  # the fiction cast: how many traits each was rolled with
+  n=$(grep -rn -- '--traits [0-9]*' h/cast 2>/dev/null | wc -l | tr -d ' ')
+  v=$(grep -rhoE -- '--traits [0-9]+' h/cast 2>/dev/null | sort -u | tr '\n' ' ' | sed 's/ $//')
+  check P1 5 "$n" 'cast sheets that record a --traits roll'
+  check P1 '--traits 4' "$v" 'the trait counts they used (every one at GRAIN)'
+fi
+
+if on p2; then  # the urgent pile per dated day, rebuilt twice in two languages; they must agree
+  B=evidence/question-bank-iTNH.tsv
+  a=$(awk -F'\t' -v asof="$AS_OF" '!/^#/ && NF>2 && $2 ~ /^2026-/ && $2 <= asof { d[$2]=1; r[NR]=$1 "\t" $2 "\t" $3 }
+      END { n=0; for (k in d) D[++n]=k
+            for (i=2;i<=n;i++){ x=D[i]; j=i-1; while (j>0 && D[j]>x){ D[j+1]=D[j]; j-- } D[j+1]=x }
+            for (i=1;i<=n;i++){ delete s; u=0
+              for (k=1;k<=NR;k++) if (k in r) { split(r[k], f, "\t"); if (f[2] <= D[i]) s[f[1]]=f[3] }
+              for (q in s) if (s[q]=="URGENT") u++
+              printf "%s %d\n", D[i], u } }' "$B")
+  p=$(python3 - "$B" "$AS_OF" <<'PY'
+import sys
+rows=[l.rstrip('\n').split('\t') for l in open(sys.argv[1],encoding='utf-8') if l.strip() and not l.startswith('#')]
+rows=[r for r in rows if len(r)>2 and r[1].startswith('2026') and r[1]<=sys.argv[2]]
+for d in sorted(set(r[1] for r in rows)):
+    last={}
+    for r in rows:
+        if r[1]<=d: last[r[0]]=r[2]
+    print(d, sum(1 for v in last.values() if v=='URGENT'))
+PY
+)
+  la=$(printf '%s\n' "$a" | tail -1 | awk '{print $2}'); lp=$(printf '%s\n' "$p" | tail -1 | awk '{print $2}')
+  check P2 39 "$la" "urgent pile on $AS_OF, read by awk"
+  check P2 39 "$lp" "urgent pile on $AS_OF, read by python"
+  if [ "$a" = "$p" ]; then ag=agree; else ag=disagree; fi
+  check P2 agree "$ag" 'the two readings, day by day'
+  [ "$series" = 1 ] && printf '%s\n' "$a" | sed 's/^/           /'
+fi
+
+if on p3; then  # every line that names the house numbers (a gauge: the tree grows)
+  # shellcheck disable=SC2086
+  grep -rIn -E 'from the dial|house number|house.s own number|dial stop|stop 9|at stop|4/9/17|4, 9, 17|4 / 9 / 17|4 · 9 · 17|4, 9 and 17|4, 9, or 17|4 9 17' \
+    $EXCL $SELF . 2>/dev/null | grep -v -E '^\./h/(HYPOTHESIS|PROJ-2026-09-07)' | cut -c1-230 > "${TMPDIR:-/tmp}/mn-p3.$$"
+  l=$(wc -l < "${TMPDIR:-/tmp}/mn-p3.$$" | tr -d ' ')
+  dd=$(python3 - "${TMPDIR:-/tmp}/mn-p3.$$" <<'PY'
+import sys,re
+seen=set()
+for l in open(sys.argv[1],encoding='utf-8',errors='replace'):
+    p=l.rstrip('\n').split(':',2)
+    if len(p)==3: seen.add(re.sub(r'\s+',' ',p[2].strip())[:120])
+print(len(seen))
+PY
+)
+  gauge P3 '323 lines' "$l lines" 'lines naming the house numbers, Z/ excluded'
+  gauge P3 '235 distinct' "$dd distinct" 'distinct by text'
+  [ "$list" = 1 ] && sed 's/^/           /' "${TMPDIR:-/tmp}/mn-p3.$$"
+  rm -f "${TMPDIR:-/tmp}/mn-p3.$$"
+fi
+
+if on p4; then  # bare comparisons against 4, 9, 17 in code, and the five lines two readers flagged
+  l=$(grep -rIn -E '(-gt|-ge|-lt|-le|-eq|>=|<=|[^-=]>|[^<]<|==) *(4|9|17)\b([^.0-9]|$)' bin h/*.sh h/*.py lib f 2>/dev/null \
+      | grep -v -E '2>|>&|>/dev|<<' | wc -l | tr -d ' ')
+  gauge P4 '95 lines' "$l lines" 'bare comparisons against 4, 9 or 17 in bin/ lib/ f/ h/'
+  f=0
+  grep -qF 'free.items() if c >= 17)' bin/cl1ix && f=$((f+1))
+  grep -qF 'if c >= 9 and len(ghunks[g]) >= 9' bin/cl1ix && f=$((f+1))
+  [ "$(grep -cF '>= 4 * words[w]' bin/cl1ix)" -ge 2 ] && f=$((f+2))
+  grep -qF 'if (unr[uw] >= 4)' bin/cl2ft && f=$((f+1))
+  check P4 5 "$f" 'flagged threshold lines still as the essay quotes them (a red means the essay is stale)'
+  gauge P4 '2 at GREAT or above' "$(grep -cE 'c >= 17\)|c >= 9 and len\(ghunks' bin/cl1ix) at GREAT or above" 'of those, right of the grain (9, 17): the magic ones'
+fi
+
+if on p5; then  # is the eclipse pick reproducible with the awk on this host?
+  if [ -n "${ECLIPSE_PASS:-}" ] && [ -f "${ECLIPSE_PASS:-/}" ] && [ -f "${ROSTER:-/}" ]; then
+    k1=$(sh "$ECLIPSE_PASS" --target m --from "$ROSTER" --pick 3 --seed 20260926 | grep ' vs ' | awk '{print $4}' | tr '\n' ' ')
+    k2=$(sh "$ECLIPSE_PASS" --target m --from "$ROSTER" --pick 3 --seed 20260926 | grep ' vs ' | awk '{print $4}' | tr '\n' ' ')
+    if [ "$k1" = "$k2" ]; then r=same; else r=different; fi
+    gauge P5 'same under gawk, different under mawk' "$r ($(awk --version 2>/dev/null | head -1 | cut -c1-24))" 'two seeded picks in a row'
+    printf '           pick: %s\n' "$k1"
+  else
+    printf 'GAUGE      P5    not run -- set ECLIPSE_PASS and ROSTER to the eclipse script and the project roster\n'
+  fi
+fi
+
+if on stop; then  # his ruling: the ingest-writing chapter declares no stop rule
+  if grep -q 'Stop when a pass adds fewer than 4' spells/ingest-writing/chapters/15-source-chat-logs.md; then s=present; else s=absent; fi
+  check stop absent "$s" "the invented stop rule, as an instruction in chapter 15 (his ruling: \"I didn't specify a stop rule, you added that yourself\")"
+  if grep -q 'A pass ends when its input is read, not at a rate' spells/ingest-writing/chapters/15-source-chat-logs.md; then s=present; else s=absent; fi
+  check stop present "$s" 'the corrected rule: a pass ends when its input is read'
+fi
+
+[ "$red" = 0 ] && printf -- '-- no CHECK red. GAUGE lines are to be weighed, not passed. --\n' || printf -- '-- at least one CHECK is RED: read its line. --\n'
+exit "$red"
+#+end_src
+
+** mn-sweep — the threshold gauge that walks the whole curve (Perl)
+A second language for the numbers =bin/cl1ix= (Python) sets. It prints where the answer is flat; it never says a threshold is good. =--prove-red= runs five planted curves and a negative control.
+#+begin_src perl :tangle mn-sweep
+#!/usr/bin/perl
+# mn-sweep -- a GAUGE for a threshold laid over a count. It walks the WHOLE curve (every
+#   threshold from 1 to the largest count), not only the dial's stops, and says where the answer
+#   is flat. It prints counts; it never says whether a threshold is good. Written in Perl on
+#   purpose: the tool whose thresholds it is meant to sweep (bin/cl1ix) is Python, and the
+#   probes beside it are sh/awk/Python -- a second language reads the same numbers.
+#
+# Copyright (C) 2026 Corwin Brust <corwin@bru.st>.  Authored by Mentat (for Corwin).
+# SPDX-License-Identifier: GPL-3.0-or-later
+#
+# INPUT (stdin or FILE): one item per line, TAB separated:
+#     ITEM  COUNT            -- an item passes threshold t when COUNT >= t
+#     ITEM  COUNT  SPREAD    -- paired form (cl1ix's turns: uses >= t AND hunks >= t)
+#   Lines starting with # are skipped. COUNT and SPREAD are whole numbers >= 0.
+# OUTPUT (words, one line each):
+#     the dial's stops, named: 1 yourself · 2 a pair · 4 GRAIN · 9 GREAT · 17 GRAND · 26 the alphabet
+#     for each: items at or above it, and the FLAT RUN it sits in (the thresholds either side that
+#     give the same answer). Width 1 = the stop sits on a slope; a wide run = a plateau.
+#     then the widest flat run anywhere on the curve (so a plateau BETWEEN stops is seen).
+#   --curve   also print every run of the curve (from..to -> items).
+# A flat run is a count, not a verdict: whether a plateau is wide enough is the reader's call.
+#
+# usage: mn-sweep [--curve] [FILE]     mn-sweep --prove-red     exit 0 ok / 1 prove-red failed / 2 usage
+use strict; use warnings;
+
+my @STOPS = ([1,'yourself'],[2,'a pair'],[4,'GRAIN'],[9,'GREAT'],[17,'GRAND'],[26,'the alphabet']);
+
+sub load {
+    my ($fh) = @_; my @it;
+    while (my $l = <$fh>) {
+        chomp $l; next if $l =~ /^\s*(#|$)/;
+        my @c = split /\t/, $l;
+        die "mn-sweep: line $.: want ITEM<TAB>COUNT[<TAB>SPREAD]\n" if @c < 2 || $c[1] !~ /^\d+$/ || (@c > 2 && $c[2] !~ /^\d+$/);
+        push @it, [$c[1], (@c > 2 ? $c[2] : undef)];
+    }
+    return \@it;
+}
+sub keyof {                            # an item passes t iff its key >= t; paired form: key = min(COUNT, SPREAD)
+    my ($x) = @_; return (defined $x->[1] && $x->[1] < $x->[0]) ? $x->[1] : $x->[0];
+}
+sub curve {                            # runs [from, to, items] over t = 1 .. max+1, by a histogram (O(items + max))
+    my ($it) = @_; my ($max, %h) = (0);
+    for (@$it) { my $k = keyof($_); $h{$k}++; $max = $_->[0] if $_->[0] > $max }
+    my @at; my $n = 0;                 # $at[t] = items whose key >= t (suffix sum)
+    for (my $t = $max + 1; $t >= 1; $t--) { $n += ($h{$t} // 0); $at[$t] = $n }
+    my @runs; my $prev;
+    for my $t (1 .. ($max + 1)) {
+        if (defined $prev && $at[$t] == $prev->[2]) { $prev->[1] = $t } else { $prev = [$t, $t, $at[$t]]; push @runs, $prev }
+    }
+    return (\@runs, $max);
+}
+sub report {
+    my ($it, $want_curve) = @_; my @out;
+    my ($runs, $max) = curve($it);
+    push @out, sprintf('items %d; largest count %d; the curve has %d flat run(s) from 1 to %d', scalar @$it, $max, scalar @$runs, $max + 1);
+    for my $s (@STOPS) {
+        my ($t, $name) = @$s;
+        if ($t > $max + 1) { push @out, sprintf('stop %2d (%s): above every count -- nothing passes', $t, $name); next }
+        my ($r) = grep { $_->[0] <= $t && $t <= $_->[1] } @$runs;
+        push @out, sprintf('stop %2d (%s): %d at or above; flat from %d to %d (width %d)', $t, $name, $r->[2], $r->[0], $r->[1], $r->[1] - $r->[0] + 1);
+    }
+    my ($w) = sort { ($b->[1]-$b->[0]) <=> ($a->[1]-$a->[0]) || $a->[0] <=> $b->[0] } grep { $_->[2] > 0 } @$runs;
+    push @out, $w ? sprintf('widest flat run with anything passing: %d to %d (width %d), %d at or above', $w->[0], $w->[1], $w->[1]-$w->[0]+1, $w->[2])
+                  : 'widest flat run: none (nothing passes any threshold)';
+    if ($want_curve) { push @out, sprintf('  run %d..%d -> %d', @$_) for @$runs }
+    return join("\n", @out) . "\n";
+}
+sub prove_red {
+    my ($ok, $bad) = (0, 0);
+    my $case = sub { my ($name, $good) = @_; if ($good) { $ok++; print "  ok    $name\n" } else { $bad++; print "  RED   $name\n" } };
+    # 1. a pure slope: one item at every count 1..100 -> every stop has width 1
+    my @slope = map { [$_, undef] } 1..100;
+    my $r = report(\@slope, 0);
+    $case->('slope: GREAT sits on a slope (width 1)', $r =~ /stop  9 \(GREAT\): \d+ at or above; flat from 9 to 9 \(width 1\)/);
+    $case->('slope: GRAND sits on a slope (width 1)', $r =~ /stop 17 \(GRAND\): \d+ at or above; flat from 17 to 17 \(width 1\)/);
+    # 2. a plateau across the stops: items at 2 and at 30 only -> 3..30 is flat
+    my @plat = ((map { [2, undef] } 1..5), (map { [30, undef] } 1..5));
+    $r = report(\@plat, 0);
+    $case->('plateau: GREAT sits on a plateau 3..30', $r =~ /stop  9 \(GREAT\): 5 at or above; flat from 3 to 30 \(width 28\)/);
+    # 3. a plateau BETWEEN stops (11..16) must still be seen: items at 1..10 and 16..100
+    my @between = map { [$_, undef] } (1..10, 16..100);
+    $r = report(\@between, 1);
+    $case->('between: the run 11..16 is on the curve', $r =~ /run 11\.\.16 -> 85/);
+    $case->('between: it is the widest run', $r =~ /widest flat run with anything passing: 11 to 16 \(width 6\)/);
+    # 4. the paired form: SPREAD must also reach t
+    my @pair = ([20, 3], [20, 20]);
+    $r = report(\@pair, 0);
+    $case->('paired: at GREAT only the item with spread 20 passes', $r =~ /stop  9 \(GREAT\): 1 at or above/);
+    # 5. negative control on the prover itself: a doctored expectation must NOT match
+    $r = report(\@slope, 0);
+    $case->('control: a wrong expectation does not match', $r !~ /stop  9 \(GREAT\): \d+ at or above; flat from 3 to 30/);
+    printf "-- prove-red: %d ok, %d red --\n", $ok, $bad;
+    return $bad == 0;
+}
+
+my $curve = 0; my $file;
+while (@ARGV) {
+    my $a = shift @ARGV;
+    if ($a eq '--prove-red') { exit(prove_red() ? 0 : 1) }
+    elsif ($a eq '--curve') { $curve = 1 }
+    elsif ($a eq '-h' || $a eq '--help') { print "usage: mn-sweep [--curve] [FILE] | --prove-red\n"; exit 0 }
+    elsif ($a =~ /^-/) { print STDERR "mn-sweep: unknown option $a\n"; exit 2 }
+    else { $file = $a }
+}
+my $fh;
+if (defined $file) { open($fh, '<', $file) or do { print STDERR "mn-sweep: cannot read $file\n"; exit 2 } } else { $fh = \*STDIN }
+my $it = load($fh);
+print report($it, $curve);
+exit 0;
+#+end_src
+
+** mn-grain — which house number, if any (sh)
+The finesse as a lookup. It answers =counted N= first, because a count beats every stop.
+#+begin_src sh :tangle mn-grain
+#!/bin/sh
+# mn-grain -- which house number, if any? The keeper's finesse (2026-09-26): reach for a house
+#   number only to SET an unknown; if you are already counting, use the count. Which stop to reach
+#   for is named by the ring the number must serve: GRAIN (4, the default, a small ring), GREAT (9,
+#   strangers take part), GRAND (17, a shelf, org-to-org). Below the grain the dial is plain
+#   doubling (2 a pair, 1 yourself) and needs no confession. Write the name beside the number.
+#   Sources: h/ms1dg's ceremony-dial header ("the size of the RING the ceremony is meant to convince");
+#   his hand-edit of 2026-09-04, "GRAIN: (default)4 or GREAT:9, or GRAND:17"; the take-3 readings in
+#   magic-number-theory/arms-2026-09-26/R3-*.md. The ring reading is the readers' [MINE], agreed four ways; his units
+#   are withheld, and his word overrides this table.
+#
+# Copyright (C) 2026 Corwin Brust <corwin@bru.st>.  Authored by Mentat (for Corwin).
+# SPDX-License-Identifier: GPL-3.0-or-later
+#
+# usage: mn-grain counted N      you have a count: use it (prints N, marked counted)
+#        mn-grain RING           RING: self | pair | ring | strangers | shelf   (prints the stop and its line)
+#        mn-grain ladder         the three stops as checkpoints counted up (horizons, staged reach)
+#        mn-grain table          the whole dial, one line per stop
+# exit: 0 answered · 2 usage
+set -eu
+say() { printf '%s\n' "$*"; }
+case ${1:-} in
+  counted)
+    n=${2:?usage: mn-grain counted N}
+    case $n in *[!0-9./]*|'') say "mn-grain: not a count: $n" >&2; exit 2 ;; esac
+    say "$n (counted) -- you are already counting: use the count, reach for no stop, and do not stop the count at a house number." ;;
+  self|me|yourself)   say "1 (yourself) -- below the grain: plain doubling, no confession needed. Write it as: 1." ;;
+  pair|two)           say "2 (a pair) -- below the grain: plain doubling, no confession needed. Write it as: 2." ;;
+  ring|small|team|''|grain|GRAIN)
+                      say "4 GRAIN -- a small ring; the default when nothing says otherwise. Write it as: 4 (GRAIN, from the dial)." ;;
+  strangers|public|multi|great|GREAT)
+                      say "9 GREAT -- strangers take part, or the plan travels among several parties. Write it as: 9 (GREAT, from the dial)." ;;
+  shelf|org|publication|grand|GRAND)
+                      say "17 GRAND -- it must stand on a shelf, or hold between organizations. Write it as: 17 (GRAND, from the dial)." ;;
+  ladder)             say "4 GRAIN · 9 GREAT · 17 GRAND -- checkpoints counted up, each for a wider ring (for example horizons: 4/9/17 months)." ;;
+  table)
+    say " 1  yourself   below the grain: doubling, no confession"
+    say " 2  a pair     below the grain: doubling, no confession"
+    say " 4  GRAIN      a small ring -- the default"
+    say " 9  GREAT      strangers, several parties"
+    say "17  GRAND      a shelf, org-to-org"
+    say "     between stops: set selection (his slide note); above 17: a palace picker. Counted beats all of these." ;;
+  -h|--help) sed -n '2,20p' "$0" ;;
+  *) say "mn-grain: unknown ring '$1' (try: counted N | self | pair | ring | strangers | shelf | ladder | table)" >&2; exit 2 ;;
+esac
+#+end_src
+
+** c4check — run the CHECK fragments (EXECUTES cmd:/mustnot:)
+Carried verbatim from =derive/emacs-recipe/RECIPE.org= (sha256 =62b22b4b…=), so this kit stands alone. Its security note stands too: it runs what the file declares.
+#+begin_src sh :tangle c4check
+#!/bin/sh
+# c4check -- parse C4 CHECK fragments from a literate .org (or a bare .c4) and RUN them.
+# CHECKs are the "shouldn't-be-props" layer: not data ON the thing, but assertions that
+# ride WITH it -- completeness, invariants, and NEGATIVE controls (a thing that must NOT
+# be true). A lifter can't quietly forget a grabble, and a tool can't ship a lie unnoticed.
+#
+# Copyright 2026 Corwin Brust <corwin@bru.st>
+# GPL-3.0-or-later. This file is not part of GNU Emacs.
+#
+# !! SECURITY -- READ THIS. c4check EXECUTES the cmd:/mustnot: shell it reads from SOURCE.
+# !! It is NOT a safety gate for an UNTRUSTED file: running it on a hostile SOURCE runs
+# !! that file's commands as you. Use it to verify a kit you already trust (yours, or one
+# !! whose author you trust). For an unknown kit, READ it before you run this. The
+# !! files:/completeness checks are the only ones that never execute anything.
+#
+# markup (inside an org  #+begin_src c4check ... #+end_src  block, or a bare .c4 file):
+#   CHECK <id> | <what it asserts>
+#     files:   a b c        # PASS iff every file present (completeness; NEVER executes)
+#     cmd:     <shell>       # PASS iff exit 0                          (invariant; EXECUTES)
+#     mustnot: <shell>       # PASS iff exit==1 (ran, found nothing)    (neg control; EXECUTES)
+#     else:    <why>         # printed on every FAIL (so a stranger knows what to do)
+#   NOTE mustnot trusts exit==1 as "clean"; a predicate that exits 1 for an unrelated
+#        reason (e.g. `false`) is a false pass -- prefer grep/test-style predicates.
+#
+# Dial (C4_CARD_DIAL, default 1) sets verbosity, never the verdict:
+#   >=1 PASS/FAIL line + the reason on FAIL + summary · >=4 also the test that ran
+# Each check runs EXACTLY ONCE. usage: c4check SOURCE [DIR]  exit: 0 all pass / 1 any fail / 2 error
+set -eu
+# opportunistic C4 back-check (hooks-to-knowledge): confirm the doc beside us still
+# carries the C4 this tool was built against. Absent c4mark -> skipped (a lifted-alone
+# tool just does its job). Output to stderr so the render stays clean.
+_c4d=$(dirname "$0"); [ -x "$_c4d/c4mark" ] && "$_c4d/c4mark" check "$_c4d" || true
+set -f   # no pathname expansion: `files: *` must never vacuously pass
+src=${1:?usage: c4check SOURCE [DIR]}; dir=${2:-.}
+[ -f "$src" ] || { printf 'c4check: no such file: %s\n' "$src" >&2; exit 2; }
+dial=${C4_CARD_DIAL:-1}; US=$(printf '\037')
+
+tmp=$(mktemp); res=$(mktemp); trap 'rm -f "$tmp" "$res"' EXIT
+awk -v US="$US" '
+ function flush(){ if(id!=""){ printf "%s%s%s%s%s%s%s%s%s\n", id,US,type,US,test,US,els,US,desc } id="";type="";test="";els="";desc="" }
+ /^[ \t]*#\+begin_src[ \t]+c4check/ {next}
+ /^[ \t]*#\+end_src/ {next}
+ /^CHECK / { flush(); l=substr($0,7); n=index(l,"|"); id=l; desc=""; if(n>0){id=substr(l,1,n-1); desc=substr(l,n+1)} gsub(/^ +| +$/,"",id); gsub(/^ +| +$/,"",desc); next }
+ /^[ \t]+files:/   { type="files";   test=substr($0,index($0,":")+1); gsub(/^ +| +$/,"",test); next }
+ /^[ \t]+cmd:/     { type="cmd";     test=substr($0,index($0,":")+1); gsub(/^ +/,"",test); next }
+ /^[ \t]+mustnot:/ { type="mustnot"; test=substr($0,index($0,":")+1); gsub(/^ +/,"",test); next }
+ /^[ \t]+else:/    { els=substr($0,index($0,":")+1); gsub(/^ +| +$/,"",els); next }
+ END{ flush() }
+' "$src" > "$tmp"
+[ -s "$tmp" ] || { printf 'c4check: no CHECK fragments in %s\n' "$src" >&2; exit 2; }
+
+while IFS="$US" read -r id type test els desc; do
+  [ -n "$id" ] || continue
+  ok=1
+  case $type in
+    files)   for f in $test; do [ -e "$dir/$f" ] || ok=0; done ;;
+    cmd)     ( cd "$dir" && eval "$test" ) >/dev/null 2>&1 || ok=0 ;;
+    mustnot) c=0; ( cd "$dir" && eval "$test" ) >/dev/null 2>&1 || c=$?; [ "$c" = 1 ] || ok=0 ;;
+    *)       ok=0 ;;
+  esac
+  if [ "$ok" = 1 ]; then mark=PASS; else mark=FAIL; fi
+  printf '%s\n' "$mark" >> "$res"
+  printf '%-4s %-22s %s\n' "$mark" "$id" "$desc"
+  [ "$dial" -ge 4 ] && printf '       (%s: %s)\n' "$type" "$test" || true
+  { [ "$ok" = 0 ] && [ -n "$els" ]; } && printf '       -> %s\n' "$els" || true
+done < "$tmp"
+
+p=$(grep -c PASS "$res" 2>/dev/null || true); f=$(grep -c FAIL "$res" 2>/dev/null || true)
+printf -- '-- %s checks, %s pass, %s fail --\n' "$((p+f))" "$p" "$f"
+[ "${f:-0}" = 0 ]
+#+end_src
+
+** unpack.sh — open this kit without Emacs
+Adapted from =derive/emacs-recipe/unpack.sh=: three lines changed (mn-* made executable; the closing hint names mn-probes; the verify hint names =checks.c4=, 2026-09-27, because this recipe quotes probe output whose lines begin with CHECK and the .org form read them as nine false FAILs), and a comment says so. The logic is unchanged.
+#+begin_src sh :tangle unpack.sh
+#!/bin/sh
+# unpack.sh -- open this literate kit without Emacs: route each org src block that
+# carries ":tangle NAME" to the file NAME (Emacs users: C-c C-v t does the same).
+# It WRITES files the .org names -- BASENAMES ONLY, into the current directory -- and it
+# does NOT run the checks or the steps. Running those is your call, separately and
+# deliberately (c4check EXECUTES the file's commands; run it only on a kit you trust). -- gw7
+# Adapted 2026-09-26 for the magic-number kit from derive/emacs-recipe/unpack.sh: three lines changed
+# (mn-* made executable; the closing hint names mn-probes). The logic is unchanged.
+set -eu
+src=${1:-RECIPE.org}
+[ -f "$src" ] || { printf 'unpack: no such file: %s\n' "$src" >&2; exit 2; }
+awk '
+ /^[ \t]*#\+begin_src/ {
+   t=""; for(i=1;i<=NF;i++) if($i==":tangle") t=$(i+1);
+   # basenames only: refuse "no", absolute paths, any slash, and ".." (no writing outside CWD)
+   if(t!="" && t!="no" && t !~ /\// && t !~ /\.\./){ cur=t; if(!(cur in seen)){ printf "" > cur; seen[cur]=1 } inblk=1 } else inblk=0;
+   next
+ }
+ /^[ \t]*#\+end_src/ { if(inblk) close(cur); inblk=0; next }
+ inblk { print >> cur }
+' "$src"
+h=$(sha256sum "$src" | awk '{print $1}'); short=$(printf %s "$h" | cut -c1-12)
+printf 'unpacked-from %s  sha256 %s  at %s\n' "$src" "$short" "$(date -u +%Y-%m-%dT%H:%MZ)" > .kit-provenance
+for f in $(grep -oE ':tangle[[:space:]]+[^ ]+' "$src" | awk '{print $2}' | sort -u); do
+  case $f in no|*/*|*..*) continue ;; esac
+  case $f in *.sh|card|c4check|unpack|mn-*) chmod +x "$f" 2>/dev/null || true ;; esac
+  [ -f "$f" ] && printf 'unpacked  %s\n' "$f"
+done
+printf -- '-- kit open (provenance in .kit-provenance). Nothing was run.\n'
+printf -- '-- verify your copy is whole:  sh c4check checks.c4\n'
+printf -- '   (note: c4check RUNS the commands the file declares -- run it only on a kit you trust.)\n'
+printf -- '-- then replay the receipts:  sh mn-probes   (words; CHECK can go red, GAUGE never does)\n'
+#+end_src
+
+** checks.c4 — completeness, invariants, and checks that can fail
+Read by =sh c4check checks.c4=. Each check says what to do when it fails.
+#+begin_src c4check :tangle checks.c4
+CHECK grabbles-present | the pieces that travel together are all here
+  files: mn-probes mn-sweep mn-grain c4check unpack.sh checks.c4 sweep.card
+  else: a piece is missing -- re-unpack: sh unpack.sh ../RECIPE-2026-09-26-magic-number-theory.org
+CHECK essay-beside | the essay this kit replays sits one level up
+  files: ../ESSAY-2026-09-26-magic-number-theory.md ../RECIPE-2026-09-26-magic-number-theory.org
+  else: unpack this kit into a folder beside the essay (magic-number-theory/recipe-magic-number-2026-09-26/)
+CHECK tools-parse | every tool is syntactically whole (sh, sh, perl)
+  cmd: sh -n mn-probes && sh -n mn-grain && sh -n unpack.sh && perl -c mn-sweep
+  else: a tool has a syntax error -- do not run it; re-unpack from the recipe
+CHECK tools-match-recipe | the loose tools are exactly the ones inside the recipe
+  cmd: for t in mn-probes mn-sweep mn-grain unpack.sh; do awk -v t="$t" 'BEGIN{f=0} $0 ~ "^#\\+begin_src .*:tangle "t"$" {f=1;next} f&&/^#\+end_src/{exit} f{print}' ../RECIPE-2026-09-26-magic-number-theory.org | diff - "$t" >/dev/null || exit 1; done
+  else: a loose tool differs from the recipe -- trust the recipe; re-unpack
+CHECK sweep-can-fail | mn-sweep proves itself: planted slope, plateau, between-stops plateau, paired form, a wrong expectation
+  cmd: perl mn-sweep --prove-red
+  else: mn-sweep did not behave on planted cases -- its readings of a real curve cannot be trusted
+CHECK sweep-walks-the-curve | a plateau between two stops is found, not only the stops
+  cmd: for i in 1 2 3 4 5 6 7 8 9 10; do printf 'a%s\t%s\n' $i $i; done > "${TMPDIR:-/tmp}/mn-sweep-t.$$"; for i in $(seq 16 40); do printf 'b%s\t%s\n' $i $i; done >> "${TMPDIR:-/tmp}/mn-sweep-t.$$"; perl mn-sweep --curve "${TMPDIR:-/tmp}/mn-sweep-t.$$" | grep -q 'run 11\.\.16 -> 25'; r=$?; rm -f "${TMPDIR:-/tmp}/mn-sweep-t.$$"; [ $r = 0 ]
+  else: mn-sweep reported only the dial's stops -- sweeping at the stops is reaching for them while already counting
+CHECK grain-agrees-with-ms1dg | mn-grain's stops are the ones the ceremony tool names (two sources, one table)
+  cmd: r=..; while [ "$r" != / ] && [ ! -f "$r/bin/c4prime" ]; do r=$(cd "$r/.." && pwd); done; m="$r/h/ms1dg"; grep -q '4 GRAIN' "$m" && grep -q '9 GREAT, 17 GRAND' "$m" && sh mn-grain ring | grep -q '^4 GRAIN' && sh mn-grain strangers | grep -q '^9 GREAT' && sh mn-grain shelf | grep -q '^17 GRAND'
+  else: mn-grain and h/ms1dg disagree about which number each name holds -- the keeper's word settles it
+CHECK grain-refuses-nonsense | mn-grain says so when it does not know a ring (exit 2), rather than guessing
+  cmd: sh mn-grain not-a-ring >/dev/null 2>&1; [ $? = 2 ]
+  else: mn-grain guessed a stop for a ring it does not know
+CHECK probes-never-read-Z | the probes exclude his sensitive material by name
+  cmd: grep -q -- '--exclude-dir=Z' mn-probes
+  else: mn-probes would search Z/ -- do not run it until the exclusion is back
+CHECK probes-replay | the CHECK lines in mn-probes hold on this tree (P1 cast, P2 two readers, P4 quoted lines, the stop rule)
+  cmd: sh mn-probes p1 && sh mn-probes p2 && sh mn-probes p4 && sh mn-probes stop
+  else: a CHECK went red -- run sh mn-probes and read the RED line; a red on P4 means the essay quotes a line that changed
+CHECK checker-can-fail | c4check itself must be able to FAIL (not a rubber stamp)
+  cmd: t=$(mktemp); printf 'CHECK x | must fail\n  files: DEFINITELY-NOT-HERE-xyz\n' > "$t"; if sh c4check "$t" . >/dev/null 2>&1; then r=bad; else r=good; fi; rm -f "$t"; [ "$r" = good ]
+  else: c4check returned success on a check that should fail -- the checker is broken, trust nothing it says
+#+end_src
+
+** sweep.card — Fork B, the one step that waits on his yes
+A run-card in the shop's plain grammar. It sweeps counts only; items are hashes, so nothing of anyone's words leaves =.private/=.
+#+begin_src conf :tangle sweep.card
+TITLE: sweep the chat-log index's house-number thresholds (Fork B) -- counts only, never text
+GATE: his yes. The counts live under Z/chatlog/.private/, which is his and which chapter 15's rules govern.
+WHERE: bin/cl1ix line 396 (a word for him: 17 hunks) and line 830 (a turn: 9 uses in 9 hunks) -- the two
+       right of the grain; lines 811, 814, 822 and bin/cl2ft:95 are 4s, doubling-side, second in line.
+STEP 1: from the firing that holds the counts, write one line per item, TAB separated, NO TEXT OF ANY LINE:
+        for turns:   <a hash of the n-gram>  <uses>  <hunks>
+        for vocab:   <a hash of the word>    <hunks>
+        (a hash, so nothing of his writing or anyone's nick leaves .private; the sweep needs only numbers)
+SEE: two files under Z/chatlog/.private/sweep/, each line a hash and one or two whole numbers
+STEP 2: perl mn-sweep --curve Z/chatlog/.private/sweep/turns.tsv > Z/chatlog/.private/sweep/turns.curve
+        perl mn-sweep --curve Z/chatlog/.private/sweep/vocab.tsv > Z/chatlog/.private/sweep/vocab.curve
+SEE: for stop 9 (GREAT) and stop 17 (GRAND): how many pass, and the width of the flat run each sits in
+STEP 3: copy ONLY the stop lines and the widest-run line (numbers, no items) beside the run record
+SEE: a table like decks/word-load-bearing.deck.md's sweep -- a slope or a plateau, in counts
+ABORT: if any line in the .tsv carries text other than a hash and numbers, stop and delete nothing; say so
+READS-AS: a GAUGE. It says where the answer is flat. Whether 9 or 17 should stay is his call.
+#+end_src
+
+* NEXT(1) — a man page, with a little voice
+#+begin_example
+SEE ALSO
+    ESSAY-2026-09-26-magic-number-theory.md    the argument these tools replay
+    HYPOTHESIS-2026-09-26-magic-number-arms.md  what was forecast before round one, and how it scored
+    HYPOTHESIS-2026-09-26-magic-number-take3.md what was forecast before the third take
+    arms-2026-09-26/                            every reading, both blind sorts of P3 and P4, SHA256SUMS
+    derive/emacs-recipe/RECIPE.org              the kit this one borrows its shape and c4check from
+
+BUGS
+    P3 and P4 are gauges over a growing tree; their 2026-09-26 figures will age, and that is the design.
+    The cl1ix line numbers the essay cites moved during the day (a parallel session edited the tool);
+    mn-probes checks the quoted TEXT, not the line numbers.
+#+end_example
+
+  — PENUMBRA here. I sat out the third take, so I get the last word, which suits an archivist. The
+    losing readings are in =arms-2026-09-26/= beside the winners, dated, never called mistakes. If you
+    lift one thing from this kit, lift the split in =mn-probes=: a check that can go red, and a gauge
+    that only ever tells you what it saw. The essay is about what happens when you confuse them.

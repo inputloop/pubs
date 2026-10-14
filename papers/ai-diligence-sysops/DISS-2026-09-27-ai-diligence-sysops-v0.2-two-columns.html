@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Learning AI Is Due Diligence</title>
+<meta name="description" content="Version 0.2 of 'Learning AI Is Due Diligence for Sysops', with the practice and science registers side by side and what they share in a band between them.">
+<style>
+:root{
+  --bg:#fbfaf7; --fg:#1d1d1b; --muted:#5c5a55; --rule:#dedad2;
+  --ops:#1f5f8b; --ops-bg:#eef4f9; --sci:#7a3e12; --sci-bg:#f8f0e8;
+  --band:#f0eee8; --band-fg:#26251f; --accent:#3d6b35; --slot:#8a1c1c; --slot-bg:#fbeeee;
+  --code:#f1efe9;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#16171a; --fg:#e7e5df; --muted:#a8a59d; --rule:#34353a;
+    --ops:#8cc3ea; --ops-bg:#1b2630; --sci:#f0b387; --sci-bg:#2b211a;
+    --band:#22232a; --band-fg:#ecebe6; --accent:#9fd394; --slot:#f2a3a3; --slot-bg:#321c1e;
+    --code:#1f2024;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#16171a; --fg:#e7e5df; --muted:#a8a59d; --rule:#34353a;
+  --ops:#8cc3ea; --ops-bg:#1b2630; --sci:#f0b387; --sci-bg:#2b211a;
+  --band:#22232a; --band-fg:#ecebe6; --accent:#9fd394; --slot:#f2a3a3; --slot-bg:#321c1e;
+  --code:#1f2024;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);
+  font:17px/1.6 Georgia,"Iowan Old Style","Palatino Linotype",serif}
+.wrap{max-width:1180px;margin:0 auto;padding:32px 24px 64px}
+header h1{font-size:2rem;line-height:1.2;margin:0 0 .25rem}
+header .sub{color:var(--muted);margin:0 0 1rem;font-style:italic}
+.legend{display:flex;gap:12px;flex-wrap:wrap;margin:1rem 0 0;font:600 .8rem/1.4 system-ui,sans-serif;letter-spacing:.03em;text-transform:uppercase}
+.legend span{padding:4px 10px;border-radius:999px}
+.legend .o{background:var(--ops-bg);color:var(--ops)}
+.legend .s{background:var(--sci-bg);color:var(--sci)}
+.legend .b{background:var(--band);color:var(--band-fg);border:1px solid var(--rule)}
+.intro{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:1rem 0;margin:1.5rem 0 2rem}
+.intro p{margin:.5rem 0}
+section{margin:0 0 2.75rem}
+section>h2{font-size:1.35rem;margin:0 0 .75rem;padding-top:.5rem;border-top:2px solid var(--fg)}
+h3{font-size:1.05rem;margin:1.25rem 0 .5rem}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.col{border-radius:10px;padding:14px 18px}
+.col p{margin:.5rem 0}
+.col h4{margin:0 0 .35rem;font:700 .78rem/1.3 system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase}
+.ops{background:var(--ops-bg)} .ops h4{color:var(--ops)}
+.sci{background:var(--sci-bg)} .sci h4{color:var(--sci)}
+.band{margin:14px 0 0;background:var(--band);color:var(--band-fg);border:1px solid var(--rule);border-left:5px solid var(--accent);border-radius:10px;padding:12px 18px}
+.band h4{margin:0 0 .3rem;font:700 .78rem/1.3 system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.band p{margin:.35rem 0}
+.slot{background:var(--slot-bg);color:var(--slot);border-radius:6px;padding:8px 12px;margin:.6rem 0;font-size:.95rem}
+.note{color:var(--muted);font-size:.93rem}
+ul,ol{padding-left:1.25rem;margin:.4rem 0} li{margin:.2rem 0}
+pre{background:var(--code);padding:10px 12px;border-radius:8px;overflow-x:auto;font-size:.85rem;line-height:1.4}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.88em;overflow-wrap:anywhere}
+footer{border-top:1px solid var(--rule);margin-top:3rem;padding-top:1rem;color:var(--muted);font-size:.9rem}
+footer p{margin:.35rem 0}
+@media (max-width:720px){
+  body{font-size:16px}
+  .wrap{padding:20px 16px 48px}
+  .pair{grid-template-columns:1fr;gap:12px}
+  header h1{font-size:1.6rem}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>Learning AI Is Due Diligence for Sysops</h1>
+  <p class="sub">Version 0.2, two-column edition — one argument, two legs, side by side</p>
+  <div class="legend" aria-label="How to read the colours">
+    <span class="o">Practice (ops) register</span>
+    <span class="s">Science (sci) register</span>
+    <span class="b">Common to both</span>
+  </div>
+</header>
+
+<div class="intro">
+  <p>This is one argument with two legs. The argument: learning AI is part of the duty of care for anyone who keeps systems running. One leg is the practice of running systems; the other is the evidence about what running them well requires. Neither leg stands alone.</p>
+  <p>Many readers belong to both registers. This edition sets them side by side — practice on the left, science on the right — with what they share in a band across the page, section by section. The full text, with its changes mapped to their sources, is <code>DISS-2026-09-27-ai-diligence-sysops-v0.2.md</code>; the checklist of §VII is on one page in <code>CARD-2026-09-27-supervision-four-items.md</code>.</p>
+  <p class="note">Where the author's own operational record would carry a point, the text leaves a marked slot and invents nothing. Claims resting on a single witness are marked †.</p>
+</div>
+
+<section id="s1">
+  <h2>I. The thesis</h2>
+  <div class="pair">
+    <div class="col ops"><h4>Practice</h4>
+      <p>If you run infrastructure and have not developed working knowledge of the AI systems your organization deploys, you are operating below the standard of care your role requires. This is not a productivity argument. You cannot supervise what you cannot model, and supervision is a core duty of the role.</p>
+      <p>That much is the floor. The work is above it: <strong>what</strong> you need to know, and <strong>how much</strong>, for the kinds of act the system performs in your environment.</p>
+      <p><em>The question from here:</em> what do I actually need to know?</p>
+    </div>
+    <div class="col sci"><h4>Science</h4>
+      <p>Professional obligations evolve as the technical substrate changes. AI deployment into sysops is such a change, sufficient in kind to generate a new component of the duty of care.</p>
+      <p>The paper takes as its floor that working knowledge of AI is necessary for adequate supervision, keeps a falsifier for that floor, and works on which knowledge, how much, and for which categories of act.</p>
+      <p><em>The question from here:</em> what would show that this much knowledge, and not less, is what supervision requires?</p>
+    </div>
+  </div>
+  <div class="band"><h4>Common to both</h4>
+    <p>The duty attaches to the <strong>role</strong>, not to a person: it does not matter which individual supervises, only that someone holding the custodial role does. Handing supervision outside the role — to the vendor, or to another model — is not discharging the duty; it is bypassing it. Both registers now ask about <em>what</em> and <em>how much</em>; the gap between a practice standard and an evidential criterion is where the work lives.</p>
+  </div>
+</section>
+
+<section id="s2">
+  <h2>II. One argument, two legs</h2>
+  <div class="pair">
+    <div class="col ops"><h4>Practice — the normative face</h4>
+      <p>What ought practitioners do? Role, duty, accountability, standard of care. A claim living only here is prescription without grounding: it says what to do but not whether doing it produces better outcomes.</p>
+      <p><em>"Reasonable"</em> — as in the standard of care a reasonable practitioner would exercise — is normative.</p>
+    </div>
+    <div class="col sci"><h4>Science — the empirical face</h4>
+      <p>What is actually required for adequate performance? Evidence, measurement, falsification. A claim living only here is finding without obligation: it cannot say whether the requirement generates a duty, for whom, or with what consequence for failure. (Practice answers that last question with incidents — see §VIa.)</p>
+      <p><em>"Would exercise"</em> is empirical: a distribution of actual practice, measurable and falsifiable.</p>
+    </div>
+  </div>
+  <div class="band"><h4>Common to both</h4>
+    <p>Due diligence is itself two-faced, so the paper needs both. The registers are not two audiences for one argument; they are the two legs it stands on. Each is necessary, neither is sufficient, and the load is carried by the translation between them. Whoever ends up judging the paper, the science register is here to keep the practice register falsifiable — not because a science reader will grade it.</p>
+  </div>
+</section>
+
+<section id="s3">
+  <h2>III. What "due diligence" means in sysops</h2>
+  <p>The existing duty needs no AI to justify it: understand the systems you run well enough to diagnose them, track changes, judge when human review must come before automated action, and answer for outcomes whether or not you caused them. Add an AI system that reads logs, proposes changes or runs runbook steps, and the sysadmin is custodian of its effects in her environment. What does supervising it require?</p>
+  <div class="pair">
+    <div class="col ops"><h4>Practice</h4>
+      <p>Enough model knowledge to recognize when the system is wrong, to know which outputs to check against ground truth, and to intervene correctly when it breaks. "Enough" varies with risk: a log summarizer needs less than a system that executes firewall changes. But zero is not enough for either.</p>
+      <p><em>Wants:</em> a checklist.</p>
+    </div>
+    <div class="col sci"><h4>Science</h4>
+      <p>AI failures are hard to see without AI domain knowledge — and hard to see in a patterned way, not by bad luck: the same kinds of failure are missed, for the same reason, again and again. That is all "systematic" means here. Four facts describe the difference (the paper calls these four "the framework"):</p>
+      <ol>
+        <li>They degrade <em>silently</em> under distribution shift — plausible output while reliability falls (the opposite of graceful degradation, which is visible and designed).</li>
+        <li>They sound confident when wrong.</li>
+        <li>Their failures are statistical, not deterministic.</li>
+        <li>Their behavior on novel inputs is hard to predict from familiar ones.</li>
+      </ol>
+      <p><em>Wants:</em> a study.</p>
+    </div>
+  </div>
+  <div class="band"><h4>Common to both</h4>
+    <p>A practitioner who does not know the four facts will consistently miss a class of failures that knowing them makes visible. Getting from "what do I check" to "what shows that checking it is necessary" takes an instrument — and the practice's own record of what went wrong.</p>
+  </div>
+</section>
+
+<section id="s4">
+  <h2>IV. The instrument and what it found</h2>
+  <p>A small tool in the author's lab keeps a ledger of an AI assistant's acts — each written with a prediction before it runs and scored after — in three kinds: <strong>Build</strong>, <strong>Admin</strong>, <strong>Advise</strong>. It returns one verdict over the whole ledger: MADE, NOT-MADE, OVERRUN, or THIN (THIN's definition is to be quoted from the tool †). First run, ten acts †:</p>
+<pre>build   4 acts,  3 hit  = 75%
+admin   3 acts,  2 hit  = 67%
+advise  3 acts,  0 hit  =  0%
+VERDICT: NOT-MADE</pre>
+  <p class="note">The percentages are forecast hit rates within each kind, not shares of behavior (the shares are 4, 3 and 3 of 10). The ledger was written and scored by the assistant under observation, which also built the tool; no one else has run it yet. Version 0.1 misread this output; the correction is in the review passes.</p>
+  <div class="pair">
+    <div class="col ops"><h4>Practice</h4>
+      <p>The builds mostly held; every judgment was corrected. Supervise this system's judgment at full fidelity. Its builds have begun to earn less supervision, but the verdict is NOT-MADE: not distrust, and not yet evidence for reduced oversight.</p>
+    </div>
+    <div class="col sci"><h4>Science</h4>
+      <p>n = 10, one subject, one session, self-scored: an existence proof that the instrument can return a verdict that is not an endorsement, nothing more. Rates from four or fewer acts are anecdote. The spread is stated as a hypothesis — <em>an assistant's advice is less reliable than its builds</em> — not a result.</p>
+    </div>
+  </div>
+  <div class="band"><h4>Common to both</h4>
+    <p>This system does offer judgment, and its judgment was the least reliable thing about it. What carries weight is structural: the instrument can tell "we have not seen failures" from "we have evidence of reliability," and on its first data it said the second was absent. The structural argument is the claim; operational history is its existence proof — grounded, not replaced.</p>
+    <div class="slot"><strong>[his record: to be supplied with consent]</strong> — an episode from a system the author keeps where an AI system's output had to be supervised. A consent-and-redaction pass comes first: history about a shared host is also about other people's systems.</div>
+  </div>
+</section>
+
+<section id="s5">
+  <h2>V. The translation test</h2>
+  <p>Render a claim in one register, translate it to the other, translate back, and look at what is left over. Claims that survive are candidates for standards; claims that fail are findings about limits — but a failure only counts if the translation was actually attempted.</p>
+
+  <h3>Example 1 — "AI tools improve sysops efficiency."</h3>
+  <div class="pair">
+    <div class="col ops"><h4>Practice rendering</h4><p>Deploying AI tooling reduces the time to complete specified tasks. Testable, directional, actionable.</p></div>
+    <div class="col sci"><h4>Science rendering</h4><p>Statistically significant reduction in task time across a representative sample of sysops work, controlling for task complexity, experience and tool quality.</p></div>
+  </div>
+  <div class="band"><h4>Round trip</h4><p>"AI tools improve efficiency under controlled conditions that may not match your environment." The leftover is a more accurate version of the original claim.</p></div>
+
+  <h3>Example 2 — "Standing is earned by continuity."</h3>
+  <div class="pair">
+    <div class="col ops"><h4>Practice rendering</h4>
+      <p>A practitioner who has maintained a system through its lifecycle has earned standing to make judgment calls a newcomer has not. It is a norm of the culture, enforced informally.</p>
+    </div>
+    <div class="col sci"><h4>Science rendering — five attempts</h4>
+      <ul>
+        <li><strong>Fork counts</strong> measure the popularity of an artifact. Much infrastructure has nothing to fork.</li>
+        <li><strong>Commit logs</strong> measure volume of authorship. The 2 a.m. restart and the decision <em>not</em> to change something leave no commit.</li>
+        <li><strong>Uptime-hours</strong> measure the system, not the person: prevention and quiet look the same.</li>
+        <li><strong>Incident absence</strong> measures the reporting culture; used as a target, it rewards not calling things incidents.</li>
+        <li><strong>Deference</strong> — who is paged, whose review a change waits for — nearly works: it sees standing by its effects, but not that continuity earned it.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="band"><h4>Round trip</h4><p>"Your standing shows in who calls you; it will not show in what you committed." The science register can see that standing exists and to whom it accrues, not what earned it. <em>Falsifier:</em> a study showing continuity of custody predicts deference independently of rank — if it succeeds, this finding dies.</p></div>
+
+  <h3>Example 3 — "The diligence is knowing which acts to supervise."</h3>
+  <div class="pair">
+    <div class="col ops"><h4>Practice rendering</h4><p>Don't supervise everything equally. Know which categories of act carry which risk. Supervise the judgments hardest; the builds may earn less once their record justifies it — until then, supervise them too.</p></div>
+    <div class="col sci"><h4>Science rendering</h4><p>Oversight calibrated by act type, reversibility, and demonstrated reliability in the category. The §IV verdict structure is one calibration scaffold.</p></div>
+  </div>
+  <div class="band"><h4>Round trip</h4><p>Survives, and gains precision. Caution: it is the only clean pass, and it round-trips a claim already phrased in the instrument's vocabulary — close to circular. It shows both registers can hold the claim, not that the method is neutral. The obligation is specific, teachable and assessable, and not reducible to "read some documentation."</p></div>
+</section>
+
+<section id="s6">
+  <h2>VI. Obligation, not option</h2>
+  <div class="pair">
+    <div class="col ops"><h4>Practice</h4>
+      <p>You are not required to become an ML engineer. You are required to know what kind of thing AI systems are, how they fail, and which outputs need human review before action. Bounded, learnable, and not optional if the systems are in your environment.</p>
+      <p><em>Wants:</em> the threshold as a checklist.</p>
+    </div>
+    <div class="col sci"><h4>Science</h4>
+      <p>The obligation follows from custodial accountability: custodians answer for outcomes in their domain whether or not they caused them, and the responsibility belongs to the role. The threshold is the minimum needed to tell appropriate from inappropriate behavior in the acts the system performs.</p>
+      <p><em>Wants:</em> the threshold as a measurement.</p>
+    </div>
+  </div>
+  <div class="band"><h4>Common to both</h4>
+    <p>A productivity argument permits reasonable dissent; an obligation argument is not defeated by being productive without the thing. The obligation is the same from both sides; what differs is how you know you've met it. Two things could still break it: how practice actually learns (§VIa), and systems that cannot be opened (§VIb).</p>
+  </div>
+</section>
+
+<section id="s6a">
+  <h2>VIa. What practice learns from: incidents</h2>
+  <div class="pair">
+    <div class="col ops"><h4>Practice — the objection, at its strongest</h4>
+      <p>Shops don't change because an argument showed them a duty; they change after something breaks. A single breach or outage can reshape a shop's habits for years, where a stack of recommended practices changes little. The post-incident review is where duties are really assigned — and a structure-first paper is just another list to file.</p>
+      <p>It supports the paper: the review already has both legs — what happened, and what we do now — and the blameless form looks at the role and the system, not the person.</p>
+    </div>
+    <div class="col sci"><h4>Science — why it threatens</h4>
+      <ul>
+        <li><strong>Timing:</strong> the obligation won't be felt until an AI-involved incident happens locally.</li>
+        <li><strong>Weakest where it matters:</strong> silent degradation gives slow drift, not a crisp outage, and hindsight then makes it look obvious (Cook, <em>How Complex Systems Fail</em>, point 8).</li>
+        <li><strong>Absence corrupts:</strong> rewarding incident absence pressures reporting — the record the culture learns from.</li>
+        <li><strong>Forecast into test:</strong> an incident turns a list's forecast into a test someone visibly failed. Once a measure becomes a target, it ceases to be a good measure (Strathern 1997, after Goodhart): "AI literacy" risks being counted in training hours.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="band"><h4>Common to both</h4>
+    <p>The method survives only if it produces claims an incident can test. So the four items are written down, each with a falsifier, <em>before</em> the incident. When one happens, its review asks which of the four was missing: one of the four confirms the paper; a failure none of them names means the checklist must change. Publishing honest reviews of AI-involved failures is part of the diligence.</p>
+    <div class="slot"><strong>[his record: to be supplied with consent]</strong> — a case where practice changed after a failure more than it had after advice.</div>
+  </div>
+</section>
+
+<section id="s6b">
+  <h2>VIb. Supervising systems you are forbidden to open</h2>
+  <p>Weights unpublished, training data undisclosed, the model on the vendor's server, the vendor holding the logs and able to change the model underneath you without saying so.</p>
+  <div class="pair">
+    <div class="col ops"><h4>Practice — the four items, closed system</h4>
+      <ul>
+        <li><strong>Scope</strong> survives: fence it at your boundary, including what data you send out.</li>
+        <li><strong>Output verification</strong> survives: artifacts are artifacts.</li>
+        <li><strong>Escalation</strong> survives and gains a trigger: an unannounced model change.</li>
+        <li><strong>Failure-mode literacy</strong> only partly survives: you can't check whether your environment resembles one you were never told about, or reproduce a failure on a model you can't rerun.</li>
+      </ul>
+    </div>
+    <div class="col sci"><h4>Science — freedom as a supervision property</h4>
+      <p>Freedom 1, the freedom to study how a program works (source access being its precondition), is for a supervisor a precondition for the fourth item in full. A precondition, not a guarantee: published weights give pinning, local runs, your own logs, reproducible failures and independent tests — not an explanation of any one output.</p>
+      <p><em>Falsifier:</em> supervisors of closed systems catch drift failures as often as supervisors of inspectable ones.</p>
+    </div>
+  </div>
+  <div class="band"><h4>Common to both</h4>
+    <p>If supervision is a duty and a closed system cannot be fully supervised, the duty reaches the decision to deploy. Before deploying, state which of the four items you can actually perform for this system and this kind of act. Where failure-mode literacy can't be exercised, limit the system to acts whose output can be fully checked and cheaply undone: a closed model summarizing logs a person reads may pass; a closed model executing firewall changes on its own does not.</p>
+  </div>
+</section>
+
+<section id="s7">
+  <h2>VII. What supervision actually requires</h2>
+  <div class="pair">
+    <div class="col ops"><h4>Practice — the checklist</h4>
+      <ol>
+        <li><strong>Scope awareness</strong> — what may it touch? Catchable without deep AI knowledge.</li>
+        <li><strong>Output verification</strong> — review builds as artifacts; check advice against the situation; confidence is not a reliability signal.</li>
+        <li><strong>Failure-mode literacy</strong> — does the environment still resemble the one it was reliable in? The one AI-specific item.</li>
+        <li><strong>Escalation triggers</strong> — written conditions for when you stop trusting it and take over.</li>
+      </ol>
+      <p>Three of the four you already do for any system.</p>
+    </div>
+    <div class="col sci"><h4>Science — why they are falsifiable</h4>
+      <p>A practitioner who cannot name a deployed system's scope boundaries is demonstrably deficient in scope awareness. One who treats model confidence as a reliability signal is demonstrably missing failure-mode literacy. The threshold is operational, and "what minimum competency does adequate supervision require?" has a non-trivial answer that can be studied.</p>
+      <p class="note">That scope failures are among the most common in deployment is expected, not shown: no survey is cited, and one is owed.</p>
+    </div>
+  </div>
+  <div class="band"><h4>Common to both</h4>
+    <p>The system in §IV builds, administers and advises, with its advice the least reliable part — so supervising it means checking judgment against the situation as well as checking artifacts. The four items are the paper's most portable result; the card puts them on one page with a DO, a SEE and a falsifier each.</p>
+  </div>
+</section>
+
+<section id="s8">
+  <h2>VIII. The residue as finding</h2>
+  <p class="note">Only the first finding comes from the translation test; the second restates §VI and the third restates §IV — gathered here, not discovered here.</p>
+  <div class="pair">
+    <div class="col ops"><h4>Practice</h4>
+      <p><strong>Be suspicious of standing metrics.</strong> They will consistently undercount infrastructure work that leaves no artifact.</p>
+      <p><strong>Build contextual checklists</strong> for specific deployments; a universal one does not exist.</p>
+      <p><strong>Most systems are probably NOT-MADE</strong> and treated as MADE — a hypothesis, unsourced, to test.</p>
+    </div>
+    <div class="col sci"><h4>Science</h4>
+      <p><strong>Standing is only half renderable:</strong> visible by its effects, not by what earned it.</p>
+      <p><strong>No universal threshold:</strong> it varies with act type, risk, reversibility and how much of the system you may inspect.</p>
+      <p><strong>NOT-MADE is informative:</strong> an instrument that can say "not yet" is more honest than one that can only endorse.</p>
+    </div>
+  </div>
+  <div class="band"><h4>Common to both</h4>
+    <p>The obligation does not depend on context; the threshold does. The value of the §IV finding is not its numbers but that a trust instrument reached a verdict other than trust or distrust.</p>
+  </div>
+</section>
+
+<section id="s9">
+  <h2>IX. Conclusion</h2>
+  <div class="pair">
+    <div class="col ops"><h4>To the practice reader</h4>
+      <p>The checklist is scope, outputs, failure modes, escalation triggers. The AI-specific one is failure-mode literacy: confidence is not reliability, and distribution shift degrades performance silently before it produces obvious failures. Before you deploy, know which of the four you can actually perform for this system. Learnable, bounded, and not optional if the systems are in your environment.</p>
+    </div>
+    <div class="col sci"><h4>To the science reader</h4>
+      <p>The floor keeps its falsifier: evidence that practitioners without AI-specific training identify AI failures as reliably as those with it. That study has not been done. Above the floor — which knowledge, how much, for which acts, under what degree of inspectability — is the research programme. The instrument needs a second pair of hands before its numbers carry weight.</p>
+    </div>
+  </div>
+  <div class="band"><h4>Common to both</h4>
+    <p>The obligation is clear; the threshold is contested; an instrument for measuring it exists and must be run by people other than its author, until the NOT-MADEs become MADEs or the OVERRUNs become visible.</p>
+    <p><strong>The diligence is knowing which acts to supervise. It is not one number. It never was.</strong></p>
+  </div>
+</section>
+
+<footer>
+  <p>Version 0.2: Draft for review — revised edition of 0.1.1, 2026-09-27; spine: 2026-09-07. Two-column rendering of <code>DISS-2026-09-27-ai-diligence-sysops-v0.2.md</code>; where the two differ, the markdown text governs.</p>
+  <p>Copyright 2026 Corwin Brust &lt;corwin@brust.st&gt; and Contributors ; LICENSE: CC-BY4:https://creativecommons.org/licenses/by/4.0/</p>
+  <p>Sources quoted: Cook, <em>How Complex Systems Fail</em> (how.complexsystems.fail); Lunney &amp; Lueder, "Postmortem Culture", <em>Site Reliability Engineering</em> ch. 15 (sre.google); Strathern, <em>European Review</em> 5(3), 1997; the Free Software Definition, freedom 1. Full references in the markdown edition.</p>
+  <p>Authored by Mentat (for Corwin), 2026-09-27. DRAFT — unsigned; his to bless, change or discard.</p>
+  <p>LENS · two-column edition · 2026-09-27 — a my view: the band is where the paper's finding actually lives, so giving it the full width is the argument, not decoration. b the view I ascribe Corwin: an excellent suggestion made real, readable by the person who asked for it. c their pull on mine: the request pulled me to condense; where condensing risked changing a claim, I kept the paper's sentence. d my pull on theirs: my splits of §VIa, §VIb and §VIII into two columns are interpretive — the paper does not split them itself. persona / inverse: a reader who is both says "finally, I can see what's shared" / the inverse, a strict editor, says a second rendering is a second text to keep in sync — so the footer says the markdown governs. principles reframe: 1. one page for readers of either training (universalism); 2. no scripts, no tracking, readable offline (four freedoms); 3. plain HTML anyone can fork (movement); 4. readable at phone width by anyone in the field (community).</p>
+</footer>
+
+</div>
+</body>
+</html>

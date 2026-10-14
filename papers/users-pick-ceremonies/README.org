@@ -1,0 +1,22 @@
+#+TITLE: To what extent can we let users pick ceremonies?
+#+SUBTITLE: publication stage · papers · <H>:/pub/papers/users-pick-ceremonies/
+#+AUTHOR: Corwin Brust (keeper) · written with Mentat · corwin@bru.st
+#+DATE: 2026-09-25
+
+* What this is
+
+A paper answering Corwin's question of 2026-09-24: to what extent can we let users pick ceremonies, especially together, in self-governing rings? Written for someone with a local C4 install who wonders why a build asks them to sign things, and whether it must.
+
+* What travels
+
+- =PAPER-2026-09-24-users-pick-ceremonies.md=
+- this README, and =COPYING=.
+
+* Checking it
+
+=.c4/PROVENANCE.tsv= names where each file came from and its hash when it was lifted; =pb1ck=
+re-hashes them and reads the item for anything of the machine it was made on.
+
+* Status
+
+License: CC BY 4.0, with an additional permission; see =COPYING=.

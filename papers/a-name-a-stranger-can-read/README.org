@@ -1,0 +1,22 @@
+#+TITLE: A name a stranger can read: taxonomy-conformant program naming as a social opportunity
+#+SUBTITLE: publication stage · papers · <H>:/pub/papers/a-name-a-stranger-can-read/
+#+AUTHOR: Corwin Brust (keeper) · written with Mentat · corwin@bru.st
+#+DATE: 2026-09-25
+
+* What this is
+
+A C4 working paper (2026-09-18, provisional): program basenames built from a shared taxonomy, so a stranger can read what a tool does from its name, treated as a social opportunity rather than a label.
+
+* What travels
+
+- =PAPER-2026-09-18-basename-taxonomy-social-opportunity.md=
+- this README, and =COPYING=.
+
+* Checking it
+
+=.c4/PROVENANCE.tsv= names where each file came from and its hash when it was lifted; =pb1ck=
+re-hashes them and reads the item for anything of the machine it was made on.
+
+* Status
+
+License: CC BY 4.0, with an additional permission; see =COPYING=.

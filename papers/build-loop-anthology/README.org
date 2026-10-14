@@ -1,0 +1,30 @@
+#+TITLE: One loop, four readings: the build-loop anthology
+#+SUBTITLE: publication stage · papers · <H>:/pub/papers/build-loop-anthology/
+#+AUTHOR: Corwin Brust (keeper) · written with Mentat · corwin@bru.st
+#+DATE: 2026-09-25
+
+* What this is
+
+Four pieces and an editor's essay on one decision (does the build loop need a skill?), written 2026-09-22 at Corwin's ask to revisit it: Mentat's pass that found its own verdict wrong, the Garden's LENS, a comparison of vessels, and PENUMBRA's covering essay. The losing models are kept on purpose.
+
+* What travels
+
+- =PAPER-2026-09-22-editors-essay.md=
+- =PASS-2026-09-22-build-loop-tank-verdict.md=
+- =LENS-2026-09-22-skill-in-context.md=
+- =RAD-2026-09-22-which-vessel.md=
+- =INDEX.md=
+- =RAD-2026-09-22-which-vessel.S4-2026-09-27.md= (added 2026-09-27)
+- this README, and =COPYING=.
+
+* Checking it
+
+=.c4/PROVENANCE.tsv= names where each file came from and its hash when it was lifted; =pb1ck=
+re-hashes them and reads the item for anything of the machine it was made on.
+
+* Status
+
+The copies here write the machine paths their masters name in placeholder form (=<F>:\...=, =<f>:/...=,
+=<home>=, =<mnt>/=); the masters keep them, and =.c4/PROVENANCE.tsv= says so.
+
+License: CC BY 4.0, with an additional permission; see =COPYING=.

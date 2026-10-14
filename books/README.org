@@ -1,0 +1,4 @@
+#+TITLE: books — finished book-shaped publications
+One folder per book: =<H>:/pub/books/<NAME>/=, each its own "if publishing just this" stage,
+laid out as RECIPE.org says of any item (sources in =.c4/=, a COPYING or its tombstone).
+Work in progress stays in the lab (=projects/books/=) until it is finished.

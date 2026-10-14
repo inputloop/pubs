@@ -1,0 +1,25 @@
+#+TITLE: Every Rule Carries Its Ring
+#+SUBTITLE: publication stage · papers · <H>:/pub/papers/every-rule-carries-its-ring/
+#+AUTHOR: Corwin Brust (keeper) · written with Mentat · corwin@bru.st
+#+DATE: 2026-09-27
+
+* What this is
+
+Advice that seems to contradict itself mostly contradicts across rings (one person, a team, an org, the public): a paper, a dry run over the door parts, and a check.
+
+* What travels
+
+- =PAPER-2026-09-27-every-rule-carries-its-ring.md=
+- =ring-dry-run.sh=
+- =door-rings.tsv=
+- =NOTE-2026-09-27-the-register-is-the-record.md= (added 2026-09-27)
+- this README, and =COPYING=.
+
+* Checking it
+
+=.c4/PROVENANCE.tsv= names where each file came from and its hash when it was lifted; =pb1ck=
+re-hashes them and reads the item for anything of the machine it was made on.
+
+* Status
+
+Pre-branding: see =COPYING=.

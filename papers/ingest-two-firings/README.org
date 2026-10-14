@@ -1,0 +1,25 @@
+#+TITLE: Two ingest firings side by side
+#+SUBTITLE: publication stage · papers · <H>:/pub/papers/ingest-two-firings/
+#+AUTHOR: Corwin Brust (keeper) · written with Mentat · corwin@bru.st
+#+DATE: 2026-10-14
+
+* What this is
+
+A LENS on two firings of the ingest spell and the spell before and after.
+
+* What travels
+
+- =LENS-2026-09-29-ingest-two-firings.md=
+- this README, and =COPYING=.
+
+* Checking it
+
+=.c4/PROVENANCE.tsv= names where each file came from and its hash when it was lifted; =pb1ck=
+re-hashes them and reads the item for anything of the machine it was made on.
+
+* Status
+
+The copies here write the machine paths their masters name in placeholder form (=<F>:\...=, =<f>:/...=,
+=<home>=, =<mnt>/=); the masters keep them, and =.c4/PROVENANCE.tsv= says so.
+
+Pre-branding: see =COPYING=.

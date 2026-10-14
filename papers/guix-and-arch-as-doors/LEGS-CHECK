@@ -1,0 +1,7 @@
+nofw      info   452 packages; kernel: linux ; firmware packages: 0; files under usr/lib/firmware: 2 (not regulatory.db: 0); / owned by 0/0
+nofw      held   c4door-2026.10.13-x86_64.iso
+fw        info   472 packages; kernel: linux ; firmware packages: 17; files under usr/lib/firmware: 7276 (not regulatory.db: 7274); / owned by 0/0
+fw        held   c4door-2026.10.13-x86_64.iso
+parabola  info   422 packages; kernel: linux-libre ; firmware packages: 0; files under usr/lib/firmware: 36 (not regulatory.db: 34); / owned by 0/0
+parabola  held   c4door-parabola-2026.10.13-x86_64.iso
+check=0

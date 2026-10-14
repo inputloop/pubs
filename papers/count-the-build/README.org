@@ -1,0 +1,25 @@
+#+TITLE: Count the build
+#+SUBTITLE: publication stage · papers · <H>:/pub/papers/count-the-build/
+#+AUTHOR: Corwin Brust (keeper) · written with Mentat · corwin@bru.st
+#+DATE: 2026-09-28
+
+* What this is
+
+An essay on why a cheap, re-runnable count is worth more than a confident reading when generative tools help build tools; what a long session actually spends; and why the outside reader is the column no generator fills.
+
+* What travels
+
+- =ESSAY-2026-09-28-count-the-build.md=
+- this README, and =COPYING=.
+
+* Checking it
+
+=.c4/PROVENANCE.tsv= names where each file came from and its hash when it was lifted; =pb1ck=
+re-hashes them and reads the item for anything of the machine it was made on.
+
+* Status
+
+The copies here write the machine paths their masters name in placeholder form (=<F>:\...=, =<f>:/...=,
+=<home>=, =<mnt>/=); the masters keep them, and =.c4/PROVENANCE.tsv= says so.
+
+Pre-branding: see =COPYING=.

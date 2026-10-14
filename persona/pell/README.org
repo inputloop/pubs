@@ -1,0 +1,25 @@
+#+TITLE: CHARACTER SHEET — OSCAR PELL (author, *Six Sides and a Pencil*), v1.1 · 2026-09-13
+#+SUBTITLE: publication stage · persona shelf · <H>:/pub/persona/pell/
+#+AUTHOR: Corwin Brust (keeper) · written with Mentat · corwin@bru.st
+#+DATE: 2026-09-25
+
+* What this is
+
+a character sheet (actor: fiction) -- a character, not a person. Persona ships separately: the same sheet serves a book and a program, and neither carries
+it inside. Read it, pluck it into a session, or measure a model against it.
+
+* What travels
+
+- =pell.md= -- the sheet.
+- =pell.tsv= -- its inventory (skills, possessions, each dated to the note that grew it).
+- this README, and =COPYING=.
+
+* Checking it
+
+=.c4/PROVENANCE.tsv= names where each file came from and its hash when it was lifted; =pb1ck= re-hashes
+them and reads the item for anything of the machine it was made on. The persona server
+(=persona_list=) finds this sheet by the same rule that landed it: the file says what it is.
+
+* Status
+
+License: CC BY 4.0, with an additional permission; see =COPYING=.

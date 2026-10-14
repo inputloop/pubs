@@ -1,0 +1,26 @@
+#+TITLE: The extension: what is proven
+#+SUBTITLE: publication stage · papers · <H>:/pub/papers/extension-what-is-proven/
+#+AUTHOR: Corwin Brust (keeper) · written with Mentat · corwin@bru.st
+#+DATE: 2026-10-14
+
+* What this is
+
+A paper on what is proven for the extension and where proof fails, with the accessibility-first LENS it answers.
+
+* What travels
+
+- =PAPER-2026-10-10-what-is-proven.md=
+- =LENS-2026-10-10-accessibility-first.md=
+- this README, and =COPYING=.
+
+* Checking it
+
+=.c4/PROVENANCE.tsv= names where each file came from and its hash when it was lifted; =pb1ck=
+re-hashes them and reads the item for anything of the machine it was made on.
+
+* Status
+
+The copies here write the machine paths their masters name in placeholder form (=<F>:\...=, =<f>:/...=,
+=<home>=, =<mnt>/=); the masters keep them, and =.c4/PROVENANCE.tsv= says so.
+
+Pre-branding: see =COPYING=.

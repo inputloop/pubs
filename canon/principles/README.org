@@ -1,0 +1,55 @@
+#+TITLE: SAVANNAH — CANON and PRINCIPLES (the keeper's values, signed)
+#+SUBTITLE: publication stage · canon · <H>:/pub/canon/principles/
+#+AUTHOR: Corwin Brust (keeper) · written with Mentat · corwin@bru.st
+#+DATE: 2026-09-29
+
+* What this is
+
+The canonical principle block (CANON.md) and the full model it names (PRINCIPLES.md), each with the keeper's detached signature. Rehomed here from the SAVANNAH enclave 2026-09-29 at his word, and re-worded and re-signed the same night so the files name this shelf as their home.
+
+* What travels
+
+- =CANON.md=
+- =CANON.md.asc=
+- =PRINCIPLES.md=
+- =PRINCIPLES.md.asc=
+- this README, and =COPYING=.
+
+* Checking it
+
+=.c4/PROVENANCE.tsv= names where each file came from and its hash when it was lifted; =pb1ck=
+re-hashes them and reads the item for anything of the machine it was made on.
+
+* Verifying it
+
+Each =.md= has a detached signature beside it. With the keeper's public key (published at
+https://savannah.gnu.org/u/carlc, fingerprint =ECE7 7CF4 17C7 6C1A CFCE  7C2B 5B61 3551 1580 F007=):
+
+#+begin_src sh
+gpg --verify CANON.md.asc CANON.md
+gpg --verify PRINCIPLES.md.asc PRINCIPLES.md
+#+end_src
+
+Both read Good (signed 2026-09-29). =PRINCIPLES.md= and its signature are byte-identical to the copy
+SAVANNAH keeps, which the enclave's panel reads as its canary. A byte changed here, even a fixed
+typo, breaks the seal, so nothing on this shelf edits them. A new version arrives as a new signed
+file, rolled into place with =aw2ri put= (the old one retires to =.c4/archive/= with its signature),
+and its row in =.c4/PROVENANCE.tsv= is updated.
+
+* Where the canon lives now (2026-09-29)
+
+- *This item is the canon's home.* The keeper asked on 2026-09-28 (his clock) for the canon to be
+  rehomed out to the pub shelf (=<H>:/pub/=).
+- =SAVANNAH/CANON.md= retired, with its seal, into the enclave's =archive/= under a dated name. A
+  receipt at =SAVANNAH/archive/2026-09/REHOME-2026-09-29-canon-to-pub.md= points here.
+- =SAVANNAH/PRINCIPLES.md= stays where it is and carries the same bytes as the copy here. The
+  enclave's instrument panel reads that file as its canary, so moving it would put the panel into fault.
+- 2026-09-29, later: the words that still named SAVANNAH as the home (the paragraph above the block,
+  the BEGIN marker line, and "Who keeps what") were re-worded and re-signed, by his run of
+  =RUNCARD-2026-09-29-01-canon-roll=. The July versions are in =.c4/archive/2026-09/=. One heading
+  inside the block still reads "(canonical in SAVANNAH)". The block is hashed and sealed, and changing
+  it is a separate two-key step, so it stays as it is.
+
+* Status
+
+Pre-branding: see =COPYING=.

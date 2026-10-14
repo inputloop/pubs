@@ -1,0 +1,47 @@
+<H>:/pub/ - universal as-publisher surface
+
+ - **`/`** (this folder): finished publications stage, instructions
+ - **<item>/** (a sub-folder): for publication stage, may be a work surface
+
+Materials in the top level folder (including each for-publication item's 
+stage folder) should be protected via dot folder, gate/tunnel or otherwise
+safe for general use/reuse.  Materials not intended for COPYING/LICENSE
+branding (and Copyright affixation and to-current-date) motions may
+so indicate with a "tombstone" (zero byte) COPYING or by creating that
+file with whatever informational context is needed to scope these contexts.
+
+# OP - the building prompt (includes orthoginal information)
+
+This is excellent. It will likely shake loose more than you here.
+
+
+
+
+
+what feels missing is deliberate focus on "meta" in the sense of the human context tensions and tensioning 
+
+
+
+you tend to aptly name and apply in terms of my own personal models and ways of viewing reality and thinking in fantacy terms (about reality or about/for fiction/game/etc). In the work, but also as a personal ethos likely to dominate when I myself am "tensioned", I find extrapolating social positioning from the least visible signals (scents, technically styled, perhaps slight toward "intonation" in body-language in more organic context) that seem likely to introduce new context bearing upon tensions I can feel/relate to but which aren't (or aren't entirely) my own, when I can pick openings that do "unlock" someone else's tensions so as that we are able to speak about them directly or (spanning a range toward) simply not quite have as much tension while quickly dropping it or not taking a bit of "bait" depending on how deliberate I may have been bringing in my risker, more challanging context) then I'm usually seeing more in fact listening and potential for in-fact governance such as making agreements that people stick to and deciding on tasks that actually get done, granting I'm not a quiet actor in most circumstances where "governance" (as widely constrewed for our purposes here, naturally) be done.
+
+
+
+Perhaps a wide fact collecting round toward this research that starts from C4's collection of prompts (probably more of a tabulation so far, but shrug) and then widen out to see if interesting terms from this chat (and then those, fanning out) bear additional "facts" to bring back toward static modeling of this work.
+
+
+
+I am realizing as we work on this:  "Publications" is a Corwin surface from the rest of the world's standpoint and I may be more neighborly to (to say nothing of being a better collaborator with) comrades if I see it that way.
+
+
+
+Attached please request h:\pub whereup please make a project folder where work product for this will be principly surfaced (as dropped/lifted if some project or tool or myself by hand needs to work elsewhere and grab/deposit stuff, but for working on in place also/instead where that is handier).
+
+
+
+I imagine each folder in H:\pub is a projects "if publishing just this" stage, which in case of a research paper like this one could well be the main surface, bringing information in as we want it and providing "traditional" context, narrative practice/operating/tool and "more context" etc. static models as needed item per item; C4 or other automation can have the janatorial side helping to sync common use tools out for these working-group and/or staging area stages.  In the top level folder the set of latest distributable paired archive/sig (given I do signing) unless for I share as text with integrial sig, and then whatever packaging instructions and support mostly perhaps within README.org (and other README forms and tangled out resources via build.el, made by running a Makefile created by tanging, etc).
+
+
+
+You can propose a set of changes to this plan if you think their are riskier choices (other than duplication of data that won't show to any reasonable instrumentation: if instruments tell the story of the duplicates/mutated clones, then that is story and we keep it around -at least in journaled out or archived form- in case we want to tell it later); generally I think you should go for it unless smoothing it over it feels like not a great plan (or it doesn't feel like a fit, won't smooth, etc.).
+
+Find my signing key at GNU Savannah: https://savannah.gnu.org/u/carlc

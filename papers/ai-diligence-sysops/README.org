@@ -1,0 +1,25 @@
+#+TITLE: Learning AI Is Due Diligence for Sysops (v0.2)
+#+SUBTITLE: publication stage · papers · <H>:/pub/papers/ai-diligence-sysops/
+#+AUTHOR: Corwin Brust (keeper) · written with Mentat · corwin@bru.st
+#+DATE: 2026-09-27
+
+* What this is
+
+The dissertation in two registers, reworked for its outside readers: one argument with two legs, argued from incident history, with a two-column edition and a four-item supervision card.
+
+* What travels
+
+- =DISS-2026-09-27-ai-diligence-sysops-v0.2.md=
+- =DISS-2026-09-27-ai-diligence-sysops-v0.2-two-columns.html=
+- =CARD-2026-09-27-supervision-four-items.md=
+- =DISS-2026-09-27-ai-diligence-sysops-v0.2-public-edition.md= (added 2026-09-27)
+- this README, and =COPYING=.
+
+* Checking it
+
+=.c4/PROVENANCE.tsv= names where each file came from and its hash when it was lifted; =pb1ck=
+re-hashes them and reads the item for anything of the machine it was made on.
+
+* Status
+
+Pre-branding: see =COPYING=.

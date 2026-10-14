@@ -1,0 +1,22 @@
+#+TITLE: The Eclipse Pass
+#+SUBTITLE: publication stage · papers · <H>:/pub/papers/the-eclipse-pass/
+#+AUTHOR: Corwin Brust (keeper) · written with Mentat · corwin@bru.st
+#+DATE: 2026-09-25
+
+* What this is
+
+The debugger-on critique ritual as first written down on 2026-06-29: stress-test a proposition against seeded-random real projects, run two opposed biases, and keep the losing models instead of discarding them.
+
+* What travels
+
+- =THE-ECLIPSE-PASS.md=
+- this README, and =COPYING=.
+
+* Checking it
+
+=.c4/PROVENANCE.tsv= names where each file came from and its hash when it was lifted; =pb1ck=
+re-hashes them and reads the item for anything of the machine it was made on.
+
+* Status
+
+License: CC BY 4.0, with an additional permission; see =COPYING=.

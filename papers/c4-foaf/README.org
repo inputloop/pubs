@@ -1,0 +1,22 @@
+#+TITLE: C4-FOAF — the C4×FoaF master (versioned)
+#+SUBTITLE: publication stage · papers · <H>:/pub/papers/c4-foaf/
+#+AUTHOR: Corwin Brust (keeper) · written with Mentat · corwin@bru.st
+#+DATE: 2026-09-25
+
+* What this is
+
+The experiment-bearing master of C4 applied to FoaF (2026-06-29): which authorized identity ran what, under which signed terms, run as withhold passes with a synthetic control persona.
+
+* What travels
+
+- =C4-FOAF.md=
+- this README, and =COPYING=.
+
+* Checking it
+
+=.c4/PROVENANCE.tsv= names where each file came from and its hash when it was lifted; =pb1ck=
+re-hashes them and reads the item for anything of the machine it was made on.
+
+* Status
+
+License: CC BY 4.0, with an additional permission; see =COPYING=.

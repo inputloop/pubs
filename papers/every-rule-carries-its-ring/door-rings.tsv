@@ -1,0 +1,46 @@
+# door-rings.tsv -- DRY RUN sidecar: the ring each door part was written for (Mentat, 2026-09-27, DRAFT).
+# Columns: ID<TAB>RING<TAB>SPLIT<TAB>EVIDENCE.  RING is one of one|team|org|wiring, or a comma list of one,team,org.
+# SPLIT names a floor clause that should become its own part (renders in every ring), or -.
+# EVIDENCE is a phrase copied verbatim from the part; ring-dry-run.sh checks it is really there (grep -F).
+# The test used: who is harmed if this rule is wrong, and are they in the room? (decks/must-versus-journey.deck.md:49)
+keeper-top-block	one	-	projects under my original authorship
+deferral-carries-blocker	one	-	Anything named as not-done in a handback
+governing-pointer	wiring	-	nothing in C4 binds this project
+skills-router	wiring	-	generated at render time
+first-move	one	-	My repeat faults with the check for each
+which-context	org	-	A work-project session does not mount
+what-corwin-wants	one	-	When a turn reaches something wanting his key
+fence-is-an-admission	one	-	he is nearly always fine seeing his own
+standing-rules-whose	one	-	a rule of mine wearing his voice
+his-scope-and-attestations	one	No wrong with entrusted systems and authority	C4 sees everything of his EXCEPT SAVANNAH
+his-seam-tools-prove-claim	team	-	TOOLS PROVE. GENERATIVE CODE DELIVERS.
+his-signing-baseline	one	-	SIGNING IS MY BASELINE, NOT HIS NEED.
+his-alignment-accelerates	one	-	when his yes arrives fast on something load-bearing
+his-drift-baseline	one	drift never touches entrusted systems	is Claude's to self-direct
+his-declare-guesses	one	-	A guess named at the start is a proposal.
+his-ask-for-it	one	-	do not make me reprompt simply to say OK
+his-persona-aware	one	-	Authoring a persona is his pen.
+his-attribution	one,team,org	-	Attribution is the user's call, always
+his-versioning	team	-	x is 0 until C4 is ON
+mine-dispositions	one	-	Here, I keep ordinary care about what persists
+savannah-special	org	-	SAVANNAH is specical
+cost-footnote	one	-	The very last thing in a hand-back is a short list
+his-names-and-folders	team	-	nobody should have to learn them
+his-books-from-chapters	team	-	a site, a manual, a spell, a book
+his-land-files-here	one	-	LAND FILES ON HIS COMPUTER
+shop-door-intro	wiring	-	The door points; it does not gate.
+shop-bank-lane	one	-	Questions live in ONE place, the bank
+shop-records	team	-	Claude verifies, never signs.
+shop-naming	team	-	accessible, read-aloud-able
+shop-stop-and-talk	team	-	a signing or ceremony gate that blocks joint work
+shop-mounts-authoritative	one	-	A folder Corwin connects mid-session
+shop-build-loop	one	-	his own, written down once
+project-build-loop	one,team,org	-	Choosing it is optional
+shop-build-loop-0922	one	-	no parts are optional
+shop-dates-are-facts	team	-	DATES ARE FACTS BEFORE THEY ARE STAMPS
+shop-backed-before-absent	one	-	this shop reported the open essay shelf empty
+shop-hand-back-gate	org	-	runnable by a PERSON READING IT
+project-c4-is-a-tool-here	wiring	-	binds nothing in this project
+project-express-lifts	one	-	He performs the lift.
+project-standing-rules	one	Third-party person-facts need consent before they persist.	Anything wanting Corwin's key, consent, or judgement
+project-repeat-faults	one	-	I can verify, so I propose verifying.

@@ -1,0 +1,25 @@
+#+TITLE: The Elected Image
+#+SUBTITLE: publication stage · papers · <H>:/pub/papers/the-elected-image/
+#+AUTHOR: Corwin Brust (keeper) · written with Mentat · corwin@bru.st
+#+DATE: 2026-09-27
+
+* What this is
+
+Ghostwheel as the system image a group elects for itself: a field-support thesis tested against the tree and against prior art.
+
+* What travels
+
+- =ESSAY-2026-09-27-the-elected-image.md=
+- =NOTE-2026-09-27-erratum-elected-image-E3.md=
+- =NOTE-2026-09-27-the-claim-as-he-ruled-it.md= (added 2026-09-27)
+- =PAPER-2026-09-27-supported-not-required.md= (added 2026-09-27)
+- this README, and =COPYING=.
+
+* Checking it
+
+=.c4/PROVENANCE.tsv= names where each file came from and its hash when it was lifted; =pb1ck=
+re-hashes them and reads the item for anything of the machine it was made on.
+
+* Status
+
+Pre-branding: see =COPYING=.

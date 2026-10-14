@@ -1,0 +1,24 @@
+#+TITLE: The Second User
+#+SUBTITLE: publication stage · papers · <H>:/pub/papers/second-user/
+#+AUTHOR: Corwin Brust (keeper) · written with Mentat · corwin@bru.st
+#+DATE: 2026-09-27
+
+* What this is
+
+What a second user sees on day one, what they consent to, how they withdraw with look-back; and the two-readers theory as an enhancement to the lens skill.
+
+* What travels
+
+- =DESIGN-2026-09-27-second-user-disclosure-and-consent.md=
+- =ENHANCE-2026-09-27-two-readers-to-a-skill.md=
+- =lens-rerun-probe.sh=
+- this README, and =COPYING=.
+
+* Checking it
+
+=.c4/PROVENANCE.tsv= names where each file came from and its hash when it was lifted; =pb1ck=
+re-hashes them and reads the item for anything of the machine it was made on.
+
+* Status
+
+Pre-branding: see =COPYING=.

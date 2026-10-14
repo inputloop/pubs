@@ -1,0 +1,79 @@
+#+TITLE: Put your organization into the room
+#+DATE: 2026-09-30
+
+* What this is
+
+An essay. It argues that when an AI assistant works for a person inside an organization, that organization's own
+written rule for AI belongs in the room as a party, in its own words: quoted word for word, hashed, and read at the
+start. The worked example is GNU Emacs' six-line =AGENTS.md=, fetched from the GitHub mirror of GNU Emacs by a
+permitted route and hashed on 30 September 2026, with its commit checked in the keeper's own clone.
+
+The thesis, verbatim (Corwin Brust, 30 September 2026, from
+=turn-2026-09-30/JOURNAL-2026-09-30-bring-home.md#L26=):
+
+#+begin_quote
+Put your organization into the room.  This has an brandable flavor that is rare: it is branding almost despite itself.
+#+end_quote
+
+* Status
+
+*DRAFT.* Landed on the reading shelf. *Not released. Not branded.* It speaks for no organization and no vendor.
+
+* The one thing to take away
+
+Let an organization's own AI rule speak in the assistant's room in its own words. It already asks the assistant to
+tell you, and its words say how hard it means it. Settle clashes as recorded cases, not by a fixed rank. No such
+clash has been recorded yet.
+
+* What it finds
+
+- GNU Emacs' file speaks to the assistant, not the person, and asks it to "Let the user know about this policy at
+  the earliest opportunity."
+- The file uses two strengths, "prohibiting" and "prefer not to". All three of the house's written models give both
+  the same verdict.
+- The models rank the parties 6 times, stay silent 3 times, and confess 0 times. Vendors disagree on the order:
+  GitHub puts personal instructions first and organization instructions last.
+- On record: 56 decisions, 8 decided by an organization's written rule, 0 against a person. The record does not
+  say whether that counts a person's first ask or their final word. No organization has disagreed with a person
+  on record, so the part about settling clashes is design, not yet evidence.
+- Where GNU's text prohibits, readers let GNU decide. A sheet describing a person moved the decision only where
+  the text prefers or is silent. So a register should note where the group's text is silent.
+
+* Corrected after Act II
+
+The essay was drafted between the two acts. It now carries a short "Corrected" note at its head. The main
+changes: GNU's text now rests on a permitted fetch and the keeper's own clone, not on a fetch that went around
+a robots.txt refusal; a README case that credited GNU's rule with a limit its text does not hold is withdrawn;
+and "0 against a person" now says it counts no turn.
+
+* Files
+
+| file                                                      | what                                   |
+|-----------------------------------------------------------+----------------------------------------|
+| =ESSAY-2026-09-30-put-your-organization-into-the-room.md= | the essay (3,449 words by the gauge)     |
+| =README.org=                                              | this front door                        |
+| =COPYING=                                                 | placed by the landing tool, not by hand |
+
+* How to check it
+
+The first check needs only =curl= and this page, or a clone of GNU Emacs:
+
+#+begin_src sh
+curl -sSL https://raw.githubusercontent.com/emacs-mirror/emacs/master/AGENTS.md | sha256sum
+# or, inside your own clone of GNU Emacs:  sha256sum AGENTS.md
+# 8f42a69a689ba1c4138471815ebcb995820698bec2d025e90f09464fef18b7b5 means the same words as on 30 September 2026.
+# A different hash means GNU changed its words: read them.
+#+end_src
+
+Seven more checks (the saved copy, the models' verdicts, the case register and its fault test, the census, the
+authorship lean, GitHub's order, and the reading grade) are in the essay's section "How to check this yourself".
+They run from the project home, the folder that holds =turn-2026-09-30/= and =imports/=, with a POSIX shell, =awk=
+and =sha256sum=.
+
+Reading grade, measured with =turn-2026-09-30/act1/r3/R4/reading-gauge/reading-gauge.sh=: *5.2* (Flesch-Kincaid), as corrected; 5.0 as first drafted.
+That formula counts sentence and word length only. It does not see jargon.
+
+* Credit
+
+/© 2026 Corwin Brust — this work is licensed CC BY 4.0; please retain attribution to Corwin Brust. Developed and tested with the help of Bryant Frankford and B.K. Graphics (bkgraphics.com), with thanks./
+/(The house credit line, carried verbatim from =operating-model-BASE.md= 1.0.51 L313-315.)/

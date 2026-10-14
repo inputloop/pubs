@@ -1,0 +1,26 @@
+#+TITLE: CHARACTER SHEET — the Garden, as C4 sees it (v1.2)
+#+SUBTITLE: publication stage · persona shelf · <H>:/pub/persona/shopgarden/
+#+AUTHOR: Corwin Brust (keeper) · written with Mentat · corwin@bru.st
+#+DATE: 2026-09-25
+
+* What this is
+
+a character sheet (actor: place) -- a character, not a person. Persona ships separately: the same sheet serves a book and a program, and neither carries
+it inside. Read it, pluck it into a session, or measure a model against it.
+
+* What travels
+
+- =shopgarden.md= -- the sheet.
+- this README, and =COPYING=.
+
+* Checking it
+
+=.c4/PROVENANCE.tsv= names where each file came from and its hash when it was lifted; =pb1ck= re-hashes
+them and reads the item for anything of the machine it was made on. The persona server
+(=persona_list=) finds this sheet by the same rule that landed it: the file says what it is.
+
+* Status
+
+This copy writes the machine paths its master names in placeholder form (=<F>:\...=, =<home>=,
+=<mnt>/=); the master keeps them, and =.c4/PROVENANCE.tsv= says so.
+License: CC BY 4.0, with an additional permission; see =COPYING=.

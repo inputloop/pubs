@@ -1,0 +1,113 @@
+#+TITLE: Motive Inversion — governance does not compose
+#+SUBTITLE: publication stage · a Corwin surface
+#+AUTHOR: Corwin (savannah: carlc · corwin@bru.st)
+#+EMAIL: corwin@gnu.org
+#+DATE: 2026-08-30
+#+OPTIONS: toc:2 num:t
+
+* What this is
+
+The =<H>:/pub/papers/motive-inversion/= item is the *"if publishing just this"* stage for one
+publication: Corwin's *Problem Space to Context and Motive Inversion Theory* — the thesis
+whose central result is *capability composes; governance does not.* This folder is the
+**principal work surface** for that paper: work is surfaced here, and dropped/lifted
+to or from the lab as convenient.
+
+Held as a first principle (=facts/publications-is-a-corwin-surface=): *"Publications is a
+Corwin surface from the rest of the world's standpoint."* So this item is built to be
+**walked up to by a comrade** — traditional context and static models supplied item per
+item, so a reader need not already hold the C4 vocabulary to engage.
+
+* The thesis in one screen
+
+- *P1* Capability composes — it is motive-neutral (the part of an act that survives
+  forgetting /why/).
+- *P2* Governance does not compose — it carries motive, and motives do not add. Formal
+  reach: governance is the section that fails to *descend* along the motive-forgetting
+  map; the seam is where it tears. (edrx question.) /Sharpened (Board 3, ruled 2026-08-30;
+  runnable model =.c4/sources/compose-experiment-2026-08-30.py=):/ governance composes
+  *exactly* where a human has, over time, tensioned the seam into motive-agreement — so
+  "does not compose" is the /atemporal snapshot/ (the empty-locus reading); the live locus
+  is non-empty, and P0 is what fills it.
+- *T* Therefore design the **transition, not the component** — govern the moves; the pin
+  must be re-placed at every seam.
+- *P0* (the actuator) The pin is placed by a **human reading tension** from least-visible
+  signals — sensing another's motive, picking the opening that unlocks it. Tensioning is
+  the sensor; the opening is the pin. Governance needs a person. /And (Board 3) the
+  tensioning also/ *populates* /the locus where governance composes at all: the human is
+  not only the pin but the reason a seam can be glued, over time./
+- *P4* Consent cannot be stored, only re-enacted; it does not stretch, it *tears*, and the
+  tear is observable (reach-named vs reach-touched — a diff).
+- *P5* A crossing is a round-trip (=prove-a-promise=): there-and-back to identity +
+  attestation. Candidate categorical home: an adjunction / Galois connection. (edrx
+  question — the live falsifier on Q500.) /Two worked instances now in hand for edrx:/ the
+  =sign↓/bless↑= pair over a write-once pivot, and the compose experiment's reach-tear (a
+  pullback that fails to exist, P4).
+
+Full two-reader formalization: the lab LENS, pinned in [[file:.c4/PROVENANCE.tsv][provenance]].
+
+* Surface model (per =<H>:/pub/.seed=)
+
+- =/= (pub root) :: finished publications + instructions; the latest distributable
+  paired archive/sig live at the top when a release is cut.
+- =motive-inversion/= (this item) :: the stage/work-surface for this one paper.
+- Protection :: working materials sit under the =.c4/= dot-folder (kept out of the clean
+  publication face); the top of the item is what a comrade sees.
+- Janitorial :: C4 (or other automation) owns sync — lifting sources in, dropping
+  build products out — recorded in =.c4/PROVENANCE.tsv=, never as silent clones.
+
+* Self-containment and sync (your model, corrected 2026-08-30)
+
+*Self-contained is the rule.* Everything this paper needs sits /right here/ — the sources
+are lifted into =.c4/sources/= as byte-verified copies — so a comrade, a tool, or you can
+work on this item /right now/: no "also attach the lab", no "the file is over in c4", no
+"restart the session". Access never depends on iT moving files or telling you where things
+are; what you need to work with a thing sits with it. That is what the gate/tunnel is for.
+
+Duplication is fine because the *instrument tells its story*: =.c4/PROVENANCE.tsv= records
+each copy's lab origin and its sha256 at lift. A silent clone is the only sin; a receipted
+one is just bytes.
+
+*Sync is a currency-pull at the moment of mutation, not a background daemon.* Right before a
+thing is changed, pull a **cloak of currency** over it — bring the local copy current — and
+that pull /is/ the only local lock (a moment, not a held mutex):
+
+- *Reads always win the read-first battles* — reading is never contended, never blocked.
+- *The pull-to-current at inception is the lock* — momentary, scoped to the oncoming
+  mutation; it shields the in-progress change from others also curious for currency (the
+  work isn't quite current yet, and in practical terms the pull is the only lock to consider).
+- *Write-races are governed by PRIORITY, not a mutex* — when two mutations could race,
+  value-weighting decides (C4's priority; the personal lens "until on" the rest of the time).
+  That resolution wants /your thoughtful deliberation/, never an automatic winner.
+
+So there is no fixed "source folder." Currency is /whatever pulled it last at a mutation/;
+the instruments keep drift legible, so a race is a story we can tell — never a silent loss.
+Model pinned at =c4/facts/self-contained-and-currency-is-pulled-at-mutation=.
+
+* Build (STUB — intent, not yet wired)
+
+Intended, deferred until a second pub item needs it (build opportunistically, per
+=tool-lifecycle=): =README.org= tangles → =Makefile= → =build.el= → tangled resources;
+the paper renders from the same source. Recorded here so the intent is not lost; not
+built today because one item does not yet earn the automation.
+
+* Licensing / branding — pre-branding
+
+No copyright is affixed and no license is granted yet; see =COPYING= (an informational
+tombstone per =.seed=). Branding — copyright, license, to-current-date — is Corwin's
+signing motion (key at https://savannah.gnu.org/u/carlc), pending. Intended direction is
+free licensing at his motion.
+
+* Status (2026-08-30)
+
+Freshly seeded and *self-contained*: all sources sit in =.c4/sources/= (byte-verified),
+storied in =.c4/PROVENANCE.tsv=. The five-board /edrx-mathforward/ LENS is now lifted
+(=.c4/sources/LENS-2026-08-30-edrx-mathforward-boards.md=); its forks B1–B5 were ruled
+2026-08-30 — B3 sharpened P2 above; B1 = signage /recovers/ meaning (a round-trip); B4 =
+the outsider persona is packaging, not a license; B2 absorbed the curb-cut warning into the
+möbius floor; B5 recast the cross-field adversary as an /unrecorded election/ (one falsifier).
+Next: (1) the edrx questions (=.c4/sources/TODO-edrx.md=,
+Tue 09-01) that decide P2 and P5; (2) grow the paper here from the lifted LENS. =.seed=
+signature (=.seed.asc=): *verified GOOD* 2026-08-30 against Corwin's published key
+=ECE77CF4…1580F007= (carlc, =corwin@gnu.org=) — detached-sig check re-derivable from
+=c4/.signing-authority/=; no keyring trust asserted, the fingerprint match is the receipt.

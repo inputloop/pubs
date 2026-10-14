@@ -1,0 +1,23 @@
+#+TITLE: The Sixteen — an audit of my own consent refusals, and one bad attribution at the root
+#+SUBTITLE: publication stage · papers · <H>:/pub/papers/the-sixteen/
+#+AUTHOR: Corwin Brust (keeper) · written with Mentat · corwin@bru.st
+#+DATE: 2026-09-25
+
+* What this is
+
+Mentat's audit of its own sixteen consent and integrity refusals (2026-09-07), asked for by Corwin, including the one bad attribution of his words at the root of them.
+
+* What travels
+
+- =PAPER-2026-09-07-the-sixteen.md=
+- =NOTE-2026-09-27-erratum-the-sixteen-gen0-manifest.md= (added 2026-09-27)
+- this README, and =COPYING=.
+
+* Checking it
+
+=.c4/PROVENANCE.tsv= names where each file came from and its hash when it was lifted; =pb1ck=
+re-hashes them and reads the item for anything of the machine it was made on.
+
+* Status
+
+License: CC BY 4.0, with an additional permission; see =COPYING=.

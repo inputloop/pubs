@@ -1,0 +1,22 @@
+#+TITLE: The acknowledgements lane
+#+SUBTITLE: publication stage · papers · <H>:/pub/papers/acknowledgements-lane/
+#+AUTHOR: Corwin Brust (keeper) · written with Mentat · corwin@bru.st
+#+DATE: 2026-10-14
+
+* What this is
+
+A committee of personas, a cold control and a blind judge read how acknowledgements should work.
+
+* What travels
+
+- =LENS-2026-09-29-acknowledgements-lane.md=
+- this README, and =COPYING=.
+
+* Checking it
+
+=.c4/PROVENANCE.tsv= names where each file came from and its hash when it was lifted; =pb1ck=
+re-hashes them and reads the item for anything of the machine it was made on.
+
+* Status
+
+Pre-branding: see =COPYING=.

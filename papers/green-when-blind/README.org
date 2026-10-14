@@ -1,0 +1,56 @@
+#+TITLE: Green when blind: checks that pass over nothing
+#+AUTHOR: Corwin Brust
+#+DATE: 2026-09-30
+
+* What this is
+
+A short paper, for people outside the shop that made it, about one plain fault: a check that says "all good"
+when it had nothing to look at. Two independent readers, one in shell and one in Python, handed 48 checks each
+from one small free-software shop an empty input. They ran 47 of the same tools, agree on 46 of those 47 exit
+codes, and name the same 29 that still exited 0. Only one check used the third answer's exit code, 77 (NOT
+CHECKED).
+
+The paper traces that third answer to older work (GNU Automake's exit 77, mutation testing), tells how the one
+honest tool is kept honest by a second reader's tests, and hands over the harness that did the counting,
+=three_answers.py=, so anyone can run it on their own checks.
+
+- The paper: [[file:PAPER-2026-09-30-green-when-blind.md]]
+
+* Status
+
+- *DRAFT, unsigned.* Edition 0.0.50 (working; a three-part number marks a draft).
+- Landed on the reading shelf. *NOT released and NOT branded.*
+- Minted by the instrument (the shop's AI assistant, Claude) at Corwin Brust's ask of 2026-09-30.
+
+* How to check it
+
+Needs Python 3 and a POSIX shell. From the project home:
+
+1. Compare the two readers' tables: the short script in §8, Step 1 of the paper, reads
+   =turn-2026-09-30/act1/r2/P1A/census.tsv= and =turn-2026-09-30/act1/r2/P1B/census.tsv=.
+   Expect 47 in common, 46 the same, 29 at exit 0 in both.
+2. Show the harness can fail:
+   #+begin_src sh
+   python3 turn-2026-09-30/act1/r2/P1B/three_answers.py --prove-red --workdir ./ta-scratch; echo "exit=$?"
+   #+end_src
+   Expect a last line starting "prove-red PASS", then ~exit=0~.
+3. Run it on a check of your own: §8, Step 3 of the paper.
+
+* What it does not prove
+
+That the programs which call these checks survive a new exit code 77. The shop's own suite would read 77 as
+FAIL. Whether to move every check to 77 is the owner's call and has not been made. Nor that 77 is used only
+when there is nothing to check: one rebuilt check answered it on good records too.
+
+* Corrected after Act II
+
+The paper was drafted between the two acts. It now carries a short "Corrected" note at its head. The main
+change makes its point stronger: checks proven only by their authors' own plants overstate, and Act II found
+that six times over.
+
+* Licence and credit
+
+Prose: CC BY 4.0.
+
+/© 2026 Corwin Brust — this work is licensed CC BY 4.0; please retain attribution to Corwin Brust. Developed and tested with the help of Bryant Frankford and B.K. Graphics (bkgraphics.com), with thanks./
+/(The house credit line, carried verbatim from =operating-model-BASE.md= 1.0.51 L313-315.)/

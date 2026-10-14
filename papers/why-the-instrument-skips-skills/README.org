@@ -1,0 +1,26 @@
+#+TITLE: Why the instrument skips the garden's skills, and what would change it
+#+SUBTITLE: publication stage · papers · <H>:/pub/papers/why-the-instrument-skips-skills/
+#+AUTHOR: Corwin Brust (keeper) · written with Mentat · corwin@bru.st
+#+DATE: 2026-09-25
+
+* What this is
+
+Mentat's answer to Corwin's question of 2026-09-22 (why have a garden if C4 avoids skills?), with every number counted that evening, plus the Garden's reading of it and a design for making the garden reachable.
+
+* What travels
+
+- =PAPER-2026-09-22-why-the-instrument-skips-skills.md=
+- =READ-2026-09-22-the-garden-reads-the-skip.md=
+- =RAD-2026-09-22-making-the-garden-reachable.md=
+- =INDEX.md=
+- =RAD-2026-09-22-making-the-garden-reachable.S4-2026-09-27.md= (added 2026-09-27)
+- this README, and =COPYING=.
+
+* Checking it
+
+=.c4/PROVENANCE.tsv= names where each file came from and its hash when it was lifted; =pb1ck=
+re-hashes them and reads the item for anything of the machine it was made on.
+
+* Status
+
+License: CC BY 4.0, with an additional permission; see =COPYING=.

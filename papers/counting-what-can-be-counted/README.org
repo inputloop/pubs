@@ -1,0 +1,21 @@
+#+TITLE: Counting what can be counted: mathematics as curation in a volunteer skill garden
+#+SUBTITLE: publication stage · papers · <H>:/pub/papers/counting-what-can-be-counted/
+#+AUTHOR: Corwin Brust (keeper) · written with Mentat · corwin@bru.st
+#+DATE: 2026-09-26
+
+* What this is
+
+A C4 working paper (2026-09-26): eight places where a mathematical habit meets a social one in a
+volunteer skill garden, one measurement across 62 skills, a proposed double-entry practice for the
+writing owed at each build turn (CHANGES), and four names per skill. It ends with the drafter's voice
+journal, witnessed.
+
+* What travels
+
+- =PAPER-2026-09-26-counting-what-can-be-counted.md=
+- this README, and =COPYING=.
+
+* Status
+
+License: CC BY 4.0, with an additional permission; see =COPYING=.
+Quotes from private conversation: none. Any that are wanted wait on their speakers' permission.

@@ -1,0 +1,22 @@
+#+TITLE: Reading Nine Architecture Frameworks Through a Four-Point Lens
+#+SUBTITLE: publication stage · papers · <H>:/pub/papers/nine-frameworks-four-point-lens/
+#+AUTHOR: Corwin Brust (keeper) · written with Mentat · corwin@bru.st
+#+DATE: 2026-09-25
+
+* What this is
+
+Nine architecture frameworks read through a four-point lens, written for two named readers: a framework reviewer and DD-B, who catches any claim about how a machine behaves that is wrong or unsupported. Every reading is marked.
+
+* What travels
+
+- =PAPER-2026-08-29-lens-against-nine-frameworks.md=
+- this README, and =COPYING=.
+
+* Checking it
+
+=.c4/PROVENANCE.tsv= names where each file came from and its hash when it was lifted; =pb1ck=
+re-hashes them and reads the item for anything of the machine it was made on.
+
+* Status
+
+License: CC BY 4.0, with an additional permission; see =COPYING=.

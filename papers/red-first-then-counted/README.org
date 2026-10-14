@@ -1,0 +1,20 @@
+#+TITLE: Red first, then counted: prove-red, gauges, and two readers
+#+SUBTITLE: publication stage · papers · <H>:/pub/papers/red-first-then-counted/
+#+AUTHOR: Corwin Brust (keeper) · written with Mentat · corwin@bru.st
+#+DATE: 2026-09-26
+
+* What this is
+
+A C4 working paper (2026-09-26): checks that must be able to fail (prove-red) against gauges that
+refuse to give verdicts; how two independent readers strengthen both and why memory should keep their
+readings adjoined rather than merged; a ladder of forms from a sentence in memory to a literate recipe;
+and a failure from the day it was written.
+
+* What travels
+
+- =PAPER-2026-09-26-red-first-then-counted.md=
+- this README, and =COPYING=.
+
+* Status
+
+License: CC BY 4.0, with an additional permission; see =COPYING=.

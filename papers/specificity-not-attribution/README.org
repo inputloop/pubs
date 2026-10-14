@@ -1,0 +1,59 @@
+#+TITLE: Specificity, not attribution
+#+SUBTITLE: A blind rerun of claim C1 (DRAFT, unbranded)
+#+DATE: 2026-09-30
+
+* What this is
+
+A short paper on one question: when you write rules for an AI assistant, does it help to present them as a named
+author's own words? A kit made that claim (called C1). Its first test seemed to back it, but the named lines were
+also more specific than the plain ones they were compared with.
+
+This rerun split the two. Three sets of rules (named, the same rules with no name, and general ones) met the
+same five tasks. Two AI graders scored the fifteen answers blind.
+
+- The name added nothing: 0 of 5 tasks favoured it, 5 ties, under both graders.
+- Being specific helped: better on 4 of 5 tasks for one grader and 3 of 5 for the other, on behaviour.
+- Limits: both specific sets hit a perfect score (no room to show a gap); one AI wrote all the answers knowing
+  the hypothesis; only 5 tasks; all models from one vendor family.
+
+In practice: write rules concretely, in your project's own terms, and keep the author's name as a record of
+where a rule came from (provenance), not as its voice.
+
+* Corrected after Act II
+
+The paper was drafted between the two acts. Its findings on C1 stand. It now carries a short "Corrected" note
+at its head: who scored the first test, how many of the named lines are quotes, and that the checks are proven
+so far only by their author's own plants.
+
+* Status
+
+- DRAFT, unsigned. Landed on the reading shelf. *Not released and not branded.*
+- Edition 0.1 (working), written 2026-09-30 by the instrument (the AI assistant doing the work; here Claude) at
+  the ask of Corwin Brust.
+- It supersedes nothing. The first test's report stays unedited as the record.
+
+* Read it
+
+- [[file:PAPER-2026-09-30-specificity-not-attribution.md][PAPER-2026-09-30-specificity-not-attribution.md]] (3,115 words by the gauge; measured reading grade 4.3 as corrected, 4.3 as first drafted;
+  Flesch-Kincaid, with the tool's limits stated in the paper).
+
+* Check it yourself
+
+You need a POSIX shell, =awk=, =sha256sum= and =python3=. From the project home (the project's top folder):
+
+#+begin_src sh
+cd turn-2026-09-30/act1/r2/P6A
+sha256sum -c key.tsv.sha256                  # the sealed answer key
+(cd sealed && sha256sum -c PREREG.sha256)    # the sealed predictions and rule sets
+sh bin/blindcheck.sh check responses         # no set or author names in the answers
+sh bin/score3.sh --prove-red                 # the scorer can fail
+sh bin/score3.sh key.tsv ../../r4/S-doubt/scratch/p6/sonnet.csv
+sh bin/score3.sh key.tsv ../../r4/S-doubt/scratch/p6/haiku.csv
+#+end_src
+
+The paper's "How to check this yourself" section lists every file and what it holds.
+
+* Licence
+
+The paper is CC BY 4.0. The credit line at its foot applies; please keep it with any copy. It is the house
+credit line, carried verbatim from =operating-model-BASE.md= 1.0.51 L313-315.

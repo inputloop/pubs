@@ -1,0 +1,24 @@
+#+TITLE: Two Readers (v0.2)
+#+SUBTITLE: publication stage · papers · <H>:/pub/papers/two-readers/
+#+AUTHOR: Corwin Brust (keeper) · written with Mentat · corwin@bru.st
+#+DATE: 2026-09-27
+
+* What this is
+
+Dissertation 2, revised after its first independent test: a persona changes the reasons an answer gives, not the decision, so rerun before you read a difference.
+
+* What travels
+
+- =DISS-2026-09-27-two-readers-v0.2.md=
+- =EXPERIMENT-2026-09-27-doubled-nine.md=
+- =REVIEW-2026-09-27-two-readers-second-reader.md=
+- this README, and =COPYING=.
+
+* Checking it
+
+=.c4/PROVENANCE.tsv= names where each file came from and its hash when it was lifted; =pb1ck=
+re-hashes them and reads the item for anything of the machine it was made on.
+
+* Status
+
+Pre-branding: see =COPYING=.

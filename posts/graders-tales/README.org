@@ -1,0 +1,33 @@
+#+TITLE: Grader's Tales
+#+SUBTITLE: publication stage · posts · <H>:/pub/posts/graders-tales/
+#+AUTHOR: Corwin Brust (keeper) · written with Mentat · corwin@bru.st
+#+DATE: 2026-09-25
+
+* What this is
+
+The instrument's own narrative log, six entries from 2026-07-12 to 2026-09-16. They explain the method from inside the bench, for readers who will never open the ledgers: future collaborators, blog readers, an unfriendly friend. Written pub-safe: the method travels, the cases don't. Putting any of it on the blog is the keeper's call.
+
+* What travels
+
+- =2026-07-12-graders-tales-001.md=
+- =2026-09-06-graders-tales-002.md=
+- =2026-09-06-graders-tales-003.md=
+- =2026-09-13-graders-tales-004.md=
+- =2026-09-13-graders-tales-005.md=
+- =2026-09-16-graders-tales-006.md=
+- =2026-09-26-graders-tales-007.md= (added 2026-10-14)
+- =2026-10-05-graders-tales-008.md= (added 2026-10-14)
+- =2026-10-08-graders-tales-009.md= (added 2026-10-14)
+- this README, and =COPYING=.
+
+* Checking it
+
+=.c4/PROVENANCE.tsv= names where each file came from and its hash when it was lifted; =pb1ck=
+re-hashes them and reads the item for anything of the machine it was made on.
+
+* Status
+
+The copies here write the machine paths their masters name in placeholder form (=<F>:\...=, =<f>:/...=,
+=<home>=, =<mnt>/=); the masters keep them, and =.c4/PROVENANCE.tsv= says so.
+
+License: CC BY 4.0, with an additional permission; see =COPYING=.
