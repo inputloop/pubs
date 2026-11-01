@@ -1,9 +1,9 @@
-# Privacy Policy -- vibrobeast 1.1.50
+# Privacy Policy -- vibrobeast 1.2.88
 
-*Minted 2026-10-14 by `bin/tp2mt` for this build and no other. Every sentence about what the servers
+*Minted 2026-11-01 by `bin/tp2mt` for this build and no other. Every sentence about what the servers
 do was checked against their source when this was minted:*
 
-- no server but llamabridge, tavernface and gwstatus opens a network connection: none imports a network library
+- no server but llamabridge, tavernface and gwstatus opens a network connection: none imports a network library (urllib.parse, which only reads a URL's text, is not one)
 - no server but llamabridge, tavernface and gwstatus makes a socket; socket is used only to read this machine's name
 - llamabridge (Llama Bridge) is off until you set llamabridge.on, or LLAMABRIDGE_ON=1; while off it answers one tool and sends nothing
 - when on, llamabridge sends the prompts Claude delegates to the Ollama server at OLLAMA_HOST (default http://127.0.0.1:11434, this computer)
@@ -12,6 +12,15 @@ do was checked against their source when this was minted:*
 - when on, tavernface runs only Tavern's own MCP mode (tavern.py mcp), not a Tavern node
 - in MCP mode Tavern talks only to the Tavern node already running on this computer (127.0.0.1); that node, which you run yourself, copies what is posted to every member of your tavern
 - c4face (C4's own server) is off until you set c4.on, or C4_ON=1; while off it answers one tool and runs nothing
+- one broad setting, doors.profile, is read before every door: closed shuts every door whatever the environment, your rows or a default say; local shuts each door that would reach another machine; door_list shows every door, that setting first, with what it reaches, who decided, and where our control ends
+- defaults come in layers: this plugin's own, then a build's (defaults.tsv beside prefs.py), then a runner's (the file VIBROBEAST_DEFAULTS names); a build's default file can open a door, as the environment can, and door_list names the file that did; a runner's file may only shut one, and names no folder to load from; your own setting beats every one of them, doors.profile closed or local beats them all, and none of them can set a keeper-only key or a code pin
+- with llamabridge.keep_prompts off (the default) Llama Bridge's log keeps times, models and sizes but not the words of what Claude delegates or what comes back, and its answer cache is off; an async job's answer is kept in the log's jobs table, since delegate_result reads it from there, and is not cleared by the plugin; rows written before are left as they were, and door_list counts them
+- an ollama_host row stored in Llama Bridge's own database, now or written later, is not used unless you set llamabridge.stored_host to use; door_list shows the row and where it points
+- the plugin sets those two switches in Llama Bridge from your doors at every start (llamabridge.keep_prompts, llamabridge.stored_host); Llama Bridge's own defaults ask first too (1.4.0-vb.2: KEEP_PROMPTS False, STORED_HOST ask)
+- a file named by VIBROBEAST_DEFAULTS (whoever runs the plugin) may only shut a door: a row there that would open one, or name a folder to load skills, sheets or words from, is refused and door_list says so
+- the desktop extension starts each of its servers with a floor of this computer's environment plus the plugin's own settings names, with anything shaped like a secret taken out; the password, API token and ssh key from the settings page go only to the memory server and the ghostwheel status server
+- the Tavern you run yourself listens for other members on every network address of its computer by its own default (its config.json bind); the plugin never starts that listener, cannot change it, and says the address in tavern_status
+- a Tavern resident agent that you give an Anthropic API key calls api.anthropic.com from the Tavern you run; the plugin's Tavern face makes no such call
 - when on, c4face runs C4's own server (mcp/c4-mcp.js in your own C4 folder, with node) only after checking, at every start, that it and the files it loads ask for no module but readline and path, and reach no process, file or network power another way it can read; if one does, it starts nothing and says which. This check is a tripwire for an honest change, not a fence: no reading of JavaScript can be sure, which is why c4face is off until you ask
 - c4face writes no file; the guard above refuses to start a C4 server that asks for the file module
 - gwstatus (the ghostwheel status icon) is off until you set gw.on, or GW_ON=1 (the extension's Ghostwheel status door); while off it answers one tool and sends nothing
@@ -24,9 +33,27 @@ do was checked against their source when this was minted:*
 - the key register is kept in ~/.mentcached/keys.tsv (VIBROBEAST_KEYS_FILE moves it); it names where each key lives, never a key
 - a register row that holds a key itself, rather than naming where it lives, is refused
 - the key tools say a key is set or not set, never its value
-- key_run starts nothing on its first call: it returns a confirmation naming the key, the program and the folder, with your usage constraints, and runs only when called again with that confirmation's code
+- key_run starts nothing on its first call: it returns a confirmation naming the key, the program and the folder, with your usage constraints, and runs only when called again with that confirmation's code, good for one run within 15 minutes -- or under a standing yes you wrote yourself (keys.standing)
+- a git push through key_run is decided by the push door, never by a code: it goes only when two readings of your frame (fr1me egress) both say GO, and is refused otherwise
+- to learn whether a place is public, the push door runs git ls-remote with no sign-in, as a stranger would; every decision it makes is a line in ~/.mentcached/push-yes.log, with no key in it
+- a standing yes (keys.standing) covers one key, one program and one host, changes only on your own turn, never covers a run with an option, and lets scp only push to that host; every run under it says so in its result
+- keys.standing is read only from a row written on the keeper's own turn
+- the keeper is named by your Keeper field, else this computer's account name, else the default -- never by the turn that wrote a row, so no row can make its own writer the keeper
 - key_run starts only the programs a key allows (by default gh, git, glab, ssh, scp, npm or twine, as the key's service needs)
-- key_run's output has the key's value replaced by [key NAME] before Claude sees it
+- key_run's output has the key's value replaced by [key NAME] before Claude sees it, in each way a program may spell it (slashes turned, backslashes doubled)
+- when key_run hands a second key to a program (gh secret set), it goes to the program's input as bytes, never its arguments, and the confirmation names it with its own usage constraints
+- the program key_run starts sees a floor of this computer's environment (PATH, your home, locale, temp folders, proxies and the Windows system names) plus the one key you bound, and no other key, token or password the plugin holds (the 2026-10-19 audit's item 1, closed 2026-10-26)
+- key_run runs a program by its bare name as PATH finds it, never a path typed into the call, so a file named ssh in some folder cannot pass as ssh (audit item 2, closed 2026-10-26)
+- a door switch (tavern.on, gw.on, c4.on, llamabridge.on), a keeper-only row (keys.standing, people.named) and the roots skills and personas are read from change only after you see the row and confirm it with a one-use code: the turn a call names is the record of who asked, never the yes (audit item 3, closed 2026-10-26)
+- a Docker token goes to docker login on its input (--password-stdin), never as -p
+- a DreamHost key goes to curl in a config on its input (-K -), never in its arguments or a logged URL
+- git started with the ssh key is told its ssh is OpenSSH, whatever ssh.variant a gitconfig names
+- the working mode is workshop unless your settings page says lab
+- chat cannot change the working mode unless your settings page allows it; when it does, only your own turn may, for at most 17 hours, and the default you set is never changed from chat
+- every change to the working mode, and the settings page as the server last saw it, is a row in ~/.mentcached/mode.tsv (MENTCACHED_MODE_LOG moves it)
+- when your group's ORG.md (named on the settings page) says chat must not switch the working mode, chat cannot switch it, whatever the settings page allows, and you are told the group's own sentence
+- a standing yes your group's ORG.md says must not to (the settings page's file, or the nearest ORG.md in the run's own repository) asks for a confirmation instead, and you are told the group's own sentence
+- a group's ORG.md is only read: it can narrow those two things and never loosens anything or writes a file
 - the seat defaults to ~/.mentcached/seat (MENTCACHED_SEAT moves it)
 - preferences are kept in ~/.mentcached/prefs.tsv (MENTCACHED_PREFS moves it)
 - timings are kept in ~/.mentcached/stats/spans.tsv (MENTCACHED_STATS moves it)
@@ -35,18 +62,23 @@ do was checked against their source when this was minted:*
 - the usage record is off by default: nothing is written to it, and no file is made, until you set usage.capture on
 - while usage.capture is off every writer of the usage record writes nothing and says so
 - word_register writes one small file per word and leaf, <words root>/g/<word>/<leaf>, and never overwrites one (the words.root preference or C4_ROOT names the root)
+- epmo reads the capability lens in your C4 tree (r/epmo, or the folder EPMO_DIR names) and writes no file
 - journal lines record this machine's name, the time, and who wrote them
 - the persona server never opens a file whose name says SECRET
 - skillx exchanges nothing: every tool refuses and says what is missing
+- the extension's author, on its settings page, is Corwin and Bryant (BryantAndCorwin@inputloop.com)
 
 ## What leaves your computer
 
 Nothing, by the plugin's own doing, unless you turn on llamabridge, tavernface or gwstatus (Llama Bridge,
 Tavern and the ghostwheel status icon; Llama Bridge and Tavern began in Bryant Frankford's workshop). With llamabridge on, the prompts Claude delegates go
 to the Ollama server at OLLAMA_HOST: by default on this computer (127.0.0.1:11434); point it at another
-machine and they go there. With tavernface on, what Claude posts goes to the Tavern node you run on this
+machine and they go there (with doors.profile set to local, the plugin will not). A host stored in Llama
+Bridge's own database is shown to you, and not used, until you say use. With tavernface on, what Claude posts goes to the Tavern node you run on this
 computer, and that node copies it to every member of your tavern: everything said there, DMs included,
-is visible to every member. c4face is off until you turn it on; then it starts C4's own server from
+is visible to every member. That node is Bryant Frankford's program, which you start yourself; by its own
+default it listens on every network address of your computer, and a resident agent you give an Anthropic
+key calls api.anthropic.com. The plugin starts neither and cannot change them; tavern_status says the address. c4face is off until you turn it on; then it starts C4's own server from
 your C4 folder only when that program and the files it loads pass its check (a tripwire, not a fence)
 for network, process and file modules, and it reads and writes nothing itself. With gwstatus on,
 it connects only to the hosts you list, by ssh, munin-node or http(s), to ask how they are; it asks you
@@ -55,7 +87,9 @@ authorization it sends your user name and password to that host and nowhere else
 server's key_run is a door of another kind: it opens no connection itself, but on your yes to a
 confirmation that names the key, the program and the folder and reads your usage constraints back,
 it starts that one program (gh, git, ssh and the like) with the key bound, and the program goes
-where you sent it. The other servers make no network connections. What Claude itself sends
+where you sent it. A standing yes you write yourself (keys.standing: one key, one program, one host)
+lets such a run go without asking each time; it never covers a run with an option, scp under it
+only pushes, and each run under it says so in its result. The other servers make no network connections. What Claude itself sends
 to Anthropic when it calls a tool -- the tool's answer, as part of the conversation -- is governed by
 Anthropic's own terms and privacy policy, not by this one.
 
@@ -71,7 +105,7 @@ Anthropic's own terms and privacy policy, not by this one.
 | words | `<words root>/g/<word>/<leaf>` -- the C4 tree when one is found | `words.root` preference, `C4_ROOT` | one file per word you registered (`word_register`): its neighbour, meaning, date and who |
 | usage record (the frame) | `~/.mentcached/stats/fr`, column names in `~/.mentcached/stats/d/fr` | `MENTCACHED_FRAME` | only while `usage.capture` is on (off by default). Two counts only, each with a date: the token count when a span starts, and the count after each prompt. While it is on, the record also mirrors each preference you set (key and value) and each question logged with `question_log` (the question's words). FRAME.md, in the plugin, says each column in words |
 | key register | `~/.mentcached/keys.tsv` | `VIBROBEAST_KEYS_FILE` | the keys you keep, by name: kind, where each lives (never the key), what it is for, the programs it may start, and your usage constraints |
-| llamabridge log | `~/.mentcached/llama-bridge.db` | (none) | when llamabridge is on: each delegation, its model, timing and result |
+| llamabridge log | `~/.mentcached/llama-bridge.db` | (none) | when llamabridge is on: each delegation's time, model and sizes; the words of prompts and answers only while `llamabridge.keep_prompts` is on (off by default); each async job's answer, which delegate_result reads from there (not cleared by the plugin) |
 
 Each journal line records the machine's name, the time, and who wrote it. That is how "who said what"
 is answered: by the record, not by marks in the text.

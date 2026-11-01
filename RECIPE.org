@@ -1,7 +1,7 @@
 #+TITLE: Pack, unpack, leak check — the recipe for the pub surface
 #+SUBTITLE: <H>:/pub/ · how material gets in, how a release gets out, what is checked first
 #+AUTHOR: Corwin (savannah: carlc · corwin@bru.st)
-#+DATE: 2026-09-11 (WRITING added 2026-09-27)
+#+DATE: 2026-09-11 (WRITING added 2026-09-27; PUBS and the software kind added 2026-11-01)
 #+OPTIONS: toc:2 num:t
 
 * What this is
@@ -39,14 +39,15 @@ His word, 2026-09-25: finished publications "can be organized by kind such as to
 one folder per KIND, and each kind holds its items; everything the =.seed= says about an =<item>/=
 now holds one level down, at =<kind>/<item>/=:
 
-| kind       | what goes there                                     | items (2026-09-25)       |
+| kind       | what goes there                                     | items (2026-11-01)       |
 |------------+-----------------------------------------------------+--------------------------|
 | =books/=   | book-shaped work: a book, an omnibus, a game book   | the four game books      |
-| =papers/=  | a research paper or thesis walked up to by a comrade | =motive-inversion=, =users-pick-ceremonies= |
+| =papers/=  | a research paper or thesis walked up to by a comrade | 41 items, e.g. =motive-inversion=, =users-pick-ceremonies= |
 | =sites/=   | a web site's publishable tree                       | =beyondconventions.com=  |
 | =persona/= | persona sheets, which ship separately (see PERSONA)  | twelve sheets            |
-| =posts/=   | a series of short pieces for a blog (=bin/pb2pk=)    | =graders-tales=          |
+| =posts/=   | a series of short pieces for a blog (=bin/pb2pk=)    | =graders-tales=, =open-shelf= |
 | =canon/=   | the keeper's signed values text, seal carried with it | =principles= (2026-09-29) |
+| =software/= | a signed release of a tool, archive and =.asc= side by side | =seams= (2026-11-01)     |
 
 A new kind is a new folder here and a new row above; nothing else changes. A roll-up archive
 of one kind is =<kind>/= packed whole, and each item in it still unpacks alone (the
@@ -108,10 +109,13 @@ The writing of 2026-09-27 and after, where each lab piece lands:
 | =c4/writing/analytics-for-build/= (essay, 2026-09-28) | =papers/count-the-build/=        |
 | =c4/writing/kiosk-legs/= (PAPER v0.2, LENS, PREREG, METHOD; reviews as sources, 2026-10-14) | =papers/personas-with-controls/= |
 | =c4/h/LENS-2026-10-11-ccspt-what-was-asked.md= | =papers/ccspt-what-was-asked/= |
-| =c4/spells/extension/runs/2026-10-10/warmup/= (PAPER, LENS) | =papers/extension-what-is-proven/= (NOT CLEAN: two IPv4 addresses, PAPER l.244) |
+| =c4/spells/extension/runs/2026-10-10/warmup/= (PAPER, LENS) | =papers/extension-what-is-proven/= (NOT CLEAN: two IPv4 addresses, PAPER l.244; it reached the public copy on 2026-10-14 anyway, before PUBS had a hold list) |
 | =c4/h/LENS-2026-09-29-acknowledgements-lane.md= | =papers/acknowledgements-lane/= |
 | =c4/h/LENS-2026-09-29-ingest-two-firings.md= | =papers/ingest-two-firings/= |
 | =c4/writing/door-images/= legs-check.sh, boot-receipt.sh, receipts (2026-10-13) | =papers/guix-and-arch-as-doors/= (added) |
+
+This table names the lab home where one is known. It is not the whole list: the =papers/= folder is
+(41 items on 2026-11-01), and each item's =.c4/PROVENANCE.tsv= names where its files came from.
 
 Held back, with the bound that fences each: =c4/h/GUIDE-…APPENDIX-2026-09-27.md= (the guide it
 completes is not on this shelf; it lands with the guide). =writing/ai-diligence-sysops/REPASS-…=
@@ -354,6 +358,68 @@ stays legible here so a race is a story, never a silent loss.
 Practically: nothing runs on a timer here. Right before you change a lifted copy, pull it
 current and re-hash its row. Between mutations, drift may exist and must stay legible.
 
+* PUBS — the public copy of this shelf (=inputloop/pubs=, 2026-11-01)
+
+This shelf is not the internet (WRITING, above). Its public copy is the repository =inputloop/pubs= on
+GitHub, kept in the lab tree at =projects/pub= (both spellings meant: =pubs= is the collection as it
+travels, =pub= the shelf where it lands). The repository has two remotes: =origin= (GitHub) and the
+keeper's own forge. It carries no history of its own beyond refreshes.
+
+** What travels to it, and what does not
+
+Everything on this shelf, except:
+- =sites/= (a site's tree, published as its own site, and too big for a repository);
+- every =.c4/= folder (the working sets, provenance rows, leak lists and this list below);
+- every path named in =.c4/pubs-hold=: one shelf-relative path per line, a TAB, and the bound that
+  holds it (the same rule as CREDITS AND HOLDS: a hold names its bound and what would release it).
+  The list lives in =.c4/=, so the names of held items never travel either.
+
+An item that reads NOT CLEAN goes in =.c4/pubs-hold= until it reads CLEAN. So does an item that is
+landed here for the keeper to read but is not his to publish yet (a draft for his pen, a piece about
+an entrusted system, a piece that names someone else's affairs).
+
+** The one tool: =refresh.sh= in the repository
+
+#+begin_src sh
+cd projects/pub                  # SHELF below is this shelf's folder, <H>:/pub/ in its own spelling
+sh refresh.sh --dry SHELF        # what would be added, changed, removed; writes nothing
+sh refresh.sh SHELF              # make the tree a copy of the shelf's travelling files
+python3 tests/refresh_test.py    # its promises, checked from a second language (--prove-red too)
+git status --short
+#+end_src
+
+=refresh.sh= copies the travelling files and then removes any file in the repository that the shelf no
+longer carries, so a withdrawn or newly held item does not stay public. It never touches the
+repository's own files: =REPO.md=, =refresh.sh=, =COPYING= (a tombstone), =tests/=, =.github/=.
+(Before 2026-11-01 it only ever added: it had no hold list and removed nothing.)
+
+** Steps, from nothing
+
+1. *Land first.* Every piece arrives here by PACK (=pb2pk=, =pb2ld=, =pb2ps=) and its =pb1ck= verdict.
+2. *Decide holds.* Add a line to =.c4/pubs-hold= for anything that must not go out yet, with its bound.
+3. *Clone or update the repository* (=git clone git@github.com:inputloop/pubs.git pub=), then run
+   =refresh.sh --dry=, read it, and run =refresh.sh=.
+4. *Verify the seals in the copy*: =gpg --verify= on every =.asc= and every clearsigned file. A signed
+   file that fails here was changed by something; stop.
+5. *Commit* authored as =Corwin Brust <corwin@bru.st>=. The message's last line says who did the work
+   for him, as the shop's other commits do; no tool or vendor trailers.
+6. *Push* through the push door (two readings of the frame must both say GO), to =origin= and then to the
+   keeper's forge.
+
+A cold rebuild is the same steps from an empty clone: after =refresh.sh=, =git status= should show
+nothing but what the shelf changed since the last refresh.
+
+** The other shelf: =<F>:/claude/pub=, the open shelf
+
+The keeper's first public shelf (July 2026) is a separate folder with its own signed sign-post (=.gate=)
+and README. Its sign-post clears its pieces for named readers, and for the open internet "when the
+keeper says wide"; its vouch map treats an unsigned piece as failing, fail-closed. =refresh.sh= does not
+read it. A piece crosses from there to the public copy only by being landed on this shelf (=pb2pk=,
+without =--scrub= for a signed piece, its =.asc= beside it), after the keeper's word, and only if it is
+signed and reads CLEAN. On 2026-11-01, at his word, three such landings were made: =posts/open-shelf=
+(seven signed essays and the key), =software/seams= (a signed release), and the tenth Grader's Tale,
+added to =posts/graders-tales= with the series it continues.
+
 * LEAK CHECK — what is looked for, and the one line to run
 
 #+begin_src sh
@@ -424,6 +490,12 @@ The report echoes matches, so the report is local. Do not put it in the item.
 - *A piece of writing was reported written but never landed.* Check: every work named in a hand-back
   since 2026-09-27 has an item under =papers/= (or a stated hold in the WRITING section) whose
   PROVENANCE row re-hashes MATCH against the lab copy.
+- *A held item reached the public copy.* Check: every path in =.c4/pubs-hold= is absent from the
+  repository after a refresh (=ls= it in the clone).
+- *A withdrawn item stayed public.* Check: =sh refresh.sh --dry= on a current clone lists nothing under
+  "remove" that the shelf still means to withdraw; =tests/refresh_test.py --prove-red= shows the removal
+  check can fail.
+- *A seal broke on the way out.* Check: =gpg --verify= on every signed file in the clone.
 - *Off-switch.* Say "no leak check on this item", or delete =bin/pb1ck=. Nothing here blocks,
   and nothing else is wired to it.
 

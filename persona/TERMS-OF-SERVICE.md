@@ -1,6 +1,6 @@
-# Terms of Service -- vibrobeast 1.1.50
+# Terms of Service -- vibrobeast 1.2.88
 
-*Minted 2026-10-14 by `bin/tp2mt` for this build and no other. The next build mints its own.*
+*Minted 2026-11-01 by `bin/tp2mt` for this build and no other. The next build mints its own.*
 
 ## Who made this
 

@@ -1,0 +1,23 @@
+#+TITLE: seams 1.0, the skill as shipped 2026-07-12
+#+SUBTITLE: publication stage · software · <H>:/pub/software/seams/
+#+AUTHOR: Corwin Brust (keeper) · written with Mentat · corwin@bru.st
+#+DATE: 2026-11-01
+
+* What this is
+
+The seams skill as it shipped on 2026-07-12: the tarball and its detached signature by Corwin Brust (verify with gpg --verify seams-1.0.tar.gz.asc seams-1.0.tar.gz). Carried byte for byte from the open shelf.
+
+* What travels
+
+- =seams-1.0.tar.gz=
+- =seams-1.0.tar.gz.asc=
+- this README, and =COPYING=.
+
+* Checking it
+
+=.c4/PROVENANCE.tsv= names where each file came from and its hash when it was lifted; =pb1ck=
+re-hashes them and reads the item for anything of the machine it was made on.
+
+* Status
+
+Pre-branding: see =COPYING=.

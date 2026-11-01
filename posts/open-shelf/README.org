@@ -1,0 +1,38 @@
+#+TITLE: The open shelf: seven essays the keeper signed
+#+SUBTITLE: publication stage · posts · <H>:/pub/posts/open-shelf/
+#+AUTHOR: Corwin Brust (keeper) · written with Mentat · corwin@bru.st
+#+DATE: 2026-11-01
+
+* What this is
+
+Seven short essays from the open shelf, each clearsigned inline by Corwin Brust (key ECE7 7CF4 17C7 6C1A CFCE 7C2B 5B61 3551 1580 F007, beside them as corwin.asc). They are carried byte for byte: verify each with gpg --verify FILE.
+
+* What travels
+
+- =2026-08-03-the-borrowed-lamp-and-the-known-universe.md=
+- =2026-08-06-in-fine-company.md=
+- =2026-08-16-the-pen-and-the-pages.md=
+- =2026-08-24-the-lead-and-the-ledger.md=
+- =2026-09-05-the-tool-that-was-there.md=
+- =2026-09-24-the-worked-example.md=
+- =2026-10-17-the-thing-that-drives-a-day.md=
+- =corwin.asc=
+- this README, and =COPYING=.
+
+* Checking it
+
+=.c4/PROVENANCE.tsv= names where each file came from and its hash when it was lifted; =pb1ck=
+re-hashes them and reads the item for anything of the machine it was made on.
+
+* Where they come from
+
+The open shelf is the keeper's first public shelf (July 2026). Its sign-post cleared its pieces for
+named readers first and "open internet when the keeper says wide"; his word for this move was given
+on 2026-11-01. Only pieces he had signed, and that name no one outside the shop and no machine path,
+came across. Some still carry the words "DRAFT" or "unsigned" from the day they were written: he
+signed them afterwards as they stood, so the signature, not the label, says what each one is.
+
+* Status
+
+Pre-branding: see =COPYING=. The open shelf declared CC BY 4.0 for its pieces; the keeper brands
+this item when he chooses.
