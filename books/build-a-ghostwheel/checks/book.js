@@ -3,8 +3,8 @@
 // Copyright 2026 Corwin Brust; GPL-3.0-or-later
 //
 //   node checks/book.js read book.html     every reading promise below; exit 1 if any fails
-//   node checks/book.js read book.html P   only promise P (facing, title, keys, map, lost,
-//                                          motion, narrow, figures, fit)
+//   node checks/book.js read book.html P   only promise P (facing, title, keys, map, forget,
+//                                          lost, motion, narrow, figures, fit)
 //
 // The promises, from Corwin's tuning (2026-11-03 17:48):
 //   facing   the first opening is the title page with the dedication facing it; after that,
@@ -18,6 +18,8 @@
 //   narrow   a narrow screen shows one page at a time
 //   figures  no word on a picture page sits on Spoke, Pin or Chad, or off its page
 //   fit      every fuller page holds its words without scrolling, on a wide screen
+//   forget   opening the map stores nothing; a picked view is stored; Forget my settings removes
+//            every gwbook. key and says so; #privacy opens the map at the note (2026-11-04)
 'use strict';
 const { chromium } = require('playwright');
 const path = require('path');
@@ -127,6 +129,35 @@ async function map(browser) {
   await ctx.close();
 }
 
+// forget: the privacy note's promises (Corwin, 2026-11-04: "keep on-device remembering, and say so
+// ... with a one-press 'forget my settings'"). Opening the map stores nothing; picking a view stores
+// it; Forget my settings removes every key the book wrote and says so; #privacy opens the map at the note.
+async function forget(browser) {
+  const { ctx, page } = await open(browser);
+  const keys = () => page.evaluate(() => { const k = []; for (let i = 0; i < localStorage.length; i++) k.push(localStorage.key(i)); return k.filter((x) => x.indexOf('gwbook.') === 0); });
+  await page.keyboard.press('m');
+  const afterOpen = await keys();
+  if (afterOpen.length) fail.push('forget: opening the map stored ' + afterOpen.join(', ') + ' before any view was picked');
+  await page.click('#mapwin .looks button[data-look="tiles"]');
+  const stored = await page.evaluate(() => localStorage.getItem('gwbook.look'));
+  if (stored !== 'tiles') fail.push(`forget: picking Tiles stored "${stored}", not "tiles"`);
+  await page.click('#forget');
+  const left = await keys();
+  const said = (await page.textContent('#forgot')).trim();
+  if (left.length) fail.push('forget: Forget my settings left ' + left.join(', '));
+  if (!/forgotten/i.test(said)) fail.push(`forget: Forget my settings did not say so (it said "${said}")`);
+  await ctx.close();
+  const c2 = await browser.newContext({ viewport: { width: 1600, height: 900 } });
+  const p2 = await c2.newPage();
+  await p2.goto(url + '#privacy', { waitUntil: 'load' });
+  await p2.waitForFunction(() => window.book && typeof window.book.go === 'function');
+  const at = await p2.evaluate(() => ({ open: !document.getElementById('mapwin').hidden, focus: document.activeElement && document.activeElement.id }));
+  if (!at.open || at.focus !== 'privacy') fail.push(`forget: #privacy left the map ${at.open ? 'open' : 'shut'} with focus on "${at.focus}"`);
+  say(`forget: opening the map stored ${afterOpen.length ? afterOpen.join(', ') : 'nothing'}; picking Tiles stored gwbook.look = ${stored}; ` +
+      `Forget left ${left.length ? left.join(', ') : 'nothing'} and said "${said}"; #privacy opens the map at the note ${at.open && at.focus === 'privacy' ? 'yes' : 'NO'}`);
+  await c2.close();
+}
+
 async function lost(browser) {
   const { ctx, page } = await open(browser);
   await page.keyboard.press('ArrowRight'); await page.keyboard.press('ArrowRight');
@@ -214,8 +245,8 @@ async function fit(browser) {
   if (mode !== 'read') { console.error('usage: book.js read FILE [PROMISE]'); process.exit(2); }
   const browser = await chromium.launch();
   try {
-    for (const [name, fn] of [['facing', facing], ['title', title], ['keys', keys], ['map', map], ['lost', lost],
-      ['motion', motion], ['narrow', narrow], ['figures', figures], ['fit', fit]]) if (want(name)) await fn(browser);
+    for (const [name, fn] of [['facing', facing], ['title', title], ['keys', keys], ['map', map], ['forget', forget],
+      ['lost', lost], ['motion', motion], ['narrow', narrow], ['figures', figures], ['fit', fit]]) if (want(name)) await fn(browser);
   } catch (e) { fail.push('the check itself failed: ' + String(e).slice(0, 200)); }
   await browser.close();
   fail.forEach((m) => say('FAIL ' + m));

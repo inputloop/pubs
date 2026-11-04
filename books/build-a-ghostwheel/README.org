@@ -27,8 +27,9 @@ Corwin, 2026-11-04: "I like the book very much to should make an excellent ghost
   their voices, recordings and videos are not part of this publication.
 - =sources/= -- the C4 files the witness rows cite, byte for byte at their C4 paths, with
   =sources/INDEX.org=: each file, the rows that cite it, the hash the book recorded and the hash today.
-- =site/= -- the source of https://ghostlights.theater/ as it is deployed: =public/= and =deploy/=
-  (the nginx configuration and =install.sh=).
+- =site/= -- the source of https://ghostlights.theater/: =public/= and =deploy/= (the nginx
+  configuration and =install.sh=), as deployed on 2026-11-04 plus that day's privacy lines (a footer
+  line on the front page, and the note in the book), which are not deployed yet.
 - =README.md= (the pipeline's own manual), =WRITERS.md=, =COLOPHON.md= (voices, datasets, licences,
   tools), =RECIPE.org= (how to pluck it and build it), this README, and =COPYING=.
 
@@ -43,12 +44,13 @@ sh run -p book.pipeline
 
 * Checking it
 
-=sh checks/run.sh= checks seven promises: the word limits, goodnight's inventory, that =book.html=
-is what the tools make from =src/= (=current=), that the site carries this book (=site=), that the
+=sh checks/run.sh= checks eight promises: the word limits, goodnight's inventory, that =book.html=
+is what the tools make from =src/= (=current=), that its privacy note names exactly what it stores
+(=privacy=), that the site carries this book and stores nothing itself (=site=), that the
 cited C4 files are here byte for byte and the index tells the truth (=sources=), and, in a browser,
-that the book loads nothing from elsewhere and reads as a book should (=bookoffline=, =bookread=).
-=sh checks/run.sh --prove-red= plants 22 faults and requires each to turn its check red. On
-2026-11-04: CHECKS GREEN (7 of 7), PROVE-RED OK (22 of 22).
+that the book loads nothing from elsewhere and reads as a book should, Forget my settings included
+(=bookoffline=, =bookread=). =sh checks/run.sh --prove-red= plants 29 faults and requires each to turn
+its check red. On 2026-11-04: CHECKS GREEN (8 of 8), PROVE-RED OK (29 of 29).
 
 * Why its sources travel
 
@@ -67,4 +69,7 @@ and why each was held.
 - Pre-branding: see =COPYING=. The book's own files carry their terms: words and pictures
   CC-BY-SA-4.0, code GPL-3.0-or-later (=COLOPHON.md=); the site's deploy files say
   GPL-3.0-or-later OR LGPL-3.0-or-later.
+- What it stores: one key in the reader's browser, =gwbook.look= (the map view last picked), named in
+  the note under the map with a Forget my settings button. Nothing is sent anywhere; the house page
+  stores nothing (Corwin, 2026-11-04: "Keep it, disclose it").
 - Credit: Copyright 2026 Corwin Brust. Written and drawn by Mentat (for Corwin, claude-opus-5-5).

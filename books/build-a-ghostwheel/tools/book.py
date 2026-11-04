@@ -485,6 +485,8 @@ box-shadow:0 1.5rem 4rem rgba(0,0,0,.45);display:flex;flex-direction:column;padd
 .mapwin .look{width:100%;height:100%;display:flex;align-items:center;justify-content:center}.mapwin .look[hidden]{display:none}
 .mapwin .mapsvg{width:100%;height:100%}
 .mapwin .legend{font-family:var(--serif);font-size:.95rem;color:var(--ink2);margin:0}
+.mapwin .privacy{font-size:.85rem;color:var(--ink2);margin:.5rem 0 0}.mapwin .privacy code{font-size:.85em}
+.mapwin .privacy button{font:inherit;border:1px solid var(--ink2);background:transparent;border-radius:999px;padding:.1rem .7rem;cursor:pointer;color:var(--ink)}
 .board{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;width:100%;height:100%;overflow:auto}
 .board h3{font:italic 1.1rem var(--serif);margin:0 0 .5rem}.board ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(11rem,1fr));gap:.6rem}
 .card{display:flex;flex-direction:column;gap:.15rem;text-decoration:none;color:var(--ink);background:#fffdf8;border:2px solid #cdbb98;border-radius:.6rem;padding:.55rem .7rem;min-height:4.6rem}
@@ -620,11 +622,11 @@ JS = r"""
       if (c.getAttribute('data-room') === room) c.setAttribute('aria-current', 'page'); else c.removeAttribute('aria-current');
     });
   }
-  function setLook(l) {
+  function setLook(l, pick) {
     look = l;
     [].slice.call(mapW.querySelectorAll('.looks button')).forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-look') === l)); });
     [].slice.call(mapW.querySelectorAll('.look')).forEach(function (s) { s.hidden = !s.classList.contains('look-' + l); });
-    try { localStorage.setItem('gwbook.look', l); } catch (e) { /* fine */ }
+    if (pick) try { localStorage.setItem('gwbook.look', l); } catch (e) { /* fine */ }
   }
   function openMap(from) {
     nudge.hidden = true; closeNotes();
@@ -664,7 +666,7 @@ JS = r"""
   document.getElementById('nudge-yes').addEventListener('click', function () { openMap(mapB); });
   document.getElementById('nudge-no').addEventListener('click', function () { nudge.hidden = true; });
   [].slice.call(mapW.querySelectorAll('.looks button')).forEach(function (b) {
-    b.addEventListener('click', function () { setLook(b.getAttribute('data-look')); });
+    b.addEventListener('click', function () { setLook(b.getAttribute('data-look'), true); });
   });
 
   document.addEventListener('click', function (e) {
@@ -700,11 +702,28 @@ JS = r"""
   var rs = 0;
   window.addEventListener('resize', function () { clearTimeout(rs); rs = setTimeout(function () { shown().forEach(function (k) { if (pages[k]) fit(pages[k]); }); }, 150); });
 
+  // Forget my settings: remove every key this book writes (all begin "gwbook.") and say so.
+  document.getElementById('forget').addEventListener('click', function () {
+    var gone = 0;
+    try {
+      for (var i = localStorage.length - 1; i >= 0; i--) {
+        var key = localStorage.key(i);
+        if (key && key.indexOf('gwbook.') === 0) { localStorage.removeItem(key); gone++; }
+      }
+    } catch (e) { /* a private window: nothing was stored */ }
+    document.getElementById('forgot').textContent = gone ? 'Forgotten. Nothing from this book is stored in this browser now.'
+                                                         : 'Nothing from this book was stored in this browser.';
+  });
+
   window.book = { go: go, get page() { return cur; }, count: pages.length, openMap: openMap, closeMap: closeMap,
                   narrow: narrow, shown: shown };
+  // #privacy (linked from the house page) opens the map at the note on what this book remembers;
+  // read it before go() writes the page into the address.
+  var askedPrivacy = location.hash === '#privacy';
   var m = /^#p(\d+)$/.exec(location.hash || '');
   var h = m ? parseInt(m[1], 10) : 1;
   cur = -1; go(h >= 1 && h <= pages.length ? h - 1 : 0, true);
+  if (askedPrivacy) { openMap(); document.getElementById('privacy').focus(); }
 })();
 // @license-end
 """
@@ -735,7 +754,10 @@ def main():
               f'<div class="look look-board" hidden>{map_board(rooms)}</div></div>'
               f'<p class="legend">Each room is one spread of the book, in the order you read it; choose one to go there. '
               f'The round rooms are where Chad turned up. The door with a star is a wormhole. '
-              f'A paper book stops at the page: the numbered marks (Pin\'s notes) and this map are where this one goes on past it.</p></div>')
+              f'A paper book stops at the page: the numbered marks (Pin\'s notes) and this map are where this one goes on past it.</p>'
+              f'<p class="privacy" id="privacy" tabindex="-1">This book remembers which map view you last picked '
+              f'(<code>gwbook.look</code>), in your browser only; nothing is sent anywhere. '
+              f'<button type="button" id="forget">Forget my settings</button> <span id="forgot" role="status"></span></p></div>')
     doc = f"""<!doctype html>
 <html lang="en">
 <head>

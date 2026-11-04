@@ -198,7 +198,43 @@ check_site() {  # SITEDIR BOOKHTML
   if [ ! -s "$sp" ]; then echo "  missing or empty: the site's show page, $sp"; bad=1
   elif cmp -s "$sp" "$2"; then echo "  the site's show page is this book.html, byte for byte ($(sha256sum "$sp" | cut -c1-16))"
   else echo "  the site's show page is not this book.html: cp book.html site/public/build-a-ghostwheel/index.html"; bad=1; fi
+  # The house pages store nothing: no script and no inline handler in any of them, and the front page
+  # says so with a link to the book's note on what the book remembers.
+  for f in "$1"/public/*.html; do
+    [ -f "$f" ] || continue
+    if grep -Eiq '<script|[[:space:]]on[a-z]+[[:space:]]*=' "$f"; then echo "  $(basename "$f") carries a script or an inline handler"; bad=1; fi
+  done
+  if grep -q 'href="/build-a-ghostwheel/#privacy"' "$1/public/index.html" 2>/dev/null; then
+    echo "  the house pages carry no script; the front page links to the book's privacy note"
+  else echo "  the front page does not link to the book's privacy note (/build-a-ghostwheel/#privacy)"; bad=1; fi
   return $bad
+}
+
+# --- promise 20: the privacy note names exactly the keys the book writes -----------------------
+# Reads the page's own script for every localStorage or sessionStorage write (a key that is not a
+# quoted literal cannot be read, and fails), refuses any cookie, then requires the note
+# (<p class="privacy" id="privacy">) to name each written key in <code> and to name no other.
+check_privacy() {  # HTML
+  h=$1; bad=0
+  [ -s "$h" ] || { echo "  missing or empty: $h"; return 1; }
+  pt=$(mktemp -d "${TMPDIR:-/tmp}/gw-privacy.XXXXXX")
+  grep -o '[A-Za-z]*Storage\.setItem([^,)]*' "$h" | sed 's/^[A-Za-z]*Storage\.setItem(//' > "$pt/args"
+  awk -v q="'" '{ a = $0; gsub(/^[ \t]+|[ \t]+$/, "", a)
+         if (a ~ "^" q "[^" q "]*" q "$" || a ~ /^"[^"]*"$/) { print substr(a, 2, length(a) - 2) }
+         else print "?" a }' "$pt/args" | sort -u > "$pt/written"
+  if grep -q '^?' "$pt/written"; then sed -n 's/^?/  a storage key the check cannot read: /p' "$pt/written"; bad=1; fi
+  if grep -q 'document\.cookie' "$h"; then echo "  the page touches document.cookie"; bad=1; fi
+  awk '{ while ((i = index($0, "<p class=\"privacy\" id=\"privacy\"")) > 0) {
+           r = substr($0, i); j = index(r, "</p>"); print substr(r, 1, j); $0 = substr(r, j + 4) } }' "$h" > "$pt/note"
+  if [ ! -s "$pt/note" ]; then echo "  no privacy note (<p class=\"privacy\" id=\"privacy\">) in the page"; rm -rf "$pt"; return 1; fi
+  grep -o '<code>[^<]*</code>' "$pt/note" | sed 's/<[^>]*>//g' | sort -u > "$pt/named"
+  grep -v '^?' "$pt/written" > "$pt/w" || true
+  comm -23 "$pt/w" "$pt/named" | sed 's/^/  written and not named in the note: /' > "$pt/miss"
+  comm -13 "$pt/w" "$pt/named" | sed 's/^/  named in the note and not written: /' >> "$pt/miss"
+  [ -s "$pt/miss" ] && { cat "$pt/miss"; bad=1; }
+  grep -q 'id="forget"' "$pt/note" || { echo "  the note has no Forget my settings button (id=\"forget\")"; bad=1; }
+  [ $bad -eq 0 ] && echo "  the note names the $(wc -l < "$pt/w" | tr -d ' ') key(s) the script writes ($(tr '\n' ' ' < "$pt/w" | sed 's/ $//')), no cookie, and offers to forget"
+  rm -rf "$pt"; return $bad
 }
 
 # --- promise 19: the cited C4 files are here, byte for byte, and the index tells the truth --------
@@ -256,8 +292,8 @@ run_one() {  # NAME, then the check's own arguments
   fi
 }
 
-BOOK_CHECKS="words inventory current bookoffline bookread"
-EDITION_CHECKS="words inventory current site sources bookoffline bookread"
+BOOK_CHECKS="words inventory current privacy bookoffline bookread"
+EDITION_CHECKS="words inventory current privacy site sources bookoffline bookread"
 PILOT_CHECKS="outputs length captions words inventory offline keys bookoffline bookread"
 SITE=${GW_SITE:-site}
 SOURCES=${GW_SOURCES:-sources}
@@ -287,6 +323,7 @@ all_checks() {
       current)  n=$((n+1)); run_one current "$SRC" "$OUT" || fails=$((fails+1)) ;;
       site)     n=$((n+1)); run_one site "$SITE" "$OUT/book.html" || fails=$((fails+1)) ;;
       sources)  n=$((n+1)); run_one sources "$SOURCES" "$SRC" || fails=$((fails+1)) ;;
+      privacy)  n=$((n+1)); run_one privacy "$OUT/book.html" || fails=$((fails+1)) ;;
       *) echo "checks: no check named '$c'"; fails=$((fails+1)) ;;
     esac
   done
@@ -331,7 +368,7 @@ prove_red() {
   pr=""
   for g in ${PR_WANT:-edition}; do
     case $g in
-      edition) pr="$pr words inventory book current site sources" ;;
+      edition) pr="$pr words inventory book current privacy site sources" ;;
       pilot)   pr="$pr media words inventory deck book" ;;
       *)       pr="$pr $g" ;;
     esac
@@ -423,6 +460,12 @@ prove_red() {
   expect_red "book figures: door's words moved onto Pin" check_bookread "$b" figures
   b=$(planted_book nofit 's#lo = fs \* 0.74#lo = fs * 9#; s#data-fs="2.2"#data-fs="3.4"#')
   expect_red "book fit: the fit removed and the type set large" check_bookread "$b" fit
+  b=$(planted_book noforget 's#localStorage.removeItem(key); gone++;#gone++;#')
+  expect_red "book forget: Forget my settings removes nothing" check_bookread "$b" forget
+  b=$(planted_book storeonopen 's#    if (pick) try { localStorage.setItem#    try { localStorage.setItem#')
+  expect_red "book forget: opening the map stores the view before any pick" check_bookread "$b" forget
+  b=$(planted_book nohash "s#  if (askedPrivacy) { openMap();#  if (false) { openMap();#")
+  expect_red "book forget: #privacy no longer opens the map at the note" check_bookread "$b" forget
   fi
 
   if want_pr current; then
@@ -442,6 +485,19 @@ prove_red() {
   expect_red "site: the show page one byte longer than book.html" check_site "$TMP/site1" "$OUT/book.html"
   rm -f "$TMP/site2/public/build-a-ghostwheel/index.html"
   expect_red "site: the show page missing" check_site "$TMP/site2" "$OUT/book.html"
+  for k in script nolink; do mkdir -p "$TMP/site-$k"; cp -R "$SITE/." "$TMP/site-$k/"; done
+  sed -i 's#</body>#<script>localStorage.setItem("x", "1")</script></body>#' "$TMP/site-script/public/index.html"
+  expect_red "site: a script on the front page" check_site "$TMP/site-script" "$OUT/book.html"
+  sed -i 's#href="/build-a-ghostwheel/\#privacy"#href="/build-a-ghostwheel/"#' "$TMP/site-nolink/public/index.html"
+  expect_red "site: the front page's link to the book's privacy note gone" check_site "$TMP/site-nolink" "$OUT/book.html"
+  fi
+
+  if want_pr privacy; then
+  # 20 privacy: a second key written that the note does not name; the note names a key nothing writes
+  b=$(planted_book newkey "s#if (pick) try { localStorage.setItem('gwbook.look', l); }#if (pick) try { localStorage.setItem('gwbook.look', l); localStorage.setItem('gwbook.seen', '1'); }#")
+  expect_red "privacy: a key written (gwbook.seen) that the note does not name" check_privacy "$b"
+  b=$(planted_book oldkey "s#(<code>gwbook.look</code>)#(<code>gwbook.look</code>, <code>gwbook.page</code>)#")
+  expect_red "privacy: the note names a key (gwbook.page) that nothing writes" check_privacy "$b"
   fi
 
   if want_pr sources; then

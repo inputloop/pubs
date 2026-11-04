@@ -174,8 +174,8 @@ awk, plus JavaScript where a browser is needed, so they read the work with diffe
 the Python that wrote it.
 
 Since the book moved to its home in inputloop's pubs (2026-11-04), a bare `sh checks/run.sh` checks
-the book edition that folder carries (words, inventory, current, site, sources, bookoffline,
-bookread) and a
+the book edition that folder carries (words, inventory, current, privacy, site, sources,
+bookoffline, bookread) and a
 bare `--prove-red` plants that edition's faults. The pilot's full set, which reads the narration, the
 video and the deck that `sh run` makes, is `sh checks/run.sh pilot` and `--prove-red pilot`; the
 pilot pipeline's own check stage asks for it. `sh run -p book.pipeline` builds the book edition alone.
@@ -185,7 +185,14 @@ book-hosted.html edited by hand) and **site** (the ghostlights.theater source in
 book.html as its show page; planted: that copy one byte long, and missing). A third came with the C4
 files: **sources** (every C4 file a witness row cites has an entry in `sources/INDEX.org`, each row's
 `sha:` is its entry's recorded hash, each copy in `sources/` hashes to its entry, and nothing sits there
-unlisted; planted: a copy a byte long, a row's `sha:` changed, and an unlisted file).
+unlisted; planted: a copy a byte long, a row's `sha:` changed, and an unlisted file). The same day the
+book gained a privacy note (Corwin's choice: "Keep it, disclose it"): **privacy** (the note in the map
+names exactly the keys the page's script writes, and the page sets no cookie; planted: a second key
+written, and a key named that nothing writes), the browser promise **forget** in `checks/book.js`
+(opening the map stores nothing, a picked view is stored, Forget my settings removes every `gwbook.`
+key and says so, and `#privacy` opens the map at the note; planted: one fault for each of the last
+three), and two more for **site** (the house pages carry no script, and the front page links to the
+note; planted: a script on the front page, and the link gone).
 
 | Promise | Check | Planted faults |
 |---|---|---|
@@ -234,6 +241,9 @@ like a paper one.
 - **Off the paper:** the numbered marks open Pin's notes, and M (or the Map button) opens the map,
   drawn three ways from one list of rooms: a floor plan, a roguelike's tiles, and a board of cards.
   Someone who pages back and forth as if lost is offered the map, at most once in two minutes.
+- **What it remembers:** one thing, the map view last picked (`gwbook.look`), in the reader's browser
+  only. The note under the map says so and has a Forget my settings button; `book.html#privacy` opens
+  the map at that note.
 - **A narrow screen** shows one page at a time, picture page first.
 - **The type fits:** a fuller page that runs long has its type stepped down (to 74% at most) until it
   fits, as a typesetter would, so that a wide screen never scrolls a page.
