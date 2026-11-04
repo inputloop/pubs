@@ -1,0 +1,344 @@
+#!/bin/sh
+# sg1pl -- SCALAR GUARD 1 PULL LINK. Pull strings and numbers from where they live, checking as
+#          much as the caller asked for, chirping what surprised us, and returning what we got.
+#
+# Copyright 2026 Corwin Brust <corwin@bru.st>
+# This program is free software: you can redistribute it and/or modify it under the terms of the
+# GNU General Public License as published by the Free Software Foundation, either version 3 of
+# the License, or (at your option) any later version.  See <https://www.gnu.org/licenses/>.
+#
+# ---------------------------------------------------------------------------------------------
+# THE NAME, declared as my reading (AS4CE pattern, run-level in the middle):
+#   S  SCALAR   -- what comes back is S's col1: one addressable value, a string or a number
+#   G  GUARD    -- C4.md sec.4: "ASSERT = GUARD = GATEWAY = G". The checks are the G.
+#   1  the DEFAULT run-level, not a fixed one. `-r N` moves it. The digit says where we start.
+#   P  PIPE     -- P's col3, the transitive imperative: pulling is piping a value out of a place
+#   L  LINK     -- L's col3: the value arrives bound to the name the caller gave it
+#
+# ---------------------------------------------------------------------------------------------
+# THE LAW OF THIS TOOL, and it is the reason it exists rather than `cat`:
+#
+#   1. A FAILED CHECK REMOVES ONE VALUE. It never kills the run and never withholds the rest.
+#      Ask for four scalars, have one fail its signature, and you get the other three plus a
+#      chirp naming the one you did not get and why. Partial is a real answer.
+#
+#   2. SURPRISES GO TO STDERR, VALUES GO TO STDOUT. They never mix, so a caller can pipe stdout
+#      into anything and still have the chirps land in front of a person.
+#
+#   3. WE DO NOT REFUSE WORK THE TOOLS AROUND US WOULD DO. If gpg is absent we say the signature
+#      was NOT CHECKED and hand you the value; we do not pretend absence is a verdict, and we do
+#      not withhold a file because we could not verify it unless you asked us to (--strict).
+#      A tool that denies behaviour the user expected gets uninstalled, and deserves to be.
+#
+#   4. THE CHECK ADVERTISES ITSELF ONCE, WHERE IT IS RELEVANT. There is no "to silence this
+#      message, set ..." here. If you are at run-level 1 you are not told about signatures. The
+#      escalation IS the advertisement: `-r 4` is how you find out we can do signatures at all,
+#      and `sg1pl -r` with no number prints the ladder.
+#
+#   5. NO CRYPTOGRAPHY IS INVENTED HERE. Signatures are gpg's; digests are the coreutils
+#      sha256sum/shasum your OS ships. Where those are absent the answer is NOT CHECKED, never a
+#      home-rolled substitute.
+#
+# ---------------------------------------------------------------------------------------------
+# THE RUN-LEVEL LADDER. Each level does everything below it, then one more thing.
+#
+#   0  read      hand back the bytes. no judgement at all.
+#   1  present   a regular file, readable, and not zero bytes            [the default]
+#   2  fresh     + mtime is not in the future, and within --age if given
+#   3  digest    + a <path>.sha256 sidecar exists and matches
+#   4  signed    + a <path>.asc detached signature verifies with gpg
+#
+# usage: sg1pl [-r N] [--age SEC] [--strict] [--keyring FILE] NAME=PATH [NAME=PATH ...]
+#        sg1pl -r                    print the ladder and exit
+#        sg1pl --prove-red           every guard must be shown to actually refuse
+#
+# stdout   NAME<TAB>VALUE, one per scalar that cleared its level
+# stderr   one chirp per surprise, then a tally line
+# exit     0 at least one value returned (or none requested)
+#          1 nothing came back
+#          3 --strict and at least one scalar was dropped
+#          2 usage
+set -eu
+
+RL=1 AGE= STRICT=0 KEYRING=
+
+ladder() {
+	cat >&2 <<'EOF'
+sg1pl run-levels (each does everything below it, then one more thing):
+  0  read      hand back the bytes, no judgement
+  1  present   a regular file, readable, non-empty            [default]
+  2  fresh     + mtime not in the future; within --age if given
+  3  digest    + <path>.sha256 sidecar exists and matches
+  4  signed    + <path>.asc detached signature verifies with gpg
+EOF
+}
+usage() {
+	echo "usage: sg1pl [-r N] [--age SEC] [--strict] [--keyring FILE] NAME=PATH ..." >&2
+	echo "       sg1pl -r          the run-level ladder" >&2
+	echo "       sg1pl --prove-red every guard must be shown to refuse" >&2
+	exit 2
+}
+chirp() { printf 'sg1pl: %s\n' "$1" >&2; }
+
+# ---------------------------------------------------------------------------------------------
+have() { command -v "$1" >/dev/null 2>&1; }
+
+digest_of() {
+	# Whatever the OS ships. No fallback implementation -- see law 5.
+	if   have sha256sum; then sha256sum "$1" 2>/dev/null | cut -d' ' -f1
+	elif have shasum;    then shasum -a 256 "$1" 2>/dev/null | cut -d' ' -f1
+	else return 1
+	fi
+}
+
+mtime_of() {
+	if   stat -c %Y "$1" 2>/dev/null; then :
+	elif stat -f %m "$1" 2>/dev/null; then :
+	else return 1
+	fi
+}
+
+# ---------------------------------------------------------------------------------------------
+# PULL ONE. Prints the value on stdout and returns 0, or chirps and returns 1. Every refusal
+# below names the LEVEL that refused, so a caller can tell "not there" from "not signed".
+pull_one() {
+	name=$1 path=$2 lvl=$3
+
+	if [ "$lvl" -ge 1 ]; then
+		[ -e "$path" ] || { chirp "$name: nothing at $path (run-level 1: present)"; return 1; }
+		[ -f "$path" ] || { chirp "$name: $path is not a regular file (run-level 1: present)"; return 1; }
+		[ -r "$path" ] || { chirp "$name: $path is not readable by us (run-level 1: present)"; return 1; }
+		[ -s "$path" ] || { chirp "$name: $path is zero bytes (run-level 1: present)"; return 1; }
+	else
+		# level 0 judges nothing, but it still cannot read what is not there
+		[ -r "$path" ] || { chirp "$name: cannot read $path"; return 1; }
+	fi
+
+	if [ "$lvl" -ge 2 ]; then
+		mt=$(mtime_of "$path" 2>/dev/null) || mt=
+		if [ -z "$mt" ]; then
+			chirp "$name: mtime NOT CHECKED (no stat that this system understands)"
+		else
+			now=$(date +%s 2>/dev/null || echo "")
+			if [ -n "$now" ]; then
+				if [ "$mt" -gt "$now" ]; then
+					# A file from the future is a genuine surprise and worth saying out loud even
+					# though we hand the value back anyway -- it usually means a clock or a mount.
+					chirp "$name: mtime is $(( mt - now ))s IN THE FUTURE (clock or mount skew?)"
+				fi
+				if [ -n "$AGE" ] && [ $(( now - mt )) -gt "$AGE" ]; then
+					chirp "$name: $(( (now - mt) / 86400 ))d old, older than --age (run-level 2: fresh)"
+					return 1
+				fi
+			fi
+		fi
+	fi
+
+	# ABSENT IS NOT A VERDICT. This is the distinction the whole tool turns on, and running it
+	# against the real tree is what found it: C4 signs files that carry no digest sidecar, so an
+	# escalation that REQUIRED level 3 to reach level 4 made run-level 4 unreachable for the
+	# shop's own signed files. A tool that refuses work the surrounding tools would happily do
+	# gets uninstalled. So:
+	#     the check could not run   -> chirp NOT CHECKED, hand back the value
+	#     the check ran and FAILED  -> refuse, drop this one value
+	#     --strict                  -> NOT CHECKED is also a refusal, for callers who need that
+	if [ "$lvl" -ge 3 ]; then
+		# Two sidecar conventions live in this tree: <path>.sha256 and <stem>.sha256 (extension
+		# replaced, which is what h/DELTAS-*.sha256 actually does). Try both before concluding.
+		side=$path.sha256
+		[ -f "$side" ] || side=${path%.*}.sha256
+		if [ ! -f "$side" ]; then
+			chirp "$name: digest NOT CHECKED (no sidecar at $path.sha256 or ${path%.*}.sha256)"
+			[ "$STRICT" -eq 1 ] && return 1 || :
+		else
+			dgot=$(digest_of "$path" 2>/dev/null) || dgot=
+			if [ -z "$dgot" ]; then
+				chirp "$name: digest NOT CHECKED (no sha256sum or shasum on this system)"
+				[ "$STRICT" -eq 1 ] && return 1 || :
+			else
+				# THREE sidecar shapes live in this tree, found by running against it:
+				#   a bare 64-hex digest · "<sha>  <name>" for one file · a MANIFEST of many
+				#   such lines covering a whole directory (h/DELTAS-*.sha256 is the third).
+				# Look this file up BY NAME first; only fall back to "the only digest present"
+				# when the sidecar names nothing -- taking line 1 of a manifest compares this
+				# file against a different file's digest and calls it a mismatch, which is a
+				# false alarm and worse than no check at all.
+				base=$(basename "$path")
+				want=$(awk -v b="$base" '{ for (i = 2; i <= NF; i++) if ($i == b || $i == "*" b) { print $1; exit } }' "$side" 2>/dev/null || true)
+				if [ -z "$want" ]; then
+					ndig=$(grep -Eoi '[0-9a-f]{64}' "$side" 2>/dev/null | wc -l || echo 0)
+					if [ "$ndig" -eq 1 ]; then
+						want=$(grep -Eoi '[0-9a-f]{64}' "$side" | head -1)
+					elif [ "$ndig" -gt 1 ]; then
+						chirp "$name: digest NOT CHECKED ($side is a manifest of $ndig digests and names no $base)"
+						[ "$STRICT" -eq 1 ] && return 1 || :
+					fi
+				fi
+				if [ -z "$want" ]; then
+					if [ "${ndig-0}" -le 1 ]; then
+						chirp "$name: digest NOT CHECKED ($side holds no sha256 we can read)"
+						[ "$STRICT" -eq 1 ] && return 1 || :
+					fi
+				elif [ "$dgot" != "$want" ]; then
+					chirp "$name: DIGEST MISMATCH -- $path is not the file $side describes (run-level 3)"
+					return 1
+				fi
+			fi
+		fi
+	fi
+
+	if [ "$lvl" -ge 4 ]; then
+		sig=$path.asc
+		[ -f "$sig" ] || sig=$path.sig
+		if [ ! -f "$sig" ]; then
+			chirp "$name: signature NOT CHECKED (no $path.asc)"
+			[ "$STRICT" -eq 1 ] && return 1 || :
+		elif ! have gpg; then
+			chirp "$name: signature NOT CHECKED (no gpg on this system)"
+			[ "$STRICT" -eq 1 ] && return 1 || :
+		else
+			if [ -n "$KEYRING" ]; then
+				gout=$(gpg --no-default-keyring --keyring "$KEYRING" --verify "$sig" "$path" 2>&1) || gok=1
+			else
+				gout=$(gpg --verify "$sig" "$path" 2>&1) || gok=1
+			fi
+			if [ "${gok-0}" = 1 ]; then
+				gok=0
+				# "I can't see this" is NOT "BAD". sandboxer's rule, and verify-say's: an empty
+				# keyring means we lack the key, which says nothing whatever about the file.
+				case $gout in
+				*"No public key"*|*"no public key"*|*"public key not found"*)
+					chirp "$name: signature NOT CHECKED (we do not hold the signing key)"
+					[ "$STRICT" -eq 1 ] && return 1 || : ;;
+				*"BAD signature"*|*"bad signature"*)
+					chirp "$name: BAD SIGNATURE -- $sig does not match $path (run-level 4)"
+					return 1 ;;
+				*)
+					chirp "$name: signature NOT CHECKED (gpg said: $(printf '%s' "$gout" | head -1))"
+					[ "$STRICT" -eq 1 ] && return 1 || : ;;
+				esac
+			fi
+		fi
+	fi
+
+	# The value. Trailing newline stripped; everything else is the caller's business.
+	val=$(cat "$path") || { chirp "$name: read failed partway through $path"; return 1; }
+	printf '%s\t%s\n' "$name" "$val"
+	return 0
+}
+
+# ---------------------------------------------------------------------------------------------
+prove_red() {
+	tmp=$(mktemp -d) || { echo "sg1pl: mktemp" >&2; exit 1; }
+	trap 'rm -rf "$tmp"' EXIT
+	fails=0
+	t() { # t NAME  -- expects the guard under test to have dropped exactly the named scalar
+		if [ "$2" = "$3" ]; then printf '  RED OK   %s\n' "$1"
+		else printf '  RED MISS %s  (got %s, want %s)\n' "$1" "$2" "$3"; fails=$((fails+1)); fi
+	}
+
+	printf 'good\n' > "$tmp/ok"; : > "$tmp/empty"
+	# 1 present: a missing file, a zero-byte file, and a directory must each drop ONE value and
+	#            leave the others standing. That second half is the whole point of the tool.
+	n=$("$0" -r 1 a="$tmp/ok" b="$tmp/nope" c="$tmp/empty" d="$tmp" 2>/dev/null | wc -l)
+	t "run-level 1 drops missing/empty/dir, keeps the good one" "$n" "1"
+
+	# and the run must still SUCCEED, because something came back
+	if "$0" -r 1 a="$tmp/ok" b="$tmp/nope" >/dev/null 2>&1; then r=0; else r=1; fi
+	t "a partial pull is a success, not a failure" "$r" "0"
+
+	# --strict is the opt-in for callers who need all-or-nothing
+	if "$0" --strict -r 1 a="$tmp/ok" b="$tmp/nope" >/dev/null 2>&1; then r=0; else r=$?; fi
+	t "--strict turns a dropped scalar into exit 3" "$r" "3"
+
+	# nothing at all came back -> exit 1
+    if "$0" -r 1 b="$tmp/nope" >/dev/null 2>&1; then r=0; else r=$?; fi
+	t "an empty valueset is exit 1" "$r" "1"
+
+	# 2 fresh: --age must drop a stale file
+	if have touch; then
+		cp "$tmp/ok" "$tmp/old"; touch -d '1970-01-02' "$tmp/old" 2>/dev/null || touch -t 197001020000 "$tmp/old" 2>/dev/null || true
+		n=$("$0" -r 2 --age 3600 a="$tmp/ok" b="$tmp/old" 2>/dev/null | wc -l)
+		t "run-level 2 drops a file older than --age" "$n" "1"
+	fi
+
+	# 3 digest: a MISMATCH must refuse. An ABSENT sidecar must NOT -- absent is not a verdict.
+	printf '%s\n' "0000000000000000000000000000000000000000000000000000000000000000" > "$tmp/ok.sha256"
+	n=$("$0" -r 3 a="$tmp/ok" 2>/dev/null | wc -l)
+	t "run-level 3 refuses a digest MISMATCH" "$n" "0"
+	if digest_of "$tmp/ok" > "$tmp/ok.sha256" 2>/dev/null; then
+		n=$("$0" -r 3 a="$tmp/ok" 2>/dev/null | wc -l)
+		t "run-level 3 accepts a digest that matches" "$n" "1"
+	fi
+	rm -f "$tmp/ok.sha256"
+	n=$("$0" -r 3 a="$tmp/ok" 2>/dev/null | wc -l)
+	t "an ABSENT digest is NOT CHECKED, not a refusal" "$n" "1"
+	n=$("$0" --strict -r 3 a="$tmp/ok" 2>/dev/null | wc -l)
+	t "--strict turns NOT CHECKED into a refusal" "$n" "0"
+
+	# the <stem>.sha256 convention this tree actually uses must be found
+	cp "$tmp/ok" "$tmp/doc.md"; digest_of "$tmp/doc.md" > "$tmp/doc.sha256" 2>/dev/null || true
+	n=$("$0" --strict -r 3 a="$tmp/doc.md" 2>/dev/null | wc -l)
+	t "the <stem>.sha256 sidecar convention is found" "$n" "1"
+
+	# 4 signed: absent signature is NOT CHECKED; a BAD one refuses
+	n=$("$0" -r 4 a="$tmp/ok" 2>/dev/null | wc -l)
+	t "an ABSENT signature is NOT CHECKED, not a refusal" "$n" "1"
+	n=$("$0" --strict -r 4 a="$tmp/ok" 2>/dev/null | wc -l)
+	t "--strict refuses an unsigned file at run-level 4" "$n" "0"
+	if have gpg; then
+		printf -- '-----BEGIN PGP SIGNATURE-----\ngarbage\n-----END PGP SIGNATURE-----\n' > "$tmp/ok.asc"
+		n=$("$0" -r 4 a="$tmp/ok" 2>/dev/null | wc -l)
+		t "a signature that will not verify does not silently pass" "$n" "1"
+		rm -f "$tmp/ok.asc"
+	fi
+
+	# a HONEST case must still pass, or every refusal above proves nothing
+	n=$("$0" -r 0 a="$tmp/ok" 2>/dev/null | wc -l)
+	t "run-level 0 hands back the bytes" "$n" "1"
+
+	# and the chirps must actually reach stderr, not stdout
+	err=$("$0" -r 1 b="$tmp/nope" 2>&1 >/dev/null | wc -l)
+	t "a surprise reaches STDERR" "$( [ "$err" -ge 1 ] && echo yes || echo no )" "yes"
+	out=$("$0" -r 1 b="$tmp/nope" 2>/dev/null | wc -l)
+	t "a surprise does NOT reach STDOUT" "$out" "0"
+
+	if [ "$fails" -eq 0 ]; then echo "prove-red OK: every guard was shown to refuse, and partial stayed partial"; exit 0
+	else echo "prove-red FAILED: $fails guard(s) did not refuse" >&2; exit 1; fi
+}
+
+# ---------------------------------------------------------------------------------------------
+while :; do
+	case ${1-} in
+	-r) if [ $# -lt 2 ] || [ -z "${2#-}" ] || ! printf '%s' "${2-}" | grep -Eq '^[0-4]$'
+	    then ladder; exit 0; fi
+	    RL=$2; shift 2 ;;
+	--age)     AGE=${2-}; [ -n "$AGE" ] || usage; shift 2 ;;
+	--keyring) KEYRING=${2-}; [ -n "$KEYRING" ] || usage; shift 2 ;;
+	--strict)  STRICT=1; shift ;;
+	--prove-red) prove_red ;;
+	-h|--help) usage ;;
+	--*) echo "sg1pl: unknown option $1" >&2; usage ;;
+	*) break ;;
+	esac
+done
+
+[ $# -gt 0 ] || usage
+
+got=0 dropped=0
+for spec in "$@"; do
+	case $spec in
+	*=*) nm=${spec%%=*}; pth=${spec#*=} ;;
+	*)   nm=$(basename "$spec"); pth=$spec ;;
+	esac
+	if pull_one "$nm" "$pth" "$RL"; then got=$((got+1)); else dropped=$((dropped+1)); fi
+done
+
+# The tally is a chirp, not a value. It says what you got and what you did not, once.
+if [ "$dropped" -gt 0 ]; then
+	chirp "$got of $((got+dropped)) pulled at run-level $RL; $dropped dropped (named above)"
+fi
+
+if [ "$STRICT" -eq 1 ] && [ "$dropped" -gt 0 ]; then exit 3; fi
+[ "$got" -gt 0 ] || exit 1
+exit 0

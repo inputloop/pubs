@@ -1,0 +1,84 @@
+#+TITLE: RECIPE: pluck the book and build it
+#+SUBTITLE: So You Want To Build A Ghostwheel? · books/build-a-ghostwheel/
+#+AUTHOR: Corwin Brust · corwin@bru.st
+#+DATE: 2026-11-04
+
+* What it needs
+
+- A POSIX shell with awk, =sha256sum=, =cmp=, =mktemp= (GNU coreutils or the like).
+- =python3=, standard library only (it makes the book).
+- =node= with Playwright and its Chromium, for the two browser checks (=bookoffline=, =bookread=):
+  #+begin_src sh
+  npm install playwright && npx playwright install chromium
+  #+end_src
+  The checks =require('playwright')=, so it must resolve from this folder (a =node_modules/= here or
+  above it) or from =NODE_PATH=.
+- Not needed for the book: =piper-tts= and =ffmpeg= (the narration and video, =pilot.pipeline= only).
+
+Run on 2026-11-04 with Python 3.13, Node 22 and Playwright 1.63, and the book stage and non-browser
+checks with Python 3.10; other versions are untested.
+
+* Pluck it
+
+Copy the folder whole; nothing in it reads outside the folder. From the public repository:
+
+#+begin_src sh
+git clone --depth 1 --filter=blob:none --sparse https://github.com/inputloop/pubs
+git -C pubs sparse-checkout set books/build-a-ghostwheel
+cp -R pubs/books/build-a-ghostwheel your-project/build-a-ghostwheel
+#+end_src
+
+* Build it
+
+#+begin_src sh
+cd build-a-ghostwheel
+sh run -p book.pipeline
+#+end_src
+
+Three stages, in order:
+
+| stage | tool             | makes                                                                  |
+|-------+------------------+------------------------------------------------------------------------|
+| book  | =tools/book.py=  | =book.html= and =book-hosted.html= from =src/=                         |
+| site  | =tools/site.sh=  | =site/public/build-a-ghostwheel/index.html=, a copy of =book.html= (skipped when there is no =site/=) |
+| check | =checks/run.sh=  | the verdict: =CHECKS GREEN (7 of 7)=                                    |
+
+- The build is reproducible: from unchanged sources it writes the same bytes as the published files.
+- =GW_OUT=DIR= writes the book elsewhere; =sh run -p book.pipeline book= runs the book stage alone;
+  =sh run -p book.pipeline -n= says what would run.
+- Side effects of =run=: it makes an empty =build/= here and an empty =~/.cache/ghostwheel-pilot=
+  (=GW_BUILD=, =GW_CACHE= move them). It runs Python with =-B=, so no =__pycache__= is left in =tools/=.
+
+* Check it
+
+#+begin_src sh
+sh checks/run.sh                 # the seven promises of this folder
+sh checks/run.sh --prove-red     # 22 planted faults, each must turn its check red; ends PROVE-RED OK
+sh checks/run.sh book            # five, for a copy plucked without site/ and sources/
+sh checks/run.sh --prove-red words inventory book current
+#+end_src
+
+* Use it in a project
+
+- Serve =book.html= as a static file. It carries its own =<meta>= Content Security Policy (inline
+  style and script by hash, =default-src 'none'=); a server may add what a =<meta>= policy cannot say,
+  as =site/deploy/nginx-ghostlights.theater.conf= does.
+- Or set =book-hosted.html= inside your own page: no doctype, head or policy of its own, so the host's
+  policy must allow its inline style and script.
+- Credit as the book does: /So You Want To Build A Ghostwheel?/ Copyright 2026 Corwin Brust;
+  CC-BY-SA-4.0 (words and pictures). Written and drawn by Mentat (for Corwin). Code: GPL-3.0-or-later.
+
+* Rebuild the live site
+
+=site/= is https://ghostlights.theater/ as deployed on 2026-11-04 (its pages hash the same as the live
+ones). After a rebuild, =site/public/build-a-ghostwheel/index.html= is the new book. Deploying is the
+keeper's act: on the host, as its account, =sh site/deploy/install.sh= mirrors =site/public/= to the
+web root with =--delete= (keeping a dated copy of what was there), installs the nginx site and backs out
+if =nginx -t= fails, and fetches the certificate by webroot the first time.
+
+* Change the book
+
+1. Edit a spread in =src/= (=README.md=, "Writing a spread by hand", gives the format).
+2. =GW_SRC=src python3 -B tools/inventory.py= -- goodnight's last page names every atom and carries a
+   hash over the spreads; this rewrites =src/goodnight= with the time it ran.
+3. =sh run -p book.pipeline=. A spread edited without steps 2 and 3 turns =inventory= or =current= red.

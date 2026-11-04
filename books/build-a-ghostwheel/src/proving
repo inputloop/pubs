@@ -1,0 +1,236 @@
+# proving -- spread 7 of "So You Want To Build A Ghostwheel?"
+# Copyright 2026 Corwin Brust; CC-BY-SA-4.0
+# Facts about C4 come from C4 itself, read-only on Avalon (the c4 tree),
+# 2026-11-04T00:13:56Z. Each [mark] on the fuller page opens its witness rows.
+kind: spread
+number: 7
+title: Proving
+part: Part One: how we say things
+
+== picture page ==
+We say it works.
+How do we know?
+
+We break it on purpose.
+Then we see the light go red.
+Good! The test works.
+
+If a test can not go red,
+it is only watching.
+
+== layout ==
+# The bench runs right across the drawing, from the computer to Pin pulling
+# the plug, so the words stay under it, left-aligned like a list of steps.
+picture: top
+words: below
+size: 3.4
+align: left
+
+== fuller page ==
+Every claim in C4 is meant to carry the tool that could break it: "a claim
+needs a tool that fails it", and its twin, "a test needs a mutant it kills,
+or it is only watching" [fails]. A declaration can even "ship with its own
+falsifier, in the same sentence that makes the claim" [inline].
+
+A passing test, alone, says only that a check passed today. Here it counts
+only if it was also shown to fail on a fault planted on purpose; tools take
+a --prove-red switch that plants the faults and expects red [planted].
+Corwin's ghostwheel code starts that way: "Test scaffolding must come before
+everything" [first].
+
+The shop even keeps a liar. bin/sh1am says PASS for a file that is not
+there, and never admits it could not measure, on purpose. His reason: "we'll
+never prove any claims if we can't at least show a tool that DOESN'T do what
+we say we want ours to do." A gauge that passes sh1am is measuring nothing
+[liar].
+
+A check must be able to say no. When ot3he first ran on ten real acts, its
+verdict was NOT-MADE, and its record calls that "the strongest available
+evidence that it is measuring something" [no].
+
+Promises break early or late. His ladder for catching them runs testing,
+turn, build, install, run-time, bug reports [ladder]. A test is the first
+rung.
+
+This book keeps the rule: its checks plant a hard word on a picture page,
+and must turn red [book].
+
+== diagram ==
+kind: ladder
+caption: Where a broken promise gets caught, earliest at the bottom. The six rungs are his words; the notes beside them are ours.
+focus: 1
+6 | bug reports | found by someone using it
+5 | run-time | found while it runs
+4 | install | found as it goes in
+3 | build | found as it is made
+2 | turn | his word; this page does not guess what it covers
+1 | testing | found by the test that came with the promise
+
+== facts ==
+fact: fails
+said: "A claim needs a tool that fails it — and its sharper twin: a test needs a mutant it kills, or it is only watching. Give every positive control a negative twin."
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/C4-LANG.md, lines 202-203 (section 7)
+sha: sha256:d99139b865824ff3a6b3c21246d4226561354271263cecf2c7126e70bcc5667d
+state: seen
+
+fact: fails
+said: "A claim needs a tool that fails it. bin/sh1am lies on purpose so the honest claims mean something."
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/C4.md, lines 191-192 (section 5)
+sha: sha256:358ce65ce2539df9298a55ec3f6a00b11a9dad3e7d2ef559d54bb367738c9d42
+state: seen
+
+fact: inline
+said: "a declaration can ship with its own falsifier, in the same sentence that makes the claim."
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/C4-LANG.md, lines 173-176 (section 5)
+sha: sha256:d99139b865824ff3a6b3c21246d4226561354271263cecf2c7126e70bcc5667d
+state: seen
+
+fact: planted
+said: "A passing test. Looks like: it works. Actually: a check passed today. It counts here only if it was also shown to fail on a fault planted on purpose ... See past it: run any tool with --prove-red ... and look for the planted faults going RED."
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/HELLO-C4.md, lines 37-40 (chapter 01, "The stand-ins")
+sha: sha256:970ce8423829a7032465869146ba07bf91b73f9dd6871577fe6213a121ce19c4
+state: seen
+note: "Any tool" is HELLO-C4's claim; no count of which tools take --prove-red was made for this page.
+
+fact: first
+said: "## NOTE: ## Test scaffolding must come *before* everything (e.g. utility ## functions), reenforsing the need to separately implement tests."
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/p/c4fn/ghostwheel.fn.sh, lines 19-21 (his file: "Copyright (C)2026 Corwin Brust", line 3)
+sha: sha256:8458a930d67aec89593a830fafce187a268ce98e7e40f700377bcd5a7c6ae6b3
+state: seen
+note: The page drops his asterisks round "before" and keeps his words.
+
+fact: liar
+said: Corwin, 2026-08-03: "we'll never prove any claims if we can't at least show a tool that DOESN'T do what we say we want ours to do." Then: "PASSES WHAT IT NEVER READ. Hand it a path that does not exist and it says PASS." "sh1am must FAIL our own gauges. If it ever passes them, the gauge is measuring nothing."
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/bin/sh1am, lines 15-18, 30 and 37-38 (the tool's header)
+sha: sha256:a5b36aff41067d00083363d416efa0e54f2155b110434d941040f5fa8144b2db
+state: seen
+note: Read from the header; sh1am was not run.
+
+fact: no
+said: "VERDICT: NOT-MADE -- neither trust nor outcomes moved the right way." "A core proof that cannot come back no is a slogan; this one came back no on its own first data, which is the strongest available evidence that it is measuring something."
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/facts/c4-demands-two-registers.md, lines 114-124 ("Instrumented, same day", 2026-09-07)
+sha: sha256:052bcf2ea8a34edd842f344509a4d7b54d8de880ec81d7e1fabee967cc1a3b8d
+state: seen
+note: The words "the strongest available evidence" are the file's author's (Claude's), not his.
+
+fact: ladder
+said: "Promise-breaks are caught on a LADDER, his words: testing → turn → build → install → run-time → bug reports."
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/facts/drift, lines 10-11 (2026-08-08)
+sha: sha256:ae8fef4fd79610775408a7c321754edd8bc3a19a40703812f3389abc231b7df8
+state: seen
+note: One witness. The words are his, quoted inside a Claude-written fact; the original (named there as q/C4/levelset) was not opened.
+
+fact: book
+said: "sed -i 's/^Pin keeps the list\.$/Pin keeps the inventory./'" then expect_red "words: 'inventory' on a picture page, not on the easy list".
+seen: 2026-11-04T00:25:56Z
+by: part-one (claude-opus-5-5), reading this book's own checks/run.sh
+from: ghostwheel-book/checks/run.sh, lines 237-238
+sha: sha256:1fadacb7a3a2fdb656f4d73938195faaf9034a1f50eb59caf32cf1ead8061935
+state: seen
+note: A file in this book, not in the c4 tree; it was being edited while this was read, so its line numbers may move.
+
+== narration ==
+# Take A, "the company talks to you": every voice speaks to the listener.
+[picture A]
+narrator: Here's the test bench. The little computer works, we say. But how do we know?
+pin: Watch this. I'm pulling its plug, on purpose.
+spoke: Look! The light on the test box went red. Do you see it?
+narrator: Good! The test works. It saw the break.
+spoke: Up on the shelf, that other box has no light at all. It can't go red.
+pin: So it's only watching. We always break things once, on purpose, to be sure our test can see.
+[fuller A]
+narrator [fails]: In {C4|C four}, every claim is meant to bring along the tool that could break it. And every test needs a fault it can catch, or it's only watching.
+spoke [inline]: A sentence can even carry its own check, right inside it.
+pin [planted]: A passing test only says a check passed today. Here it counts when it has also been shown to fail, on a fault planted on purpose.
+narrator [first]: Corwin's own ghostwheel code starts with its tests. Test scaffolding must come before everything.
+spoke [liar]: The shop even keeps a liar, on purpose. It says pass for a file that isn't there. If one of our gauges ever believes it, that gauge is measuring nothing.
+pin [no]: And a check has to be able to say no. The first time one ran on real work, it said not made. That's how we knew it was measuring something.
+narrator [ladder]: Broken promises get caught on a ladder: testing, turn, build, install, run-time, bug reports. A test is the very first rung.
+spoke [book]: This book does it too. Its checks put a hard word on a picture page, just to see them turn red for you.
+
+# Take B, "the lap reader": one close voice reads to you; Spoke and Pin
+# mostly talk to each other, and turn to you only in a short aside.
+[picture B]
+narrator: We say it works. How do we know?
+pin: Ready, Spoke? I'm pulling it.
+spoke: Red! It went red, Pin.
+narrator: We break it on purpose. Then we see the light go red. Good! The test works.
+pin: If a test can not go red, it is only watching.
+spoke: Like that one on the shelf. Just looking.
+[fuller B]
+narrator [fails]: Every claim in {C4|C four} is meant to carry the tool that could break it. A test needs a mutant it kills, or it is only watching.
+narrator [inline]: A declaration can ship with its own falsifier, in the same sentence that makes the claim.
+narrator [planted]: A passing test counts here only if it was also shown to fail, on a fault planted on purpose. The tools call that prove red.
+spoke [first]: Corwin's own code says it, Pin. Test scaffolding must come before everything.
+pin [liar]: And we keep a liar. {sh1am|sh one am} says pass for files that aren't there. Our gauges have to catch it.
+narrator [no]: When the shop's measure first ran on ten real acts, its verdict was not made. A proof that cannot come back no is a slogan.
+pin [ladder]: Testing, turn, build, install, run-time, bug reports. I wrote his ladder down in order.
+spoke [book]: And this book's own checks plant a hard word, Pin, to watch the check go red.
+
+== picture ==
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="proving-t">
+  <title id="proving-t">A wooden test bench. On it, a small smiling computer is wired to a connector, and Pin the mouse, standing on the bench, holds the pulled plug up, on purpose. Between them a blue test box glows with a bright red light on top. Spoke floats by the computer, delighted. High on a wall shelf, a second test box with no light at all just watches with big eyes.</title>
+  <rect width="800" height="600" fill="url(#g-wall)"/>
+  <rect y="478" width="800" height="122" fill="url(#g-floor)"/>
+  <rect y="472" width="800" height="9" fill="#c49a6c"/>
+  <g class="proving-shelf">
+    <rect x="580" y="150" width="180" height="10" rx="4" fill="#c49a6c"/>
+    <path d="M 604,160 L 612,176 M 736,160 L 728,176" stroke="#b98f5a" stroke-width="5" stroke-linecap="round"/>
+    <rect x="636" y="96" width="70" height="54" rx="8" fill="#6d6875" stroke="#2d2a32" stroke-width="3"/>
+    <circle cx="658" cy="118" r="11" fill="#fffaf0" stroke="#2d2a32" stroke-width="2.5"/><circle cx="684" cy="118" r="11" fill="#fffaf0" stroke="#2d2a32" stroke-width="2.5"/>
+    <circle cx="660" cy="120" r="5" fill="#2b2640"/><circle cx="686" cy="120" r="5" fill="#2b2640"/>
+    <path d="M 662,138 H 680" stroke="#2d2a32" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+  <g class="proving-bench">
+    <rect x="110" y="352" width="560" height="18" rx="5" fill="#b9774a" stroke="#5e3720" stroke-width="3.5"/>
+    <rect x="136" y="370" width="16" height="104" fill="#8a5233"/>
+    <rect x="628" y="370" width="16" height="104" fill="#8a5233"/>
+  </g>
+  <g transform="translate(220 352)">
+    <rect x="-52" y="-84" width="104" height="72" rx="10" fill="#264653" stroke="#2d2a32" stroke-width="3.5"/>
+    <rect class="screen s2" x="-42" y="-75" width="84" height="52" rx="6" fill="#bfeee5"/>
+    <path d="M -12,-56 v2 M 12,-56 v2 M -13,-40 Q 0,-30 13,-40" stroke="#2d2a32" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <rect x="-12" y="-12" width="24" height="12" fill="#2d2a32"/>
+  </g>
+  <path d="M 272,326 C 320,330 330,342 372,342 C 420,342 440,334 468,336" fill="none" stroke="#2d2a32" stroke-width="5" stroke-linecap="round"/>
+  <rect x="466" y="324" width="30" height="28" rx="4" fill="#e9c46a" stroke="#2d2a32" stroke-width="3"/>
+  <circle cx="496" cy="332" r="2.5" fill="#2d2a32"/><circle cx="496" cy="344" r="2.5" fill="#2d2a32"/>
+  <g class="proving-test">
+    <path d="M 392,300 C 396,318 430,330 468,332" fill="none" stroke="#6d6875" stroke-width="3" stroke-dasharray="2 6" stroke-linecap="round"/>
+    <circle cx="390" cy="262" r="58" fill="#e76f51" opacity="0.18"/>
+    <g stroke="#e76f51" stroke-width="5" stroke-linecap="round">
+      <line x1="390" y1="222" x2="390" y2="204"/><line x1="358" y1="234" x2="346" y2="222"/><line x1="422" y1="234" x2="434" y2="222"/>
+      <line x1="346" y1="262" x2="330" y2="262"/><line x1="434" y1="262" x2="450" y2="262"/>
+    </g>
+    <path d="M 366,282 A 24 24 0 0 1 414,282 Z" fill="#e76f51" stroke="#5e3720" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M 378,272 Q 384,264 392,264" fill="none" stroke="#fff1b8" stroke-width="4" stroke-linecap="round"/>
+    <rect x="350" y="282" width="80" height="70" rx="8" fill="#457b9d" stroke="#2d2a32" stroke-width="3.5"/>
+    <circle cx="372" cy="314" r="12" fill="#fffaf0" stroke="#2d2a32" stroke-width="2.5"/>
+    <path d="M 372,314 L 380,306" stroke="#e76f51" stroke-width="3" stroke-linecap="round"/>
+    <rect x="394" y="306" width="24" height="8" rx="3" fill="#bfeee5"/><rect x="394" y="322" width="24" height="8" rx="3" fill="#bfeee5"/>
+  </g>
+  <g data-figure="pin" transform="translate(616 354) scale(-0.78 0.78)"></g>
+  <g class="proving-plug">
+    <path d="M 544,318 C 556,322 566,326 578,322" fill="none" stroke="#2d2a32" stroke-width="5" stroke-linecap="round"/>
+    <rect x="520" y="306" width="26" height="22" rx="4" fill="#2d2a32"/>
+    <path d="M 520,311 h -11 M 520,323 h -11" stroke="#b9b9b9" stroke-width="4" stroke-linecap="round"/>
+    <path d="M 500,312 l -2,-14 M 506,322 l 10,-24 M 498,330 l -4,12" stroke="#e9c46a" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  <g data-figure="spoke" transform="translate(90 330) scale(0.55)"></g>
+</svg>

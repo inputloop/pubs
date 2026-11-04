@@ -1,0 +1,453 @@
+<!-- book: dir=hello chapters=4 chapters-sha=3381a8ca8aea804c44c05a2cc95a7ae1a73e578464a148adf4f1930c87e5a11e as-of=2026-09-30 render="c4 book render hello" -- a RENDERING of the chapters; edit a chapter, re-render; a file with no such line is hand-held (LOCAL) -->
+# HELLO-C4: what C4 does, but only approximately
+
+`README.md` lists what C4 does not do at all. This page is the other list: the things C4 does
+do, but by a stand-in, so a newcomer can tell the stand-in from the real thing. Each entry says
+what it looks like, what it actually is, and how to see past it with a command you can run.
+
+The shape is borrowed from the Realism page of the particle simulator Bryant sent
+(`from-bryant/2026-09-29/`), which lists every fake the same way and ends: if a teacher tells
+you something that disagrees with this simulator, trust the teacher. The same holds here. If a
+person you trust, or your own check, disagrees with C4, trust them, then tell us (`README.md`,
+"If you find a fault").
+
+Chapter 01 is written by hand. Chapter 02 is generated from the tools' own headers, so it
+cannot go stale; chapter 03 says how to check both.
+
+## 01 The stand-ins
+
+**A signature.** Looks like: someone approved this. Actually: the bytes have not changed since a
+key signed them, and nothing more; not review, not endorsement, not "the idea is right".
+Rests on: `README.md` ("a good signature here means ..."), `SIGNATURES.md`. See past it: `gpg --verify` tells
+you who and unchanged; whether it is right is for you to read.
+
+**A clean intake.** Looks like: the material is safe. Actually: none of a fixed list of patterns
+was found. A pattern list is not understanding; it flags, it cannot clear. Rests on: `bin/intake`
+and `bin/sb1aw` (chapter 02). See past it: `c4 intake provenance DIR`, then read the material.
+
+**"Self-healing."** Looks like: the documents fix themselves. Actually: only generated sections
+regenerate. Hand-written prose cannot heal, so it is built to fail loudly when the tree moves under
+it. Rests on: `man/c4.org`, Preface. See past it: `sh bin/ma3nual --check`.
+
+**The date.** Looks like: today. Actually: the shop's recorded date, read from the UTC clock and
+written down before anything uses it. In the evening in the Americas it is often a day ahead of
+your wall clock (2026-09-29 was rolled at 19:01 in Minnesota). Rests on: `DATE`, `bin/da1te`.
+See past it: `cat DATE`, which says when and where each roll happened.
+
+**A passing test.** Looks like: it works. Actually: a check passed today. It counts here only if it
+was also shown to fail on a fault planted on purpose. Rests on: `spells/ingest/SPELL.md` (T3); every
+tool's `--prove-red`. See past it: run any tool with `--prove-red` (for example `sh bin/book --prove-red`) and look
+for the planted faults going RED.
+
+**MATCHED.** Looks like: verified. Actually: when a tool re-reads its own write and prints MATCHED,
+the write landed; the independent check, a second reader, is named but not yet done. Agreement
+between two readers built apart is the evidence; one reader alone is data. Rests on: `bin/w0fold`
+("EXAMINED then MATCHED, never MATCHED alone"), `facts/build-the-instrument-twice`. See past it:
+run the second reader it names.
+
+**A gauge.** Looks like: a pass or fail verdict. Actually: a count. A gauge measures and never
+blocks. The word is not yet clean here: one dial that stops at 17 behaves like a gate, and bank
+question Q552 is open on it. Rests on: `bin/book` ("a gauge, not a gate"). See past it: read the
+count and decide yourself.
+
+**A default on a card.** Looks like: decided. Actually: the shop's best guess, applied so the work
+can go on, with the check that would prove it wrong. It stands only until the keeper rules on it.
+Rests on: `bin/card-fork` (DEFAULTED: "Silence lets it stand"). See past it: `sh bin/w0sh Qnnn`
+shows where the question stands now.
+
+**A house number.** Looks like: a measured figure. Actually: when a number has to be invented, the
+shop uses 4, 9 or 17 and says so; a derived number is always preferred. Rests on:
+`magic-number-theory/ESSAY-2026-09-26-magic-number-theory.md`. See past it: look for "from the
+dial" beside the number, or ask for its derivation.
+
+**A hyphen in a file name.** Looks like: every file a machine touched carries one. Actually: the
+hyphen travels in the name, and some transports strip it. A report came back on 2026-09-10 with
+its hyphens gone (`from-bryant/2026-09-10/c4forbryantdefectreport20260910.pdf`). Rests on:
+`README.md` ("Authorship, disclosed by construction"). See past it: the file's provenance row
+(`c4 intake provenance DIR`), not its name alone.
+
+**The words.** Looks like: C4's vocabulary (the `m/t` table) names how things are. Actually: these
+are words the keeper and his collaborators elected for what they are building. You may elect
+differently. Rests on: `facts/elect-not-adopt`. See past it: `c4 names`, and use your own words
+where ours do not fit.
+
+## 02 Every tool, in its own words (GENERATED)
+
+<!-- generated by `sh hello/journeys.sh` from the JOURNEY blocks in bin/; rerun it, never edit this chapter -->
+
+Most tools here open with a short header. Its MUST part says what the tool promises; its
+JOURNEY part says what it cannot promise, or where its author made a judgement call you may
+want to overrule. 90 of the 183 tools in `bin/` carry one. Here they are, as written.
+
+### bin/a4ddr
+
+the even/odd derivation above, and that the alphabet is alphanumeric-only. Mine.
+
+### bin/ac1tr
+
+a spell or a build loop asks which hooks it may use right now, and gets USE, SKIP, OFF or REFUSE for each, with the reason
+
+### bin/ak1ck
+
+a path that resolves is a record that exists, not a record that says what the entry claims; checking the wording against the record is a reader's job (the QA plan's Q4).
+
+### bin/as1te
+
+the words (PROVEN RED BLIND OWED NOT-RUN OPEN DECLINED), what GRAIN/GREAT/GRAND owe, and the EQUIVALENT rule are the design's picks, banked for his ruling (Q choices 1-9).
+
+### bin/asof-gauge
+
+EVERY THRESHOLD BELOW IS MINE, and none of them is hiding in MUST. (a) WHAT A DRIFT-PRONE FIGURE IS. Four shapes -- PCT, RATIO, COUNT, CURRENTLY -- spelled out in `shapes` below. The NOTE says "a count, a coverage %, a gauge reading, a 'currently'"; turning that sentence into token tests is a reading. (b) WHAT IS MASKED OUT FIRST. Dates, year-months, timestamps, clock times, bare years, dotted versions, file:line references, URLs, hex runs, currency, ordered- list markers, and whole fenced code blocks. A gauge with a high false-positive rate is worse than no gauge -- bin/sh1ck's founding measurement, applied here. (c) SCOPE IS *.md. A TSV row IS the data; it carries no prose claim about itself. (d) HOW A FIGURE NAMES ITS SOURCE. Nothing on disc states a per-figure convention -- document-level `SOURCE:` lines exist and no per-figure form does -- so this reads, in order: a resolving path on the figure's own line, then the nearest document-level SOURCE line above it, then NOSOURCE. It never guesses a source. (e) A DATE-ONLY AS-OF IS READ AS THE END OF THAT DAY, so a source touched later the same day is NOT called stale. The conservative choice, so the gauge does not cry wolf on the day a figure was written.
+
+### bin/at1dx
+
+a row says an atom exists and what its first line reads; ROUTE is a reader's judgement and this tool never fills it.
+
+### bin/book
+
+"current" means the chapters have not changed since the render -- not that they are right.
+
+### bin/c4at
+
+nothing. Every line is a filesystem or table fact. Where there is no instrument this tool says REQUESTING-CLAIM and stops -- it does not estimate.
+
+### bin/c4fb
+
+the CATCH RATE read as a trend, and the claim that a signature means assent. He signs things; whether signing means "I agree" or "I am pinning this version" is HIS to say, and c4fb reports the count either way. See Q147.
+
+### bin/c4gage
+
+the DEFINITIONS. A card is a line matching ^id: in decks/*.deck.md; attributed means a ^provenance: line naming either party; unverdicted is ids minus ^verdict: lines; an orphan deck is c4prime's own definition, copied not reinvented, so the two instruments cannot disagree; markdown volume excludes Z/ (counted, never read) and .git/. Disagree with a number at its definition, not at its digits.
+
+### bin/c4init
+
+the 17 suggested letters and the four column names. They are OUR sample. Delete them.
+
+### bin/c4item
+
+nothing. This tool makes no classification and holds no opinion. If it says a deck round-trips, that is a diff exit status, not my reading.
+
+### bin/c4rp
+
+the five stages and their order. Mine. `p/focus` is where you disagree with me.
+
+### bin/c4show
+
+the ORDER cards appear in, and leading with provenance. That is my reading of how he said he reads this. One awk line to change.
+
+### bin/c4vol
+
+the judgement-owed classifier. It is a HEURISTIC OVER MY OWN PHRASING -- I wrote every bank row, so it measures WHAT I ASKED FOR, not what answering costs him. Corwin can read the split and tell me it is wrong; that is the intended use.
+
+### bin/card-fork
+
+the marker lists below are data I chose from the bank on 2026-09-28; they are the calibration, and the sweep is how to re-check it. Change them, then re-sweep.
+
+### bin/cites
+
+LIVE = what a tool reads in order to act: bin/ f/ c/ d/ m/ spells/ and .tunnels. Notes (h/ q/ facts/ decks/ MEMORY.md ...) and receipts (evidence/) are records: their words are never rewritten to follow a move (the fence on notes other sessions wrote). .tunnels is sealed by its own tool; a cite there is listed, fixed only with `tunnel seal`. spells/*/runs/ are run records (receipts), not live: excluded (found 2026-09-28).
+
+### bin/cl1ck
+
+"distinctive" = at least 4 characters, not an ordinary English word (hunspell list), not one of the shop's own words (tags, m/t, channel names). A nick that IS an ordinary word is counted as NOISE and shown, never silently skipped. Six words = verbatim (a house choice for Corwin; stands until he rules).
+
+### bin/cl1ix
+
+the ZNC line grammar below; GAP=17 min (house number, invented, from the spell); the hunk edge also closes 17 min after his last line (SUGGESTED refinement: busy channels never go quiet, so the spell's literal hunk could be days long); the tag lexicon; the sentence template; MEME_MIN_WORDS=9 and KEEP_PER_ROUTE=17 (house numbers, invented). Mine; rule to change.
+
+### bin/cl1ml
+
+addressed = the line begins NICK: or NICK, (or @NICK) and NICK is his at that moment; mention = a nick of his (5+ letters, not an English word, no host test) inside the line; query = any line from the other side of a private query. Bots and services are skipped. answered soon = he wrote in that place within GAP (17 min, cl1ix's) and not to someone else by name; answered later = within LATER_DAYS (9, a house number, invented) he named the asker first in that place, or wrote in a private query with them. Otherwise: he spoke to others then, or waiting. Heuristics, stated; a mark from him (`done`) outranks them.
+
+### bin/cl1rb
+
+POSIX sh + awk (a language apart from cl1ix's Python, on purpose); the sample of 17. Mine; rule to change.
+
+### bin/cl2ft
+
+the cue lists for each reading, the verb/noun guess from the word before, the forms of an m/t word, the voice forms (all HOLD until he chooses them); mine, provisional, rule to change
+
+### bin/cl2rc
+
+the marked form itself, ??:?? -> 00:00:00, one day-file per date. Mine; rule to change.
+
+### bin/cm2nt
+
+the templates below (they belong in l/t as parts for te2mp, next); the red-until-planted stub; the test-language pairing (sh and awk and perl tools get a Python spec, Python tools a sh spec); the run-level words, from h/GRAIN-2026-09-18-gauge-naming.md. Mine; rule to change.
+
+### bin/confirm-gauge
+
+EVERY THRESHOLD AND EVERY READING BELOW IS MINE, and none of them is hiding in MUST. (a) WHAT A SUBJECT-REFUSAL PATH IS. Two signals count -- a literal nonzero exit other than 2 (or `return 1`), and a refusal word emitted from a live line. The word list is mine. `exit 2` DELIBERATELY DOES NOT COUNT: in this shop exit 2 is USAGE, said in bin/asof-gauge's own header ("exit 0 whenever it could measure ... exit 2 only on usage trouble"). A tool whose only nonzero exit is a usage exit cannot refuse ABOUT ITS SUBJECT, which is the whole question here. (b) A LIVE LINE is one whose first non-blank character is not `#`. That is a SHAPE test. It over-counts a refusal word inside a heredoc or an embedded awk string and under-counts nothing. A cleaner reading would need a shell parser; this errs toward calling a tool ABLE to refuse, which is the conservative direction for a gauge whose finding is that too few can. (c) NO REACHABILITY ANALYSIS. "A refusal path exists" does not prove the path is reachable for any input. A refusal branch behind a condition that is never true reads UNPROVEN here and is really CANNOT-REFUSE. So the CANNOT-REFUSE count is a LOWER BOUND on the structural confirmation surface, and it is stated as one. (d) NOTHING IS EXECUTED. `--prove-red` is DETECTED, not run. Some tools in bin/ write; a gauge that ran 119 programs to see whether they can refuse would be the least read-only instrument in the shop. So PROVEN means "ships a proof", not "the proof passes today". `--fire` is named as the next thing and is not built. (e) WHAT MAKES A TSV A VERDICT LEDGER. A file none of whose fields ever opens with a verdict word is not a record of a check saying anything, so it is excluded -- otherwise every word-frequency table in evidence/ would score NEVER-REFUSED and the headline would be pure noise. The verdict vocabulary is mine, and the count of exclusions is printed so the exclusion is visible rather than quiet. (g) THE VOCABULARY DOUBT, and its thresholds. ALL-CAPS, 3+ characters, 3+ occurrences is what makes an unrecognised field-opening token count as a ledger's own word for `no`. Those three numbers are mine. They were set to catch a verdict vocabulary and not a data column: evidence/ui-test-manifest.tsv opens its fields with paths, which are not all-caps, and is unaffected. The band exists because this gauge REPRODUCED the bug it was built to find -- it scored evidence/declarations.tsv NEVER-REFUSED over 117 rows of which 75 say UNDECLARED. Extending the verb list would fix that ledger and leave the next one; the list is not the problem, the CONFIDENCE is. (f) SCOPE. bin/ and h/*.sh for tools; h/*.tsv and evidence/*.tsv for ledgers. A `.asc` is skipped by NAME, the same way dec1r skips it: a signature misnamed is missed.
+
+### bin/d44c
+
+a DRAFT is found by string, not understanding: `draft` in the name, or DRAFT, PROVISIONAL or UNBLESSED in the first 12 lines. A TARGET is the name with those markers and a leading date taken off, looked for beside the draft; when the real target has another name, PATCH it or align a two-column manifest. DRIFT counts non-blank lines, not meaning: CONTAINED means every draft line is somewhere in the target. The gauge's floor of 2 per automatic act is a reading of "bumping once each ... rolled together" to reach four; a dial set above it is left alone. His to overrule.
+
+### bin/da1te
+
+THE TOP OF CONTEXT IS THE MOUNT ROOT, NOT THE DEVICE BOUNDARY. On his machine F:\claude and F:\claude\c4 are one disc and arrive through this session as two mounts; this tool calls the mount the ceiling because the unit he CONNECTS is the unit that travels. That is a judgement about what a context is -- a shop whose context stops short of its mount must say so with DA1TE_TOP rather than be assumed. THE KEEPER RULE. "Versioned toward root" is his instruction; "the LOWEST ancestor that already keeps a DATE file wins, and failing that the top of context" is my mechanization of it. A nearer keeper silently overrides a further one; that is the intended shape and it is still a choice this file made. A DAY IS A UTC CALENDAR DAY. `stamp` refuses on a date-STRING mismatch, so a shop working across midnight UTC is refused mid-session by design. Whether the UTC day is the right day for this shop is not measured anywhere. THE HOST FIELD names the machine whose CLOCK WAS READ and defaults to `uname -n`. Through the desktop bridge that is a VM, not the station, so the default is not the station; DA1TE_HOST states the station. Neither is guessed and neither is inferred.
+
+### bin/dec1r
+
+WHAT COUNTS AS A DECLARATION IS THIS TOOL'S DEFINITION. The shape checked for is bin/c4at's, which is house style and not law: a tool that declares in prose, in a different spelling, or inside its --help text reads UNDECLARED here and may be perfectly honest. The backlog this prints is a backlog of FORM. TWO HONEST READINGS OF "IN A COMMENT BLOCK", PINNED RATHER THAN PICKED: LOOSE each of the two is a comment line; where they sit does not matter. STRICT both sit in ONE contiguous run of comment lines -- a block, as c4at writes it and as the phrase "MUST/JOURNEY block" reads. Both are defensible. This tool computes BOTH, agrees out loud when they agree, and prints SPLIT for any file where they diverge rather than choosing for the shop. CONTENT IS NEVER WEIGHED. A declaration that laundered a threshold into MUST scores DECLARED here. This tool reads FORM, and form is exactly what a liar controls -- li1nt's own finding about sh1am, and it applies to this file too. Whether a declaration is TRUE is a JOURNEY call and it is the reader's, not this program's. THE SELF-DISAVOWAL IS TAKEN AS AUTHORITY. A file that says NOT DECLARED ON PURPOSE is reported UNDECLARED (on purpose) even when a well-formed block is present, which trusts the file's WORDS over the file's SHAPE. That keeps the negative control legible instead of quietly repaired, and it is a choice, not a measurement. .asc IS SKIPPED BY NAME, not by sniffing content. A signature misnamed is missed. NEVER BLOCKS. Exit 0 whenever it could measure; 2 only for usage or an unreadable path. A check that can fail a build is a check people learn to route around.
+
+### bin/dlink
+
+one chain per folder. A folder holding two chains reads as two heads, a FAULT; say so rather than guess which is the real one. append puts FILE after the chain's tail. On the first real use (2026-09-29) two entries were written first and appended after, in the wrong order; they linked backwards and nothing said so. Now append refuses a name that sorts before the tail, so name entries in the order they are meant to be read (a date and a counter do that), and append them one at a time.
+
+### bin/do0r
+
+the EXTRACTION -- what counts as a pointer is a regex of mine (path-shaped tokens plus bare tool names); a pointer my regex misses is not vouched for, and the assembler must not pretend otherwise. Also mine: the TSV shape, and rc=0 always (NEVER BLOCKS -- this is a gauge, not a gate).
+
+### bin/door
+
+which parts a scope selects, the render order (filename sort), the SURVEY patterns, and the marker's shape are mine; a rule my patterns miss is not gauged.
+
+### bin/dr1aw
+
+the symbol->role table above, the lexical rule, and the attachment rule. They are my reading of HIS 2024 drawing, and an unknown symbol is reported rather than guessed.
+
+### bin/ds2mt
+
+the three-way CLASS (coinage / camp / borrowed). The boundaries are swept, not felt -- run --sweep to see the sensitivity -- but a sweep only shows where a boundary is stable, it does not prove the boundary means anything.
+
+### bin/ed1ge
+
+deck-deck granularity (Q320); word-weight.tsv as what "term" means (inherited from te1rm, not re-decided); an edge existing at >= 1 shared term. Disagree with an edge at its definition, not at its weight.
+
+### bin/en1ck
+
+(this tool's own opinion, a heuristic): "one sentence" is judged as: no ". " followed by a
+
+### bin/ep1nt
+
+the TIER each skill is sorted into (trait / gate / neither). That is my reading of each skill's own description, and the output marks each one so he can disagree per row rather than per file.
+
+### bin/fi1nd
+
+the ORDER of results (registers first, then decks, then everything else). That is my reading of what you would want at the top, not a measurement.
+
+### bin/fm3nt
+
+nothing. It projects what is there.
+
+### bin/hn2wd
+
+nothing. It serves files.
+
+### bin/iThmss
+
+the section-header shape (`## NAME`), the sort order (LC_ALL=C glob order, plain byte order), and treating head.md/foot.md as the topmatter/closing slots rather than some other marker name. Mine; cheap to re-rule.
+
+### bin/ib1nd
+
+SENT means a row says so, not that the message arrived; a send nobody wrote down reads UNSENT until its row is added.
+
+### bin/in2rn
+
+a person ingesting a text asks which of its words the shop does not yet hold, and gets each seated or a reason
+
+### bin/intake
+
+"injection-shaped" is a pattern list, not understanding: it flags, it cannot clear. A clean scan means "none of these patterns", never "safe". A falsifier LINE existing is not the falsifier being any good. Before this check runs, learn only a bundle's SHAPE (sizes, hashes, `file --mime-type`, names, counts, `unzip -l`); nothing that prints a file's bytes (2026-09-29). A saved web page (X.html beside X_files/) holds several authors' files: its PROVENANCE rows are per file, so a fetched font, framework or beacon is never taken for the sender's own work.
+
+### bin/ix0xi
+
+**that `ix0xi` decodes as INDEX·X·0·X·INDEX at all.** He named the tool; I read the name. Also mine: that 0..26 is the right fixed set, that the pair is stored as (up,down) in i/x, and that a virtual rung is exactly one prefix character. **If the decode is wrong the tool is still correct about the numerals and wrong about everything else**, so it is written to fail loudly in that direction rather than quietly in both.
+
+### bin/ix2wy
+
+the perspective names below (TAXONOMY GROW ORBIT RESIST) are the design's, blessed with the tables 2026-09-30; words split out of a path are split on / - . _ and digits.
+
+### bin/la1nd
+
+what counts as a path (the TOKEN pattern, the code-name skip) and that only caBX is set aside -- both are readings from one day's evidence; widen them when a case says so.
+
+### bin/le2ns
+
+a person who imported a text opens one page and reads it four ways: can I trust where it came from, did it hear what I meant, where does each word live now, who else is in it and what leaves
+
+### bin/li1nt
+
+that these six rules ARE the grammar. I derived them from what most tools already do; Corwin may hold that a rule is not load-bearing, or that one is missing.
+
+### bin/lt1wp
+
+the %%BODY%% grammar (w0sh precedent, adopted whole). Register REUSED, not minted: C4_W_SKIN is w0sh's own skin register, same meaning, new consumer.
+
+### bin/m4dot
+
+that a "taxonomy word" is a facet name, a role name, a column name or a measured term -- and NOT every word in the tree. That boundary is mine.
+
+### bin/ma3nual
+
+which sections exist, their order, org as the emit format (Q324, his roll), and alphabetical state-order in the bank gauge.
+
+### bin/mf4st
+
+a person asks what the tree holds and gets one page, by kind, generated every time
+
+### bin/mo1nt
+
+THE FIVE NAMES, AND WHERE THEIR BOUNDARIES FALL, ARE THIS TOOL'S DEFINITIONS -- not facts of the filesystem: BACKED means "on a different device from the reference", which answers "could an absence reported here be real". It does NOT verify that the far disc is HIS: a second mount of any other filesystem reads BACKED exactly the same. STUB IS A HEURISTIC. An EMPTY directory on the reference disc is called a stub because that is the shape the 2026-09-17 fault had. A genuinely empty directory of this session's own is called a stub and is not one; a stub with one stray file in it reads OWN and escapes the warning. Emptiness is a PROXY for "a mount was expected here", and a proxy is a judgement wearing a verdict's clothes. STUB vs UNBACKED carry the same counsel -- ASK -- split only on whether the path exists. Two names for one instruction, kept apart because the two look different to a reader who is standing in one of them. THE REFERENCE IS $HOME BY DEFAULT: that "my own disc" is the disc $HOME sits on is an assumption about how a session is laid out. MO1NT_REF states another. THE RULE ITSELF -- prove a place is backed before reporting an absence from it -- is the shop's law written down here. This tool measures conformance to it, never worth.
+
+### bin/moved
+
+WHY is free text without TAB/newline; DATE is today (UTC).
+
+### bin/mr1gn
+
+a person or a pipeline names a place in a file with a few numbers in a small file of their own, and gets exactly that text back, or an error it can log
+
+### bin/mret
+
+nothing. It returns what is there.
+
+### bin/ms2wt
+
+column may be a NAME (from d/<map>) or a 1-based number; separator auto-detected (tab if any, else space). --preview shows the change + proof, writes nothing. Mine; born 2026-08-30.
+
+### bin/mtn-gauge
+
+EVERY THRESHOLD AND EVERY READING BELOW IS MINE, and none of them is hiding in MUST. (a) THE LANDING RULE. A landing date is asserted ONLY where the record states it, by one of four rules tried in this order -- R1 SAME-TURN, R2 STATED-DATE, R3 STATED-SPAN, R4 NOSOURCE. Which cue phrases count as each is my reading of the shop's prose and it is printed beside every row so it can be overruled. (b) THE ORDER OF R1 BEFORE R3, set by a real row. evidence/error-rates.tsv row 56 reads "REPEAT OF ERROR #8, one week later: ... caught by me on the same turn." R3 would read `one week later` as this fault's age; it is the gap to a DIFFERENT fault. R1 outranks R3 and where BOTH fire the row is flagged CONFLICT with both readings shown. A rule that silently picks is the confirmation structure this measure exists to find. (c) A MONTH IS 30 DAYS and a WEEK IS 7 in R3's arithmetic. A stated span is prose, not a calendar; 30 is a convention and it is mine. An `hour`/`hours` span reads as 0 days, which is a floor, not a measurement. (d) SCOPE IS THREE NAMED FILES, not a scan of the tree. Measured first, 2026-09-19: a prose sweep for fault-shaped sentences carrying two dates returns 583 lines across h/ journal/ facts/ evidence/ MEMORY.md, nearly none of them faults. A gauge with that false-positive rate is worse than no gauge -- bin/sh1ck's founding measurement, and bin/asof-gauge (b), applied here. (e) NO FILENAME DATE AND NO MTIME EVER BECOMES A LANDING. A filename date is the document's birth, not the fault's; h/DESIGN-2026-09-19-unread-refusal.md rejected exactly that substitution for the same reason and this file keeps the rejection. (f) NO GIT ARM. `git rev-list --count HEAD` is 10 in c4 and the newest commit is 2026-09-11, so commit dates cannot resolve a landing to a day here. Named rather than attempted.
+
+### bin/ne1ar
+
+that these five shells are the right shells, and that a mass-weighted mean is a meaningful summary of a distribution that may well be bimodal. Both are mine.
+
+### bin/ngen-aw
+
+the dialect is the meeting ground of POSIX ERE and Python re as this pair reads them, not either one's full language; "first match on a line" is the pair's rule, chosen so awk's match() needs no loop; list+| is refused because awk takes the longest match and Python the first alternative, and those can differ.
+
+### bin/ngen-py
+
+the file is read as Latin-1 so that one character is one byte, as awk sees it in the C locale; that keeps "what matched" the same text in both, and is why a UTF-8 file comes back out byte for byte.
+
+### bin/on1fl
+
+THE THREE PROPERTIES ARE A STANDARD, NOT A MEASUREMENT. That a hand-back must UNPACK, PROVE and FAIL ON COMMAND -- and that all three are required or there is a hole -- is the gate this shop blessed in on 2026-09-17. A destination could be well served by a form holding two of them; nothing here weighs that. WHAT THE DESTINATION HAS IS ASSUMED, NEVER ASKED. "Only what the far machine already has" is read here as A BROWSER OPENING A file:// URL. That assumption is the whole of UNPACKS and it is never checked against an actual destination. For GIZA it holds; name the destination before carrying the assumption anywhere else. ZERO `https?://` IS A PROXY FOR SELF-CONTAINED. A page could reach the network by other spellings and this grep would not see it. ONE FLIPPED BYTE IN THE FIRST POSITION is this tool's demonstration that the check can fail -- sufficient to show red, not exhaustive. THE PAGE'S BEHAVIOUR IN A BROWSER IS NOT OBSERVED HERE. --prove-red checks bytes and claim with shell tools; the green-then-red the READER will see is the emitted script's, and it is exercised only when --witness finds a JS engine. THREE witnesses is a number this shop chose, not one anything derived. THE EMITTER IS BRYANT'S, kept unchanged on purpose so the two gardens can diff it byte for byte. That this shop's canon wins where his skill and this shop differ is a governance call, not a computation.
+
+### bin/pr1mt
+
+the ordering of GITDATE over NEWEST. That is my reading of which signal is his intent rather than an artifact of copying, and he can disagree per row.
+
+### bin/prompt-split
+
+the atom is one act by one owner (council seat "units", 2026-09-28): if a row needs two owners or two kinds, cut it again. Writing rows is by hand or by a seat; this only checks.
+
+### bin/pw2il
+
+what "would be fetched" means is three patterns, read from one page's needs; widen them when a page needs more. The OUT naming rule is mine.
+
+### bin/qaclose
+
+THE CLAIM TEXT IS THE LOOP'S, NOT MINE. Every note row's CLAIM is the note quoted. Where a note says `--corrected`, this program writes "reported --corrected", because sw1ng's own declaration says that counter is the caller's assertion and nothing diffs a tree. Saying "made a correction" would launder an assertion into a fact. THE SWING LABEL FOR A NOTE IS A RECONSTRUCTION. sw1ng records (cycle, swing) only in the key block, as of the LAST move. For each earlier note this program replays the counter forward using the verb shapes sw1ng writes. A note whose shape it does not recognise carries the running pair rather than a guess -- but that pair is my replay, not a figure sw1ng wrote down. WHICH COLUMNS I KNOW HOW TO FILL is my list, not d/qa's. The header is whatever d/qa says, verbatim and in its order; a column this program does not recognise is written `-` rather than invented. Four names are REQUIRED (PILE, CLAIM, GRADE, SWING) and their absence is refused; that requirement is mine. GRADE IS NEVER MINE. Every row is written UNSET except the one CELEBRATE row, which takes `n/a` to match bin/et1cd's own --template. That a closed loop deserves a CELEBRATE row at all is a choice about tone, not a measurement. THERE IS NO HAND-WRITE PATH, ON PURPOSE. A flag that let a caller type a swing count for a loop whose state was lost is the exact door this tool exists to close. A loop nobody wrote down did not happen; this program will not make it happen afterwards. WHERE THE ROWS GO, and the one place two honest readings diverge, PINNED not picked: SCHEMA everything else in d/ is a column DECLARATION for a register living elsewhere (d/c/wf declares c/wf; d/m/t declares m/t). d/qa therefore declares a findings TSV's columns -- which is exactly how bin/et1cd:66 reads it -- so rows appended INTO d/qa would destroy the schema. REGISTER d/qa is a header-only register with zero rows, and the fix is to fill it. This program takes SCHEMA, because SCHEMA has a witness (et1cd) and REGISTER has none. It is said out loud instead of chosen quietly: if the keeper rules REGISTER, the schema needs a new home first and --out then points at the register.
+
+### bin/rhg
+
+"FEATURE = a folder with a DESIGN" is the council's working definition (seat "where", 2026-09-28), not his; fork F2 in p/C4/prompt-io/DESIGN-2026-09-28-prompt-io.md §8 asks whether every FEATURE gets a graph by default. No init verb until he rules.
+
+### bin/sb1aw
+
+a pattern list, not understanding. Clean means none of eight shapes, never "no secrets".
+
+### bin/sc3dm
+
+nothing. This tool holds no opinion about what should be held. The hold list is HIS.
+
+### bin/se2am
+
+the verdicts themselves and every affirmative statement. All hand-written, all mine unless the statement quotes Corwin -- and where it does, the quote is marked.
+
+### bin/sig-gauge
+
+the exclusions (archive deps corpus harvest .git Z a p) are a working default, not law.
+
+### bin/skill-router
+
+the garden path default, the column shape, the cap.
+
+### bin/sp1st
+
+a CHECK is a command, and this tool runs what the chapter says: deal only spells you would run by hand. A CHECK should only read; nothing here enforces that. "Passes now" is a reading at one moment, not a promise the world stays that way.
+
+### bin/st1at
+
+the register path (a/pat), the column order, the awk-only engine, and the VOID/PASS wording. Mine; rule to change.
+
+### bin/st4ge
+
+that COUNTED/READ/SEALED are the right three readings, and that a stage is the right unit. Both mine. Q-banked, not settled.
+
+### bin/sw1mt
+
+"contrast" is taken narrowly: the same check, the same outcome, whichever plan named it. Wider readings (a task's check run against another task's files) are the next cycle. 2026-09-29, the absorb into the build-loop soft skill (c4 h/DESIGN-2026-09-29-absorb- build-loop.md): sw1ng is found BESIDE this file, and checks run from the folder sw1mt is called from, so the skill's copy (scripts/sw1mt by scripts/sw1ng) runs as C4's does. Copied as it was, it ran 4 RED of its own prove-red there. --prove-red builds its own root.
+
+### bin/sw1ng
+
+A CORRECTION IS INFERRED, NOT SEEN. A pass that found anything (issues or warnings) counts as a correction, because his rule says fixes follow every unclean pass while the counter is below the maximum. `qa --unfixed` says a pass's findings were NOT fixed. THE ISSUE AND WARNING COUNTS ARE THE CALLER'S WORD. `qa --issues N --warnings W` is taken as given; nothing here runs the QA plan. "Clean" -- the one fact that lets a task skip the final swing -- is therefore an assertion. Said out loud rather than counted as mechanical. DESIGN-FIRST IS AN EXISTENCE TEST. An empty file satisfies it. "REPLAN QA" IS A BYTES TEST. One changed character satisfies it. THE OLD SPELLINGS. `swing --corrected|--clean` still work, and are recorded as issues UNKNOWN -- never clean -- because v1's --clean meant "changed nothing", not "QA clean". THE CONSTANTS. 3 passes and one redesign are his numbers, applied, measured by nothing. WHERE THE STATE LIVES. The walk toward root stops at the mount root, as bin/da1te does.
+
+### bin/t4c1k
+
+the CONTROL row (see below) and the claim that a given pair is genuinely independent. I wrote both implementations in several cases, so "independent" means different code and different language -- NOT a different author. Stated, not glossed.
+
+### bin/te1rm
+
+nothing. This tool holds no opinion about which terms matter.
+
+### bin/te2mp
+
+which parts a given generator SHOULD use. This tool composes; it does not decide.
+
+### bin/tg1ad
+
+a word filed here means what its user means by it; the seam is sorted at the boundary.
+
+### bin/tp1gt
+
+a template says what it prints; whether that is what you wanted is yours to judge.
+
+### bin/tunnel
+
+the column shape, "write covers append", and the trail file names are mine.
+
+### bin/vms
+
+that V and S carry the two integers and M is the pivot -- he wrote "V-M-S ... a two integer pin", and the two ? positions in V?M?S are where I put them. If the integers belong elsewhere the shape survives and the reading moves.
+
+### bin/w0fold
+
+date is today; AREA (field 4) defaults to '-', SOURCE (field 6) to 'keeper:w0fold' (was '-' until 2026-09-28: a row now says how it came in). Mine; rule to change.
+
+### bin/w0rk
+
+that TABLE and PROSE are the right two shapers to own here, and that DRAWING belongs to dr1aw rather than to this tool. Mine. `hooks-to-knowledge`: this KNOWS about dr1aw's lander, it does not own it.
+
+### bin/w0sh
+
+the RULING> fill-line, the 96-col fold, the default qids file, the bare-HTML shape, the %%BODY%% skin marker, and (2026-08-18) the claude cut ranges + the W0RK-OPTS hook line. Mine, cheap to re-rule.
+
+the verb names, newest-first, URGENT first, the footer's wording. Mine; rule to change.
+
+### bin/where
+
+a leading ./ or /f/claude/c4/ on PATH is stripped; the walk stops after 64 hops (a loop).
+
+### bin/whose
+
+THE PINNED TABLE IS A LIST I KEEP. A licence text whose sha256 is not in it reads UNRECOGNISED, which the ladder then treats as "no licence text above this file" -- so a perfectly valid, perfectly PRESENT licence this table has never met produces DISAGREE. That is a gap in my table, reported as a finding about his file. `norm()` IS A WORD MAP. A header stating its licence in wording that case statement does not carry reads UNKNOWN. Absence of a match is not absence of a claim. THE LADDER IS MINE. That an EMPTY COPYING is a TOMBSTONE meaning "no grant, on purpose" rather than a missing file; that claimed-with-no-text is DISAGREE while text-with-no-claim is UNKNOWN; that UNKNOWN is a first-class answer and not a failure -- each is a reading of what the three witnesses mean TOGETHER. `COPY?` IS A READING OF THREE FILES. It is not a licence, not a grant, and not advice. DISAGREE means the witnesses do not say the same thing and a human has to pick; it does not mean the file is mislicensed. EXIT 0 ALWAYS, on purpose: a check that can fail a build is a check people learn to route around. That is a policy about how a gauge earns use, not a measurement.
+
+### bin/wt4ck
+
+a clean check says the tables are well formed and linked; whether a word is apt is his.
+
+## 03 How this page stays true
+
+- `sh hello/journeys.sh --check`: CURRENT when chapter 02 matches the tools' headers today;
+  STALE means a tool's JOURNEY changed, so rerun `sh hello/journeys.sh` and re-render.
+- `c4 book check HELLO-C4.md`: CURRENT when this file was rendered from its chapters as they are.
+- Chapter 01 is written by hand and can rot. Each entry names the file or command it rests on;
+  an entry whose source no longer says what the entry says is wrong. Fix the entry, or tell us.
+
+Rebuild: `sh hello/journeys.sh && c4 book render hello > HELLO-C4.md`.
+<!-- book: 4 chapter(s) · dir=hello · chapters-sha=3381a8ca8aea804c44c05a2cc95a7ae1a73e578464a148adf4f1930c87e5a11e -->

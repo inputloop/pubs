@@ -1,0 +1,24 @@
+2026-11-03  Corwin Brust  <corwin@bru.st>
+
+	The whole book, from Corwin's tuning of
+	the pilot (17:48): facing pages, words
+	that lead the eye, and a map.
+	* src/seams ... src/witnesses: Part One,
+	spreads 3 to 10.
+	* src/chad2, src/zero ... src/wormholes,
+	src/chad3: Part Two, and Chad's visits.
+	* src/goodnight.in, tools/inventory.py:
+	every atom by day, written by a stage.
+	* src/cover: the title on the arc.
+	* src/book, src/easy, src/NEWS: the
+	spreads, 92 easy words, this page.
+	* tools/book.py: the picture book.
+	* tools/slides.py: ladder and pair.
+	* tools/spread.py: == layout ==.
+	* checks/book.js, checks/run.sh: the
+	book's promises, each with a fault
+	planted to prove it.
+
+2026-11-03  Corwin Brust  <corwin@bru.st>
+
+	The pilot: Chad, Door and Letters.

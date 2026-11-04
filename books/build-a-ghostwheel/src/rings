@@ -1,0 +1,198 @@
+# rings -- spread 15 of "So You Want To Build A Ghostwheel?"
+# Copyright 2026 Corwin Brust; CC-BY-SA-4.0
+# Facts about C4 come from C4 itself, read-only on Avalon (the c4 tree),
+# seen 2026-11-04T00:19:40Z. Each [mark] on the fuller page opens its witness rows.
+# Spread 1 (door) already gave the numbers; this one teaches what the rings do
+# when one host is away, and does not repeat door's facts.
+kind: spread
+number: 15
+title: Rings
+part: Part Two: how a ghostwheel wakes up
+
+== picture page ==
+Friends hold hands in rings.
+
+One friend is away.
+In the big ring, four still hold hands.
+Three is enough.
+
+The small ring has two.
+Is two enough? Pin has two notes.
+
+== layout ==
+# One block in the quiet top-left wall, beside the big ring, so the eye reads
+# and then drops onto the gap, the dashed line, and Pin's two notes.
+picture: full
+words: inset
+at: 4 4 38
+size: 3.7
+align: left
+
+== fuller page ==
+Spread 1 counted the hosts and rings. This page is about one bad day: a host
+is away.
+
+Each of the fifteen stands in one big ring and one small one; that is a
+reading of his numbers, not a sentence of his [both].
+
+Its big ring still has four. His rule for a big ring is "any 3/5 means
+available", with "not more than two being reserved for one each of dev or
+stage/test at any given time" [three]. So it stays up, and could lose one more.
+
+Its small ring has two of three. Is that enough? His note does not say in so
+many words. The shop's ring drawing writes 2/3 beside every small ring
+[twothree]; the fact file calls that rule its own reading, marked "arguable"
+[arguable]. Pin keeps both.
+
+Who fixes it? Any ring can be looked at, but only the edge
+ring steers: control "is effected only from the edge ring perspective", which
+must "walk the edges and prove vs imbalances" before it plans the move [steer].
+A change crosses between the two kinds of ring only through a host that holds
+the same role in both, "functioning as a bastien" (his spelling) [bastion].
+
+By default, people step down to the system's run-level to change a ring's
+services [drop]. Changing them without stepping down is something he finds
+"WAY too hard for me to know how we can plan for at this stage of our
+bootstrap". It gets a door. Turn the page.
+
+== diagram ==
+kind: pair
+caption: One host away, seen from each of its two rings. Where his note is silent, Pin keeps the drawing's answer and the fact file's caution side by side.
+left: Its big ring (five)
+right: Its small ring (three)
+all there: up | all there: up
+one away: four left, still up ("any 3/5") | one away: two left; his note is silent; the drawing says 2/3
+two away: three left, still up | two away: one left
+who steers the fix: the edge ring | who steers the fix: the edge ring
+
+== facts ==
+fact: both
+said: "ring topology = f(PIN, RESERVE=2, MANY) where greater-size = (PIN−RESERVE)/MANY (count = MANY), lesser-size = MANY (count = greater-size)"
+seen: 2026-11-04T00:19:40Z
+by: part-two (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/facts/ghostwheel-ring-of-rings, lines 66-67 (the formalized derivation)
+sha: sha256:6a70ea2ba7fac4f1c20e39497ecb987dc440cf139285dda316405443709fa099
+state: seen
+note: Three rings of five and five rings of three, from the same fifteen. That each host sits in exactly one of each is the natural reading of those counts (and spread 1's drawing), not a line of his.
+
+fact: three
+said: "3 rings of five servers where any 3/5 means available, not more than two being reserved for one each of dev or stage/test at any given time."
+seen: 2026-11-04T00:19:40Z
+by: part-two (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/facts/ghostwheel-ring-of-rings, lines 6-8 (his words in chat, 2026-08-05)
+sha: sha256:6a70ea2ba7fac4f1c20e39497ecb987dc440cf139285dda316405443709fa099
+state: seen
+
+fact: twothree
+said: "lesser.1 gw19 gw17 gw22 2/3 PROTO" and "lesser.2..5 3-hosts-each 2/3"; "greater.A..C 5-hosts-each 3/5 max-2-reserved"
+seen: 2026-11-04T00:19:40Z
+by: part-two (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/a/gw-rings, lines 3-5
+sha: sha256:a406b0b16ec593eb143088df67023fdd40dfc01a420c0f1a36d6d2e4d25694d8
+state: seen
+note: The drawing does not say who wrote it. It writes 2/3 for the small rings; his note (row for [three]'s file, lines 10-14) gives no number for them.
+
+fact: arguable
+said: Under "Readings (JOURNEY — mine, arguable)": "The lesser ring tolerates one absence; the greater tolerates two (and spends them, deliberately, on dev/stage)."
+seen: 2026-11-04T00:19:40Z
+by: part-two (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/facts/ghostwheel-ring-of-rings, lines 36 and 42-44
+sha: sha256:6a70ea2ba7fac4f1c20e39497ecb987dc440cf139285dda316405443709fa099
+state: seen
+note: The fact file's own reading (Claude-minted 2026-08-05), marked arguable. It and the drawing agree on 2/3; neither is his sentence.
+
+fact: steer
+said: "visualization may be from either (GREATER/LESSOR) ring context but JOURNEY (control) is effected only from the edge ring perspective which must 'per the shrink wrapping' be able to walk the edges and prove vs imbalances to plot/perform the 'move'"
+seen: 2026-11-04T00:19:40Z
+by: part-two (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/facts/ghostwheel-ring-of-rings, lines 21-24 (his words)
+sha: sha256:6a70ea2ba7fac4f1c20e39497ecb987dc440cf139285dda316405443709fa099
+state: seen
+
+fact: bastion
+said: "five rings of three servers where any two rings of servers may similarly be dev/stage provided at least one server in the ring dev or test have a server that has that role per the first composition thus functioning as a bastien to accept changes across the greater rings feature space"
+seen: 2026-11-04T00:19:40Z
+by: part-two (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/facts/ghostwheel-ring-of-rings, lines 10-14 (his words)
+sha: sha256:6a70ea2ba7fac4f1c20e39497ecb987dc440cf139285dda316405443709fa099
+state: seen
+
+fact: bastion
+said: "the BASTION rule: change crosses ring classes only through a host holding the same role in both compositions."
+seen: 2026-11-04T00:19:40Z
+by: part-two (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/facts/ghostwheel-ring-of-rings, lines 15-16
+sha: sha256:6a70ea2ba7fac4f1c20e39497ecb987dc440cf139285dda316405443709fa099
+state: seen
+note: The fact file's summary of his sentence above; the page's plain sentence follows this summary.
+
+fact: drop
+said: "people must drop to the system-conceptualized run-level to effect new system services"; "so it may really happen that people innovate safe service-def changes without dropping (big CI/CD feature, "WAY too hard for me to know how we can plan for at this stage of our bootstrap")"
+seen: 2026-11-04T00:19:40Z
+by: part-two (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/facts/ghostwheel-ring-of-rings, lines 26-32
+sha: sha256:6a70ea2ba7fac4f1c20e39497ecb987dc440cf139285dda316405443709fa099
+state: seen
+
+== narration ==
+[picture A]
+narrator: Friends hold hands in rings. Do you see them?
+narrator: One friend is away today.
+spoke: In the big ring, four still hold hands. And three would be enough, so they're fine.
+narrator: The small ring has two.
+pin: Is two enough? I'll be honest with you. I have two notes, and they don't say quite the same thing.
+spoke: Look at the dashed line. It's the same friend, missing from both rings.
+[fuller A]
+narrator [both]: Each of the fifteen stands in one big ring and one small one. That's how fifteen splits both ways.
+spoke [three]: Say one is away. Its big ring still has four, and any three of five means available. It could even lose one more.
+pin [twothree]: Its small ring has two of three. The ring drawing says two of three is enough.
+spoke [arguable]: But the fact file calls that its own reading, and marks it arguable. So Pin keeps both, for you.
+narrator [steer]: Who fixes it? Anyone can look from any ring, but only the edge ring steers. It walks the edges first, and proves where things are out of balance.
+pin [bastion]: And a change only crosses from one kind of ring to the other through a host that holds the same role in both.
+spoke [drop]: Changing a ring's services without stepping down a floor? Corwin says that's way too hard to plan for yet.
+narrator: So it gets a door of its own. Come and see, on the next page.
+
+[picture B]
+narrator: Friends hold hands in rings.
+narrator: One friend is away.
+narrator: In the big ring, four still hold hands. Three is enough.
+spoke: And the small ring, Pin? It only has two.
+pin: Is two enough? I have two notes.
+spoke: Which one's right?
+pin: That's why I keep both.
+[fuller B]
+narrator [both]: Each of the fifteen stands in one big ring and one small one. Say one host is away.
+narrator [three]: Its big ring still has four. Any three of five means available, with no more than two set aside for dev or test. So it stays up.
+spoke [twothree]: Pin, the small ring has two.
+pin [twothree]: The ring drawing writes two of three beside every small ring.
+pin [arguable]: The fact file calls that its own reading. Arguable, it says.
+narrator [steer]: Any ring can be looked at, but control is effected only from the edge ring, which walks the edges and proves the imbalance before it plans the move.
+narrator [bastion]: A change crosses between the kinds of ring only through a host that holds the same role in both.
+narrator [drop]: By default, people step down a run-level to change a ring's services. Doing it without stepping down is way too hard to plan for, at this stage. It gets a door.
+
+== picture ==
+<svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="rings-t">
+  <title id="rings-t">A big ring of small smiling computers holding hands, with Spoke at its hub. One place in the ring is empty, drawn as a dashed outline, and the ring stays closed around it. Below on the left, a small ring of three has the same empty place, joined to the first by a dashed line: the same friend is away from both. Pin sits on the floor at the right with two notes, one reading 2/3 and one reading a question mark.</title>
+  <rect width="800" height="800" fill="url(#g-wall)"/>
+  <rect y="740" width="800" height="60" fill="url(#g-floor)"/>
+  <rect y="734" width="800" height="8" fill="#c49a6c"/>
+  <circle cx="560" cy="320" r="180" fill="none" stroke="#b98f5a" stroke-width="7"/>
+  <g stroke="#d8c09a" stroke-width="3" stroke-linecap="round"><line x1="560" y1="320" x2="560" y2="140"/><line x1="560" y1="320" x2="731" y2="264"/><line x1="560" y1="320" x2="666" y2="466"/><line x1="560" y1="320" x2="454" y2="466"/><line x1="560" y1="320" x2="389" y2="264"/></g>
+  <g stroke="#2d2a32" stroke-width="5" stroke-linecap="round" fill="#2a9d8f"><path d="M 546,141 A 180 180 0 0 0 520,144"/><circle cx="520" cy="144" r="5.5"/><path d="M 574,141 A 180 180 0 0 1 600,144"/><circle cx="600" cy="144" r="5.5"/><path d="M 726,251 A 180 180 0 0 0 715,228"/><circle cx="715" cy="228" r="5.5"/><path d="M 735,278 A 180 180 0 0 1 739,303"/><circle cx="739" cy="303" r="5.5"/><path d="M 677,457 A 180 180 0 0 0 695,439"/><circle cx="695" cy="439" r="5.5"/><path d="M 654,473 A 180 180 0 0 1 607,494"/><circle cx="607" cy="494" r="5.5"/><path d="M 385,278 A 180 180 0 0 0 380,329"/><circle cx="380" cy="329" r="5.5"/><path d="M 394,251 A 180 180 0 0 1 405,228"/><circle cx="405" cy="228" r="5.5"/></g>
+  <g transform="translate(560 140) scale(1.0)"><rect x="-24" y="-19" width="48" height="36" rx="7" fill="#264653" stroke="#2d2a32" stroke-width="3"/><rect class="screen s0" x="-18" y="-13" width="36" height="22" rx="4" fill="#bfeee5"/><path d="M -6,-5 v1 M 6,-5 v1 M -6,2 Q 0,7 6,2" stroke="#2d2a32" stroke-width="2.4" stroke-linecap="round" fill="none"/></g>
+  <g transform="translate(731 264) scale(1.0)"><rect x="-24" y="-19" width="48" height="36" rx="7" fill="#264653" stroke="#2d2a32" stroke-width="3"/><rect class="screen s1" x="-18" y="-13" width="36" height="22" rx="4" fill="#bfeee5"/><path d="M -6,-5 v1 M 6,-5 v1 M -6,2 Q 0,7 6,2" stroke="#2d2a32" stroke-width="2.4" stroke-linecap="round" fill="none"/></g>
+  <g transform="translate(666 466) scale(1.0)"><rect x="-24" y="-19" width="48" height="36" rx="7" fill="#264653" stroke="#2d2a32" stroke-width="3"/><rect class="screen s2" x="-18" y="-13" width="36" height="22" rx="4" fill="#bfeee5"/><path d="M -6,-5 v1 M 6,-5 v1 M -6,2 Q 0,7 6,2" stroke="#2d2a32" stroke-width="2.4" stroke-linecap="round" fill="none"/></g>
+  <g transform="translate(454 466) scale(1.0)"><rect x="-24" y="-19" width="48" height="36" rx="7" fill="#fffaf0" fill-opacity="0.6" stroke="#e76f51" stroke-width="3" stroke-dasharray="7 5"/></g>
+  <g transform="translate(389 264) scale(1.0)"><rect x="-24" y="-19" width="48" height="36" rx="7" fill="#264653" stroke="#2d2a32" stroke-width="3"/><rect class="screen s4" x="-18" y="-13" width="36" height="22" rx="4" fill="#bfeee5"/><path d="M -6,-5 v1 M 6,-5 v1 M -6,2 Q 0,7 6,2" stroke="#2d2a32" stroke-width="2.4" stroke-linecap="round" fill="none"/></g>
+  <circle cx="560" cy="320" r="40" fill="#fffaf0" stroke="#b98f5a" stroke-width="5"/>
+  <circle cx="215" cy="600" r="82" fill="none" stroke="#b98f5a" stroke-width="7"/>
+  <g stroke="#2d2a32" stroke-width="5" stroke-linecap="round" fill="#2a9d8f"><path d="M 292,628 A 82 82 0 0 0 294,577"/><circle cx="294" cy="577" r="5.5"/><path d="M 278,652 A 82 82 0 0 1 259,670"/><circle cx="259" cy="670" r="5.5"/><path d="M 152,652 A 82 82 0 0 0 171,670"/><circle cx="171" cy="670" r="5.5"/><path d="M 138,628 A 82 82 0 0 1 136,577"/><circle cx="136" cy="577" r="5.5"/></g>
+  <g transform="translate(215 518) scale(0.86)"><rect x="-24" y="-19" width="48" height="36" rx="7" fill="#fffaf0" fill-opacity="0.6" stroke="#e76f51" stroke-width="3" stroke-dasharray="7 5"/></g>
+  <g transform="translate(286 641) scale(0.86)"><rect x="-24" y="-19" width="48" height="36" rx="7" fill="#264653" stroke="#2d2a32" stroke-width="3"/><rect class="screen s6" x="-18" y="-13" width="36" height="22" rx="4" fill="#bfeee5"/><path d="M -6,-5 v1 M 6,-5 v1 M -6,2 Q 0,7 6,2" stroke="#2d2a32" stroke-width="2.4" stroke-linecap="round" fill="none"/></g>
+  <g transform="translate(144 641) scale(0.86)"><rect x="-24" y="-19" width="48" height="36" rx="7" fill="#264653" stroke="#2d2a32" stroke-width="3"/><rect class="screen s7" x="-18" y="-13" width="36" height="22" rx="4" fill="#bfeee5"/><path d="M -6,-5 v1 M 6,-5 v1 M -6,2 Q 0,7 6,2" stroke="#2d2a32" stroke-width="2.4" stroke-linecap="round" fill="none"/></g>
+  <path d="M 428,472 Q 335,458 239,512" fill="none" stroke="#e76f51" stroke-width="3" stroke-dasharray="4 7" stroke-linecap="round"/>
+  <g data-figure="spoke" transform="translate(560 362) scale(0.5)"></g>
+  <g transform="translate(500 690) rotate(-7)"><rect x="-34" y="-24" width="68" height="48" rx="4" fill="#fffdf6" stroke="#4a3f38" stroke-width="3"/><text x="0" y="10" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="26" fill="#2d2a32">2/3</text></g>
+  <g transform="translate(572 706) rotate(6)"><rect x="-26" y="-22" width="52" height="44" rx="4" fill="#fffdf6" stroke="#4a3f38" stroke-width="3"/><text x="0" y="10" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="28" fill="#e76f51">?</text></g>
+  <g data-figure="pin" transform="translate(684 770) scale(0.95)"></g>
+</svg>

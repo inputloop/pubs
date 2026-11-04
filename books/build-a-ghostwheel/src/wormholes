@@ -1,0 +1,231 @@
+# wormholes -- spread 16 of "So You Want To Build A Ghostwheel?"
+# Copyright 2026 Corwin Brust; CC-BY-SA-4.0
+# Facts about C4 come from C4 itself, read-only on Avalon (the c4 tree),
+# seen 2026-11-04T00:19:40Z. Each [mark] on the fuller page opens its witness rows.
+# The wormhole is the plan's idea (PLAN.md section 5): a kept idea with a
+# door, what would open it, and its return line. No wormhole is registered
+# in C4 yet; the page says so. The worked example is this spread's placement
+# of an idea from the ring-of-rings fact, not a ruling of his.
+kind: spread
+number: 16
+title: Wormholes
+part: Part Two: how a ghostwheel wakes up
+
+== picture page ==
+A round door, with a star on it.
+
+Behind it are things we can't build yet.
+The door says what would open it.
+
+You can always come back.
+
+== layout ==
+# The words flow down the left wall and round the curve of the round door,
+# so the eye arrives at the star last.
+picture: full
+words: wrap
+side: left
+outline: 46 0, 100 0, 100 100, 30 100, 30 79, 45 79
+size: 3.8
+
+== fuller page ==
+Some ideas cannot be built yet. The shop does not throw them away; it gives
+each one a door. A wormhole is "a registered idea that cannot build yet". It
+carries the idea, named as its question; what would open it ("a tool, a level,
+a person, a ruling"); and its return line, the place in the book it belongs
+[wormhole]. An idea that may never build with us keeps its door too, with the
+reason, and the condition that would reopen it [kept]. That is the canon's
+third principle at work: "No abandonment" [noabandon].
+
+Here is one we would place, from the last page. The question: can people
+change a ring's services safely without stepping down a run-level? What would
+open it: a way to plan for it, which he calls "WAY too hard for me to know how
+we can plan for at this stage of our bootstrap" [example]. Its return line:
+spread 15. The fact file already names it "an opening, not built" [opening].
+
+C4's README keeps two more doors without using the word: META, "Not yet. There
+is no META parser", and C4QL, the part that looks, "Not yet" [notyet].
+
+When a door's condition is met, a row is added beside it saying OPENED, and
+nothing is renumbered [opened].
+
+And plainly: the plan's wormhole register is not built. The word is older
+than the plan: one search found it nowhere, a second found it in three
+earlier facts, one as "a wormhole row" [nohits]. Where the doors will live is
+Corwin's to choose [home].
+
+== diagram ==
+kind: pair
+caption: What a wormhole carries, and the one this spread places. The placement is ours; the door is the plan's.
+left: A wormhole carries
+right: The one on this page
+the idea, named as its question | Can a ring's services change safely without stepping down a run-level?
+what would open it | a way to plan for it ("WAY too hard ... at this stage of our bootstrap")
+its return line | spread 15, rings
+if it may never build: the reason | not this one; it is waiting, not refused
+when it opens | a row beside it saying OPENED
+
+== facts ==
+fact: wormhole
+said: "A wormhole is a registered idea that cannot build yet. Each one carries: the idea, in one sentence, named as its question; what would open it: a tool, a level, a person, a ruling; its return line: the atom or the spread of the book it belongs to"
+seen: 2026-11-04T00:19:40Z
+by: part-two (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/q/2026-11-03-atom-dates/PLAN.md, lines 161-165 (section 5)
+sha: sha256:c7173ccf4ca322b30683f6ffd129ac34bbb97ebd03cce0e597f9ca5514353451
+state: seen
+note: The plan is Mentat's, written from his message of 2026-11-03 08:14 CST ("things we relegate to wormholds ... behind banks of registered ideation").
+
+fact: kept
+said: "for an idea that is unlikely ever to build with us, the reason, and still the condition that would reopen it. It is a kept loser with a door, never deleted (CANON: "No abandonment")."
+seen: 2026-11-04T00:19:40Z
+by: part-two (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/q/2026-11-03-atom-dates/PLAN.md, lines 166-167
+sha: sha256:c7173ccf4ca322b30683f6ffd129ac34bbb97ebd03cce0e597f9ca5514353451
+state: seen
+
+fact: noabandon
+said: "3. No abandonment — I do not give up on people, opportunities, or problems; I reach out."
+seen: 2026-11-04T00:19:40Z
+by: part-two (claude-opus-5-5), reading the publication shelf on Avalon
+from: H:/pub/canon/principles/CANON.md, line 47
+sha: sha256:d0cc5d48e7af47b40f483e4dce6951daa2e4e0a023a1c4d31e5847e482368b27
+state: seen
+
+fact: example
+said: "so it may really happen that people innovate safe service-def changes without dropping (big CI/CD feature, "WAY too hard for me to know how we can plan for at this stage of our bootstrap")"
+seen: 2026-11-04T00:19:40Z
+by: part-two (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/facts/ghostwheel-ring-of-rings, lines 30-32
+sha: sha256:6a70ea2ba7fac4f1c20e39497ecb987dc440cf139285dda316405443709fa099
+state: seen
+note: Placing this idea behind a wormhole door is this spread's reading; nothing in C4 registers it as one.
+
+fact: opening
+said: "The un-plannable feature has a shape here already: changing service defs without dropping run-level = rebasing a live promise without a breakpoint ... Named as an opening, not built."
+seen: 2026-11-04T00:19:40Z
+by: part-two (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/facts/ghostwheel-ring-of-rings, lines 53-56
+sha: sha256:6a70ea2ba7fac4f1c20e39497ecb987dc440cf139285dda316405443709fa099
+state: seen
+
+fact: notyet
+said: "META — hints, weights, meaning; weighs. Not yet. There is no META parser and nothing effects it." and "C4QL — introspection, reflection; looks. Not yet."
+seen: 2026-11-04T00:19:40Z
+by: part-two (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/README.md, lines 107 and 110
+sha: sha256:37fa9d9f44f031c05233c7481c3fd266b2e5cee688fd7bfb15e01dac377a2549
+state: seen
+
+fact: opened
+said: "When its condition is met, a row is added beside it saying OPENED, the bank's ruling shape."
+seen: 2026-11-04T00:19:40Z
+by: part-two (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/q/2026-11-03-atom-dates/PLAN.md, line 169
+sha: sha256:c7173ccf4ca322b30683f6ffd129ac34bbb97ebd03cce0e597f9ca5514353451
+state: seen
+note: The plan's design, not built. "Nothing is renumbered" is the question bank's rule the plan copies (PLAN.md lines 44-46).
+
+fact: nohits
+said: 0 files name a wormhole (case ignored, "wormhol").
+seen: 2026-11-04T00:19:54Z
+by: grep, run on Avalon
+from: c4: grep -rli 'wormhol' facts c d/c evidence bin C4.md C4-LANG.md README.md model.md GHOSTWHEEL.org HELLO-C4.md
+sha: sha256:37fa9d9f44f031c05233c7481c3fd266b2e5cee688fd7bfb15e01dac377a2549
+state: seen
+note: The sha is README.md's, one of the files searched; a search over many files has no single record. The word does appear in today's plan under q/2026-11-03-atom-dates/, which is a record folder, not a register.
+
+fact: nohits
+said: facts/magic-numbers-is-itself-a-seam uses the word: "which is the same mechanism as a wormhole row" (written 2026-08-03).
+seen: 2026-11-04T00:47:52Z
+by: Mentat (claude-opus-5-5), reviewing, with grep -n on one file at a time, on Avalon
+from: c4/facts/magic-numbers-is-itself-a-seam, line 42
+sha: sha256:8419bfcebf533e06022f903dc67100dbdf688e7f55da7bd2cc5872b93790c0a0
+state: seen
+note: The row above found 0 files with one search over the whole tree, where long commands on this mount time out; an empty answer from a search that may not have finished is "could not check", not "none" (spread 6). Both rows are kept.
+
+fact: nohits
+said: facts/pin-both-is-cheaper-than-choosing uses the word: "A refuted reading is parked with its wormhole, not pinned. eclipse-pass owns that verb." (written 2026-09-17)
+seen: 2026-11-04T00:47:52Z
+by: Mentat (claude-opus-5-5), reviewing, with grep -n on one file at a time, on Avalon
+from: c4/facts/pin-both-is-cheaper-than-choosing, lines 42-43
+sha: sha256:b8ed10d7f945e3cedec01e6c9eb00dc27c9730e9943c2b28999d8db7682b1116
+state: seen
+
+fact: nohits
+said: facts/secret-sweep-before-push uses the word: "mass-add is a wormhole-hit that auto-summons this sweep" (written 2026-07-28).
+seen: 2026-11-04T00:47:52Z
+by: Mentat (claude-opus-5-5), reviewing, with grep -n on one file at a time, on Avalon
+from: c4/facts/secret-sweep-before-push, lines 8-9
+sha: sha256:790dbe929588bc03c142e204d9d99ef7af26e08faf761a1ed09c55370c40d183
+state: seen
+
+fact: home
+said: "F2. Where wormholes live. (a) A new state word in the question bank ... (b) A sibling register with the same shape"
+seen: 2026-11-04T00:19:40Z
+by: part-two (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/q/2026-11-03-atom-dates/PLAN.md, lines 327-329 (fork F2)
+sha: sha256:c7173ccf4ca322b30683f6ffd129ac34bbb97ebd03cce0e597f9ca5514353451
+state: seen
+
+== narration ==
+[picture A]
+narrator: Here's a round door, with a star on it. Come closer.
+narrator: Behind it are things we can't build yet.
+pin: And the door says what would open it. I'll read it to you, any time you like.
+spoke: It's lovely in here. Lots of stars.
+narrator: And you can always come back.
+spoke: See the footprints? In, and back out again.
+[fuller A]
+narrator [wormhole]: Some ideas can't be built yet. We don't throw them away. We give each one a door. On the door: the idea, as a question, what would open it, and where it belongs in the book.
+pin [kept]: Even an idea that may never build with us keeps its door, with the reason.
+spoke [noabandon]: That's the canon's third rule: no abandonment.
+pin [example]: Here's one from the last page, for you. Can people change a ring's services without stepping down a floor? Corwin says that's way too hard to plan for yet.
+spoke [opening]: The fact file already calls it an opening, not built.
+narrator [notyet]: The README keeps two more doors without the name: the META language, and {C4QL|C four Q L}, the part that looks. Both say not yet.
+pin [opened]: When a door's condition is met, I'll write a new line beside it: opened.
+spoke [nohits]: And here's the true part. The plan's list of doors isn't built yet. And the word is older than the plan: my first look found it nowhere, and a second look found it in three old notes.
+narrator [home]: Where the doors will live is Corwin's to choose.
+
+[picture B]
+narrator: A round door, with a star on it.
+spoke: Pin! It's open.
+pin: Careful, Spoke.
+narrator: Behind it are things we can't build yet. The door says what would open it.
+spoke: It's all stars in here.
+narrator: You can always come back.
+pin: I know. I can see your footprints.
+[fuller B]
+narrator [wormhole]: A wormhole is a registered idea that cannot build yet. It carries the idea as its question, what would open it, and its return line.
+narrator [kept]: An idea that may never build with us keeps its door too, with the reason.
+narrator [noabandon]: No abandonment.
+spoke [example]: Pin, what's behind this one?
+pin [example]: Changing a ring's services without stepping down a run-level. Way too hard to plan for, at this stage of the bootstrap.
+pin [opening]: The fact file calls it an opening, not built.
+narrator [notyet]: The README keeps two more without the word: META, and {C4QL|C four Q L}. Not yet, both.
+narrator [opened]: When a door's condition is met, a row is added beside it saying opened.
+spoke [nohits]: Where's the list of doors, Pin?
+pin [home]: The plan's list isn't built yet. And the word is older than the plan: I found it in three old notes. Where the list lives is Corwin's to choose.
+
+== picture ==
+<svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="wormholes-t">
+  <title id="wormholes-t">A big round door in the shop wall stands open. Its door has a gold star on it, and through the opening is a deep starry night. A small wooden sign with a key on it hangs above the door. Spoke peeks out from the starry side. Two trails of little footprints lead to the door and back again, and Pin sits beside them, writing.</title>
+  <defs><radialGradient id="wormholes-space" cx="45%" cy="45%" r="60%"><stop offset="0" stop-color="#4b3d73"/><stop offset="1" stop-color="#1c2540"/></radialGradient></defs>
+  <rect width="800" height="800" fill="url(#g-wall)"/>
+  <rect y="690" width="800" height="110" fill="url(#g-floor)"/>
+  <rect y="684" width="800" height="8" fill="#c49a6c"/>
+  <circle cx="580" cy="470" r="208" fill="#8a5233" stroke="#5e3720" stroke-width="6"/>
+  <circle cx="580" cy="470" r="182" fill="url(#wormholes-space)" stroke="#5e3720" stroke-width="4"/>
+  <g fill="#fff6d6"><circle cx="500" cy="360" r="1.6"/><circle cx="540" cy="330" r="2.4"/><circle cx="620" cy="350" r="3.2"/><circle cx="470" cy="450" r="1.6"/><circle cx="520" cy="520" r="2.4"/><circle cx="610" cy="560" r="3.2"/><circle cx="650" cy="420" r="1.6"/><circle cx="560" cy="410" r="2.4"/><circle cx="470" cy="560" r="3.2"/><circle cx="600" cy="300" r="1.6"/><circle cx="520" cy="600" r="2.4"/><circle cx="640" cy="600" r="3.2"/></g>
+  <circle cx="520" cy="400" r="22" fill="#e9c46a" opacity="0.25"/><circle cx="520" cy="400" r="9" fill="#f4a261"/>
+  <ellipse cx="716" cy="470" rx="64" ry="184" fill="#b9774a" stroke="#5e3720" stroke-width="5"/>
+  <path d="M 690,300 V 640 M 716,288 V 652 M 742,300 V 640" stroke="#9a5f37" stroke-width="3" stroke-linecap="round"/>
+  <polygon points="716.0,404.0 722.9,434.6 743.1,435.8 727.2,455.9 732.8,487.2 716.0,469.0 699.2,487.2 704.8,455.9 688.9,435.8 709.1,434.6" fill="#e9c46a" stroke="#5e3720" stroke-width="4" stroke-linejoin="round"/>
+  <circle cx="676" cy="510" r="7" fill="#e9c46a" stroke="#5e3720" stroke-width="2.5"/>
+  <path d="M 556,214 L 580,190 L 604,214" fill="none" stroke="#5e3720" stroke-width="3"/>
+  <rect x="520" y="212" width="120" height="44" rx="8" fill="#e9c46a" stroke="#5e3720" stroke-width="3"/>
+  <g transform="translate(580 234)" fill="none" stroke="#5e3720" stroke-width="3.5" stroke-linecap="round"><circle cx="-24" cy="0" r="9"/><path d="M -15,0 H 30 M 22,0 V 9 M 30,0 V 7"/></g>
+  <g data-figure="spoke" transform="translate(566 588) scale(0.55)"></g>
+  <g fill="#9a7650" opacity="0.8"><ellipse cx="470" cy="774" rx="7" ry="4.5" transform="rotate(-35 470 774)"/><ellipse cx="488" cy="770" rx="7" ry="4.5" transform="rotate(-35 488 770)"/><ellipse cx="506" cy="742" rx="7" ry="4.5" transform="rotate(-35 506 742)"/><ellipse cx="524" cy="738" rx="7" ry="4.5" transform="rotate(-35 524 738)"/><ellipse cx="542" cy="710" rx="7" ry="4.5" transform="rotate(-35 542 710)"/><ellipse cx="560" cy="706" rx="7" ry="4.5" transform="rotate(-35 560 706)"/></g>
+  <g fill="#9a7650" opacity="0.8"><ellipse cx="600" cy="700" rx="7" ry="4.5" transform="rotate(40 600 700)"/><ellipse cx="620" cy="729" rx="7" ry="4.5" transform="rotate(40 620 729)"/><ellipse cx="640" cy="734" rx="7" ry="4.5" transform="rotate(40 640 734)"/><ellipse cx="660" cy="762" rx="7" ry="4.5" transform="rotate(40 660 762)"/><ellipse cx="680" cy="767" rx="7" ry="4.5" transform="rotate(40 680 767)"/><ellipse cx="700" cy="796" rx="7" ry="4.5" transform="rotate(40 700 796)"/></g>
+  <g data-figure="pin" transform="translate(360 760) scale(0.85)"></g>
+</svg>

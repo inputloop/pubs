@@ -1,0 +1,255 @@
+# letters -- spread 2 of "So You Want To Build A Ghostwheel?"
+# Copyright 2026 Corwin Brust; CC-BY-SA-4.0
+# Facts about C4 come from C4 itself, read-only on Avalon (the c4 tree),
+# 2026-11-03T20:08:58Z. Each [mark] on the fuller page opens its witness rows.
+kind: spread
+number: 2
+title: Letters
+part: Part One: how we say things
+
+== picture page ==
+Every room in the shop has a letter on its door.
+There are seventeen doors.
+
+Each letter has four names.
+
+Spoke lives behind the S door.
+Pin keeps the list.
+
+== layout ==
+picture: top
+words: below
+size: 3.3
+
+== fuller page ==
+C4 keeps its words in rooms, and every room is one letter. There are
+seventeen [seventeen]. They live in a plain text file called m/t, one line
+for each letter [mt]. Each line gives its letter four names, under four
+columns that have names of their own: scalar, group, command and tag [faces].
+A's line reads ASSET, ARRAY, ADD, ARCHIVE. S's line reads SCALAR, SPOKE,
+SELECT, SEMAPHORE, and that is where Spoke got a name [srow].
+
+That makes sixty-eight words. Sixty-four of them are common English; only
+four (asset, obfuscate, spoke and taxonomy) are claimed nowhere else [common].
+The busy words are on purpose: when two rooms both need the word "map", the
+letter keeps them apart [namespace].
+
+Nine more letters hold values and force stops [nine]. Pin has two notes about
+them that differ by one word: one says Q is QUERY, the table says
+QUERY-STABLE. Both are kept, because the difference is worth knowing.
+
+Saying one idea four ways is not a muddle. C4 asks for at least two ways to
+say everything, and asks that they balance [two]. The facing pages of this
+book try to do the same.
+
+== diagram ==
+kind: grid
+caption: The seventeen letters as m/t holds them, and below, the nine that hold values. Two lines shown in full.
+label: SCALAR GROUP COMMAND TAG
+show: A S
+dim: B J K Q U V X Y Z
+A ASSET ARRAY ADD ARCHIVE
+C COMMAND CAPABILITY COMPILE COLLECTION
+D DOCUMENT DATASET DERIVE DOMAIN
+E EXPRESSION ENTITY EVALUATE ENVIRONMENT
+F FEATURE FRAMEWORK FORMAT FUNCTION
+G GADGET GROUP GRAPH GATEWAY
+H HOST HOME HELP HEURISTIC
+I INDEX IDENTITY INTERN ITEM
+L LAYOUT LIBRARY LINK LICENSE
+M MATRIX MEASURE MODEL MARKER
+N NODE NETWORK NEGOTIATE NOTE
+O OBJECT OPERATION OBFUSCATE OTHER
+P PROGRAM PROJECT PIPE PACKAGE
+R ROUTER REGISTRY RELAY ROUTINE
+S SCALAR SPOKE SELECT SEMAPHORE
+T TEMPLATE TAXONOMY TEST TAG
+W WORKER WEBSITE WRITE WORK
+
+== facts ==
+fact: seventeen
+said: "Sixty-eight words across seventeen letters."
+seen: 2026-11-03T20:08:58Z
+by: Mentat (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/C4-LANG.md, line 29 (section 1)
+sha: sha256:d99139b865824ff3a6b3c21246d4226561354271263cecf2c7126e70bcc5667d
+state: seen
+
+fact: seventeen
+said: 17 lines in the table.
+seen: 2026-11-03T20:08:58Z
+by: wc -l, run on Avalon
+from: c4/m/t (wc -l m/t)
+sha: sha256:5c7d90f7bd6938e5733e06f3171a08ba23db0f1b875ac6c8fd3af6d50e203fc2
+state: seen
+
+fact: mt
+said: "a REGISTER TABLE, letters, each with four facets, kept as plain text at m/t, with its column names one path over at d/m/t".
+seen: 2026-11-03T20:08:58Z
+by: Mentat (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/C4.md, line 106 (section 2)
+sha: sha256:358ce65ce2539df9298a55ec3f6a00b11a9dad3e7d2ef559d54bb367738c9d42
+state: seen
+
+fact: faces
+said: REGISTER SCALAR GROUP COMMAND TAG
+seen: 2026-11-03T20:08:58Z
+by: Mentat (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/d/m/t (the whole file, one line)
+sha: sha256:2f312fe23314afca352fe870458568d51cc0ca65a7684d576e289836b80ec10e
+state: seen
+
+fact: srow
+said: "A ASSET ARRAY ADD ARCHIVE" (line 1) and "S SCALAR SPOKE SELECT SEMAPHORE" (line 15).
+seen: 2026-11-03T20:08:58Z
+by: Mentat (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/m/t, lines 1 and 15
+sha: sha256:5c7d90f7bd6938e5733e06f3171a08ba23db0f1b875ac6c8fd3af6d50e203fc2
+state: seen
+
+fact: common
+said: "Sixty-four of them are already common English ... Only four (asset, obfuscate, spoke, taxonomy) are unclaimed anywhere."
+seen: 2026-11-03T20:08:58Z
+by: Mentat (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/C4-LANG.md, lines 29-31 (section 1)
+sha: sha256:d99139b865824ff3a6b3c21246d4226561354271263cecf2c7126e70bcc5667d
+state: seen
+
+fact: namespace
+said: "the letter keeps two shops from colliding when they both need the word map."
+seen: 2026-11-03T20:08:58Z
+by: Mentat (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/C4-LANG.md, lines 33-37 (section 1)
+sha: sha256:d99139b865824ff3a6b3c21246d4226561354271263cecf2c7126e70bcc5667d
+state: seen
+
+fact: nine
+said: "the seventeen march carrying work, the nine hold values and force stops"; the nine named as "B BUILD · K KEYBOARD · Q QUERY · U USAGE · ..."
+seen: 2026-11-03T20:08:58Z
+by: Mentat (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/C4.md, lines 161 and 169 (section 4)
+sha: sha256:358ce65ce2539df9298a55ec3f6a00b11a9dad3e7d2ef559d54bb367738c9d42
+state: seen
+
+fact: nine
+said: 9 lines; Q's line reads "Q QUERY-STABLE pair-array GIVEN keeper-2026-08-01".
+seen: 2026-11-03T20:08:58Z
+by: wc -l and a read, run on Avalon
+from: c4/m/v/t
+sha: sha256:0c5637d96de9145bcf9d05435cbf11de3e42b2ec82a3f0e093455a5a99ad72f1
+state: seen
+note: The two rows differ: C4.md says QUERY, m/v/t says QUERY-STABLE. Both are kept.
+
+fact: two
+said: "I need to make the point that C4 demands at least two ways to talk about everything and that these ways of presenting the different ideas back as prose balance." (2026-09-07)
+seen: 2026-11-03T20:08:58Z
+by: Mentat (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/facts/c4-demands-two-registers.md, line 6
+sha: sha256:052bcf2ea8a34edd842f344509a4d7b54d8de880ec81d7e1fabee967cc1a3b8d
+state: seen
+
+== narration ==
+[picture A]
+narrator: Every room in the shop has a letter on its door. You can count seventeen doors.
+narrator: And each letter has four names.
+spoke: Come and find me. I live behind the S door.
+pin: And I keep the list, so you never lose your way.
+[fuller A]
+pin [seventeen]: Seventeen letters. I counted the lines in the table myself, and the book about the language says seventeen too.
+spoke [faces]: Each letter has four names, in four columns: scalar, group, command, and tag.
+pin [srow]: Look at A's line with me: asset, array, add, archive. Now S's line: scalar, spoke, select, semaphore.
+spoke [srow]: That's where my name comes from. I wanted you to know.
+pin [common]: Sixty-four of those sixty-eight words are words you already know. Only four are claimed nowhere else: asset, obfuscate, spoke, and taxonomy.
+narrator [namespace]: The busy words are on purpose. When two rooms both need the word map, the letter keeps them apart for you.
+spoke [nine]: There are nine more letters, and they hold values and force stops.
+pin [nine]: I'll be honest with you: two of my notes about the nine disagree a little. One says Q is for query. The table says query-stable. I kept both.
+narrator [two]: {C4|C four} asks for at least two ways to say everything, and asks that they balance. These two pages are trying to do that, for you.
+
+[picture B]
+narrator: Every room in the shop has a letter on its door. There are seventeen doors.
+narrator: Each letter has four names.
+spoke: Pin! My door. The S one.
+pin: I know, Spoke. It's on the list.
+[fuller B]
+narrator [seventeen]: {C4|C four} keeps its words in rooms, and every room is one letter. There are seventeen.
+narrator [mt]: They live in a plain text file called {m/t|em tee}, one line for each letter.
+narrator [faces]: Each line gives its letter four names, under four columns: scalar, group, command, and tag.
+pin [srow]: A says asset, array, add, archive.
+spoke [srow]: And S says scalar, spoke, select, semaphore. That's me.
+narrator [common]: Sixty-four of the sixty-eight words are common English. Only four, asset, obfuscate, spoke, and taxonomy, are claimed nowhere else.
+narrator [namespace]: The busy words are on purpose. When two rooms both need the word map, the letter keeps them apart.
+spoke [nine]: Pin, your notes about the nine don't match.
+pin [nine]: One says query. The table says query-stable. I'm keeping both.
+pin: That's the best part, you know. Where two notes differ, you learn something.
+narrator [two]: {C4|C four} asks for at least two ways to say everything, and asks that they balance. The facing pages of this book try to do the same.
+
+== picture ==
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="letters-t">
+  <title id="letters-t">Seventeen small round-topped doors in two rows, each with a letter: A C D E F G H I L, and M N O P R S T W. The S door stands open with a soft glow, and Spoke peeks out. Below, Pin sits writing a long list that unrolls across the floor.</title>
+  <rect width="800" height="600" fill="url(#g-wall)"/>
+  <rect y="478" width="800" height="122" fill="url(#g-floor)"/>
+  <rect y="472" width="800" height="9" fill="#c49a6c"/>
+  <rect x="20" y="176" width="760" height="12" rx="4" fill="#c49a6c"/>
+  <path d="M 49,176 V 103 A 31 31 0 0 1 111,103 V 176 Z" fill="#e76f51" stroke="#5e3720" stroke-width="3"/>
+  <g transform="translate(80 112)"><circle r="16" fill="#fffaf0" stroke="#5e3720" stroke-width="3"/><text y="7" text-anchor="middle" class="plate">A</text></g>
+  <circle cx="100" cy="144" r="3.5" fill="#fffaf0" stroke="#5e3720" stroke-width="2"/>
+  <path d="M 129,176 V 103 A 31 31 0 0 1 191,103 V 176 Z" fill="#2a9d8f" stroke="#5e3720" stroke-width="3"/>
+  <g transform="translate(160 112)"><circle r="16" fill="#fffaf0" stroke="#5e3720" stroke-width="3"/><text y="7" text-anchor="middle" class="plate">C</text></g>
+  <circle cx="180" cy="144" r="3.5" fill="#fffaf0" stroke="#5e3720" stroke-width="2"/>
+  <path d="M 209,176 V 103 A 31 31 0 0 1 271,103 V 176 Z" fill="#e9c46a" stroke="#5e3720" stroke-width="3"/>
+  <g transform="translate(240 112)"><circle r="16" fill="#fffaf0" stroke="#5e3720" stroke-width="3"/><text y="7" text-anchor="middle" class="plate">D</text></g>
+  <circle cx="260" cy="144" r="3.5" fill="#fffaf0" stroke="#5e3720" stroke-width="2"/>
+  <path d="M 289,176 V 103 A 31 31 0 0 1 351,103 V 176 Z" fill="#8ab17d" stroke="#5e3720" stroke-width="3"/>
+  <g transform="translate(320 112)"><circle r="16" fill="#fffaf0" stroke="#5e3720" stroke-width="3"/><text y="7" text-anchor="middle" class="plate">E</text></g>
+  <circle cx="340" cy="144" r="3.5" fill="#fffaf0" stroke="#5e3720" stroke-width="2"/>
+  <path d="M 369,176 V 103 A 31 31 0 0 1 431,103 V 176 Z" fill="#6d6875" stroke="#5e3720" stroke-width="3"/>
+  <g transform="translate(400 112)"><circle r="16" fill="#fffaf0" stroke="#5e3720" stroke-width="3"/><text y="7" text-anchor="middle" class="plate">F</text></g>
+  <circle cx="420" cy="144" r="3.5" fill="#fffaf0" stroke="#5e3720" stroke-width="2"/>
+  <path d="M 449,176 V 103 A 31 31 0 0 1 511,103 V 176 Z" fill="#f4a261" stroke="#5e3720" stroke-width="3"/>
+  <g transform="translate(480 112)"><circle r="16" fill="#fffaf0" stroke="#5e3720" stroke-width="3"/><text y="7" text-anchor="middle" class="plate">G</text></g>
+  <circle cx="500" cy="144" r="3.5" fill="#fffaf0" stroke="#5e3720" stroke-width="2"/>
+  <path d="M 529,176 V 103 A 31 31 0 0 1 591,103 V 176 Z" fill="#457b9d" stroke="#5e3720" stroke-width="3"/>
+  <g transform="translate(560 112)"><circle r="16" fill="#fffaf0" stroke="#5e3720" stroke-width="3"/><text y="7" text-anchor="middle" class="plate">H</text></g>
+  <circle cx="580" cy="144" r="3.5" fill="#fffaf0" stroke="#5e3720" stroke-width="2"/>
+  <path d="M 609,176 V 103 A 31 31 0 0 1 671,103 V 176 Z" fill="#e76f51" stroke="#5e3720" stroke-width="3"/>
+  <g transform="translate(640 112)"><circle r="16" fill="#fffaf0" stroke="#5e3720" stroke-width="3"/><text y="7" text-anchor="middle" class="plate">I</text></g>
+  <circle cx="660" cy="144" r="3.5" fill="#fffaf0" stroke="#5e3720" stroke-width="2"/>
+  <path d="M 689,176 V 103 A 31 31 0 0 1 751,103 V 176 Z" fill="#2a9d8f" stroke="#5e3720" stroke-width="3"/>
+  <g transform="translate(720 112)"><circle r="16" fill="#fffaf0" stroke="#5e3720" stroke-width="3"/><text y="7" text-anchor="middle" class="plate">L</text></g>
+  <circle cx="740" cy="144" r="3.5" fill="#fffaf0" stroke="#5e3720" stroke-width="2"/>
+  <rect x="20" y="334" width="760" height="12" rx="4" fill="#c49a6c"/>
+  <path d="M 89,334 V 261 A 31 31 0 0 1 151,261 V 334 Z" fill="#e9c46a" stroke="#5e3720" stroke-width="3"/>
+  <g transform="translate(120 270)"><circle r="16" fill="#fffaf0" stroke="#5e3720" stroke-width="3"/><text y="7" text-anchor="middle" class="plate">M</text></g>
+  <circle cx="140" cy="302" r="3.5" fill="#fffaf0" stroke="#5e3720" stroke-width="2"/>
+  <path d="M 169,334 V 261 A 31 31 0 0 1 231,261 V 334 Z" fill="#8ab17d" stroke="#5e3720" stroke-width="3"/>
+  <g transform="translate(200 270)"><circle r="16" fill="#fffaf0" stroke="#5e3720" stroke-width="3"/><text y="7" text-anchor="middle" class="plate">N</text></g>
+  <circle cx="220" cy="302" r="3.5" fill="#fffaf0" stroke="#5e3720" stroke-width="2"/>
+  <path d="M 249,334 V 261 A 31 31 0 0 1 311,261 V 334 Z" fill="#6d6875" stroke="#5e3720" stroke-width="3"/>
+  <g transform="translate(280 270)"><circle r="16" fill="#fffaf0" stroke="#5e3720" stroke-width="3"/><text y="7" text-anchor="middle" class="plate">O</text></g>
+  <circle cx="300" cy="302" r="3.5" fill="#fffaf0" stroke="#5e3720" stroke-width="2"/>
+  <path d="M 329,334 V 261 A 31 31 0 0 1 391,261 V 334 Z" fill="#f4a261" stroke="#5e3720" stroke-width="3"/>
+  <g transform="translate(360 270)"><circle r="16" fill="#fffaf0" stroke="#5e3720" stroke-width="3"/><text y="7" text-anchor="middle" class="plate">P</text></g>
+  <circle cx="380" cy="302" r="3.5" fill="#fffaf0" stroke="#5e3720" stroke-width="2"/>
+  <path d="M 409,334 V 261 A 31 31 0 0 1 471,261 V 334 Z" fill="#457b9d" stroke="#5e3720" stroke-width="3"/>
+  <g transform="translate(440 270)"><circle r="16" fill="#fffaf0" stroke="#5e3720" stroke-width="3"/><text y="7" text-anchor="middle" class="plate">R</text></g>
+  <circle cx="460" cy="302" r="3.5" fill="#fffaf0" stroke="#5e3720" stroke-width="2"/>
+  <g class="door-s">
+    <path d="M 489,334 V 261 A 31 31 0 0 1 551,261 V 334 Z" fill="#2d2a32" stroke="#5e3720" stroke-width="3"/>
+    <path d="M 493,334 V 263 A 27 27 0 0 1 547,263 V 334 Z" fill="url(#g-glow)"/>
+    <path d="M 489,334 V 261 A 31 31 0 0 1 499,238 L 475,248 V 338 Z" fill="#e76f51" stroke="#5e3720" stroke-width="3" stroke-linejoin="round"/>
+    <g transform="translate(520 252)"><circle r="15" fill="#fffaf0" stroke="#5e3720" stroke-width="3"/><text y="7" text-anchor="middle" class="plate">S</text></g>
+  </g>
+  <g data-figure="spoke" transform="translate(520 338) scale(0.36)"></g>
+  <path d="M 569,334 V 261 A 31 31 0 0 1 631,261 V 334 Z" fill="#2a9d8f" stroke="#5e3720" stroke-width="3"/>
+  <g transform="translate(600 270)"><circle r="16" fill="#fffaf0" stroke="#5e3720" stroke-width="3"/><text y="7" text-anchor="middle" class="plate">T</text></g>
+  <circle cx="620" cy="302" r="3.5" fill="#fffaf0" stroke="#5e3720" stroke-width="2"/>
+  <path d="M 649,334 V 261 A 31 31 0 0 1 711,261 V 334 Z" fill="#e9c46a" stroke="#5e3720" stroke-width="3"/>
+  <g transform="translate(680 270)"><circle r="16" fill="#fffaf0" stroke="#5e3720" stroke-width="3"/><text y="7" text-anchor="middle" class="plate">W</text></g>
+  <circle cx="700" cy="302" r="3.5" fill="#fffaf0" stroke="#5e3720" stroke-width="2"/>
+  <g class="scroll">
+    <path d="M 190,548 C 260,540 330,560 400,550 C 470,540 540,558 610,548 L 612,576 C 542,586 472,568 402,578 C 332,588 262,568 192,576 Z" fill="#fffdf6" stroke="#4a3f38" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M 212,560 H 250 M 266,562 H 300 M 318,563 H 352 M 372,561 H 404 M 424,558 H 458 M 478,556 H 512 M 530,558 H 566" stroke="#9db4c0" stroke-width="3" stroke-linecap="round"/>
+    <ellipse cx="616" cy="562" rx="10" ry="16" fill="#efe6d4" stroke="#4a3f38" stroke-width="3"/>
+  </g>
+  <g data-figure="pin" transform="translate(130 560) scale(1.05)"></g>
+</svg>

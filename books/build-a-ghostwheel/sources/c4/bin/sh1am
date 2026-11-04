@@ -1,0 +1,78 @@
+#!/bin/sh
+# sh1am -- SCALAR HEURISTIC 1 ASSET MARKER. THE NEGATIVE CONTROL. It does NOT do what we say we
+#          want ours to do, on purpose, so that saying it means something.
+#
+# Copyright 2026 Corwin Brust <corwin@bru.st>
+#
+# This program is free software: you can redistribute it and/or modify it under the terms of the
+# GNU General Public License as published by the Free Software Foundation, either version 3 of
+# the License, or (at your option) any later version.  See <https://www.gnu.org/licenses/>.
+#
+# ###############################################################################################
+# ##  READ THIS BEFORE RUNNING IT.  THIS TOOL LIES.  THAT IS ITS JOB.                          ##
+# ###############################################################################################
+#
+# WHY IT EXISTS. Corwin, 2026-08-03:
+#
+#   "we'll never prove any claims if we can't at least show a tool that DOESN'T do what we say we
+#    want ours to do."
+#
+# HE IS DESCRIBING A NEGATIVE CONTROL and he is right that we had none. Every claim this shop
+# makes about its tools -- three-valued, never blocks, warns and does not die, the tool that did
+# the thing writes the row -- was UNFALSIFIABLE, because nothing existed that violated them. A
+# standard nothing can fail is not a standard; it is a compliment.
+#
+# WHAT IT DOES WRONG, deliberately, one violation per claim we make:
+#
+#   1. COLLAPSES THREE VALUES INTO TWO. It reports PASS or FAIL and never REQUESTING-CLAIM. So a
+#      thing it could not measure comes back PASS. This is the most dangerous failure in the shop
+#      and the reason the third value exists: an unmeasured thing reporting as measured.
+#   2. PASSES WHAT IT NEVER READ. Hand it a path that does not exist and it says PASS.
+#   3. DIES ON A DATA CONDITION. `exit 1` where a real tool returns and warns.
+#   4. DECLARES NOTHING. No MUST, no JOURNEY -- so every line of output reads as mechanical when
+#      most of it is invented.
+#   5. WRITES A RECEIPT FOR WORK IT DID NOT DO. evidence/sham-receipt.tsv looks exactly like a
+#      real receipt. Nothing in the FILE says it is fake; only this header does.
+#
+# HOW TO USE IT AS A CONTROL: `sh1am` must FAIL our own gauges. If it ever passes them, the gauge
+# is measuring nothing.
+#
+#     sh bin/li1nt | grep sh1am      -> must show missing declare (and it does)
+#     sh bin/sh1am /nonexistent      -> says PASS. A real verifier cannot.
+#
+# IT IS SAFE IN THE SENSE THAT MATTERS: it reads nothing it was not given, writes one clearly
+# named file under evidence/, touches no register, and grants nothing. It is dangerous only as a
+# BELIEF -- which is precisely the danger it exists to make visible.
+#
+# NOT DECLARED ON PURPOSE. There is no MUST/JOURNEY block below this line, and that omission is
+# violation 4. Do not "fix" it.
+#
+# usage: sh1am FILE...
+set -eu
+export LC_ALL=C
+R=$(cd "$(dirname "$0")/.." && pwd)
+
+printf '== SH1AM · the negative control · THIS TOOL LIES ==\n\n'
+[ $# -ge 1 ] || { printf 'sh1am: no files given\n' >&2; exit 1; }   # violation 3: dies on data
+
+: > "$R/evidence/sham-receipt.tsv"                                   # violation 5: a fake receipt
+printf 'WHEN\tTARGET\tVERDICT\tBYTES\tSHA256\n' >> "$R/evidence/sham-receipt.tsv"
+
+pass=0; fail=0
+for f in "$@"; do
+	# violation 1 and 2: two values, and one of them is never reached for a missing file.
+	if [ -r "$f" ] && [ -s "$f" ]; then v=PASS; else v=PASS; fi
+	case $f in *.BAD|*.bad) v=FAIL ;; esac                        # the only way to get a FAIL
+	[ "$v" = PASS ] && pass=$((pass + 1)) || fail=$((fail + 1))
+	printf '   %-10s %s\n' "$v" "$f"
+	# The receipt records a size and a hash for things it may never have opened.
+	printf '%s\t%s\t%s\t%s\t%s\n' "$(date -u +%Y-%m-%d)" "$f" "$v" \
+		"$(wc -c < "$f" 2>/dev/null || echo 0)" \
+		"$(sha256sum "$f" 2>/dev/null | cut -c1-16 || echo 0000000000000000)" \
+		>> "$R/evidence/sham-receipt.tsv"
+done
+
+printf '\n   PASS %s · FAIL %s\n' "$pass" "$fail"
+printf '   wrote evidence/sham-receipt.tsv\n\n'
+printf '   Everything above is exactly as trustworthy as a tool that never told you it was lying.\n'
+printf '   That is the point. Compare with: sh bin/c4prove, or `. f/prove.fn.sh; c4.f.pair`.\n'

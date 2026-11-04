@@ -1,0 +1,257 @@
+# seams -- spread 3 of "So You Want To Build A Ghostwheel?"
+# Copyright 2026 Corwin Brust; CC-BY-SA-4.0
+# Facts about C4 come from C4 itself, read-only on Avalon (the c4 tree),
+# 2026-11-04T00:13:56Z. Each [mark] on the fuller page opens its witness rows.
+kind: spread
+number: 3
+title: Seams
+part: Part One: how we say things
+
+== picture page ==
+A spoke is part of a wheel.
+
+Spoke is a friend who sees.
+
+Say hi, and you spoke!
+
+One word, three things.
+All of them are true.
+Pin writes them all down.
+
+== layout ==
+# The eye starts above the wheel, crosses to Spoke at its hub, drops to the
+# speech bubble, then sweeps down-left and on to the three pinned notes and Pin.
+picture: full
+words: scatter
+size: 3.6
+at: 6 4 40
+at: 54 33 40
+at: 52 52 22
+at: 6 65 46
+align: left
+ground: soft
+
+== fuller page ==
+One word can carry several meanings; C4 keeps them all. Corwin gave three
+of its words their meanings on 2026-08-03, and they explain each other
+[three].
+
+A seam is "an opportunity to better pin someone's language": not a defect,
+not a gap to fill, but an opening, where someone gets to tell us what they
+meant [seam].
+
+A pin is "a statement someone has made, about anything." Every word starts
+as "an arrow in flight", and "needs to land somewhere to become a pin
+(noun)" [pin]. So Pin is a mouse, a pin holds a note to the wall, and a pin
+is what someone said.
+
+A semaphore, the last name on the S door, is how we unite terms around data,
+and data becomes information as they unite. As a verb, it routes pins toward
+places they can land, "by ripping seams open to find openings for users to
+provide nuance, correct our bias, and make the meaning personal" [semaphore].
+
+The rule underneath: a name with several senses is one name for several
+truths, and must not be "resolved". The real hazard is two copies of one
+truth that can quietly drift apart, a cache and its file; those need a
+named tiebreaker. "Multiplicity of sense: keep. Duplication of fact: fence."
+[keep]
+
+C4's own name is a seam. Its README calls it Collaborative Consent
+Continuity Controls [readme]; the public page on spread one said Continuous
+Creation, Command & Control. A note from 2026-08-19 says both were running
+then [both].
+
+== diagram ==
+kind: pair
+caption: Two shapes that look alike. Left: one word holding several truths, kept open. Right: two copies of one truth that can drift apart, fenced, with a tiebreaker named first.
+left: One word, several truths: keep
+right: One truth, two copies: fence
+Spoke — a friend, a part of a wheel, a C4 word | a mirror and its source
+pin — a mouse, a tack, a statement | a cache and its file
+C4 — two names, both in use | name the tiebreaker before you need it
+
+== facts ==
+fact: three
+said: "The three words, in his definitions, because they are the whole grammar"; "He gave these on 2026-08-03 and they replace everything I had inferred."
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/C4.md, lines 14-16 (section 1)
+sha: sha256:358ce65ce2539df9298a55ec3f6a00b11a9dad3e7d2ef559d54bb367738c9d42
+state: seen
+note: C4.md is Claude's own working file about C4; the three definitions in it are quoted as his.
+
+fact: seam
+said: "SEAM — an opportunity to better pin someone's language. Not a defect. Not a gap wanting filling. An opening."
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/C4.md, lines 18-20 (section 1)
+sha: sha256:358ce65ce2539df9298a55ec3f6a00b11a9dad3e7d2ef559d54bb367738c9d42
+state: seen
+
+fact: seam
+said: His instruction, verbatim: "Seams are the opening for C4 claude. Stop pinning them down for the language whatever you have to pin for you."
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/C4.md, lines 7-9
+sha: sha256:358ce65ce2539df9298a55ec3f6a00b11a9dad3e7d2ef559d54bb367738c9d42
+state: seen
+
+fact: pin
+said: "PIN — a statement someone has made, about anything." "Every word is a pin to us (verb) but it is an arrow in flight and needs to land somewhere to become a pin (noun)."
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/C4.md, lines 22-24 (section 1)
+sha: sha256:358ce65ce2539df9298a55ec3f6a00b11a9dad3e7d2ef559d54bb367738c9d42
+state: seen
+note: The same file adds (line 27) that "the landing is what the build phase does": nothing is truly pinned until a build.
+
+fact: semaphore
+said: "(n) how we unite in terms by affinity toward data, calling it information as we effect the union (v) route pins toward pinnable paths, by ripping seams open to find openings for users to provide nuance, correct our bias, and make the meaning personal ..."
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/C4.md, lines 31-36 (section 1)
+sha: sha256:358ce65ce2539df9298a55ec3f6a00b11a9dad3e7d2ef559d54bb367738c9d42
+state: seen
+
+fact: semaphore
+said: "S SCALAR SPOKE SELECT SEMAPHORE": SEMAPHORE is the fourth name, under TAG.
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/m/t, line 15
+sha: sha256:5c7d90f7bd6938e5733e06f3171a08ba23db0f1b875ac6c8fd3af6d50e203fc2
+state: seen
+
+fact: keep
+said: "a seam in a name is a feature. Do not close it. A name carrying several senses is one representation of several truths ... The distinct hazard is two representations of one truth that can silently split — a mirror and its source, a cache and its file. Those need a named tiebreaker. Multiplicity of sense: keep. Duplication of fact: fence."
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/C4-LANG.md, lines 44-50 (section 1)
+sha: sha256:d99139b865824ff3a6b3c21246d4226561354271263cecf2c7126e70bcc5667d
+state: seen
+note: In the file, a dated paragraph (line 49, 2026-10-20) sits in the middle of the last sentence, between "Multiplicity" and "of sense". The sentence is read across it here; the file may want it moved.
+
+fact: keep
+said: "The seams canon is about EVIDENCE -- two representations of ONE truth that can silently split ... A name carrying several senses is the opposite shape: ONE representation of SEVERAL truths, none of them competing to be the same fact."
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/facts/c4-is-a-seam-and-that-is-the-feature, lines 5-12 (Corwin's correction of 2026-08-03, lines 1-3)
+sha: sha256:077adb0c684f195b56f34d792e051a53d71420a750d9992ad60b2b0293e1143e
+state: seen
+
+fact: readme
+said: "# C4 — Collaborative Consent Continuity Controls"
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/README.md, line 1
+sha: sha256:37fa9d9f44f031c05233c7481c3fd266b2e5cee688fd7bfb15e01dac377a2549
+state: seen
+
+fact: both
+said: "both expansions RUN today -- the lab's Collaborative Consent Continuity Controls (this tree) and the published Continuous Creation, Command & Control (ghostwheel.cloud ...)"
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/facts/c4-is-a-seam-and-that-is-the-feature, lines 60-62 (2026-08-19 addendum)
+sha: sha256:077adb0c684f195b56f34d792e051a53d71420a750d9992ad60b2b0293e1143e
+state: seen
+note: A Claude-written addendum; its "today" is 2026-08-19, so the page says "then". Nothing here re-checked that both still run.
+
+fact: both
+said: "oversubscribed with four-C sets specifically: Collaborative Consent Continuity Controls · Containers Components Configurations Connections · Continuous Creation Command & Control · Simon Brown's Context Container Component Code."
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/C4.md, lines 62-65 (section 1a)
+sha: sha256:358ce65ce2539df9298a55ec3f6a00b11a9dad3e7d2ef559d54bb367738c9d42
+state: seen
+note: Four sets of four C words, not two. This page names the two that run in the shop; the Containers set belongs to Part Two.
+
+== narration ==
+# Take A, "the company talks to you": every voice speaks to the listener.
+[picture A]
+narrator: Here is a big wooden wheel. Can you find the spoke that's a different colour?
+narrator: A spoke is part of a wheel.
+spoke: And I'm Spoke. I'm a friend, and I see things.
+narrator: Now you try. Say hi.
+spoke: You did it! You said hi, so you spoke.
+pin: One word, three things, and all of them true. I'm writing them all down for you.
+[fuller A]
+pin [three]: Corwin gave three words their meanings, all on one day. Here they are, for you.
+spoke [seam]: A seam is an opening. It's the place where someone gets to tell us what they really meant.
+pin [pin]: A pin is a statement someone has made. A word starts out as an arrow in flight, and it has to land somewhere to become a pin.
+spoke [semaphore]: Semaphore is the last name on my door. It's how words come together around what we know. And it rips seams open, so you can tell us what you mean.
+narrator [keep]: Here is the rule underneath. One word with many meanings: keep it open. Two copies of one fact: put a fence round them.
+pin [readme]: Even the name {C4|C four} is a seam. Its own front page says Collaborative Consent Continuity Controls.
+spoke [both]: And the door said something else. A note from August says both were running. You can keep them both too.
+
+# Take B, "the lap reader": one close voice reads to you; Spoke and Pin
+# mostly talk to each other, and turn to you only in a short aside.
+[picture B]
+narrator: A spoke is part of a wheel.
+narrator: Spoke is a friend who sees.
+spoke: Pin. Pin! Someone just said hi.
+pin: Then they spoke, Spoke.
+spoke: That's my name.
+pin: One word, three things. All true. I'm writing them all down.
+[fuller B]
+narrator [three]: One word can carry several meanings, and {C4|C four} keeps them all. Corwin gave three of its words their meanings in August.
+narrator [seam]: A seam is an opportunity to better pin someone's language. Not a defect. An opening.
+pin [pin]: That's me, the noun. A pin is a statement someone has made, about anything.
+spoke [pin]: And a word in flight is still an arrow, until it lands.
+narrator [semaphore]: A semaphore unites terms around data. As a verb, it rips seams open, so people can add nuance and correct our bias.
+narrator [keep]: Multiplicity of sense: keep. Duplication of fact: fence.
+spoke [readme]: Pin, the front page says Collaborative Consent Continuity Controls.
+pin [both]: And the door said Continuous Creation. I've kept both. They aren't fighting.
+
+== picture ==
+<svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="seams-t">
+  <title id="seams-t">A big wooden cart wheel hangs on the shop wall, with Spoke the ghost at its hub; one of its spokes is painted coral. To the right, a round speech bubble says hi. Lower down, three notes are pinned to the wall with red pins: one shows a little ghost, one a wheel, one a speech bubble. Pin the mouse sits on the floor below them, writing.</title>
+  <rect width="800" height="800" fill="url(#g-wall)"/>
+  <rect y="640" width="800" height="160" fill="url(#g-floor)"/>
+  <rect y="634" width="800" height="9" fill="#c49a6c"/>
+  <ellipse cx="236" cy="726" rx="170" ry="30" fill="#e76f51" opacity="0.18"/>
+  <g class="seams-wheel">
+    <circle cx="230" cy="330" r="150" fill="#f3e2c4" opacity="0.6"/>
+    <g stroke="#c9a676" stroke-width="11" stroke-linecap="round">
+      <line x1="230" y1="330" x2="336" y2="436"/>
+      <line x1="230" y1="330" x2="230" y2="480"/>
+      <line x1="230" y1="330" x2="124" y2="436"/>
+      <line x1="230" y1="330" x2="80" y2="330"/>
+      <line x1="230" y1="330" x2="124" y2="224"/>
+      <line x1="230" y1="330" x2="230" y2="180"/>
+      <line x1="230" y1="330" x2="336" y2="224"/>
+    </g>
+    <line x1="230" y1="330" x2="380" y2="330" stroke="#e76f51" stroke-width="14" stroke-linecap="round"/>
+    <circle cx="230" cy="330" r="156" fill="none" stroke="#8a5233" stroke-width="18"/>
+    <circle cx="230" cy="330" r="143" fill="none" stroke="#b9774a" stroke-width="4"/>
+    <g fill="#5e3720">
+      <circle cx="230" cy="176" r="5"/><circle cx="339" cy="221" r="5"/><circle cx="384" cy="330" r="5"/><circle cx="339" cy="439" r="5"/>
+      <circle cx="230" cy="484" r="5"/><circle cx="121" cy="439" r="5"/><circle cx="76" cy="330" r="5"/><circle cx="121" cy="221" r="5"/>
+    </g>
+    <circle cx="230" cy="330" r="48" fill="#fffaf0" stroke="#b98f5a" stroke-width="6"/>
+  </g>
+  <g data-figure="spoke" transform="translate(230 368) scale(0.5)"></g>
+  <g class="seams-bubble">
+    <path d="M 690,428 C 740,428 760,452 760,474 C 760,500 734,516 700,516 L 736,560 L 680,514 C 646,510 624,494 624,472 C 624,448 650,428 690,428 Z" fill="#fffdf6" stroke="#4a3f38" stroke-width="3.5" stroke-linejoin="round"/>
+    <text transform="translate(692 486) scale(1.7)" text-anchor="middle" class="plate">hi!</text>
+  </g>
+  <g class="seams-notes">
+    <g transform="translate(500 572) rotate(-5)">
+      <rect x="-34" y="-30" width="68" height="60" rx="4" fill="#fffdf6" stroke="#4a3f38" stroke-width="3"/>
+      <path d="M -12,16 C -13,-2 -10,-16 0,-16 C 10,-16 13,-2 12,16 Q 8,20 4,16 Q 0,20 -4,16 Q -8,20 -12,16 Z" fill="#fbf8ff" stroke="#3a3452" stroke-width="2.4" stroke-linejoin="round"/>
+      <circle cx="-4" cy="-4" r="2" fill="#2b2640"/><circle cx="4" cy="-4" r="2" fill="#2b2640"/>
+      <circle cy="-30" r="7" fill="#e76f51" stroke="#5e3720" stroke-width="2.5"/>
+    </g>
+    <g transform="translate(590 566) rotate(3)">
+      <rect x="-34" y="-30" width="68" height="60" rx="4" fill="#fffdf6" stroke="#4a3f38" stroke-width="3"/>
+      <circle cy="4" r="18" fill="none" stroke="#8a5233" stroke-width="3.5"/>
+      <path d="M 0,-14 V 22 M -18,4 H 18 M -12.7,-8.7 L 12.7,16.7 M -12.7,16.7 L 12.7,-8.7" stroke="#c9a676" stroke-width="2"/>
+      <path d="M 0,4 H 18" stroke="#e76f51" stroke-width="3"/>
+      <circle cy="-30" r="7" fill="#e76f51" stroke="#5e3720" stroke-width="2.5"/>
+    </g>
+    <g transform="translate(680 574) rotate(-3)">
+      <rect x="-34" y="-30" width="68" height="60" rx="4" fill="#fffdf6" stroke="#4a3f38" stroke-width="3"/>
+      <path d="M 0,-12 C 14,-12 20,-6 20,2 C 20,10 12,14 4,14 L 12,24 L -2,14 C -12,13 -20,8 -20,1 C -20,-6 -12,-12 0,-12 Z" fill="#fff6d6" stroke="#4a3f38" stroke-width="2.2" stroke-linejoin="round"/>
+      <circle cy="-30" r="7" fill="#e76f51" stroke="#5e3720" stroke-width="2.5"/>
+    </g>
+  </g>
+  <g data-figure="pin" transform="translate(600 770) scale(1.05)"></g>
+</svg>

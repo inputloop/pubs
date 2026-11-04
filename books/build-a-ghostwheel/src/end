@@ -1,0 +1,45 @@
+# end -- the closing card, with the credits.
+# Copyright 2026 Corwin Brust; CC-BY-SA-4.0
+kind: card
+title: The end
+
+== picture page ==
+Thank you for reading with us.
+
+Come back soon.
+
+== layout ==
+picture: top
+words: scatter
+at: 6 6 50
+at: 50 80 44
+align: left
+
+== fuller page ==
+Words and pictures: Copyright 2026 Corwin Brust; CC-BY-SA-4.0. Written and
+drawn by Mentat (for Corwin, claude-opus-5-5).
+
+The narration made for the pilot (Chad's first visit, Door and Letters):
+Piper (GPL-3.0-or-later), with voices trained on LJ Speech (public
+domain), LibriTTS (CC BY 4.0, Zen and others, 2019), and LibriVox readings
+gathered by Bryce Beattie (public domain). COLOPHON.md names each voice and
+quotes its model card.
+
+== narration ==
+[card A]
+narrator: That's the pilot. Thank you for listening with us.
+narrator: The voices come from free recordings, and the colophon names every one.
+spoke: Bye for now.
+pin: Written down.
+[card B]
+narrator: That's the pilot. The voices come from free recordings, and the colophon names every one.
+spoke: Bye for now, Pin.
+pin: Bye, Spoke. And bye to you.
+
+== picture ==
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="end-t">
+  <title id="end-t">Spoke and Pin side by side, waving goodbye, with Pin's long list rolled up beside them.</title>
+  <ellipse cx="400" cy="470" rx="300" ry="40" fill="#e2c79c" opacity="0.6"/>
+  <g data-figure="spoke" transform="translate(320 452) scale(1.1)"></g>
+  <g data-figure="pin" transform="translate(500 470) scale(1.3)"></g>
+</svg>

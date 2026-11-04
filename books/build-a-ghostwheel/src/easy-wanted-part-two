@@ -1,0 +1,46 @@
+# easy-wanted-part-two -- words Part Two (chad2, spreads 11 to 17, chad3) needs on src/easy.
+# Copyright 2026 Corwin Brust; CC-BY-SA-4.0
+# One word per line, the pages that use it after it; a reason only where the
+# word is not an everyday one. Words already on src/easy (up, wakes, two,
+# three, can, it, says, wheel, big, back, with, you, look, go, not and the
+# rest) are not repeated here.
+above        roof
+always       wormholes ("You can always come back")
+away         rings
+book         chad3 (Chad looks at the name on the book)
+build        wormholes
+c            floors: the letter's name, as "s" and "l" are (four C's on four doors)
+c4           floors, zero: the book's own word, like "ghostwheel"; said "C four"
+can't        wormholes
+climb        roof
+computer     zero, roof (the singular; "computers" is already on the list)
+day          goodnight
+don't        chad2 (Chad: "Don't get up.")
+enough       rings
+five         running (floor five; "four" is already on the list)
+floor        zero, floors, running
+floors       floors, roof, goodnight
+get          chad2
+ghost        chad3
+goodnight    goodnight
+hands        rings
+hold         rings
+knock        zero ("Knock, knock. Who is there?")
+lights       running
+lock         floors
+locks        goodnight
+me           zero ("Is this me?")
+name         chad3
+notes        rings (Pin has two notes)
+open         wormholes
+pretend      roof (pretend floors: the virtual run-levels)
+ring         rings ("rings" is already on the list)
+roof         roof
+round        wormholes (a round door with a star on it)
+running      running, roof (the host's word for level 5)
+star         wormholes, goodnight
+still        rings, roof
+waves        chad3 (Spoke waves)
+would        wormholes
+yet          wormholes
+zero         zero (floor zero)

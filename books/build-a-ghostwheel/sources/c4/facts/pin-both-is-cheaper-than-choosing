@@ -1,0 +1,52 @@
+pin-both-is-cheaper-than-choosing
+
+HIS ASK, 2026-09-17: "I would like to work a little with the open questions to see if we can move
+toward 'pin both where possible' vs planning to have the session we kick off with your suggested
+prompt make safer more defensible choice."
+
+THE ANSWER IS A SHAPE, AND IT WAS BUILT BEFORE IT WAS PROPOSED.  bin/sw1ng carries it, live, in
+nine lines, and tests/sw1ng-tests.sh has three named tests that fail if it is removed.
+
+THE SHAPE.  When a rule admits two honest readings and only the keeper can settle which:
+
+  1. NAME both readings, each with a short label a person can say aloud.  Not "option A" -- STRICT
+     and PER-CAUSE.  A reading without a name gets rounded off to the other one within a week.
+  2. COMPUTE both, every time, from the same state.  Two functions, not one function and a comment.
+  3. AGREE OUT LOUD where they agree, which is most of the time.  This is the part that makes it
+     cheap: a pinned fork is silent until it bites, so pinning costs nothing on the common path.
+  4. REFUSE where they diverge -- a distinct exit code, both readings printed with what each would
+     have you do, and the fork stated as a question the keeper can answer in one sentence.
+  5. Say what STOPS the refusal: "rule it and this branch stops appearing."  A pin that cannot be
+     un-pinned is a bug wearing a doctrine's coat.
+
+WHY THIS BEATS "MAKE THE SAFER, MORE DEFENSIBLE CHOICE".  A safer choice is made once, quietly, by
+whoever was in the chair, and it is indistinguishable afterwards from a ruling.  The estate then
+carries a rule nobody made -- which is the exact failure ING-0001's cost line names: "the answer
+quietly hardens by accretion instead of by ruling."  A pin cannot harden.  It sits there costing
+nothing until the day the two readings actually differ, and on that day it hands the keeper a
+one-sentence question instead of a dig.
+
+THE MEASUREMENT, such as it is.  On a task that has spent its redesign and three further swings,
+STRICT says the counter is exhausted and PER-CAUSE says another cycle is reachable.  That is the
+only state in the whole loop where they differ.  So the fork costs: nine lines of program, three
+tests, and one refusal that fires in one state out of the dozen the loop can be in.
+
+WHERE PINNING BOTH IS NOT AVAILABLE, and this is the limit rather than a caveat:
+
+  - When the two readings cannot both be COMPUTED from the state on hand.  A reading that needs a
+    fact nobody has is not a reading, it is a wish.  Fall back to a reversible default, NAMED in
+    one line, with the observation that would send you back.
+  - When holding both would double a stored artefact.  Two live schemas is the ledgers fork, and
+    its own room found a strictly dominant first move rather than an even fork; pinning there would
+    have been padding to two.
+  - When one reading is refuted rather than merely unchosen.  A refuted reading is parked with its
+    wormhole, not pinned.  eclipse-pass owns that verb.
+
+THE FALSIFIER.  This is wrong if a pinned fork ever costs something on the common path.  Check:
+`sh bin/sw1ng --prove-red` -- the refusal fires in exactly one of thirteen checks, and the other
+twelve never mention the two readings.  A pin that shows up in ordinary output is not a pin, it is
+a nag, and it should be deleted.
+
+SECOND FALSIFIER.  It is also wrong if a pin survives its ruling.  Check: when he rules the counter,
+one of cap_A/cap_B is deleted, the exit-9 branch goes, and three tests go with it.  If that removal
+is not trivial, the pin was welded rather than pinned.

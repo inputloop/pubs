@@ -1,0 +1,76 @@
+# FACT · the ghostwheel ring-of-rings (Corwin's architecture note, 2026-08-05)
+
+**NEW INFORMATION, his words in chat, prototype design: 17 nodes** ("because of course it
+does"). Three ring classes, quoted near-verbatim with his emphasis kept:
+
+**GREATER RINGS** (more servers, fewer integral rings): *"3 rings of five servers where any
+3/5 means available, not more than two being reserved for one each of dev or stage/test at any
+given time."*
+
+**LESSER RINGS** (fewer servers, more integral rings): *"five rings of three servers where any
+two rings of servers may similarly be dev/stage provided at least one server in the ring dev
+or test have a server that has that role per the first composition thus functioning as a
+bastien to accept changes across the greater rings feature space (e.g. as/for dev in some
+server that is the dev to the greater ring and part of a lesser ring designated for dev)."*
+— the BASTION rule: change crosses ring classes only through a host holding the same role in
+both compositions.
+
+**EDGE RINGS**: *"the ring composed by taking all hosts that are or are not in service and
+irrespective of placement into any rings: the palette for adding and removing hosts, pinning
+features to operate only within them, and for building and manipulating the rings;
+visualization may be from either (GREATER/LESSOR) ring context but JOURNEY (control) is
+effected only from the edge ring perspective which must 'per the shrink wrapping' be able to
+walk the edges and prove vs imbalances to plot/perform the 'move' (script or effect actual
+changes) driving us toward our run-level gated functionality."*
+
+**The default stance, his (against blind convention, kept whole):** people must drop to the
+system-conceptualized run-level to effect new system services — *"by default: we can't control
+how people 'optimize' and this defensive careful orchistration at the system level is just the
+sort of blind obedience to convention we are creating tools to avoid implicitly assuming in
+all the software we make going forward"* — so it may really happen that people innovate safe
+service-def changes **without** dropping (big CI/CD feature, *"WAY too hard for me to know how
+we can plan for at this stage of our bootstrap"*).
+
+---
+
+## Readings (JOURNEY — mine, arguable)
+
+- **The vocabulary is already ours.** Visualization-from-any-context / control-only-from-edge
+  is the cube's line exactly: we always SHOW the move-space; effecting moves is gated (WHO,
+  run-level, keeper). "Walk the edges and prove vs imbalances, then plot/perform the move" is
+  the dungeon walk + the second index + the duplex/debug discipline in infrastructure clothes.
+- **The arithmetic:** 2/3 and 3/5 are both smallest-majority-that-survives-the-stated-reserve.
+  The lesser ring tolerates one absence; the greater tolerates two (and spends them,
+  deliberately, on dev/stage). 17 reads as 15 ringed + 2 edge-spares — flagged as my reading,
+  not his statement.
+- **Ring-of-rings is the counting ceiling applied to MANY:** 17 nodes is MANY; structured as
+  rings of 3 and 5, every local view drops back inside 1-2-3(-5) — navigable without an index
+  from inside any single ring, indexed (edge ring = the second index) across them.
+- **First tenant:** the ollama access tier's three nodes (gw19, gw17, gw22) are proto-lesser-
+  ring `lesser.1`; the walkthrough (h/WALKTHROUGH-2026-08-05-kimi-k3-ollama-ghostwheel.md)
+  now writes its health predicate as the ring predicate. The K3 oracle is an EDGE-ring pinned
+  feature, not a ring member.
+- **The un-plannable feature has a shape here already:** changing service defs without
+  dropping run-level = rebasing a live promise without a breakpoint — gen5's stitching/givens
+  machinery (journaled exits, no override, consent-mapped authority) is the lab-scale model
+  of it. Named as an opening, not built.
+
+## The derivation (HIS, confirmed 2026-08-05 — how people change the magic numbers)
+
+*"Consider the outer level - the edge ring. It has a dev and a test and some number of
+servers. According to our basic 'big number' pin of seventeen that has to be 15. Divide that
+by our value for MANY (which must be odd to the context, so usually just an odd number which
+obvs is three by default) and we get: five servers. Invert and we know the size of the lessor
+ring."* — Corwin, chat.
+
+Formalized: **ring topology = f(PIN, RESERVE=2, MANY)** where greater-size = (PIN−RESERVE)/MANY
+(count = MANY), lesser-size = MANY (count = greater-size), edge = all PIN hosts. Changing a
+magic number re-derives the topology; nothing else is design. Sharpening (mine, confirmed
+against his "must be odd to the context"): clean majorities want BOTH factors odd, so valid
+pins are (odd×odd)+2 — and **17 is the smallest pin with DISTINCT odd factors** (3×5; 11 = 3×3
+degenerates, dual = self). {1, 2, MANY} closes the stream between "unlimited servers!" and
+"seventeen servers!": one pin, one reserved pair, one odd divisor.
+
+STATUS: CANDIDATE (Claude-minted 2026-08-05 from his chat note; quotes verbatim incl.
+"bastien"/"orchistration"/"LESSOR" as typed). Cross-refs: facts/ghostwheel-cloud-the-public-c4
+· decks/duplex-idempotence.deck.md · a/gw-rings (the drawing) · the walkthrough.

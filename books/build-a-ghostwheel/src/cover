@@ -1,0 +1,63 @@
+# cover -- the title page. The title is lettered into the drawing and is not repeated in the words;
+# the words lead the eye: the title, the wheel, the door ("Come in!"), the floor, Pin, the turn.
+# Copyright 2026 Corwin Brust; CC-BY-SA-4.0
+kind: card
+title: So You Want To Build A Ghostwheel?
+
+== picture page ==
+Come in!
+
+Sit down with us.
+
+Turn the page.
+
+== layout ==
+picture: full
+words: scatter
+at: 3 52 25
+at: 28 85 42
+at: 66 70 33
+align: left
+
+== narration ==
+[card A]
+narrator: So You Want To Build A Ghostwheel?
+narrator: Come in. Sit down with us, and turn the page when you are ready.
+[card B]
+narrator: So You Want To Build A Ghostwheel? Come in, and sit with me. Turn the page when you are ready.
+
+== picture ==
+<svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="cover-t">
+  <title id="cover-t">The title, So You Want To Build A Ghostwheel?, lettered in an arch over a wheel of eight small smiling computers. Spoke the ghost sits at the hub. Down on the left a round door stands open with warm light inside; on the right, Pin the mouse stands on the floor, writing.</title>
+  <rect width="800" height="800" fill="url(#g-wall)"/>
+  <rect y="640" width="800" height="160" fill="url(#g-floor)"/>
+  <rect y="633" width="800" height="9" fill="#c49a6c"/>
+  <circle cx="400" cy="372" r="250" fill="#fff6d6" opacity="0.7"/>
+  <path id="cover-arc" d="M 92,352 A 308 308 0 0 1 708,352" fill="none"/>
+  <text class="titlearc"><textPath href="#cover-arc" startOffset="50%" text-anchor="middle">So You Want To Build A Ghostwheel?</textPath></text>
+  <g stroke="#c9a676" stroke-width="5" stroke-linecap="round">
+    <line x1="400" y1="372" x2="400" y2="192"/><line x1="400" y1="372" x2="527" y2="245"/>
+    <line x1="400" y1="372" x2="580" y2="372"/><line x1="400" y1="372" x2="527" y2="499"/>
+    <line x1="400" y1="372" x2="400" y2="552"/><line x1="400" y1="372" x2="273" y2="499"/>
+    <line x1="400" y1="372" x2="220" y2="372"/><line x1="400" y1="372" x2="273" y2="245"/>
+  </g>
+  <circle cx="400" cy="372" r="180" fill="none" stroke="#b98f5a" stroke-width="8"/>
+  <g class="ring-nodes">
+    <g transform="translate(400 192)"><rect x="-26" y="-20" width="52" height="38" rx="7" fill="#264653" stroke="#2d2a32" stroke-width="3"/><rect class="screen s0" x="-19" y="-14" width="38" height="24" rx="4" fill="#bfeee5"/><path d="M -6,-6 v1 M 6,-6 v1 M -6,1 Q 0,6 6,1" stroke="#2d2a32" stroke-width="2.4" stroke-linecap="round" fill="none"/></g>
+    <g transform="translate(527 245)"><rect x="-26" y="-20" width="52" height="38" rx="7" fill="#264653" stroke="#2d2a32" stroke-width="3"/><rect class="screen s1" x="-19" y="-14" width="38" height="24" rx="4" fill="#bfeee5"/><path d="M -6,-6 v1 M 6,-6 v1 M -6,1 Q 0,6 6,1" stroke="#2d2a32" stroke-width="2.4" stroke-linecap="round" fill="none"/></g>
+    <g transform="translate(580 372)"><rect x="-26" y="-20" width="52" height="38" rx="7" fill="#264653" stroke="#2d2a32" stroke-width="3"/><rect class="screen s2" x="-19" y="-14" width="38" height="24" rx="4" fill="#bfeee5"/><path d="M -6,-6 v1 M 6,-6 v1 M -6,1 Q 0,6 6,1" stroke="#2d2a32" stroke-width="2.4" stroke-linecap="round" fill="none"/></g>
+    <g transform="translate(527 499)"><rect x="-26" y="-20" width="52" height="38" rx="7" fill="#264653" stroke="#2d2a32" stroke-width="3"/><rect class="screen s3" x="-19" y="-14" width="38" height="24" rx="4" fill="#bfeee5"/><path d="M -6,-6 v1 M 6,-6 v1 M -6,1 Q 0,6 6,1" stroke="#2d2a32" stroke-width="2.4" stroke-linecap="round" fill="none"/></g>
+    <g transform="translate(400 552)"><rect x="-26" y="-20" width="52" height="38" rx="7" fill="#264653" stroke="#2d2a32" stroke-width="3"/><rect class="screen s4" x="-19" y="-14" width="38" height="24" rx="4" fill="#bfeee5"/><path d="M -6,-6 v1 M 6,-6 v1 M -6,1 Q 0,6 6,1" stroke="#2d2a32" stroke-width="2.4" stroke-linecap="round" fill="none"/></g>
+    <g transform="translate(273 499)"><rect x="-26" y="-20" width="52" height="38" rx="7" fill="#264653" stroke="#2d2a32" stroke-width="3"/><rect class="screen s5" x="-19" y="-14" width="38" height="24" rx="4" fill="#bfeee5"/><path d="M -6,-6 v1 M 6,-6 v1 M -6,1 Q 0,6 6,1" stroke="#2d2a32" stroke-width="2.4" stroke-linecap="round" fill="none"/></g>
+    <g transform="translate(220 372)"><rect x="-26" y="-20" width="52" height="38" rx="7" fill="#264653" stroke="#2d2a32" stroke-width="3"/><rect class="screen s6" x="-19" y="-14" width="38" height="24" rx="4" fill="#bfeee5"/><path d="M -6,-6 v1 M 6,-6 v1 M -6,1 Q 0,6 6,1" stroke="#2d2a32" stroke-width="2.4" stroke-linecap="round" fill="none"/></g>
+    <g transform="translate(273 245)"><rect x="-26" y="-20" width="52" height="38" rx="7" fill="#264653" stroke="#2d2a32" stroke-width="3"/><rect class="screen s7" x="-19" y="-14" width="38" height="24" rx="4" fill="#bfeee5"/><path d="M -6,-6 v1 M 6,-6 v1 M -6,1 Q 0,6 6,1" stroke="#2d2a32" stroke-width="2.4" stroke-linecap="round" fill="none"/></g>
+  </g>
+  <circle cx="400" cy="372" r="52" fill="#fffaf0" stroke="#b98f5a" stroke-width="7"/>
+  <g data-figure="spoke" transform="translate(400 414) scale(0.6)"></g>
+  <path d="M 40,640 V 540 A 75 75 0 0 1 190,540 V 640 Z" fill="#8a5233" stroke="#5e3720" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M 56,640 V 544 A 59 59 0 0 1 174,544 V 640 Z" fill="url(#g-lamp)"/>
+  <path d="M 56,640 V 544 A 59 59 0 0 1 82,495 L 106,512 V 640 Z" fill="#b9774a" stroke="#5e3720" stroke-width="4" stroke-linejoin="round"/>
+  <circle cx="96" cy="590" r="6" fill="#e9c46a" stroke="#5e3720" stroke-width="3"/>
+  <polygon points="56,640 174,640 262,800 0,800" fill="#fff2c4" opacity="0.55"/>
+  <g data-figure="pin" transform="translate(650 772) scale(1.1)"></g>
+</svg>

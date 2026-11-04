@@ -1,0 +1,287 @@
+# floors -- spread 12 of "So You Want To Build A Ghostwheel?"
+# Copyright 2026 Corwin Brust; CC-BY-SA-4.0
+# Facts about C4 come from C4 itself, read-only on Avalon (the c4 tree),
+# seen 2026-11-04T00:19:40Z. Each [mark] on the fuller page opens its witness rows.
+# A note for Corwin: this spread hangs one tumbler lock on each build floor
+# (present on containers, fresh on components, digest on configurations,
+# signed on connections). That pairing is Mentat's reading of how his two
+# ladders fit (PLAN.md, fork F1), his to bless. The sources share the digits
+# 0 to 4; none pairs a floor name with a lock name. The page says so too.
+kind: spread
+number: 12
+title: Floors
+part: Part Two: how a ghostwheel wakes up
+
+== picture page ==
+Up we go! Four floors.
+
+Each floor has a door,
+and each door has a C on it.
+C, C, C, C: C4!
+
+And each door has a lock.
+
+== layout ==
+# The house stands on the left; the words climb down the plain wall on the
+# right, flowing round the roof's slope at the top.
+picture: full
+words: wrap
+side: right
+outline: 0 0, 33 0, 64 19, 64 100, 0 100
+size: 3.8
+
+== fuller page ==
+Above floor 0 the library names four floors, and their names spell C4: 1
+containers, 2 components, 3 configurations, 4 connections. Then comes 5,
+running [floors]. C4.md lists "Containers Components Configurations
+Connections" as one of four four-C readings of the name [fourc].
+
+A second ladder uses the same numbers. sg1pl, a small tool that fetches a value
+and checks it, climbs 0 read, 1 present, 2 fresh, 3 digest, 4
+signed. Present: a real file you can read, not empty. Fresh: its time is not in
+the future. Digest: a sha256 file beside it matches. Signed: a gpg signature
+beside it verifies [locks]. Each level "does everything below it, then one more
+thing" [below].
+
+Corwin's ruling calls a move between the low levels a "tumbler change", and
+says an application climbing above them is still "running" to the host
+[tumblers]. An older note saw two ladders fighting over one digit; the ruling
+closed that [twoladders].
+
+This page hangs one lock on each floor's door: present on containers, fresh on
+components, and so on up. That pairing is Mentat's reading of how his two
+ladders fit. The sources share the numbers; none says floor 2 is the fresh
+floor. It is his to bless [pairing].
+
+Plainly, too: the floors are named, not yet tested. Every test in the library
+sits at floor 0 [count]. And C4's language book names the climb another way
+(configure, make, install, setup, self-test, enablement) [lang]; spread
+10 sets the ladders side by side.
+
+== diagram ==
+kind: pair
+caption: One set of numbers, two ladders. Which lock hangs on which floor is Mentat's reading, not yet blessed.
+left: Floors (ghostwheel.fn.sh)
+right: Locks (sg1pl)
+5 running | above 4: still "running" to the host
+4 connections | 4 signed: a gpg signature verifies
+3 configurations | 3 digest: a sha256 file matches
+2 components | 2 fresh: its time is not in the future
+1 containers | 1 present: a readable file, not empty
+0 bootstrapping | 0 read: hand back the bytes
+
+== facts ==
+fact: floors
+said: "# 0..boostraping / # 1..containers / # 2..components / # 3..configurations / # 4..connections / # 5..running"
+seen: 2026-11-04T00:19:40Z
+by: part-two (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/p/c4fn/ghostwheel.fn.sh, lines 34-40
+sha: sha256:8458a930d67aec89593a830fafce187a268ce98e7e40f700377bcd5a7c6ae6b3
+state: seen
+
+fact: fourc
+said: "The name is not merely oversubscribed — it is oversubscribed with four-C sets specifically: Collaborative Consent Continuity Controls · Containers Components Configurations Connections · Continuous Creation Command & Control · Simon Brown's Context Container Component Code."
+seen: 2026-11-04T00:19:40Z
+by: part-two (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/C4.md, lines 62-65 (section 1a)
+sha: sha256:358ce65ce2539df9298a55ec3f6a00b11a9dad3e7d2ef559d54bb367738c9d42
+state: seen
+
+fact: locks
+said: "0 read: hand back the bytes. no judgement at all. / 1 present: a regular file, readable, and not zero bytes / 2 fresh: + mtime is not in the future, and within --age if given / 3 digest: + a <path>.sha256 sidecar exists and matches / 4 signed: + a <path>.asc detached signature verifies with gpg"
+seen: 2026-11-04T00:19:40Z
+by: part-two (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/h/sg1pl, lines 43-49
+sha: sha256:1d17b2f7769e9175bf2706c1ed2617587dbefc8af04bb02f94dc9fbe20a569a5
+state: seen
+
+fact: below
+said: "THE RUN-LEVEL LADDER. Each level does everything below it, then one more thing."
+seen: 2026-11-04T00:19:40Z
+by: part-two (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/h/sg1pl, line 43
+sha: sha256:1d17b2f7769e9175bf2706c1ed2617587dbefc8af04bb02f94dc9fbe20a569a5
+state: seen
+note: The same file records one exception, found on the real tree: requiring level 3 to reach level 4 made signature checks unreachable for files signed without a sha256 sidecar (lines 136-142), so a missing sidecar now reads NOT CHECKED rather than refusing.
+
+fact: tumblers
+said: Corwin, 2026-09-11: "The higher run-levels are virtual allowing applications running on the ghostwheel to simulate tumbler change as for lower run-levels while staying in the "running" model from a host system standpoint."
+seen: 2026-11-04T00:19:40Z
+by: part-two (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/facts/run-levels-above-the-tumblers-are-virtual, lines 8-11
+sha: sha256:d68f1300d815b6051ab1cff4bfe5bc2e2117ec3e3782bff49cc214bccf3e896d
+state: seen
+
+fact: twoladders
+said: "the `4` in `it4c` reads "everything" to one reader and "connections" to a reader holding `gw.rc` — two ladders in one digit space"
+seen: 2026-11-04T00:19:40Z
+by: part-two (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/model.md, line 1005 (held open #4)
+sha: sha256:de571c9694cd6f0f0ac18034b88aa7ed51d2567d03853afc97ab2ac185d963e7
+state: seen
+note: The older witness. The row below is the later ruling that answers it. Both are kept.
+
+fact: twoladders
+said: "So `it4c`'s 4 and ghostwheel.fn.sh's 5 ("running") are not two ladders ... Contradiction #4 closes on his side"
+seen: 2026-11-04T00:19:40Z
+by: part-two (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/facts/run-levels-above-the-tumblers-are-virtual, lines 18-20
+sha: sha256:d68f1300d815b6051ab1cff4bfe5bc2e2117ec3e3782bff49cc214bccf3e896d
+state: seen
+
+fact: pairing
+said: "does he bless reading his ladders as two witnesses for one set of numbers (build floors and tumbler locks, 5 running, pretend floors above)?"
+seen: 2026-11-04T00:19:40Z
+by: part-two (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/q/2026-11-03-atom-dates/PLAN.md, lines 322-326 (fork F1)
+sha: sha256:c7173ccf4ca322b30683f6ffd129ac34bbb97ebd03cce0e597f9ca5514353451
+state: seen
+note: An open fork, his to decide. The page's pairing is Mentat's reading, not his.
+
+fact: pairing
+said: "Run-levels 0..4 are the tumblers (host standpoint: 0 read · 1 present · 2 fresh · 3 digest · 4 signed)."
+seen: 2026-11-04T00:19:40Z
+by: part-two (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/facts/run-levels-above-the-tumblers-are-virtual, lines 15-16
+sha: sha256:d68f1300d815b6051ab1cff4bfe5bc2e2117ec3e3782bff49cc214bccf3e896d
+state: seen
+note: This line names the locks and no floors; ghostwheel.fn.sh lines 34-40 name the floors and no locks. No line read pairs them.
+
+fact: count
+said: 13 test lines at level 0; 0 at levels 1 to 9.
+seen: 2026-11-04T00:19:54Z
+by: grep, run on Avalon
+from: c4/p/c4fn/ghostwheel.fn.sh (grep -c -E '^\s*c4\.t\.b +"[a-z]*" +0', and the same with +[1-9])
+sha: sha256:8458a930d67aec89593a830fafce187a268ce98e7e40f700377bcd5a7c6ae6b3
+state: seen
+
+fact: count
+said: Every uncommented c4.t.b line names run-level 0; the only C4_RUN assignment is line 254, to 0.
+seen: 2026-11-04T00:19:40Z
+by: part-two (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/p/c4fn/ghostwheel.fn.sh, the whole file
+sha: sha256:8458a930d67aec89593a830fafce187a268ce98e7e40f700377bcd5a7c6ae6b3
+state: seen
+
+fact: lang
+said: "Capability is exposed in ordered levels — bootstrapping, containers, and upward through the real lifecycle: configure, make, install, setup, self-test, enablement."
+seen: 2026-11-04T00:19:40Z
+by: part-two (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/C4-LANG.md, lines 223-224 (section 8)
+sha: sha256:d99139b865824ff3a6b3c21246d4226561354271263cecf2c7126e70bcc5667d
+state: seen
+note: A third way of naming the climb. It agrees with the library on bootstrapping and containers and then names other steps. Kept beside the others, not chosen between.
+
+== narration ==
+[picture A]
+narrator: Up we go! There are four floors, and we can climb them together.
+narrator: Each floor has a door, and each door has a C on it.
+spoke: Count them with me. C, C, C, C.
+pin: Four C's. That's {C4|C four}! I've written it down for you.
+narrator: And each door has a lock.
+spoke: A different lock on every door. Can you see the marks?
+[fuller A]
+pin [floors]: Above floor zero, the library names four floors: containers, components, configurations, connections. Then five, running.
+spoke [fourc]: Four C words. They spell the name, {C4|C four}.
+narrator [locks]: Another tool, {sg1pl|S G one P L}, uses the same numbers for its locks: read, present, fresh, digest, signed.
+pin [below]: Each lock does everything the ones below it do, and then one more thing.
+spoke [tumblers]: Corwin calls a move between those low levels a tumbler change.
+pin [twoladders]: An older note saw two ladders fighting over one number. His ruling settled it.
+narrator [pairing]: This page puts one lock on each floor's door. That pairing is our reading, and it's his to bless. We'd rather tell you than pretend.
+spoke [count]: And one more true thing for you: the floors have names, but only floor zero has tests so far.
+pin [lang]: The language book names the climb another way again. Spread ten puts the ladders side by side.
+
+[picture B]
+narrator: Up we go! Four floors.
+narrator: Each floor has a door, and each door has a C on it. C, C, C, C: {C4|C four}!
+spoke: Pin, did you see? The C's spell it.
+pin: I saw. And each door has a lock.
+spoke: Every lock's a little different.
+pin: I'm drawing each one.
+[fuller B]
+narrator [floors]: Above floor zero the library names four floors, and their names spell {C4|C four}: containers, components, configurations, connections. Then comes five, running.
+narrator [locks]: A second ladder uses the same numbers. {sg1pl|S G one P L} climbs read, present, fresh, digest, signed.
+narrator [below]: Each level does everything below it, then one more thing.
+narrator [tumblers]: Corwin's ruling calls a move between the low levels a tumbler change.
+spoke [pairing]: Pin, which lock goes on which floor?
+pin [pairing]: Nobody's said. This page hangs them in order, and that's Mentat's reading. It's his to bless.
+spoke [count]: And the floors have tests?
+pin [count]: Not yet. Only floor zero does.
+narrator [lang]: The language book names the climb another way again. Spread ten sets the ladders side by side.
+
+== picture ==
+<svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="floors-t">
+  <title id="floors-t">A tall house cut open like a doll's house, with a ladder up its middle. Four floors stand above the ground floor, numbered 1 to 4 and named containers, components, configurations and connections; every floor has a round door with a C on it, and each door has a small padlock with its own mark: a dot, a clock, a hash sign, a signature. Spoke floats on floor 2 beside its door. Pin sits on the ground floor, by the front door, writing. To the right is a plain warm wall.</title>
+  <rect width="800" height="800" fill="url(#g-wall)"/>
+  <rect y="750" width="800" height="50" fill="url(#g-floor)"/>
+  <rect y="744" width="800" height="8" fill="#c49a6c"/>
+  <rect x="40" y="150" width="440" height="600" fill="#5e3720"/>
+  <rect x="48" y="154" width="424" height="112" fill="#f7ead3"/>
+  <rect x="48" y="274" width="424" height="112" fill="#f1dfbf"/>
+  <rect x="48" y="394" width="424" height="112" fill="#f7ead3"/>
+  <rect x="48" y="514" width="424" height="112" fill="#f1dfbf"/>
+  <rect x="48" y="634" width="424" height="112" fill="#f7ead3"/>
+  <polygon points="20,154 260,44 500,154" fill="#b9774a" stroke="#5e3720" stroke-width="6" stroke-linejoin="round"/>
+  <circle cx="260" cy="112" r="20" fill="#fffaf0" stroke="#5e3720" stroke-width="4"/>
+  <path d="M 260,98 V 126 M 246,112 H 274 M 250,102 L 270,122 M 250,122 L 270,102" stroke="#b98f5a" stroke-width="2.5"/>
+  <g stroke="#8a5233" stroke-width="6" stroke-linecap="round">
+    <line x1="132" y1="160" x2="132" y2="744"/><line x1="176" y1="160" x2="176" y2="744"/>
+  </g>
+  <g stroke="#8a5233" stroke-width="4" stroke-linecap="round">
+    <line x1="132" y1="180" x2="176" y2="180"/><line x1="132" y1="212" x2="176" y2="212"/><line x1="132" y1="244" x2="176" y2="244"/><line x1="132" y1="276" x2="176" y2="276"/><line x1="132" y1="308" x2="176" y2="308"/><line x1="132" y1="340" x2="176" y2="340"/><line x1="132" y1="372" x2="176" y2="372"/><line x1="132" y1="404" x2="176" y2="404"/><line x1="132" y1="436" x2="176" y2="436"/><line x1="132" y1="468" x2="176" y2="468"/><line x1="132" y1="500" x2="176" y2="500"/><line x1="132" y1="532" x2="176" y2="532"/><line x1="132" y1="564" x2="176" y2="564"/><line x1="132" y1="596" x2="176" y2="596"/><line x1="132" y1="628" x2="176" y2="628"/><line x1="132" y1="660" x2="176" y2="660"/><line x1="132" y1="692" x2="176" y2="692"/><line x1="132" y1="724" x2="176" y2="724"/>
+  </g>
+  <rect x="40" y="260" width="440" height="14" fill="#c49a6c" stroke="#5e3720" stroke-width="3"/>
+  <rect x="40" y="380" width="440" height="14" fill="#c49a6c" stroke="#5e3720" stroke-width="3"/>
+  <rect x="40" y="500" width="440" height="14" fill="#c49a6c" stroke="#5e3720" stroke-width="3"/>
+  <rect x="40" y="620" width="440" height="14" fill="#c49a6c" stroke="#5e3720" stroke-width="3"/>
+  <circle cx="78" cy="184" r="17" fill="#fffaf0" stroke="#5e3720" stroke-width="3"/>
+  <text x="78" y="191" text-anchor="middle" class="plate">4</text>
+  <text x="200" y="246" font-family="Georgia, serif" font-style="italic" font-size="19" fill="#5e3720">connections</text>
+  <path d="M 344,260 V 206 A 32 32 0 0 1 408,206 V 260 Z" fill="#e76f51" stroke="#5e3720" stroke-width="4" stroke-linejoin="round"/>
+  <circle cx="376" cy="196" r="15" fill="#fffaf0" stroke="#5e3720" stroke-width="3"/>
+  <text x="376" y="203" text-anchor="middle" class="plate">C</text>
+  <g transform="translate(396 226) scale(1.35)">
+    <path d="M -7,0 V -6 A 7 7 0 0 1 7,-6 V 0" fill="none" stroke="#5e3720" stroke-width="3"/>
+    <rect x="-10" y="-1" width="20" height="16" rx="3" fill="#f2c14e" stroke="#5e3720" stroke-width="2.2"/>
+    <path d="M -6,9 C -4,3 -2,12 0,7 C 2,2 3,11 6,6" fill="none" stroke="#5e3720" stroke-width="1.6" stroke-linecap="round"/>
+  </g>
+  <circle cx="78" cy="304" r="17" fill="#fffaf0" stroke="#5e3720" stroke-width="3"/>
+  <text x="78" y="311" text-anchor="middle" class="plate">3</text>
+  <text x="200" y="366" font-family="Georgia, serif" font-style="italic" font-size="19" fill="#5e3720">configurations</text>
+  <path d="M 344,380 V 326 A 32 32 0 0 1 408,326 V 380 Z" fill="#457b9d" stroke="#5e3720" stroke-width="4" stroke-linejoin="round"/>
+  <circle cx="376" cy="316" r="15" fill="#fffaf0" stroke="#5e3720" stroke-width="3"/>
+  <text x="376" y="323" text-anchor="middle" class="plate">C</text>
+  <g transform="translate(396 346) scale(1.35)">
+    <path d="M -7,0 V -6 A 7 7 0 0 1 7,-6 V 0" fill="none" stroke="#5e3720" stroke-width="3"/>
+    <rect x="-10" y="-1" width="20" height="16" rx="3" fill="#f2c14e" stroke="#5e3720" stroke-width="2.2"/>
+    <path d="M -3,3 V 12 M 2,3 V 12 M -6,5.5 H 5 M -6,9.5 H 5" stroke="#5e3720" stroke-width="1.5" stroke-linecap="round"/>
+  </g>
+  <circle cx="78" cy="424" r="17" fill="#fffaf0" stroke="#5e3720" stroke-width="3"/>
+  <text x="78" y="431" text-anchor="middle" class="plate">2</text>
+  <text x="200" y="486" font-family="Georgia, serif" font-style="italic" font-size="19" fill="#5e3720">components</text>
+  <path d="M 344,500 V 446 A 32 32 0 0 1 408,446 V 500 Z" fill="#e9c46a" stroke="#5e3720" stroke-width="4" stroke-linejoin="round"/>
+  <circle cx="376" cy="436" r="15" fill="#fffaf0" stroke="#5e3720" stroke-width="3"/>
+  <text x="376" y="443" text-anchor="middle" class="plate">C</text>
+  <g transform="translate(396 466) scale(1.35)">
+    <path d="M -7,0 V -6 A 7 7 0 0 1 7,-6 V 0" fill="none" stroke="#5e3720" stroke-width="3"/>
+    <rect x="-10" y="-1" width="20" height="16" rx="3" fill="#f2c14e" stroke="#5e3720" stroke-width="2.2"/>
+    <circle cx="0" cy="7" r="5" fill="#fffaf0" stroke="#5e3720" stroke-width="1.4"/><path d="M 0,7 V 4 M 0,7 H 2.6" stroke="#5e3720" stroke-width="1.3" stroke-linecap="round"/>
+  </g>
+  <circle cx="78" cy="544" r="17" fill="#fffaf0" stroke="#5e3720" stroke-width="3"/>
+  <text x="78" y="551" text-anchor="middle" class="plate">1</text>
+  <text x="200" y="606" font-family="Georgia, serif" font-style="italic" font-size="19" fill="#5e3720">containers</text>
+  <path d="M 344,620 V 566 A 32 32 0 0 1 408,566 V 620 Z" fill="#2a9d8f" stroke="#5e3720" stroke-width="4" stroke-linejoin="round"/>
+  <circle cx="376" cy="556" r="15" fill="#fffaf0" stroke="#5e3720" stroke-width="3"/>
+  <text x="376" y="563" text-anchor="middle" class="plate">C</text>
+  <g transform="translate(396 586) scale(1.35)">
+    <path d="M -7,0 V -6 A 7 7 0 0 1 7,-6 V 0" fill="none" stroke="#5e3720" stroke-width="3"/>
+    <rect x="-10" y="-1" width="20" height="16" rx="3" fill="#f2c14e" stroke="#5e3720" stroke-width="2.2"/>
+    <circle cx="0" cy="7" r="2.8" fill="#5e3720"/>
+  </g>
+  <circle cx="78" cy="664" r="17" fill="#fffaf0" stroke="#5e3720" stroke-width="3"/>
+  <text x="78" y="671" text-anchor="middle" class="plate">0</text>
+  <path d="M 404,744 V 680 A 30 30 0 0 1 464,680 V 744 Z" fill="#8a5233" stroke="#5e3720" stroke-width="4" stroke-linejoin="round"/>
+  <circle cx="452" cy="712" r="4.5" fill="#e9c46a" stroke="#5e3720" stroke-width="2"/>
+  <g data-figure="spoke" transform="translate(154 470) scale(0.5)"></g>
+  <g data-figure="pin" transform="translate(300 742) scale(0.76)"></g>
+</svg>

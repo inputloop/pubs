@@ -1,0 +1,12 @@
+# book.pipeline -- the book edition, as published in pubs: book.html from src/, the site's copy of
+# it, then every promise the edition makes. No narration, no video, no network.
+# Copyright 2026 Corwin Brust; GPL-3.0-or-later
+# Run it with:  sh run -p book.pipeline
+#
+# Not here, on purpose: the inventory stage (tools/inventory.py) rewrites src/goodnight with the time
+# it ran, so it is a writer's step, not a build step. When a spread changes, run it by hand
+# (GW_SRC=src python3 -B tools/inventory.py) and the inventory check goes green again.
+
+book      once  tools/book.py       # book.html and book-hosted.html, the picture book
+site      once  tools/site.sh       # site/public/build-a-ghostwheel/index.html: this book.html
+check     once  checks/run.sh       # the book edition's promises (checks/run.sh, at the top)

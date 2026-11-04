@@ -1,0 +1,223 @@
+# goodnight -- spread 17 of "So You Want To Build A Ghostwheel?"
+# Copyright 2026 Corwin Brust; CC-BY-SA-4.0
+# The last spread names every atom in the book with the day it was seen: a
+# Goodnight Moon structure (naming everything in the room), nothing copied.
+# The inventory below was gathered by a script over this book's sources, not
+# by a C4 query: C4QL is "Not yet" (c4/README.md line 110), and the page says so.
+kind: spread
+number: 17
+title: Goodnight
+part: Part Two: how a ghostwheel wakes up
+
+== picture page ==
+Goodnight, wheel. Goodnight, rings, and the friends in the rings.
+Goodnight, letters, and seventeen doors. Goodnight, floors, and the locks on
+the doors.
+
+Goodnight, star door. Goodnight, Spoke. Goodnight, Pin.
+Each one has its day.
+
+== layout ==
+# The bedtime room is full of the book's things, so the words wait below it,
+# read slowly, one goodnight at a time.
+picture: top
+words: below
+size: 2.8
+
+== fuller page ==
+Goodnight, every atom: each small fact here that could be true this month and
+false the next, with Pin's rows about it [rows]. Here they all are, by the day
+each was seen [list].
+
+Seen 3 November: @@DAY1@@.
+
+Seen 4 November: @@DAY2@@; and this page's rows, list, days, c4ql.
+
+Two days, one evening: by the clock in the shop, six hours behind the rows'
+UTC, every one of them was seen on the 3rd [days].
+
+None was gathered by asking C4. Its query language, C4QL, is "Not yet"; its
+first piece selects entries by name, with its guards "STUBBED BY NAME" [c4ql].
+A script read the facts instead. Goodnight, list.
+
+== diagram ==
+kind: pair
+caption: Two witnesses to the same sightings: the rows keep UTC; the clock in the shop was six hours behind.
+left: The rows' clock (UTC)
+right: The shop's clock (CST)
+@@CLOCKROWS@@
+
+== facts ==
+fact: rows
+said: "The witness row. One line per sighting, seven fields, in plain words: atom ... said ... seen: when it was seen true, in UTC ... by ... from ... sha: the hash of that record at that moment ... state"
+seen: 2026-11-04T00:37:47Z
+by: part-two (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/q/2026-11-03-atom-dates/PLAN.md, lines 34-42 (section 1)
+sha: sha256:c7173ccf4ca322b30683f6ffd129ac34bbb97ebd03cce0e597f9ca5514353451
+state: seen
+note: The book's rows use these fields, with "fact" for "atom" and an optional note.
+
+fact: list
+said: @@LISTSAID@@
+seen: @@LISTSEEN@@
+by: python3 (spread.read_spread), run in the book folder
+from: src/book, and the == facts == section of each spread it lists, door to wormholes
+sha: sha256:@@LISTSHA@@
+state: seen
+note: The sha is of those sixteen spread files joined in book order (goodnight itself left out, since it holds this row). If another writer edits a spread after this was counted, the sha no longer matches: that is the gauge doing its job, and the list wants re-reading.
+
+fact: days
+said: @@DAYSSAID@@
+seen: @@LISTSEEN@@
+by: python3 (spread.read_spread), run in the book folder
+from: the seen: lines of the spreads named in src/book
+sha: sha256:@@LISTSHA@@
+state: seen
+
+fact: days
+said: "His log pasted at 08:14 CST (14:14Z)"
+seen: 2026-11-04T00:37:47Z
+by: part-two (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/q/2026-11-03-atom-dates/PLAN.md, line 105
+sha: sha256:c7173ccf4ca322b30683f6ffd129ac34bbb97ebd03cce0e597f9ca5514353451
+state: seen
+note: CST is six hours behind UTC. The rows for Part Two were seen around 00:20Z on 4 November, which was about 18:20 on 3 November in CST.
+
+fact: c4ql
+said: "C4QL — introspection, reflection; looks. Not yet. h/c4qa.sh v0 implements selection and says in its own header that its three constraint guards are STUBBED BY NAME. No grammar card exists."
+seen: 2026-11-04T00:19:40Z
+by: part-two (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/README.md, lines 110-112
+sha: sha256:37fa9d9f44f031c05233c7481c3fd266b2e5cee688fd7bfb15e01dac377a2549
+state: seen
+
+fact: c4ql
+said: "c4qa -- repeatable C4 introspection analysis over q/C4/ (C4QA), selected by C4QS ... Constraint guards (run-level -> indexed-only; named -> string-only; dual register invocations -> both) are STUBBED BY NAME below, minted when a guard first arrives. Born 2026-08-08."
+seen: 2026-11-04T00:37:47Z
+by: part-two (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/h/c4qa.sh, lines 2-9
+sha: sha256:a8882a602587be51d416df8a02a20e6e692d4366107b2fb01d2853df19e76e93
+state: seen
+note: It selects over q/C4/ only; it is not a query over atoms like these.
+
+== narration ==
+[picture A]
+narrator: Goodnight, wheel.
+narrator: Goodnight, rings, and the friends in the rings.
+spoke: Goodnight, letters, and all seventeen doors.
+pin: Goodnight, floors, and the locks on the doors.
+narrator: Goodnight, star door. We'll come back.
+spoke: Goodnight, Pin.
+pin: Goodnight, Spoke. And goodnight to you.
+narrator: Each one has its day.
+[fuller A]
+narrator [rows]: Goodnight, every atom. Each little mark in this book opens one, with what was said, when it was seen, who saw it, where it came from, and its hash.
+pin [list]: Here's my list for you. Every atom on every spread, and the day it was seen.
+spoke [days]: There are two days on it, Pin.
+pin [days]: Door and Letters on the third. Everything else on the fourth, by the clock the rows keep. On the clock in the shop it was still the evening of the third.
+narrator: A day is only as good as the clock that wrote it. So every row gives the full time.
+spoke: And any of them could be out of date by the time you read this. That's why each one says where to look again.
+narrator [c4ql]: We didn't ask {C4|C four} for this list. Its query language, {C4QL|C four Q L}, is the part meant to look things up, and it isn't built yet. When it can look, this page will ask it.
+pin: Goodnight, list.
+
+[picture B]
+narrator: Goodnight, wheel.
+narrator: Goodnight, rings, and the friends in the rings.
+narrator: Goodnight, letters, and seventeen doors.
+narrator: Goodnight, floors, and the locks on the doors.
+narrator: Goodnight, star door.
+spoke: Goodnight, Pin.
+pin: Goodnight, Spoke.
+narrator: Each one has its day.
+[fuller B]
+narrator [rows]: Goodnight, every atom. Each mark opens the rows Pin wrote: what was said, when it was seen, who saw it, which file, and that file's hash.
+narrator [list]: The list names the atoms on every spread, each with the day it was seen.
+spoke [list]: Pin, where do I start?
+pin [list]: At the end of the list, Spoke. Then work back.
+narrator [days]: There are two days on the list. Door and Letters were read on the third. Every other spread was read on the fourth, by the UTC clock, while the clock in the shop still said the evening of the third. Both are true.
+narrator [c4ql]: {C4QL|C four Q L}, the part of {C4|C four} meant to look things up, is not yet built. Its first piece can select entries by name, with its guards stubbed. When it can look, this page should ask it.
+spoke: Goodnight, list.
+pin: Goodnight.
+
+== picture ==
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="goodnight-t">
+  <title id="goodnight-t">The shop at bedtime, in soft lamplight. A window shows a starry night. High on the wall the wheel of small computers sleeps, screens dim and eyes closed, with Spoke at its hub. Below it runs a row of seventeen tiny doors, each with a letter. At the right stands the tall house with its floors and little locks, its windows dark. At the left, low down, is the round door with a star on it. On the floor Pin sits beside a long list that unrolls across the boards.</title>
+  <rect width="800" height="600" fill="url(#g-wall)"/>
+  <rect y="478" width="800" height="122" fill="url(#g-floor)"/>
+  <rect y="472" width="800" height="9" fill="#c49a6c"/>
+  <rect width="800" height="600" fill="#2d2a32" opacity="0.16"/>
+  <ellipse cx="420" cy="520" rx="260" ry="70" fill="#fff6d6" opacity="0.35"/>
+  <rect x="40" y="50" width="150" height="170" rx="70" fill="#8a5233" stroke="#5e3720" stroke-width="5"/>
+  <rect x="54" y="64" width="122" height="142" rx="58" fill="#26324f"/>
+  <g fill="#fff6d6"><circle cx="84" cy="100" r="2.5"/><circle cx="130" cy="90" r="2"/><circle cx="150" cy="140" r="3"/><circle cx="98" cy="160" r="2"/><circle cx="120" cy="186" r="1.8"/><circle cx="76" cy="140" r="1.6"/><circle cx="140" cy="112" r="1.5"/></g>
+  <path d="M 115,64 V 206 M 54,140 H 176" stroke="#5e3720" stroke-width="5"/>
+  <g stroke="#c9a676" stroke-width="4" stroke-linecap="round"><line x1="420" y1="150" x2="420" y2="46"/><line x1="420" y1="150" x2="494" y2="76"/><line x1="420" y1="150" x2="524" y2="150"/><line x1="420" y1="150" x2="494" y2="224"/><line x1="420" y1="150" x2="420" y2="254"/><line x1="420" y1="150" x2="346" y2="224"/><line x1="420" y1="150" x2="316" y2="150"/><line x1="420" y1="150" x2="346" y2="76"/></g>
+  <circle cx="420" cy="150" r="104" fill="none" stroke="#b98f5a" stroke-width="6"/>
+  <g transform="translate(420 46)"><rect x="-20" y="-15" width="40" height="30" rx="6" fill="#264653" stroke="#2d2a32" stroke-width="2.5"/><rect x="-15" y="-10" width="30" height="18" rx="3" fill="#3b4a55"/><path d="M -9,-2 q 3,3 6,0 M 3,-2 q 3,3 6,0" stroke="#9db4c0" stroke-width="1.8" stroke-linecap="round" fill="none"/></g>
+  <g transform="translate(494 76)"><rect x="-20" y="-15" width="40" height="30" rx="6" fill="#264653" stroke="#2d2a32" stroke-width="2.5"/><rect x="-15" y="-10" width="30" height="18" rx="3" fill="#3b4a55"/><path d="M -9,-2 q 3,3 6,0 M 3,-2 q 3,3 6,0" stroke="#9db4c0" stroke-width="1.8" stroke-linecap="round" fill="none"/></g>
+  <g transform="translate(524 150)"><rect x="-20" y="-15" width="40" height="30" rx="6" fill="#264653" stroke="#2d2a32" stroke-width="2.5"/><rect x="-15" y="-10" width="30" height="18" rx="3" fill="#3b4a55"/><path d="M -9,-2 q 3,3 6,0 M 3,-2 q 3,3 6,0" stroke="#9db4c0" stroke-width="1.8" stroke-linecap="round" fill="none"/></g>
+  <g transform="translate(494 224)"><rect x="-20" y="-15" width="40" height="30" rx="6" fill="#264653" stroke="#2d2a32" stroke-width="2.5"/><rect x="-15" y="-10" width="30" height="18" rx="3" fill="#3b4a55"/><path d="M -9,-2 q 3,3 6,0 M 3,-2 q 3,3 6,0" stroke="#9db4c0" stroke-width="1.8" stroke-linecap="round" fill="none"/></g>
+  <g transform="translate(420 254)"><rect x="-20" y="-15" width="40" height="30" rx="6" fill="#264653" stroke="#2d2a32" stroke-width="2.5"/><rect x="-15" y="-10" width="30" height="18" rx="3" fill="#3b4a55"/><path d="M -9,-2 q 3,3 6,0 M 3,-2 q 3,3 6,0" stroke="#9db4c0" stroke-width="1.8" stroke-linecap="round" fill="none"/></g>
+  <g transform="translate(346 224)"><rect x="-20" y="-15" width="40" height="30" rx="6" fill="#264653" stroke="#2d2a32" stroke-width="2.5"/><rect x="-15" y="-10" width="30" height="18" rx="3" fill="#3b4a55"/><path d="M -9,-2 q 3,3 6,0 M 3,-2 q 3,3 6,0" stroke="#9db4c0" stroke-width="1.8" stroke-linecap="round" fill="none"/></g>
+  <g transform="translate(316 150)"><rect x="-20" y="-15" width="40" height="30" rx="6" fill="#264653" stroke="#2d2a32" stroke-width="2.5"/><rect x="-15" y="-10" width="30" height="18" rx="3" fill="#3b4a55"/><path d="M -9,-2 q 3,3 6,0 M 3,-2 q 3,3 6,0" stroke="#9db4c0" stroke-width="1.8" stroke-linecap="round" fill="none"/></g>
+  <g transform="translate(346 76)"><rect x="-20" y="-15" width="40" height="30" rx="6" fill="#264653" stroke="#2d2a32" stroke-width="2.5"/><rect x="-15" y="-10" width="30" height="18" rx="3" fill="#3b4a55"/><path d="M -9,-2 q 3,3 6,0 M 3,-2 q 3,3 6,0" stroke="#9db4c0" stroke-width="1.8" stroke-linecap="round" fill="none"/></g>
+  <circle cx="420" cy="150" r="32" fill="#fffaf0" stroke="#b98f5a" stroke-width="5"/>
+  <g data-figure="spoke" transform="translate(420 178) scale(0.38)"></g>
+  <g fill="#6d6875" font-family="Georgia, serif" font-style="italic"><text x="540" y="62" font-size="18">z</text><text x="554" y="46" font-size="13">z</text></g>
+  <rect x="172" y="340" width="452" height="8" rx="3" fill="#c49a6c"/>
+  <path d="M 182,340 V 310 A 10 10 0 0 1 202,310 V 340 Z" fill="#e76f51" stroke="#5e3720" stroke-width="2"/>
+  <text x="192.0" y="326" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="11" fill="#fffaf0">A</text>
+  <path d="M 208,340 V 310 A 10 10 0 0 1 228,310 V 340 Z" fill="#2a9d8f" stroke="#5e3720" stroke-width="2"/>
+  <text x="218.0" y="326" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="11" fill="#fffaf0">C</text>
+  <path d="M 234,340 V 310 A 10 10 0 0 1 254,310 V 340 Z" fill="#e9c46a" stroke="#5e3720" stroke-width="2"/>
+  <text x="244.0" y="326" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="11" fill="#fffaf0">D</text>
+  <path d="M 260,340 V 310 A 10 10 0 0 1 280,310 V 340 Z" fill="#8ab17d" stroke="#5e3720" stroke-width="2"/>
+  <text x="270.0" y="326" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="11" fill="#fffaf0">E</text>
+  <path d="M 286,340 V 310 A 10 10 0 0 1 306,310 V 340 Z" fill="#457b9d" stroke="#5e3720" stroke-width="2"/>
+  <text x="296.0" y="326" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="11" fill="#fffaf0">F</text>
+  <path d="M 312,340 V 310 A 10 10 0 0 1 332,310 V 340 Z" fill="#f4a261" stroke="#5e3720" stroke-width="2"/>
+  <text x="322.0" y="326" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="11" fill="#fffaf0">G</text>
+  <path d="M 338,340 V 310 A 10 10 0 0 1 358,310 V 340 Z" fill="#6d6875" stroke="#5e3720" stroke-width="2"/>
+  <text x="348.0" y="326" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="11" fill="#fffaf0">H</text>
+  <path d="M 364,340 V 310 A 10 10 0 0 1 384,310 V 340 Z" fill="#e76f51" stroke="#5e3720" stroke-width="2"/>
+  <text x="374.0" y="326" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="11" fill="#fffaf0">I</text>
+  <path d="M 390,340 V 310 A 10 10 0 0 1 410,310 V 340 Z" fill="#2a9d8f" stroke="#5e3720" stroke-width="2"/>
+  <text x="400.0" y="326" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="11" fill="#fffaf0">L</text>
+  <path d="M 416,340 V 310 A 10 10 0 0 1 436,310 V 340 Z" fill="#e9c46a" stroke="#5e3720" stroke-width="2"/>
+  <text x="426.0" y="326" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="11" fill="#fffaf0">M</text>
+  <path d="M 442,340 V 310 A 10 10 0 0 1 462,310 V 340 Z" fill="#8ab17d" stroke="#5e3720" stroke-width="2"/>
+  <text x="452.0" y="326" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="11" fill="#fffaf0">N</text>
+  <path d="M 468,340 V 310 A 10 10 0 0 1 488,310 V 340 Z" fill="#457b9d" stroke="#5e3720" stroke-width="2"/>
+  <text x="478.0" y="326" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="11" fill="#fffaf0">O</text>
+  <path d="M 494,340 V 310 A 10 10 0 0 1 514,310 V 340 Z" fill="#f4a261" stroke="#5e3720" stroke-width="2"/>
+  <text x="504.0" y="326" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="11" fill="#fffaf0">P</text>
+  <path d="M 520,340 V 310 A 10 10 0 0 1 540,310 V 340 Z" fill="#6d6875" stroke="#5e3720" stroke-width="2"/>
+  <text x="530.0" y="326" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="11" fill="#fffaf0">R</text>
+  <path d="M 546,340 V 310 A 10 10 0 0 1 566,310 V 340 Z" fill="#e76f51" stroke="#5e3720" stroke-width="2"/>
+  <text x="556.0" y="326" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="11" fill="#fffaf0">S</text>
+  <path d="M 572,340 V 310 A 10 10 0 0 1 592,310 V 340 Z" fill="#2a9d8f" stroke="#5e3720" stroke-width="2"/>
+  <text x="582.0" y="326" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="11" fill="#fffaf0">T</text>
+  <path d="M 598,340 V 310 A 10 10 0 0 1 618,310 V 340 Z" fill="#e9c46a" stroke="#5e3720" stroke-width="2"/>
+  <text x="608.0" y="326" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="11" fill="#fffaf0">W</text>
+  <rect x="660" y="150" width="104" height="322" fill="#d9c3a0" stroke="#5e3720" stroke-width="4"/>
+  <polygon points="648,154 712,98 776,154" fill="#b9774a" stroke="#5e3720" stroke-width="4" stroke-linejoin="round"/>
+  <rect x="697" y="70" width="30" height="28" rx="5" fill="#34405a" stroke="#5e3720" stroke-width="3"/>
+  <polygon points="691,73 712,54 733,73" fill="#e76f51" stroke="#5e3720" stroke-width="3" stroke-linejoin="round"/>
+  <rect x="690" y="170" width="44" height="40" rx="7" fill="#34405a" stroke="#5e3720" stroke-width="2.5"/>
+  <g transform="translate(748 196)"><path d="M -4,0 V -4 A 4 4 0 0 1 4,-4 V 0" fill="none" stroke="#5e3720" stroke-width="2"/><rect x="-6" y="-1" width="12" height="10" rx="2" fill="#f2c14e" stroke="#5e3720" stroke-width="1.5"/></g>
+  <rect x="690" y="240" width="44" height="40" rx="7" fill="#34405a" stroke="#5e3720" stroke-width="2.5"/>
+  <g transform="translate(748 266)"><path d="M -4,0 V -4 A 4 4 0 0 1 4,-4 V 0" fill="none" stroke="#5e3720" stroke-width="2"/><rect x="-6" y="-1" width="12" height="10" rx="2" fill="#f2c14e" stroke="#5e3720" stroke-width="1.5"/></g>
+  <rect x="690" y="310" width="44" height="40" rx="7" fill="#34405a" stroke="#5e3720" stroke-width="2.5"/>
+  <g transform="translate(748 336)"><path d="M -4,0 V -4 A 4 4 0 0 1 4,-4 V 0" fill="none" stroke="#5e3720" stroke-width="2"/><rect x="-6" y="-1" width="12" height="10" rx="2" fill="#f2c14e" stroke="#5e3720" stroke-width="1.5"/></g>
+  <rect x="690" y="380" width="44" height="40" rx="7" fill="#34405a" stroke="#5e3720" stroke-width="2.5"/>
+  <g transform="translate(748 406)"><path d="M -4,0 V -4 A 4 4 0 0 1 4,-4 V 0" fill="none" stroke="#5e3720" stroke-width="2"/><rect x="-6" y="-1" width="12" height="10" rx="2" fill="#f2c14e" stroke="#5e3720" stroke-width="1.5"/></g>
+  <path d="M 690,472 V 444 A 22 22 0 0 1 734,444 V 472 Z" fill="#8a5233" stroke="#5e3720" stroke-width="3"/>
+  <circle cx="112" cy="420" r="56" fill="#8a5233" stroke="#5e3720" stroke-width="4"/>
+  <circle cx="112" cy="420" r="46" fill="#b9774a" stroke="#5e3720" stroke-width="3"/>
+  <polygon points="112.0,394.0 117.3,408.7 132.9,409.2 120.6,418.8 124.9,433.8 112.0,425.0 99.1,433.8 103.4,418.8 91.1,409.2 106.7,408.7" fill="#e9c46a" stroke="#5e3720" stroke-width="2.5" stroke-linejoin="round"/>
+  <rect x="52" y="472" width="120" height="9" fill="#c49a6c"/>
+  <path d="M 170,548 C 230,540 290,560 350,550 C 410,540 470,556 520,548 L 522,574 C 472,584 412,566 352,576 C 292,586 232,566 172,574 Z" fill="#fffdf6" stroke="#4a3f38" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M 190,560 H 222 M 236,562 H 266 M 282,563 H 312 M 328,561 H 356 M 372,558 H 402 M 418,556 H 448 M 462,557 H 494" stroke="#9db4c0" stroke-width="3" stroke-linecap="round"/>
+  <ellipse cx="526" cy="561" rx="9" ry="15" fill="#efe6d4" stroke="#4a3f38" stroke-width="3"/>
+  <g data-figure="pin" transform="translate(616 566) scale(0.95)"></g>
+</svg>

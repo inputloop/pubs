@@ -1,0 +1,213 @@
+# spaces -- spread 5 of "So You Want To Build A Ghostwheel?"
+# Copyright 2026 Corwin Brust; CC-BY-SA-4.0
+# Facts about C4 come from C4 itself, read-only on Avalon (the c4 tree),
+# 2026-11-04T00:13:56Z. Each [mark] on the fuller page opens its witness rows.
+kind: spread
+number: 5
+title: Spaces
+part: Part One: how we say things
+
+== picture page ==
+This is a space.
+It is a small gap.
+
+With a gap, there are two.
+With no gap, they go as one.
+
+BIG letters go and look in the list.
+Small letters do not.
+
+== layout ==
+# The drawing is busy from edge to edge (two trains, a path up to the
+# list), so the words sit calmly under it, in three short pairs of lines.
+picture: top
+words: below
+size: 3.4
+align: center
+
+== fuller page ==
+Two rules do most of the work in C4's grammar, and both show in a single
+line [two].
+
+Space binds. A bracket right after a word, with no space, is an operator:
+in as(VIRTUAL), as is applied to VIRTUAL, one group. A bracket with a space
+before it is plain text, so as VIRTUAL is an operator and then a separate
+word [binds]. Because as( never occurs in ordinary English, it can end a run
+of unquoted prose exactly, with no quotes at all [prose]. Quoting and binding are
+"two delimiters for one job", so quotes never carry the weight alone; a
+language fenced only by quotes is one where "a stray quote changes meaning
+silently" [quotes].
+
+Case resolves. UPPERCASE words, such as VIRTUAL, TAXONOMY, HOST and TAG,
+are looked up in the taxonomy. Lowercase words are the language's
+own small words (as, from, toward, into) or the new name being made, taken
+just as written [case]. One line can hold both: (TAG) at its head is looked
+up, and tag inside "(for C4: tag)" is literal.
+
+That is why the short form is the normal one. Mint a name in lowercase and
+its other spellings come free; mint it in uppercase and you pay with a
+list. "The long one is the bill for choosing the harder case"
+[terse].
+
+These rules were read off three of Corwin's own examples on 2026-08-10,
+after his nudge to "pick-up the clues about significance of space", and
+offered back for correction [found].
+
+== diagram ==
+kind: pair
+caption: Four specimens from C4-LANG, two spaced and two bound. A bracket with a space before it is text; a bracket with no space is an operator.
+left: Spaced
+right: Bound
+as VIRTUAL | as(VIRTUAL)
+an operator, then a separate word | the operator applied to its word, one group
+"(virtual) a TERM" | (virtual)taxonomy
+literal words, inside quotes | a cast, the qualifier applied to the word
+
+== facts ==
+fact: two
+said: "The grammar: space binds, case resolves. Two rules do almost all the work, and both are visible in a single declaration."
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/C4-LANG.md, lines 85-87 (section 3)
+sha: sha256:d99139b865824ff3a6b3c21246d4226561354271263cecf2c7126e70bcc5667d
+state: seen
+
+fact: binds
+said: "A ( that follows a word character with no space is an operator. A ( preceded by a space is literal text." Specimens: "as VIRTUAL spaced -> operator, then a separate operand"; "as(VIRTUAL) BOUND -> operator applied to its argument, one group".
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/C4-LANG.md, lines 91-99 (section 3)
+sha: sha256:d99139b865824ff3a6b3c21246d4226561354271263cecf2c7126e70bcc5667d
+state: seen
+
+fact: binds
+said: "A ( that follows a word character with no space is an OPERATOR. A ( preceded by a space is LITERAL."
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/facts/space-binds-and-case-resolves, lines 26-27
+sha: sha256:7801ec39bdab1861187691db36fd1f72ea894463d60f232cb9199486f8383655
+state: seen
+
+fact: prose
+said: "An unquoted run of prose can be bounded exactly like a quoted one: it opens on a bound cast and closes on a bound operator. as( cannot occur in ordinary English, so it terminates a literal run unambiguously — while spaced parentheticals inside the run, (visual or user facing), are simply walked over as text."
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/C4-LANG.md, lines 101-104 (section 3)
+sha: sha256:d99139b865824ff3a6b3c21246d4226561354271263cecf2c7126e70bcc5667d
+state: seen
+
+fact: quotes
+said: "Quoting and binding are two delimiters for one job, and that is why quoting must never be load-bearing. A language in which quotes are the only fence is a language where a stray quote changes meaning silently."
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/C4-LANG.md, lines 106-108 (section 3)
+sha: sha256:d99139b865824ff3a6b3c21246d4226561354271263cecf2c7126e70bcc5667d
+state: seen
+
+fact: case
+said: "UPPER VIRTUAL · KEYS · TAXONOMY · HOST · TERM · TAG -> resolve against the taxonomy; lower as · from · toward · into · offering · intern -> keywords of the language itself; lower type · kind · theme · skin -> the name being MINTED, literal." "(TAG) at the head resolves; tag inside (for C4: tag) is literal."
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/C4-LANG.md, lines 112-119 (section 3)
+sha: sha256:d99139b865824ff3a6b3c21246d4226561354271263cecf2c7126e70bcc5667d
+state: seen
+
+fact: terse
+said: "Minting a name in UPPERCASE collides with the resolve convention, so an uppercase mint must pay for an explicit intern list and plural list. Mint lowercase and both come free. The short form is not shorthand for the long one — the long one is the bill for choosing the harder case."
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/C4-LANG.md, lines 121-124 (section 3)
+sha: sha256:d99139b865824ff3a6b3c21246d4226561354271263cecf2c7126e70bcc5667d
+state: seen
+
+fact: found
+said: "Read off three of his own TAG examples, minted the same day. This is my reading, offered back for correction — [ours — revisable] throughout." His press: "See if you pick-up the clues about significance of space…"
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/facts/space-binds-and-case-resolves, lines 1-4 and 16-17 (2026-08-10)
+sha: sha256:7801ec39bdab1861187691db36fd1f72ea894463d60f232cb9199486f8383655
+state: seen
+note: Two standings for one rule. The fact calls it Claude's reading, revisable; C4-LANG states it as the grammar. No ruling from him on it was found in either file. The page says "offered back for correction" rather than "his rule".
+
+== narration ==
+# Take A, "the company talks to you": every voice speaks to the listener.
+[picture A]
+narrator: Look at the little train on the shelf. Do you see the gap in it?
+spoke: That gap is a space. It's small, but it matters.
+narrator: With a gap, there are two. With no gap, they go as one.
+pin: Now look down at the floor. Those two cars are hooked together. One train.
+spoke: And the big letters? They go and look in the list. Can you see the path up to it?
+pin: Small letters don't. They stay just as they are.
+[fuller A]
+narrator [two]: Two rules do most of the work in {C4|C four}'s grammar, and you can see both in a single line.
+spoke [binds]: The first one: space binds. A bracket right after a word, with no space, is an operator. Put a space in front of it, and it's just text.
+pin [prose]: That lets plain words run on without any quotes. The run ends where a bound bracket appears, because that never happens in ordinary English.
+narrator [quotes]: So quotes never carry the weight alone. If they did, a stray quote could change the meaning, and nobody would notice.
+spoke [case]: The second rule: case resolves. Big letters get looked up in the taxonomy. Small letters are the language's own little words, or the new name being made, just as written.
+pin [terse]: That's why the short way is the normal way. Make a name in small letters, and its other spellings come free.
+narrator [found]: These rules were read off three of Corwin's own examples, and handed back to him to correct. Now they're yours to try.
+
+# Take B, "the lap reader": one close voice reads to you; Spoke and Pin
+# mostly talk to each other, and turn to you only in a short aside.
+[picture B]
+narrator: This is a space. It is a small gap.
+narrator: With a gap, there are two. With no gap, they go as one.
+spoke: Pin, the top train has a hole in it.
+pin: Not a hole, Spoke. A space. That makes it two things, not one.
+narrator: Big letters go and look in the list. Small letters do not.
+spoke: Off they go, up to your list.
+[fuller B]
+narrator [two]: Two rules do most of the work in {C4|C four}'s grammar, and both show in a single line.
+narrator [binds]: Space binds. A bracket right after a word, with no space, is an operator. A bracket with a space before it is plain text.
+narrator [prose]: Because "as", followed by a bracket, never occurs in ordinary English, it can end a run of unquoted prose exactly.
+pin [quotes]: Quoting and binding are two fences for one job. I never trust quotes alone.
+spoke [quotes]: A stray quote could change the meaning, and no one would hear it happen.
+narrator [case]: Case resolves. Uppercase words are looked up in the taxonomy. Lowercase words are the language's own small words, or the new name being made, taken just as written.
+narrator [terse]: Mint a name in lowercase and its other spellings come free. The long form is the bill for choosing the harder case.
+pin [found]: Read off three of his examples, and offered back for him to correct. I wrote that part down too.
+
+== picture ==
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="spaces-t">
+  <title id="spaces-t">On a wall shelf, a little toy train of two wooden blocks, "as" and "(LIST)", with a gap between them marked by a small sparkle; Spoke floats above the gap, looking at it. A dotted path rises from the LIST block to Pin's paper list hanging on the wall, with a magnifying glass. On the floor below, the same two blocks are hooked together as one train, and Pin stands beside it.</title>
+  <rect width="800" height="600" fill="url(#g-wall)"/>
+  <rect y="478" width="800" height="122" fill="url(#g-floor)"/>
+  <rect y="472" width="800" height="9" fill="#c49a6c"/>
+  <g class="spaces-shelf">
+    <rect x="40" y="296" width="500" height="12" rx="4" fill="#c49a6c"/>
+    <path d="M 80,308 L 92,330 M 500,308 L 488,330" stroke="#b98f5a" stroke-width="6" stroke-linecap="round"/>
+  </g>
+  <g class="spaces-train-a">
+    <rect x="66" y="226" width="94" height="58" rx="9" fill="#e9c46a" stroke="#5e3720" stroke-width="3.5"/>
+    <text transform="translate(113 268) scale(1.6)" text-anchor="middle" class="plate">as</text>
+    <circle cx="88" cy="288" r="9" fill="#2d2a32"/><circle cx="138" cy="288" r="9" fill="#2d2a32"/>
+    <rect x="250" y="226" width="186" height="58" rx="9" fill="#8ab17d" stroke="#5e3720" stroke-width="3.5"/>
+    <text transform="translate(343 266) scale(1.45)" text-anchor="middle" class="plate">(LIST)</text>
+    <circle cx="276" cy="288" r="9" fill="#2d2a32"/><circle cx="410" cy="288" r="9" fill="#2d2a32"/>
+    <path d="M 172,262 H 238 M 172,254 V 270 M 238,254 V 270" stroke="#e76f51" stroke-width="4" stroke-linecap="round"/>
+    <path d="M 205,226 l 5,11 11,5 -11,5 -5,11 -5,-11 -11,-5 11,-5 Z" fill="#fff1b8" stroke="#e9c46a" stroke-width="2"/>
+    <g transform="translate(478 255)"><circle r="20" fill="#e76f51" stroke="#5e3720" stroke-width="3"/><text y="7" text-anchor="middle" class="plate">2</text></g>
+  </g>
+  <g data-figure="spoke" transform="translate(205 205) scale(0.42)"></g>
+  <g class="spaces-path">
+    <path d="M 360,222 C 380,150 470,110 588,128" fill="none" stroke="#6d6875" stroke-width="4" stroke-dasharray="3 11" stroke-linecap="round"/>
+    <path d="M 574,118 L 590,128 L 574,140" fill="none" stroke="#6d6875" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <g class="spaces-list">
+    <rect x="612" y="62" width="150" height="172" rx="6" fill="#fffdf6" stroke="#4a3f38" stroke-width="3"/>
+    <ellipse cx="687" cy="62" rx="82" ry="11" fill="#efe6d4" stroke="#4a3f38" stroke-width="3"/>
+    <circle cx="687" cy="44" r="6" fill="#e76f51" stroke="#5e3720" stroke-width="2.5"/>
+    <path d="M 632,96 H 742 M 632,120 H 728 M 632,144 H 744 M 632,168 H 720 M 632,192 H 738 M 632,216 H 706" stroke="#9db4c0" stroke-width="4" stroke-linecap="round"/>
+    <g transform="translate(624 176) rotate(-30)"><circle r="20" fill="#bfeee5" fill-opacity="0.5" stroke="#4a3f38" stroke-width="4"/><rect x="-5" y="20" width="10" height="30" rx="4" fill="#8a5233" stroke="#4a3f38" stroke-width="3"/></g>
+  </g>
+  <g class="spaces-train-b">
+    <rect x="110" y="502" width="94" height="58" rx="9" fill="#e9c46a" stroke="#5e3720" stroke-width="3.5"/>
+    <text transform="translate(157 544) scale(1.6)" text-anchor="middle" class="plate">as</text>
+    <rect x="208" y="502" width="186" height="58" rx="9" fill="#8ab17d" stroke="#5e3720" stroke-width="3.5"/>
+    <text transform="translate(301 542) scale(1.45)" text-anchor="middle" class="plate">(LIST)</text>
+    <rect x="196" y="526" width="24" height="10" rx="4" fill="#5e3720"/>
+    <circle cx="132" cy="566" r="10" fill="#2d2a32"/><circle cx="182" cy="566" r="10" fill="#2d2a32"/>
+    <circle cx="234" cy="566" r="10" fill="#2d2a32"/><circle cx="368" cy="566" r="10" fill="#2d2a32"/>
+    <g transform="translate(436 530)"><circle r="20" fill="#2a9d8f" stroke="#5e3720" stroke-width="3"/><text y="7" text-anchor="middle" class="plate">1</text></g>
+  </g>
+  <g data-figure="pin" transform="translate(600 584) scale(0.95)"></g>
+</svg>

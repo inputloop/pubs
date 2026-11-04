@@ -1,0 +1,26 @@
+# easy -- the book's own list of easy words, for the picture pages.
+# Copyright 2026 Corwin Brust; CC-BY-SA-4.0
+# Every word on a picture page (spreads and intermezzi) must be here; the word
+# check refuses one that is not. Add a word when a page needs it, and say why
+# in a comment if it is not an everyday word. Names and the book's own words:
+chad pin spoke ghostwheel s
+# the everyday words:
+a after and are at behind come computers door doors down each every first friends
+gone got has he hi how i i'm in is its keeps last letter list lives looks lot
+middle names of oh on one part room rings say sees seventeen shop small the then
+there things this time was we what who word writes four
+# for the title page and the end (2026-11-03, the book):
+sit with us turn page thank you for reading back soon
+# for Part One, spreads 3-10 (asked by part-one, added by Mentat, 2026-11-03):
+#   l: the letter's name, as "s" is already (the L door, spread 4)
+#   ladder: spread 10: Spoke and Pin each hold one
+#   mark: spread 9: the small mark Pin writes on a fact only one friend saw
+#   purpose: only in "on purpose" (spread 7: we break it on purpose)
+all as big both box break but can check could do friend gap go good if it know l ladder learn letters light look make mark new no not only own purpose real red same says see space test them they three too true two up wakes watching wheel when where works
+# for Part Two, spreads 11-17 and Chad's later visits (asked by part-two, added by Mentat, 2026-11-03):
+#   c: floors: the letter's name, as "s" and "l" are (four C's on four doors)
+#   c4: floors, zero: the book's own word, like "ghostwheel"; said "C four"
+#   knock: zero ("Knock, knock. Who is there?")
+#   pretend: roof (pretend floors: the virtual run-levels)
+#   running: running, roof (the host's word for level 5)
+above always away book build c c4 can't climb computer day don't enough five floor floors get ghost goodnight hands hold knock lights lock locks me name notes open pretend ring roof round running star still waves would yet zero

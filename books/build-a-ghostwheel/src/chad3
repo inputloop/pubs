@@ -1,0 +1,97 @@
+# chad3 -- Chad's last intermezzo, just before goodnight.
+# Copyright 2026 Corwin Brust; CC-BY-SA-4.0
+#
+# Chad is Corwin's own character: brief, confident, a little out of place,
+# explaining nothing. This is where his line is meant to land, near C4's
+# query language (the goodnight page names C4QL). Nobody explains it.
+#
+# For the writers only, not the page or the voices:
+# - C4.md section 9, 2026-08-25: "Verb families ride in-flight toward the
+#   taxonomy via C4 backward consing (rightmost token = the logical CAR; left
+#   to MEANING-STOP, most often colon; CAPITALS drive taxonomy movement) under
+#   the ASSY / C4QL / C4META stack." (c4/C4.md lines 258-260, sha256
+#   358ce65c...9d42.)
+# - facts/c-for-command, lines 26-33: "grab the rightmost token (the logical
+#   CAR), advance left to MEANING-STOP (most often COLON ':'); hunks cascade
+#   right-to-left, each hunk read left-to-right until something means 'all by
+#   itself' ... C4QL traces implementation to surface linkage and gaps by
+#   dynamics of meaning". His own hand, in the steering file it digests
+#   (/f/claude/C4-STEERING-2026-08-25-c-for-command.md, line 49): "now try the
+#   C4 backward consing by grabing one token from the right (our "logical
+#   CAR") and then then advancing left until MEANING-STOP".
+# - What the page shows: Chad reads the book's own name from the right end.
+#   "Wheel" first, the thing it is; then "Ghost", which wheel. Spoke, the ghost
+#   at the hub since spread 1, waves. The cover draws Ghost and wheel in two
+#   colours. That is the whole telegraph. If he wants it a tiny bit louder,
+#   one candidate is a single sentence on the goodnight fuller page citing the
+#   C4.md line above; it is left off on purpose (his words: "DO NOT ensure we
+#   dive the point home ... I will be the judge of that").
+kind: intermezzo
+title: Chad
+
+== picture page ==
+Oh! Chad is back, one last time.
+
+He looks at the name on the book.
+"Wheel," he says. "Ghost."
+
+Spoke waves.
+
+"Last word first. Every time."
+
+And then he was gone.
+
+== layout ==
+# Under the book's title, then down to Chad's two words, across to Spoke
+# waving, back to Chad's line, and out at the bottom.
+picture: full
+words: scatter
+size: 3.6
+at: 5 29 34
+at: 5 39 40
+at: 60 62 30
+at: 50 70 30
+at: 48 86 22
+align: left
+
+== narration ==
+[picture A]
+narrator: Oh! Chad is back, one last time.
+narrator: He looks at the name on the book.
+chad: Wheel. Ghost.
+spoke: Hi, Chad!
+chad: Last word first. Every time.
+pin: I've got it written down for you. All three times.
+narrator: And then he was gone.
+
+[picture B]
+narrator: Oh! Chad is back, one last time.
+narrator: He looks at the name on the book.
+chad: Wheel. Ghost.
+spoke: Pin. Pin! He said ghost.
+pin: I heard, Spoke. Wave.
+chad: Last word first. Every time.
+narrator: And then he was gone.
+pin: Writing it down. Last time.
+
+== picture ==
+<svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="chad3-t">
+  <title id="chad3-t">Evening in the shop. A very big book stands on a shelf across the top of the wall; its cover reads "So You Want To Build A Ghostwheel?", with "Ghost" and "wheel" in two colours. Chad stands below it in a pool of lamplight, thumb up, holding his card with the arrow that points left, looking up at the title. Spoke floats under the right end of the title, waving. Pin sits on the floor at the right, writing.</title>
+  <rect width="800" height="800" fill="url(#g-wall)"/>
+  <rect y="700" width="800" height="100" fill="url(#g-floor)"/>
+  <rect y="694" width="800" height="8" fill="#c49a6c"/>
+  <rect x="60" y="214" width="680" height="14" rx="4" fill="#c49a6c" stroke="#5e3720" stroke-width="3"/>
+  <path d="M 380,228 L 392,262 M 690,228 L 676,262" stroke="#5e3720" stroke-width="5" stroke-linecap="round"/>
+  <rect x="704" y="48" width="16" height="164" fill="#fffdf6" stroke="#5e3720" stroke-width="3"/>
+  <path d="M 708,60 V 200 M 713,60 V 200" stroke="#d8cdb9" stroke-width="1.5"/>
+  <rect x="88" y="40" width="622" height="174" rx="10" fill="#fffaf0" stroke="#5e3720" stroke-width="5"/>
+  <rect x="88" y="40" width="36" height="174" rx="8" fill="#e76f51" stroke="#5e3720" stroke-width="5"/>
+  <text x="417" y="108" text-anchor="middle" font-family="Georgia, serif" font-size="38" fill="#2d2a32">So You Want To Build A</text>
+  <text x="417" y="186" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="64"><tspan fill="#6d6875">Ghost</tspan><tspan fill="#b98f5a">wheel</tspan><tspan fill="#2d2a32">?</tspan></text>
+  <ellipse cx="250" cy="600" rx="190" ry="230" fill="url(#g-lamp)" opacity="0.4"/>
+  <ellipse cx="250" cy="778" rx="150" ry="22" fill="#fff6d6" opacity="0.85"/>
+  <g data-figure="chad" transform="translate(250 780) scale(1.32)"></g>
+  <g data-figure="spoke" transform="translate(636 470) scale(0.58)"></g>
+  <g fill="none" stroke="#b9a8e0" stroke-width="3" stroke-linecap="round"><path d="M 680,410 q 10,-10 20,0"/><path d="M 688,396 q 14,-14 28,0"/></g>
+  <g data-figure="pin" transform="translate(652 790) scale(0.95)"></g>
+</svg>

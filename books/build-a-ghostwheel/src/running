@@ -1,0 +1,228 @@
+# running -- spread 13 of "So You Want To Build A Ghostwheel?"
+# Copyright 2026 Corwin Brust; CC-BY-SA-4.0
+# Facts about C4 come from C4 itself, read-only on Avalon (the c4 tree),
+# seen 2026-11-04T00:19:40Z. Each [mark] on the fuller page opens its witness rows.
+kind: spread
+number: 13
+title: Running
+part: Part Two: how a ghostwheel wakes up
+
+== picture page ==
+Floor five! The lights come on,
+in every room.
+
+The ghostwheel is running.
+
+Spoke sees it.
+Pin writes it down: running.
+
+== layout ==
+# A calm page after the climb: the whole lit house above, the words below.
+picture: top
+words: below
+size: 3.5
+
+== fuller page ==
+Floor 5 is running [five]. It is the host's word for "the lights are on":
+the floors below have done their part, and from here, as the host sees it, it
+is simply running [hostrunning].
+
+How does a host get there today? When you log in, the start-up file gw.rc
+loads the library and asks it to say its name. If it answers, gw.rc brings the
+spokes up [spokes]: for each spoke, the library checks whether it is ready,
+and if not, mounts it over the network with sshfs [sshfs]. Just before that
+part, the file leaves a note in its own voice: "wheels-up!" [wheels].
+
+Here is what is built and what is not. The library and its start-up file
+exist, and they are free software. Pin has two notes on which licence: the
+library's first lines say "GPLv3+", and the LICENSE file beside it holds the
+GNU Affero GPL, version 3 [licence]. Both are kept; the difference is worth
+asking about. The floor names are in the library, but no test is attached to
+floors 1 to 5 yet [count], so running today is a name and a promise, not a
+checked state. C4's language book is blunt about gaps like this: "A tool that
+never graduates toward a higher level of assurance is itself a smell" [smell].
+
+As the host sees it, running is the top. Anything that climbs higher does it
+on pretend floors, over the page.
+
+== diagram ==
+kind: ladder
+caption: Floor 5 is the host's "running". Above it, the host says nothing new.
+focus: 5
+5 | running | the lights are on; no test yet
+4 | connections | named; no test yet
+3 | configurations | named; no test yet
+2 | components | named; no test yet
+1 | containers | named; no test yet
+0 | bootstrapping | tested
+
+== facts ==
+fact: five
+said: "# 5..running"
+seen: 2026-11-04T00:19:40Z
+by: part-two (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/p/c4fn/ghostwheel.fn.sh, line 40
+sha: sha256:8458a930d67aec89593a830fafce187a268ce98e7e40f700377bcd5a7c6ae6b3
+state: seen
+
+fact: hostrunning
+said: "5 is the host's "running" and the application's virtual levels live above it."
+seen: 2026-11-04T00:19:40Z
+by: part-two (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/facts/run-levels-above-the-tumblers-are-virtual, lines 18-19
+sha: sha256:d68f1300d815b6051ab1cff4bfe5bc2e2117ec3e3782bff49cc214bccf3e896d
+state: seen
+note: "The lights are on" is the book's picture of it, from the plan (PLAN.md section 6, spread 13), not his words.
+
+fact: spokes
+said: "# we are done trying to load functions, worked or it didn't.. / if c4_rc_ready ; then / #try probing for and setting up features.. / if test ! -r $HOME/.inhibitspokes ... c4.SPOKES_UP"
+seen: 2026-11-04T00:19:40Z
+by: part-two (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/p/c4fn/gw.rc, lines 37-43
+sha: sha256:7fa7b1e4fd88f4b4dc11395a028d2a2f2ce65fd34654f22e15d8628c14b1a9f2
+state: seen
+
+fact: sshfs
+said: "##  brute force all the things / function c4.SPOKES_UP { ... c4.s.ready -q $s $i || c4.s.sshfs $s:/$i $C4_SPOKES/$s/$i"
+seen: 2026-11-04T00:19:40Z
+by: part-two (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/p/c4fn/ghostwheel.fn.sh, lines 884-895
+sha: sha256:8458a930d67aec89593a830fafce187a268ce98e7e40f700377bcd5a7c6ae6b3
+state: seen
+
+fact: wheels
+said: "C4_TR=w  # wheels-up!"
+seen: 2026-11-04T00:19:40Z
+by: part-two (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/p/c4fn/ghostwheel.fn.sh, line 882
+sha: sha256:8458a930d67aec89593a830fafce187a268ce98e7e40f700377bcd5a7c6ae6b3
+state: seen
+note: C4_TR names the test register in use from there on (line 44 sets it to T first); "wheels-up!" is the comment beside it.
+
+fact: licence
+said: "# Copyright (C)2026 Corwin Brust <corwin@brust> / # GPLv3+: The program is Free Software"
+seen: 2026-11-04T00:19:40Z
+by: part-two (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/p/c4fn/ghostwheel.fn.sh, lines 3-4
+sha: sha256:8458a930d67aec89593a830fafce187a268ce98e7e40f700377bcd5a7c6ae6b3
+state: seen
+note: The two licence rows differ: the file header says GPLv3+, the LICENSE beside it is the AGPL v3. Both are kept; which one he means is his to say.
+
+fact: licence
+said: "GNU AFFERO GENERAL PUBLIC LICENSE / Version 3, 19 November 2007"
+seen: 2026-11-04T00:19:40Z
+by: part-two (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/p/c4fn/LICENSE, lines 1-2
+sha: sha256:4ca481b3ef58d385d6e2cc2a64c6cea937bf1b6bcb2a33e6f62be75b04849d91
+state: seen
+
+fact: count
+said: 13 test lines at level 0; 0 at levels 1 to 9.
+seen: 2026-11-04T00:19:54Z
+by: grep, run on Avalon
+from: c4/p/c4fn/ghostwheel.fn.sh (grep -c -E '^\s*c4\.t\.b +"[a-z]*" +0', and the same with +[1-9])
+sha: sha256:8458a930d67aec89593a830fafce187a268ce98e7e40f700377bcd5a7c6ae6b3
+state: seen
+
+fact: count
+said: Every uncommented c4.t.b line names run-level 0; the only C4_RUN assignment is line 254, to 0.
+seen: 2026-11-04T00:19:40Z
+by: part-two (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/p/c4fn/ghostwheel.fn.sh, the whole file
+sha: sha256:8458a930d67aec89593a830fafce187a268ce98e7e40f700377bcd5a7c6ae6b3
+state: seen
+
+fact: smell
+said: "Each level is a signal, and what a caller may reach varies by the level in force. A tool that never graduates toward a higher level of assurance is itself a smell."
+seen: 2026-11-04T00:19:40Z
+by: part-two (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/C4-LANG.md, lines 224-226 (section 8)
+sha: sha256:d99139b865824ff3a6b3c21246d4226561354271263cecf2c7126e70bcc5667d
+state: seen
+
+== narration ==
+[picture A]
+narrator: Floor five! Look, the lights come on, in every room.
+narrator: The ghostwheel is running.
+spoke: I can see it from here. Can you? Every window is warm.
+pin: And I'm writing it down for you, in one word. Running.
+spoke: Doesn't it look happy?
+pin: It does. Some things I just look at.
+[fuller A]
+narrator [five]: Floor five is running.
+spoke [hostrunning]: It's the host's word for the lights are on. From here, as the host sees it, it's simply running.
+pin [spokes]: When you log in, the start-up file asks the library to say its name. If it answers, it brings the spokes up.
+spoke [sshfs]: For each spoke, it checks whether it's ready, and if not, it joins it over the network.
+pin [wheels]: And just before that, the file leaves a little note: wheels up!
+narrator [licence]: The library is free software. Pin has two notes about which licence, and we kept them both for you to see.
+spoke [count]: Here's the honest part. The floors have names, but no tests yet above floor zero. So running is a name and a promise today.
+pin [smell]: The language book says a tool that never climbs toward more assurance is a smell. So we tell you where the climb stops.
+narrator: Anything that climbs higher than running does it on pretend floors. Turn the page with us.
+
+[picture B]
+narrator: Floor five! The lights come on, in every room.
+narrator: The ghostwheel is running.
+spoke: Pin. Pin, look. All of them.
+pin: I see it, Spoke.
+spoke: Write it down?
+pin: Already did. One word. Running.
+[fuller B]
+narrator [five]: Floor five is running.
+narrator [hostrunning]: It is the host's word for the lights are on. From here, as the host sees it, it is simply running.
+narrator [spokes]: When you log in, the start-up file loads the library and asks it to say its name. If it answers, it brings the spokes up.
+narrator [sshfs]: For each spoke, it checks whether it is ready, and if not, mounts it over the network.
+spoke [wheels]: Pin, it says wheels up.
+pin [wheels]: In its own voice. Right there in the file.
+spoke [licence]: Which licence is it, though?
+pin [licence]: Two notes. The header says G P L three or later, and the licence file says the Affero one. I kept both.
+narrator [count]: No test is attached to floors one to five yet. Running today is a name and a promise, not a checked state.
+narrator [smell]: A tool that never graduates toward a higher level of assurance is itself a smell.
+
+== picture ==
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="running-t">
+  <title id="running-t">Night, but everything glows. The tall house from before has every window lit, a small smiling computer in each, and at the very top a little lantern room marked 5 shines brightest. In the sky beside it a wheel of eight lit computers turns, with Spoke at its hub. On the grass, Pin writes on a notepad beside a wooden sign that reads "running".</title>
+  <defs><linearGradient id="running-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2b3a5a"/><stop offset="1" stop-color="#62729a"/></linearGradient></defs>
+  <rect width="800" height="478" fill="url(#running-sky)"/>
+  <g fill="#fff6d6"><circle cx="40" cy="40" r="2.0"/><circle cx="120" cy="90" r="2.6"/><circle cx="190" cy="30" r="3.2"/><circle cx="70" cy="200" r="2.0"/><circle cx="150" cy="260" r="2.6"/><circle cx="420" cy="40" r="3.2"/><circle cx="470" cy="110" r="2.0"/><circle cx="760" cy="60" r="2.6"/><circle cx="780" cy="300" r="3.2"/><circle cx="440" cy="330" r="2.0"/><circle cx="30" cy="380" r="2.6"/><circle cx="720" cy="420" r="3.2"/></g>
+  <rect y="478" width="800" height="122" fill="#6d9460"/>
+  <polygon points="180,478 240,478 276,600 140,600" fill="#c49a6c"/>
+  <circle cx="310" cy="90" r="60" fill="#fff2c4" opacity="0.12"/>
+  <circle cx="310" cy="220" r="130" fill="#fff2c4" opacity="0.12"/>
+  <circle cx="210" cy="430" r="70" fill="#fff2c4" opacity="0.12"/>
+  <circle cx="385" cy="425" r="80" fill="#fff2c4" opacity="0.12"/>
+  <rect x="250" y="122" width="120" height="244" fill="#d9c3a0" stroke="#5e3720" stroke-width="5"/>
+  <polygon points="234,128 310,64 386,128" fill="#b9774a" stroke="#5e3720" stroke-width="5" stroke-linejoin="round"/>
+  <rect x="288" y="40" width="44" height="42" rx="6" fill="url(#g-lamp)" stroke="#5e3720" stroke-width="4"/>
+  <polygon points="280,44 310,18 340,44" fill="#e76f51" stroke="#5e3720" stroke-width="4" stroke-linejoin="round"/>
+  <g stroke="#ffd98a" stroke-width="3" stroke-linecap="round" opacity="0.9"><path d="M 274,60 h -16 M 346,60 h 16 M 280,34 l -12,-10 M 340,34 l 12,-10"/></g>
+  <circle cx="268" cy="96" r="11" fill="#fffaf0" stroke="#5e3720" stroke-width="2.5"/><text x="268" y="101" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="14" fill="#2d2a32">5</text>
+  <rect x="288" y="142" width="44" height="40" rx="7" fill="url(#g-lamp)" stroke="#5e3720" stroke-width="3"/>
+  <g transform="translate(310 163)"><rect x="-13" y="-10" width="26" height="19" rx="4" fill="#264653" stroke="#2d2a32" stroke-width="2"/><rect x="-9.5" y="-7" width="19" height="12" rx="2.5" fill="#bfeee5"/><path d="M -4,-3 v1 M 4,-3 v1 M -4,1 Q 0,4 4,1" stroke="#2d2a32" stroke-width="1.6" stroke-linecap="round" fill="none"/></g>
+  <circle cx="268" cy="162" r="11" fill="#fffaf0" stroke="#5e3720" stroke-width="2.5"/><text x="268" y="167" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="14" fill="#2d2a32">4</text>
+  <rect x="288" y="198" width="44" height="40" rx="7" fill="url(#g-lamp)" stroke="#5e3720" stroke-width="3"/>
+  <g transform="translate(310 219)"><rect x="-13" y="-10" width="26" height="19" rx="4" fill="#264653" stroke="#2d2a32" stroke-width="2"/><rect x="-9.5" y="-7" width="19" height="12" rx="2.5" fill="#bfeee5"/><path d="M -4,-3 v1 M 4,-3 v1 M -4,1 Q 0,4 4,1" stroke="#2d2a32" stroke-width="1.6" stroke-linecap="round" fill="none"/></g>
+  <circle cx="268" cy="218" r="11" fill="#fffaf0" stroke="#5e3720" stroke-width="2.5"/><text x="268" y="223" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="14" fill="#2d2a32">3</text>
+  <rect x="288" y="254" width="44" height="40" rx="7" fill="url(#g-lamp)" stroke="#5e3720" stroke-width="3"/>
+  <g transform="translate(310 275)"><rect x="-13" y="-10" width="26" height="19" rx="4" fill="#264653" stroke="#2d2a32" stroke-width="2"/><rect x="-9.5" y="-7" width="19" height="12" rx="2.5" fill="#bfeee5"/><path d="M -4,-3 v1 M 4,-3 v1 M -4,1 Q 0,4 4,1" stroke="#2d2a32" stroke-width="1.6" stroke-linecap="round" fill="none"/></g>
+  <circle cx="268" cy="274" r="11" fill="#fffaf0" stroke="#5e3720" stroke-width="2.5"/><text x="268" y="279" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="14" fill="#2d2a32">2</text>
+  <rect x="288" y="310" width="44" height="40" rx="7" fill="url(#g-lamp)" stroke="#5e3720" stroke-width="3"/>
+  <g transform="translate(310 331)"><rect x="-13" y="-10" width="26" height="19" rx="4" fill="#264653" stroke="#2d2a32" stroke-width="2"/><rect x="-9.5" y="-7" width="19" height="12" rx="2.5" fill="#bfeee5"/><path d="M -4,-3 v1 M 4,-3 v1 M -4,1 Q 0,4 4,1" stroke="#2d2a32" stroke-width="1.6" stroke-linecap="round" fill="none"/></g>
+  <circle cx="268" cy="330" r="11" fill="#fffaf0" stroke="#5e3720" stroke-width="2.5"/><text x="268" y="335" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="14" fill="#2d2a32">1</text>
+  <rect x="150" y="366" width="320" height="112" fill="#e9d5b0" stroke="#5e3720" stroke-width="5"/>
+  <rect x="140" y="358" width="340" height="14" rx="4" fill="#b9774a" stroke="#5e3720" stroke-width="3"/>
+  <path d="M 180,478 V 424 A 30 30 0 0 1 240,424 V 478 Z" fill="url(#g-lamp)" stroke="#5e3720" stroke-width="4"/>
+  <path d="M 180,478 V 424 A 30 30 0 0 1 192,400 L 168,410 V 486 Z" fill="#8a5233" stroke="#5e3720" stroke-width="3" stroke-linejoin="round"/>
+  <rect x="330" y="392" width="110" height="64" rx="10" fill="url(#g-lamp)" stroke="#5e3720" stroke-width="4"/>
+  <g transform="translate(385 424) scale(1.4)"><rect x="-13" y="-10" width="26" height="19" rx="4" fill="#264653" stroke="#2d2a32" stroke-width="2"/><rect x="-9.5" y="-7" width="19" height="12" rx="2.5" fill="#bfeee5"/><path d="M -4,-3 v1 M 4,-3 v1 M -4,1 Q 0,4 4,1" stroke="#2d2a32" stroke-width="1.6" stroke-linecap="round" fill="none"/></g>
+  <circle cx="210" cy="388" r="11" fill="#fffaf0" stroke="#5e3720" stroke-width="2.5"/><text x="210" y="393" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="14" fill="#2d2a32">0</text>
+  <circle cx="600" cy="215" r="134" fill="#fff2c4" opacity="0.14"/>
+  <g stroke="#c9a676" stroke-width="4" stroke-linecap="round"><line x1="600" y1="215" x2="600" y2="103"/><line x1="600" y1="215" x2="679" y2="136"/><line x1="600" y1="215" x2="712" y2="215"/><line x1="600" y1="215" x2="679" y2="294"/><line x1="600" y1="215" x2="600" y2="327"/><line x1="600" y1="215" x2="521" y2="294"/><line x1="600" y1="215" x2="488" y2="215"/><line x1="600" y1="215" x2="521" y2="136"/></g>
+  <circle cx="600" cy="215" r="112" fill="none" stroke="#b98f5a" stroke-width="6"/>
+  <g class="ring-nodes"><g transform="translate(600 103)"><rect x="-20" y="-15" width="40" height="30" rx="6" fill="#264653" stroke="#2d2a32" stroke-width="2.5"/><rect class="screen s0" x="-15" y="-10" width="30" height="18" rx="3" fill="#bfeee5"/><path d="M -5,-4 v1 M 5,-4 v1 M -5,2 Q 0,6 5,2" stroke="#2d2a32" stroke-width="2" stroke-linecap="round" fill="none"/></g><g transform="translate(679 136)"><rect x="-20" y="-15" width="40" height="30" rx="6" fill="#264653" stroke="#2d2a32" stroke-width="2.5"/><rect class="screen s1" x="-15" y="-10" width="30" height="18" rx="3" fill="#bfeee5"/><path d="M -5,-4 v1 M 5,-4 v1 M -5,2 Q 0,6 5,2" stroke="#2d2a32" stroke-width="2" stroke-linecap="round" fill="none"/></g><g transform="translate(712 215)"><rect x="-20" y="-15" width="40" height="30" rx="6" fill="#264653" stroke="#2d2a32" stroke-width="2.5"/><rect class="screen s2" x="-15" y="-10" width="30" height="18" rx="3" fill="#bfeee5"/><path d="M -5,-4 v1 M 5,-4 v1 M -5,2 Q 0,6 5,2" stroke="#2d2a32" stroke-width="2" stroke-linecap="round" fill="none"/></g><g transform="translate(679 294)"><rect x="-20" y="-15" width="40" height="30" rx="6" fill="#264653" stroke="#2d2a32" stroke-width="2.5"/><rect class="screen s3" x="-15" y="-10" width="30" height="18" rx="3" fill="#bfeee5"/><path d="M -5,-4 v1 M 5,-4 v1 M -5,2 Q 0,6 5,2" stroke="#2d2a32" stroke-width="2" stroke-linecap="round" fill="none"/></g><g transform="translate(600 327)"><rect x="-20" y="-15" width="40" height="30" rx="6" fill="#264653" stroke="#2d2a32" stroke-width="2.5"/><rect class="screen s4" x="-15" y="-10" width="30" height="18" rx="3" fill="#bfeee5"/><path d="M -5,-4 v1 M 5,-4 v1 M -5,2 Q 0,6 5,2" stroke="#2d2a32" stroke-width="2" stroke-linecap="round" fill="none"/></g><g transform="translate(521 294)"><rect x="-20" y="-15" width="40" height="30" rx="6" fill="#264653" stroke="#2d2a32" stroke-width="2.5"/><rect class="screen s5" x="-15" y="-10" width="30" height="18" rx="3" fill="#bfeee5"/><path d="M -5,-4 v1 M 5,-4 v1 M -5,2 Q 0,6 5,2" stroke="#2d2a32" stroke-width="2" stroke-linecap="round" fill="none"/></g><g transform="translate(488 215)"><rect x="-20" y="-15" width="40" height="30" rx="6" fill="#264653" stroke="#2d2a32" stroke-width="2.5"/><rect class="screen s6" x="-15" y="-10" width="30" height="18" rx="3" fill="#bfeee5"/><path d="M -5,-4 v1 M 5,-4 v1 M -5,2 Q 0,6 5,2" stroke="#2d2a32" stroke-width="2" stroke-linecap="round" fill="none"/></g><g transform="translate(521 136)"><rect x="-20" y="-15" width="40" height="30" rx="6" fill="#264653" stroke="#2d2a32" stroke-width="2.5"/><rect class="screen s7" x="-15" y="-10" width="30" height="18" rx="3" fill="#bfeee5"/><path d="M -5,-4 v1 M 5,-4 v1 M -5,2 Q 0,6 5,2" stroke="#2d2a32" stroke-width="2" stroke-linecap="round" fill="none"/></g></g>
+  <circle cx="600" cy="215" r="34" fill="#fffaf0" stroke="#b98f5a" stroke-width="5"/>
+  <g data-figure="spoke" transform="translate(600 245) scale(0.4)"></g>
+  <rect x="686" y="500" width="10" height="70" fill="#8a5233" stroke="#5e3720" stroke-width="2.5"/>
+  <rect x="630" y="474" width="122" height="38" rx="6" fill="#e9c46a" stroke="#5e3720" stroke-width="3"/>
+  <text x="691" y="500" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-weight="700" font-size="21" fill="#2d2a32">running</text>
+  <g data-figure="pin" transform="translate(548 566) scale(0.95)"></g>
+</svg>

@@ -1,0 +1,218 @@
+# twice -- spread 8 of "So You Want To Build A Ghostwheel?"
+# Copyright 2026 Corwin Brust; CC-BY-SA-4.0
+# Facts about C4 come from C4 itself, read-only on Avalon (the c4 tree),
+# 2026-11-04T00:13:56Z. Each [mark] on the fuller page opens its witness rows.
+kind: spread
+number: 8
+title: Twice
+part: Part One: how we say things
+
+== picture page ==
+Spoke writes it down.
+Pin writes it down, too.
+They do not look.
+
+Then they look at both.
+The same? Good!
+Not the same? Good, too.
+We learn a lot.
+
+== layout ==
+# Two desks, a screen between them, and two notes rising to meet at the
+# top: the drawing is symmetrical and full, so the words sit under it,
+# centred like the screen.
+picture: top
+words: below
+size: 3.4
+align: center
+
+== fuller page ==
+Spread two said C4 asks for two ways to say everything. Here is how to tell
+two ways from one way said twice: if either telling can be rebuilt from the
+other, the pair has collapsed; "only one register is actually present, and
+the second is decoration" [balance]. The shop's two tellings of a day's work
+show the difference. Operational asks: did it hold, did it need rework, is
+the box still up? Scientific asks: what was predicted, what was observed,
+did the prediction survive? "Held" does not say whether holding was
+expected, and a right forecast does not say whether anyone had to get up at
+three in the morning [opsci].
+
+Two writers is the same idea, for doing. "Load-bearing changes are built
+twice, independently, and kept apart — agreement is evidence, disagreement
+is information" [twice]. "A check run twice by one hand is one check"
+[onehand]. When one experiment built its instrument twice, the two
+disagreed once, and the disagreement was real: 68 = 4 × 17, and it
+corrected the paper's first version [corrected].
+
+The shop's tools carry it. tv1cr, which unfolds a table into folders,
+writes every cell on both sides, in its row and in its column, "the two
+writers", and its check reads each side against the other [writers].
+
+So Spoke and Pin each write it down, apart. Same answer: good. Different
+answer: good too, because now there is something to learn.
+
+== diagram ==
+kind: pair
+caption: Two tellings of one day's work. Neither can be rebuilt from the other, and that is what makes them two.
+left: Operational
+right: Scientific
+did it hold? | what was predicted?
+did it need rework? | what was observed?
+is the box still up? | did the prediction survive?
+
+== facts ==
+fact: balance
+said: "If either rendering can be reconstructed from the other, the pair has collapsed. Only one register is actually present, and the second is decoration."
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/facts/c4-demands-two-registers.md, lines 67-68 ("Balance, made checkable (MINE, conf: high)")
+sha: sha256:052bcf2ea8a34edd842f344509a4d7b54d8de880ec81d7e1fabee967cc1a3b8d
+state: seen
+note: The law (two ways, balanced) is his, 2026-09-07; this test for balance is marked MINE in the file, Claude's, unblessed. The file says bin/ot3he --prove-red enforces it (line 70); that tool was not run here.
+
+fact: opsci
+said: "operational: did it hold, did it need rework, is the box still up; scientific: what was predicted, what was observed, did the prediction survive. Neither is derivable from the other, because held does not tell you whether holding was expected, and the forecast was right does not tell you whether anyone had to get up at 3am."
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/facts/c4-demands-two-registers.md, lines 74-78
+sha: sha256:052bcf2ea8a34edd842f344509a4d7b54d8de880ec81d7e1fabee967cc1a3b8d
+state: seen
+
+fact: twice
+said: "Load-bearing changes are built twice, independently, and kept apart — agreement is evidence, disagreement is information, and a second hand that agrees with the answer while rejecting the reason is the strongest agreement available."
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/C4-LANG.md, lines 215-217 (section 7)
+sha: sha256:d99139b865824ff3a6b3c21246d4226561354271263cecf2c7126e70bcc5667d
+state: seen
+
+fact: twice
+said: "BUILD THE INSTRUMENT TWICE. Two implementations, independent by construction (A and B), make agreement EVIDENCE and disagreement INFORMATION."
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/facts/build-the-instrument-twice, lines 6-7 (2026-08-10)
+sha: sha256:d380b895c38dcc16645ebb0761ce648d476615c409c71380bcf301c62e48f48f
+state: seen
+
+fact: onehand
+said: "Byte-match is one source; identity is the independent second. A check run twice by one hand is one check. A leg is real only when a second authority re-runs it on the same canonical content."
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/C4-LANG.md, lines 243-244 (section 9)
+sha: sha256:d99139b865824ff3a6b3c21246d4226561354271263cecf2c7126e70bcc5667d
+state: seen
+
+fact: onehand
+said: "MATCHED. Looks like: verified. Actually: when a tool re-reads its own write and prints MATCHED, the write landed; the independent check, a second reader, is named but not yet done. Agreement between two readers built apart is the evidence; one reader alone is data."
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/HELLO-C4.md, lines 42-46 (chapter 01, "The stand-ins")
+sha: sha256:970ce8423829a7032465869146ba07bf91b73f9dd6871577fe6213a121ce19c4
+state: seen
+
+fact: corrected
+said: "The run's one disagreement was real — 68 = 4 × 17 — and it corrected the paper (v1), which no amount of single-instrument confidence would have done."
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/facts/build-the-instrument-twice, lines 7-9 (the invent-computing pass, 2026-08-10)
+sha: sha256:d380b895c38dcc16645ebb0761ce648d476615c409c71380bcf301c62e48f48f
+state: seen
+note: One witness. The pass it cites (.eclipse-increments/2026-08-10-invent-computing/) was not opened, so which paper, and what the 68 counted, is not said on the page.
+
+fact: writers
+said: "set: writes BOTH sides (the two writers) ..." and "check: every r atom is listed in its c twin and every c line reads back; exit 1 on the first fault class found, every fault named by path."
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/bin/tv1cr, lines 2-3, 14 and 18-19 (the tool's header)
+sha: sha256:11ee262438373c975e1ad24faa018ba813aebad35247ee1e32680bbebd217ded
+state: seen
+note: Both writers here are the same program writing two copies, so they share a hand; by this page's own rule that is one check made twice, kept honest by the check that reads one side against the other. Read from the header; the tool was not run.
+
+== narration ==
+# Take A, "the company talks to you": every voice speaks to the listener.
+[picture A]
+narrator: Here are two little desks, back to back, with a screen between them.
+spoke: I'm writing it down. No peeking, Pin!
+pin: I'm writing it down too. I'm not looking. You can check on me.
+narrator: Then they hold up their notes, and look at both.
+spoke: Are they the same? Look closely with us.
+pin: Almost! One dot is different. That's good too. Now we can learn something.
+[fuller A]
+narrator [balance]: {C4|C four} asks for two ways to say everything. Here's the test: if you can rebuild one telling from the other, you only really have one.
+spoke [opsci]: One way asks: did it hold? Is the box still up? The other asks: what did we predict, and did the prediction survive?
+pin [opsci]: Neither answer gives you the other. Held doesn't say whether holding was expected.
+narrator [twice]: Big changes are built twice, apart. When the two agree, that's evidence. When they don't, that's information.
+spoke [onehand]: And checking twice with the same hand still counts as one check. You need a second hand.
+pin [corrected]: Once, two instruments built apart disagreed. The disagreement was real, and it fixed the paper.
+narrator [writers]: Even the shop's table tool writes every cell twice, in its row and in its column, and checks one against the other.
+spoke: So Pin and I write it down apart. Same answer, good. Different answer, good too.
+
+# Take B, "the lap reader": one close voice reads to you; Spoke and Pin
+# mostly talk to each other, and turn to you only in a short aside.
+[picture B]
+narrator: Spoke writes it down. Pin writes it down, too. They do not look.
+spoke: Done, Pin. Don't look yet.
+pin: I wasn't. Done too.
+narrator: Then they look at both.
+spoke: One dot is different.
+pin: Good. We learn a lot from one dot.
+[fuller B]
+narrator [balance]: Spread two said {C4|C four} asks for two ways to say everything. If either telling can be rebuilt from the other, the pair has collapsed, and the second is decoration.
+narrator [opsci]: Operational asks: did it hold, did it need rework, is the box still up. Scientific asks: what was predicted, what was observed, did the prediction survive.
+pin [opsci]: Held doesn't tell you whether holding was expected.
+spoke [opsci]: And a right forecast doesn't tell you who got up at three in the morning.
+narrator [twice]: Load-bearing changes are built twice, independently, and kept apart. Agreement is evidence. Disagreement is information.
+pin [onehand]: A check run twice by one hand is one check. I keep that in mind on every page.
+narrator [corrected]: When one instrument was built twice, the two disagreed once. Sixty-eight is four times seventeen, and the disagreement corrected the paper.
+spoke [writers]: Your table tool writes both sides too, Pin.
+pin [writers]: Row and column. The two writers. Then it reads one against the other.
+
+== picture ==
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="twice-t">
+  <title id="twice-t">Two little desks back to back with a striped folding screen between them. Spoke floats behind the left desk, writing with a pencil; Pin stands on the right desk, writing in a notepad. Above them two notes rise and meet: each shows the same ring of five dots, except that on Pin's note one dot is coral, and a soft yellow ring circles it.</title>
+  <rect width="800" height="600" fill="url(#g-wall)"/>
+  <rect y="478" width="800" height="122" fill="url(#g-floor)"/>
+  <rect y="472" width="800" height="9" fill="#c49a6c"/>
+  <g class="twice-rise" fill="none" stroke="#c9a676" stroke-width="4" stroke-dasharray="3 10" stroke-linecap="round">
+    <path d="M 220,300 C 220,250 250,210 280,190"/>
+    <path d="M 590,290 C 590,250 560,210 528,190"/>
+  </g>
+  <g transform="translate(286 122) rotate(-6)">
+    <rect x="-62" y="-56" width="124" height="104" rx="6" fill="#fffdf6" stroke="#4a3f38" stroke-width="3"/>
+    <circle cx="0" cy="-4" r="30" fill="none" stroke="#e2c79c" stroke-width="3"/>
+    <g fill="#2a9d8f" stroke="#2d2a32" stroke-width="2">
+      <circle cx="0" cy="-34" r="8"/><circle cx="28.5" cy="-13" r="8"/><circle cx="17.6" cy="20" r="8"/><circle cx="-17.6" cy="20" r="8"/><circle cx="-28.5" cy="-13" r="8"/>
+    </g>
+  </g>
+  <g transform="translate(514 122) rotate(6)">
+    <rect x="-62" y="-56" width="124" height="104" rx="6" fill="#fffdf6" stroke="#4a3f38" stroke-width="3"/>
+    <circle cx="0" cy="-4" r="30" fill="none" stroke="#e2c79c" stroke-width="3"/>
+    <circle cx="17.6" cy="20" r="17" fill="#fff1b8" stroke="#e9c46a" stroke-width="3"/>
+    <g fill="#2a9d8f" stroke="#2d2a32" stroke-width="2">
+      <circle cx="0" cy="-34" r="8"/><circle cx="28.5" cy="-13" r="8"/><circle cx="-17.6" cy="20" r="8"/><circle cx="-28.5" cy="-13" r="8"/>
+    </g>
+    <circle cx="17.6" cy="20" r="8" fill="#e76f51" stroke="#2d2a32" stroke-width="2"/>
+  </g>
+  <path d="M 400,96 l 5,11 11,5 -11,5 -5,11 -5,-11 -11,-5 11,-5 Z" fill="#fff1b8" stroke="#e9c46a" stroke-width="2"/>
+  <g data-figure="spoke" transform="translate(214 392) scale(0.62)"></g>
+  <g transform="translate(258 350) rotate(28)">
+    <rect x="-4" y="-34" width="8" height="30" fill="#f2c14e" stroke="#4a3f38" stroke-width="2"/>
+    <polygon points="0,4 -4,-4 4,-4" fill="#e9c99a" stroke="#4a3f38" stroke-width="2" stroke-linejoin="round"/>
+    <rect x="-4" y="-40" width="8" height="6" rx="2" fill="#f29bb0" stroke="#4a3f38" stroke-width="2"/>
+  </g>
+  <g class="twice-desk-left">
+    <rect x="166" y="386" width="82" height="16" rx="2" fill="#fffdf6" stroke="#4a3f38" stroke-width="2.5" transform="rotate(-3 207 394)"/>
+    <rect x="110" y="400" width="220" height="16" rx="4" fill="#b9774a" stroke="#5e3720" stroke-width="3"/>
+    <rect x="126" y="416" width="14" height="60" fill="#8a5233"/><rect x="300" y="416" width="14" height="60" fill="#8a5233"/>
+  </g>
+  <g class="twice-screen">
+    <path d="M 372,478 V 300 L 400,292 V 478 Z" fill="#e9c46a" stroke="#5e3720" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M 400,478 V 292 L 428,300 V 478 Z" fill="#f4a261" stroke="#5e3720" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M 386,310 V 470 M 414,310 V 470" stroke="#fffaf0" stroke-width="4" opacity="0.6"/>
+  </g>
+  <g class="twice-desk-right">
+    <rect x="470" y="400" width="220" height="16" rx="4" fill="#b9774a" stroke="#5e3720" stroke-width="3"/>
+    <rect x="486" y="416" width="14" height="60" fill="#8a5233"/><rect x="660" y="416" width="14" height="60" fill="#8a5233"/>
+  </g>
+  <g data-figure="pin" transform="translate(586 402) scale(0.78)"></g>
+</svg>

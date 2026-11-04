@@ -1,0 +1,259 @@
+#!/bin/sh
+# ix0xi -- INDEX · X · 0 · X · INDEX. The second index: a mirror, and the elevator that rides it.
+#
+# Copyright 2026 Corwin Brust <corwin@bru.st>
+#
+# This program is free software: you can redistribute it and/or modify it under the terms of the
+# GNU General Public License as published by the Free Software Foundation, either version 3 of
+# the License, or (at your option) any later version.  See <https://www.gnu.org/licenses/>.
+#
+# ---------------------------------------------------------------------------------------------
+# THE NAME IS THE SPEC, and it decodes entirely against registers we already hold:
+#
+#   i  INDEX            I col1. This is the ALTERNATE (second) index.
+#   x  ASSERTION-CONTEXT  X, whose UNIT in m/v/t is literally `xx-pair` and whose SOURCE reads
+#                       `keeper-each-X-is-XX`. Two X's, one either side.
+#   0  LAYER ZERO       the filesystem, the mirror point, the always-given surface.
+#
+# **It is a palindrome because it MIRRORS**, and Corwin's "having no offsetting pairable" falls
+# straight out of that: a palindrome is its own reflection, so there is no second, different
+# arrangement to pair it against. That is why this is not a grouper. **A grouper needs two
+# distinguishable sides; a mirror has one side seen twice.**
+#
+# Corwin, 2026-08-03:
+#   "push up and down are for alternate (second) index functionality to drive multi-d lookup that
+#    functions as an ELEVATOR, following run-level around modulo an adjustment value ... a two
+#    element pair among registers binding steps up and steps down representing the current actions
+#    to take to find the present value from run-level, SO THAT ONLY INT NEED BE STORED. Values are
+#    not stored as numerics but rather in terms of SHA256 POINTER by default expected to match a
+#    fixed set in ASSET, and reached via ix0xi."
+#
+# ---------------------------------------------------------------------------------------------
+# a/NUMERALS/ -- THE BIDIRECTIONAL MAP, verbatim to his description:
+#
+#   "resolving the SHA found to the name of the file containing it in a/NUMERALS/, which contains a
+#    bidirectional map of these SHA256 value in file-name with number, filename of SHA256
+#    containing number"
+#
+#   a/NUMERALS/<n>       contains the sha256 of <n>
+#   a/NUMERALS/<sha256>  contains <n>
+#
+# **Both directions are FILES, so the lookup is the filesystem** -- no parser, no index format, no
+# code between the question and the answer. Layer zero doing the work, which is what the 0 in the
+# middle of the name is for.
+#
+# WHY 0..26: the alphabet is one of our magic numbers, and 26 gives every letter a numeral plus
+# zero. **A fixed set in ASSET, exactly as he said**, and a set whose size is already meaningful in
+# the shop rather than picked for roundness.
+#
+# ---------------------------------------------------------------------------------------------
+# RUN-LEVELS, and the ceiling is deliberate:
+#
+#   "virtual run levels above our max of four (>4 is all just RUNNING, to us -- okay we designed
+#    so 1, 2, 3 MANY we are running!) so that movement among the virtual run-level can simulate
+#    alternate index by ADDING LEADING DOTS or dot-and-more and/or POSTFIXING to the path resolved"
+#
+#   1 2 3 MANY      real. MANY is 4-and-up; the shop does not count past "it is running".
+#   5, 6, 7 ...     VIRTUAL. Each rung above MANY adds one prefix character to the resolved path.
+#
+# So the elevator does not compute a value -- **it decorates a PATH**, and the decoration is the
+# index. `c4.m.map` at MANY becomes `.c4.m.map` one rung up, `..c4.m.map` two rungs up.
+#
+# **The prefix and postfix are DATA, not `.` hardcoded** -- "may be any character we accept" -- so
+# they live in i/x and a user slides them without patching this file.
+#
+# ---------------------------------------------------------------------------------------------
+# TWO DECLARATIONS, and the split matters more than usual here because a lot of this is my reading:
+#
+#   MUST     the numeral map and both its directions; the sha of every numeral; the run-level
+#            ceiling of 4; every path the elevator emits. All computed at run time, all checkable.
+#
+#   JOURNEY  **that `ix0xi` decodes as INDEX·X·0·X·INDEX at all.** He named the tool; I read the
+#            name. Also mine: that 0..26 is the right fixed set, that the pair is stored as
+#            (up,down) in i/x, and that a virtual rung is exactly one prefix character.
+#            **If the decode is wrong the tool is still correct about the numerals and wrong about
+#            everything else**, so it is written to fail loudly in that direction rather than
+#            quietly in both.
+#
+# NOT BUILT, and named rather than faked: the SCALAR-unless-via-P-from-RUNLEVEL>3 write rule. I can
+# read the ceiling; I cannot yet tell what a running application is permitted to adjust. Q-banked.
+#
+# NEVER BLOCKS, GRANTS NOTHING.
+#
+# usage: ix0xi mint [N]       build a/NUMERALS/ for 0..N   (default 26)
+#        ix0xi num SHA        SHA   -> numeral
+#        ix0xi sha N          N     -> sha256
+#        ix0xi rl             the run-level ladder, real and virtual
+#        ix0xi ride PATH RL   the elevator: decorate PATH for run-level RL
+#        ix0xi prove          the XX pair: round-trip identity  x  coverage
+set -eu
+export LC_ALL=C
+R=$(cd "$(dirname "$0")/.." && pwd); cd "$R"
+
+trap 'rc=$?; [ "$rc" = 0 ] || printf "ix0xi: ABORTED rc=%s -- output is INCOMPLETE\n" "$rc" >&2' EXIT
+
+N=a/NUMERALS
+mkdir -p "$N" i d/i
+# THE PAIR, AND THE AFFIXES, ARE DATA. `i/x` -- register I, map x. Two elements binding steps up
+# and steps down, "so that only INT need be stored": the ints are here, the VALUES are SHA pointers
+# resolved through a/NUMERALS. Nothing numeric is stored as a number anywhere but this file.
+[ -s i/x ] || { cat > i/x <<'EOF'
+steps-up 1 prefix . rungs-above-MANY
+steps-down 1 postfix . rungs-below-MANY
+ceiling 4 real 1-2-3-MANY past-MANY-is-virtual
+EOF
+printf 'ELEMENT INT AFFIX CHAR NOTE\n' > d/i/x; }
+[ -f i/.c4 ] || printf 'register\ti\nstate\treal\n' > i/.c4
+
+sha() { printf '%s' "$1" | sha256sum | cut -d' ' -f1; }
+up()   { awk '$1=="steps-up"{print $2; exit}' i/x; }
+pre()  { awk '$1=="steps-up"{print $4; exit}' i/x; }
+post() { awk '$1=="steps-down"{print $4; exit}' i/x; }
+ceil() { awk '$1=="ceiling"{print $2; exit}' i/x; }
+
+C=a/CHARS
+# THE THIRTEEN, AND THEY ARE NOT AN ARBITRARY THIRTEEN. RFC 1345 (Simonsen, June 1992) writes its
+# mnemonics in "all invariant graphic characters in the ISO 646 character codes except &" -- the
+# greatest common subset surviving ASCII, the ISO 646 national variants, and various EBCDICs.
+# **A character IN that subset represents itself.** Only the ones OUTSIDE it need a mnemonic, and
+# the RFC's own table says exactly which:
+#
+#   SP # $ @ [ \ ] ^ ` { | } ~     (plus & reserved as intro, _ reserved as delimiter)
+#
+# **That is the shell metacharacter set, essentially entire.** $ variable · @ array · # comment ·
+# [ ] test and glob · \ escape · ^ anchor · ` command substitution · { } brace expansion · | pipe ·
+# ~ home · & background. Every one.
+#
+# **The characters that carry the most meaning in code are precisely the ones that did not survive
+# transport**, and RFC 1345's answer was to spell their names IN THE SURVIVING SUBSET. That is the
+# same move we made when we measured only underscore as POSIX-safe in a function name -- arrived at
+# independently here, thirty-four years earlier, by someone with a much harder problem.
+[ -s "$C/.names" ] || { mkdir -p "$C"; cat > "$C/.names" <<'EOF'
+0020 SP SPACE
+0023 Nb NUMBER-SIGN
+0024 DO DOLLAR-SIGN
+0040 At COMMERCIAL-AT
+005b <( LEFT-SQUARE-BRACKET
+005c // REVERSE-SOLIDUS
+005d )> RIGHT-SQUARE-BRACKET
+005e '> CIRCUMFLEX-ACCENT
+0060 '! GRAVE-ACCENT
+007b (! LEFT-CURLY-BRACKET
+007c !! VERTICAL-LINE
+007d !) RIGHT-CURLY-BRACKET
+007e '? TILDE
+EOF
+}
+
+case ${1-rl} in
+chars)
+	# THE NUMBERS TREATMENT, APPLIED TO CHARACTERS. Same two-file mirror as a/NUMERALS: the file
+	# named for the codepoint holds the sha, the file named for the sha holds the codepoint.
+	mkdir -p "$C"
+	n=0
+	while read -r cp mn nm; do
+		[ -n "${cp:-}" ] || continue
+		s=$(sha "$cp")
+		printf '%s' "$s" > "$C/$cp"
+		printf '%s' "$cp" > "$C/$s"
+		n=$((n + 1))
+	done < "$C/.names"
+	printf '== IX0XI CHARS · the thirteen that need a name ==\n\n'
+	printf '   %-6s %-4s %-6s %s\n' CP MNEM SRC NAME
+	while read -r cp mn nm; do
+		printf '   %-6s %-4s %-6s %s\n' "$cp" "$mn" RFC1345 "$nm"
+	done < "$C/.names"
+	printf '\n   %s characters minted, %s files (two directions each)\n' "$n" "$((n * 2))"
+	printf '\n   EVERY OTHER ASCII PRINTABLE IS ITS OWN NAME. RFC 1345 §2.3: "The characters in\n'
+	printf '   the reference character set are chosen to represent themselves." So the set that\n'
+	printf '   needs naming is small, bounded, and -- read the list -- it is the shell.\n'
+	printf '\n   & and _ are NOT here and that is deliberate: RFC 1345 reserves & as the mnemonic\n'
+	printf '   intro and forbids _ as a first character (it delimits variable-length mnemonics).\n'
+	printf '   TWO RESERVED CHARACTERS ARE A DESIGN COST THE RFC PAID OUT LOUD, and we owe the\n'
+	printf '   same disclosure when we reserve one.\n' ;;
+mint)
+	n=${2:-26}; i=0
+	while [ "$i" -le "$n" ]; do
+		s=$(sha "$i")
+		printf '%s' "$s" > "$N/$i"      # file named with the number CONTAINS the sha
+		printf '%s' "$i" > "$N/$s"      # file named with the sha CONTAINS the number
+		i=$((i + 1))
+	done
+	printf 'ix0xi: minted 0..%s -> %s\n' "$n" "$N"
+	printf '   %s files = %s numerals x 2 directions\n' "$(ls "$N" | wc -l)" "$((n + 1))"
+	printf '   BOTH DIRECTIONS ARE FILES. The lookup IS the filesystem -- no parser, no index\n'
+	printf '   format, nothing between the question and the answer. That is the 0 in the name.\n' ;;
+num)
+	k=${2:?ix0xi num needs a SHA}
+	[ -r "$N/$k" ] || { printf 'ix0xi: %s is not in the fixed set (a/NUMERALS)\n' "$k" >&2; exit 1; }
+	cat "$N/$k"; printf '\n' ;;
+sha)
+	k=${2:?ix0xi sha needs a NUMBER}
+	[ -r "$N/$k" ] || { printf 'ix0xi: %s is not in the fixed set (a/NUMERALS)\n' "$k" >&2; exit 1; }
+	cat "$N/$k"; printf '\n' ;;
+rl)
+	c=$(ceil)
+	printf '== IX0XI · the run-level ladder ==\n\n'
+	printf '   %-6s %-8s %s\n' RL KIND MEANING
+	printf '   %-6s %-8s %s\n' 1 real 'asking. Every c4fn accessor sits here.'
+	printf '   %-6s %-8s %s\n' 2 real 'configured'
+	printf '   %-6s %-8s %s\n' 3 real 'built'
+	printf '   %-6s %-8s %s\n' MANY real 'running. 4-and-up; the shop does not count past this.'
+	i=$((c + 1))
+	while [ "$i" -le $((c + 3)) ]; do
+		d=$((i - c)); p=''; k=0
+		while [ "$k" -lt "$d" ]; do p="$p$(pre)"; k=$((k + 1)); done
+		printf '   %-6s %-8s %s\n' "$i" VIRTUAL "$d rung(s) above MANY -> prefix '$p'"
+		i=$((i + 1))
+	done
+	printf '\n   THE CEILING IS THE DESIGN, not a limitation: "1, 2, 3 MANY we are running!"\n'
+	printf '   Above it the levels are VIRTUAL and they do not compute a value -- they DECORATE\n'
+	printf '   A PATH, and the decoration is the alternate index.\n' ;;
+ride)
+	p=${2:?ix0xi ride needs a PATH}; rl=${3:?ix0xi ride needs a RUN-LEVEL}
+	c=$(ceil)
+	if [ "$rl" -le "$c" ]; then
+		printf '%s\n' "$p"
+		printf '# rl %s is REAL (<= ceiling %s): the path is undecorated.\n' "$rl" "$c" >&2
+	else
+		d=$((rl - c)); a=''; k=0
+		while [ "$k" -lt "$d" ]; do a="$a$(pre)"; k=$((k + 1)); done
+		printf '%s%s\n' "$a" "$p"
+		printf '# rl %s is VIRTUAL: %s rung(s) above MANY, prefix %s applied %s time(s).\n' \
+			"$rl" "$d" "$(pre)" "$d" >&2
+	fi ;;
+prove)
+	printf '== IX0XI PROVE · the XX pair ==\n\n'
+	[ -d "$N" ] && [ "$(ls "$N" 2>/dev/null | wc -l)" -gt 0 ] || {
+		printf '   NOT MINTED. Run: sh bin/ix0xi mint\n'; exit 1; }
+	# X1 -- UNIVERSAL: round-trip to identity. n -> sha -> n for every numeral.
+	bad=0; n=0
+	for f in "$N"/*; do
+		b=$(basename "$f")
+		case $b in *[!0-9]*) continue;; esac        # numeral-named files only; shas are the mirror
+		n=$((n + 1))
+		s=$(cat "$f"); back=$(cat "$N/$s" 2>/dev/null || echo MISSING)
+		[ "$back" = "$b" ] || { printf '   BREAK %s -> %s -> %s\n' "$b" "$s" "$back"; bad=$((bad + 1)); }
+	done
+	printf '   X1 ROUND-TRIP   %s   n -> sha -> n over %s numerals, %s breaks\n' \
+		"$([ "$bad" = 0 ] && echo PASS || echo FAIL)" "$n" "$bad"
+	# X2 -- IMPLEMENTATION-SPECIFIC: COVERAGE. Every numeral has BOTH files, and the sha is the
+	# real sha rather than whatever happened to be written. A round-trip over a self-consistent
+	# lie still round-trips, which is exactly why the pair needs a second, different check.
+	bad2=0; i=0
+	while [ "$i" -lt "$n" ]; do
+		want=$(sha "$i")
+		[ -r "$N/$i" ] && [ "$(cat "$N/$i")" = "$want" ] && [ -r "$N/$want" ] || bad2=$((bad2 + 1))
+		i=$((i + 1))
+	done
+	printf '   X2 COVERAGE     %s   every numeral has both files and the RIGHT sha, %s gaps\n' \
+		"$([ "$bad2" = 0 ] && echo PASS || echo FAIL)" "$bad2"
+	printf '\n   X2 exists because X1 alone is satisfiable by a self-consistent lie: a map that\n'
+	printf '   round-trips perfectly between values that are not the shas of anything. The pair\n'
+	printf '   is the point -- one universal check TIMES one implementation-specific one.\n'
+	printf '\n   MIRROR, NOT GROUPER: %s numerals, %s files, and no numeral has an offsetting\n' \
+		"$n" "$(ls "$N" | wc -l)"
+	printf '   partner -- each is its own reflection. That is what "no offsetting pairable" buys.\n'
+	[ "$bad" = 0 ] && [ "$bad2" = 0 ] || exit 1 ;;
+*) printf 'usage: ix0xi mint [N] | num SHA | sha N | rl | ride PATH RL | prove\n' >&2; exit 2 ;;
+esac

@@ -1,0 +1,6 @@
+1	3	*	SOURCE	   *  edge          all-hosts palette JOURNEY-control-only
+2	3	|\ % <--- @	TRUNK+BRANCH+MAP+CAPTURE+ARRAY	   |\ % <--- @      ring hosts avail role
+3	3	|  -|->	TRUNK+GATED	   |  -|->          lesser.1 gw19 gw17 gw22 2/3 PROTO
+4	3	|    --->	TRUNK+SINK	   |    --->        lesser.2..5 3-hosts-each 2/3
+5	3	|    --->	TRUNK+SINK	   |    --->        greater.A..C 5-hosts-each 3/5 max-2-reserved
+6	3	|  -|->	TRUNK+GATED	   |  -|->          k3-oracle pinned-feature fat-disk-host

@@ -1,0 +1,25 @@
+# FACT · run-levels above the tumblers are VIRTUAL — the digit space is one ladder (2026-09-11)
+
+## THE PRESS, verbatim
+
+Corwin, 2026-09-11, on the on1gw send-back, answering the "two run-level ladders in one digit
+space" contradiction (model.md v8, held open #4; it4c-v2 note) — his words, spelling kept:
+
+  "I see a question about run-levels?   I have answered that one several times.  The higher
+   run-levels are virtual allowing applications running on the ghostwheel to simulate tumbler
+   change as for lower run-levels while staying in the "running" model from a host system
+   standpoint."
+
+## WHAT IT SETTLES
+
+- Run-levels 0..4 are the tumblers (host standpoint: 0 read · 1 present · 2 fresh · 3 digest ·
+  4 signed). Anything above is VIRTUAL: an application on the ghostwheel simulating tumbler
+  change for its own purposes while the host still reads it as "running".
+- So `it4c`'s 4 and ghostwheel.fn.sh's 5 ("running") are not two ladders: 5 is the host's
+  "running" and the application's virtual levels live above it. Contradiction #4 closes on his
+  side; the tool-name digit is a tumbler 0..4 (o13 unblocks).
+
+## WHY IT IS A FILE
+
+He has answered this several times. A ruling that has to be re-answered is a memory failure,
+not a question. Receipt of the ask: c/en o60; receipt of the answer: this file.

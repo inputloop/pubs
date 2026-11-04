@@ -1,0 +1,12 @@
+# LOG means atomic history
+
+In C4, LOG = atomic history: an append-only record whose entries are atoms (one event, one line),
+never rewritten. A log is the history a system keeps of itself, one atom at a time — the memory seat's
+append-only generations are a LOG; a dated-and-appended journal is a LOG; the DERIVED-INDEX rows are a
+LOG. To LOG is to ADD an atom, never to edit the past. (This is why a log beats a version: a version
+overwrites; a log accretes — and an accreted history can be read for CHANGE, which a version cannot.)
+
+From: Corwin, 2026-09-18. Would-change (falsifier): a case where a LOG must rewrite a prior atom to
+stay correct — then it was a VERSION, not a LOG. Status: canon articulation, provisional.
+Interlocks: [[two-readers-at-most]], the append-only fence, [[registry-dimensions-and-no-guessing]],
+the AS-OF/STALE accounting cut (a log atom carries its own as-of by construction).

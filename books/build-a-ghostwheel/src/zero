@@ -1,0 +1,260 @@
+# zero -- spread 11 of "So You Want To Build A Ghostwheel?"
+# Copyright 2026 Corwin Brust; CC-BY-SA-4.0
+# Facts about C4 come from C4 itself, read-only on Avalon (the c4 tree),
+# seen 2026-11-04T00:19:40Z (UTC; still the evening of 3 November in CST).
+# Part Two follows the run-levels: PLAN.md section 9, fork F1, leans (c),
+# Part One the language and Part Two the levels. That is the plan's lean,
+# not his ruling.
+kind: spread
+number: 11
+title: Zero
+part: Part Two: how a ghostwheel wakes up
+
+== picture page ==
+Knock, knock. Who is there?
+
+The small computer wakes up.
+It looks at its names.
+Is this me?
+
+"It is me! C4!"
+
+This is floor zero.
+
+== layout ==
+# A Z-path: the knock (top left, over Spoke at the door), the house waking
+# (top right, over the lit window), the answer (in the speech cloud), and the
+# floor's name (on the grass). Night sky, so the words sit on soft paper.
+picture: full
+words: scatter
+size: 3.6
+at: 4 5 36
+at: 62 5 35
+at: 60 49 35
+at: 42 90 38
+align: left
+ground: soft
+
+== fuller page ==
+Is anyone home? Before a host can do anything else, it has to find out. In
+C4's shell library for the ghostwheel, ghostwheel.fn.sh, a run-level that is
+not set yet means "startup hasn't finished" [unset]. The first level is 0,
+bootstrapping [zero].
+
+At level 0 the library runs only the tests "which can indicate startup
+issues" [only0]. They ask plain questions. Are its four names filled in:
+C4_ID, C4_ROOT, C4_AS and C4_GW [names]? Is the host it runs on really this
+host, by its long name and by its short one, and is "moo" not it [me]? Every
+test the file declares today sits at level 0 [count].
+
+Last of all, the library defines a function "to confirm we exist!", which
+prints C4 GHOSTWHEEL and a version number [exist]. When you log in, the
+start-up file gw.rc loads the library and asks that function to speak. If the
+answer begins with C4, someone is home, and only then does it go on to bring
+the spokes up [ready].
+
+Notice what the tests do not do: they do not stop the machine. The file's rule
+is "Emit warnings about problems; no dying" [nodie]. A host that cannot answer
+every question at floor 0 still says what it found, and keeps going.
+
+== diagram ==
+kind: ladder
+caption: The floors ghostwheel.fn.sh names, top first. Today only floor 0 has tests.
+focus: 0
+5 | running | named in a comment
+4 | connections | named in a comment
+3 | configurations | named in a comment
+2 | components | named in a comment
+1 | containers | named in a comment
+0 | bootstrapping | every test the file declares is here
+
+== facts ==
+fact: unset
+said: "(delete variable) unset run level indicates startup hasn't finished"
+seen: 2026-11-04T00:19:40Z
+by: part-two (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/p/c4fn/ghostwheel.fn.sh, line 23
+sha: sha256:8458a930d67aec89593a830fafce187a268ce98e7e40f700377bcd5a7c6ae6b3
+state: seen
+
+fact: zero
+said: "# (delayed overwrite register) system runlevel / # 0..boostraping / # 1..containers ... # 5..running"
+seen: 2026-11-04T00:19:40Z
+by: part-two (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/p/c4fn/ghostwheel.fn.sh, lines 34-40
+sha: sha256:8458a930d67aec89593a830fafce187a268ce98e7e40f700377bcd5a7c6ae6b3
+state: seen
+note: The file spells it "boostraping"; the page writes bootstrapping.
+
+fact: only0
+said: "C4_RUN=0 # only run tests which can indicate startup issues"
+seen: 2026-11-04T00:19:40Z
+by: part-two (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/p/c4fn/ghostwheel.fn.sh, line 254
+sha: sha256:8458a930d67aec89593a830fafce187a268ce98e7e40f700377bcd5a7c6ae6b3
+state: seen
+
+fact: names
+said: For C4_ID, C4_ROOT, C4_AS and C4_GW, a level-0 test "non-empty"; for C4_GN, a level-0 test "positive integer".
+seen: 2026-11-04T00:19:40Z
+by: part-two (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/p/c4fn/ghostwheel.fn.sh, lines 248-252
+sha: sha256:8458a930d67aec89593a830fafce187a268ce98e7e40f700377bcd5a7c6ae6b3
+state: seen
+
+fact: me
+said: Three level-0 tests: c4.gw_is_localhost must say yes to `hostname -f` and to `hostname -s`, and no to "moo".
+seen: 2026-11-04T00:19:40Z
+by: part-two (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/p/c4fn/ghostwheel.fn.sh, lines 460-462 (the function itself at lines 436-456)
+sha: sha256:8458a930d67aec89593a830fafce187a268ce98e7e40f700377bcd5a7c6ae6b3
+state: seen
+
+fact: count
+said: Every uncommented c4.t.b line names run-level 0 (lines 186, 249-252, 275, 308-309, 401, 424, 427, 460-462); the only C4_RUN assignment is line 254, to 0.
+seen: 2026-11-04T00:19:40Z
+by: part-two (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/p/c4fn/ghostwheel.fn.sh, the whole file
+sha: sha256:8458a930d67aec89593a830fafce187a268ce98e7e40f700377bcd5a7c6ae6b3
+state: seen
+
+fact: count
+said: 13 test lines at level 0; 0 at levels 1 to 9.
+seen: 2026-11-04T00:19:54Z
+by: grep, run on Avalon
+from: c4/p/c4fn/ghostwheel.fn.sh (grep -c -E '^\s*c4\.t\.b +"[a-z]*" +0', and the same with +[1-9])
+sha: sha256:8458a930d67aec89593a830fafce187a268ce98e7e40f700377bcd5a7c6ae6b3
+state: seen
+note: Line 249 sits in a loop over four names, so the 13 lines make 16 tests when the file runs. All of them are at level 0.
+
+fact: exist
+said: "# done! define a version function to confirm we exist!", then printf '%s %s %s' C4 GHOSTWHEEL 1.0.50
+seen: 2026-11-04T00:19:40Z
+by: part-two (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/p/c4fn/ghostwheel.fn.sh, lines 898-900
+sha: sha256:8458a930d67aec89593a830fafce187a268ce98e7e40f700377bcd5a7c6ae6b3
+state: seen
+
+fact: ready
+said: c4_rc_ready runs "c4.VERSION | grep -i ^c4"; then "if c4_rc_ready ; then ... c4.SPOKES_UP".
+seen: 2026-11-04T00:19:40Z
+by: part-two (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/p/c4fn/gw.rc, lines 24-29 and 37-43
+sha: sha256:7fa7b1e4fd88f4b4dc11395a028d2a2f2ce65fd34654f22e15d8628c14b1a9f2
+state: seen
+note: Unless ~/.inhibitspokes exists (line 41), and unless ~/.c4inhibitrc turns the whole hook off (lines 10-13).
+
+fact: nodie
+said: "Emit warnings about problems; no dying"
+seen: 2026-11-04T00:19:40Z
+by: part-two (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/p/c4fn/ghostwheel.fn.sh, line 10
+sha: sha256:8458a930d67aec89593a830fafce187a268ce98e7e40f700377bcd5a7c6ae6b3
+state: seen
+
+== narration ==
+[picture A]
+narrator: Shh. It's night, and the house is dark. Let's go up to the door together.
+spoke: Knock, knock. Who is there?
+narrator: The small computer wakes up. It looks at its names.
+pin: Then it asks, is this me? I'm writing that down for you.
+narrator: It is me! {C4|C four}!
+spoke: Someone is home. Welcome to floor zero.
+[fuller A]
+narrator [unset]: Is anyone home? Before a host can do anything else, it has to find out. While the run-level isn't set, startup hasn't finished.
+pin [zero]: The very first level is zero. Bootstrapping.
+spoke [only0]: At zero, it only runs the tests that can show a problem with starting up.
+pin [names]: Are its four names filled in? Look, you can read them on the page.
+spoke [me]: Is the host it's running on really this host, by its long name and its short one? And is moo not it?
+pin [count]: I counted for you. Every test in the file today sits at level zero.
+narrator [exist]: Last of all, it learns to say its name, to confirm we exist.
+narrator [ready]: When you log in, the start-up file asks it to speak. If the answer begins with {C4|C four}, someone is home, and it goes on to bring the spokes up.
+spoke [nodie]: And it never stops the machine. Warnings, yes. No dying.
+
+[picture B]
+narrator: Knock, knock. Who is there?
+spoke: Pin. It's dark in there.
+pin: Wait. Something's waking up.
+narrator: The small computer wakes up. It looks at its names. Is this me?
+narrator: It is me! {C4|C four}!
+spoke: Floor zero. Someone's home.
+[fuller B]
+narrator [unset]: Is anyone home? Before a host can do anything else, it has to find out. A run-level that isn't set yet means startup hasn't finished.
+narrator [zero]: The first level is zero, bootstrapping.
+narrator [only0]: At level zero the library runs only the tests which can indicate startup issues.
+spoke [names]: Pin, what does it check first?
+pin [names]: That its four names aren't empty.
+spoke [me]: And that it's really itself?
+pin [me]: By its long name and its short one. And that moo is not it.
+narrator [count]: Every test the file declares today sits at level zero.
+narrator [ready]: When you log in, the start-up file asks the library to say its name. If the answer begins with {C4|C four}, someone is home.
+narrator [nodie]: Emit warnings about problems; no dying. A host that can't answer everything still says what it found.
+
+== picture ==
+<svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="zero-t">
+  <title id="zero-t">Night. A tall narrow house with four dark windows, each with a small number plate, stands over a wide ground floor marked 0. Only the ground floor glows: in its window a small computer has just woken up and smiles, and a speech cloud rises from it. Spoke floats by the round front door, knocking. Pin sits on the grass with a notebook.</title>
+  <defs>
+    <linearGradient id="zero-sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#26324f"/>
+      <stop offset="1" stop-color="#56688f"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="700" fill="url(#zero-sky)"/>
+  <g fill="#fff6d6">
+    <circle cx="300" cy="196" r="2.5"/><circle cx="250" cy="262" r="2"/><circle cx="118" cy="312" r="3"/>
+    <circle cx="62" cy="430" r="2"/><circle cx="196" cy="394" r="2.5"/><circle cx="520" cy="268" r="2"/>
+    <circle cx="612" cy="236" r="3"/><circle cx="724" cy="300" r="2"/><circle cx="770" cy="238" r="2.5"/>
+    <circle cx="690" cy="340" r="2"/><circle cx="560" cy="330" r="2.5"/><circle cx="40" cy="560" r="2"/>
+    <circle cx="150" cy="250" r="1.6"/><circle cx="740" cy="520" r="2"/><circle cx="780" cy="600" r="1.6"/>
+  </g>
+  <rect y="700" width="800" height="100" fill="#6d9460"/>
+  <polygon points="250,700 330,700 372,800 196,800" fill="#c49a6c"/>
+  <polygon points="470,700 600,700 664,800 420,800" fill="#fff2c4" opacity="0.28"/>
+  <rect x="330" y="150" width="140" height="372" fill="#d9c3a0" stroke="#5e3720" stroke-width="5"/>
+  <rect x="381" y="46" width="38" height="36" rx="6" fill="#34405a" stroke="#5e3720" stroke-width="4"/>
+  <polygon points="373,50 400,24 427,50" fill="#b9774a" stroke="#5e3720" stroke-width="4" stroke-linejoin="round"/>
+  <polygon points="312,156 400,78 488,156" fill="#b9774a" stroke="#5e3720" stroke-width="5" stroke-linejoin="round"/>
+  <g fill="#34405a" stroke="#5e3720" stroke-width="3">
+    <rect x="375" y="176" width="50" height="48" rx="8"/>
+    <rect x="375" y="258" width="50" height="48" rx="8"/>
+    <rect x="375" y="340" width="50" height="48" rx="8"/>
+    <rect x="375" y="422" width="50" height="48" rx="8"/>
+  </g>
+  <g fill="none" stroke="#9db4c0" stroke-width="2.2" stroke-linecap="round">
+    <path d="M 388,202 q 4,4 8,0 M 404,202 q 4,4 8,0"/>
+    <path d="M 388,284 q 4,4 8,0 M 404,284 q 4,4 8,0"/>
+    <path d="M 388,366 q 4,4 8,0 M 404,366 q 4,4 8,0"/>
+    <path d="M 388,448 q 4,4 8,0 M 404,448 q 4,4 8,0"/>
+  </g>
+  <g fill="#fffaf0" stroke="#5e3720" stroke-width="3">
+    <circle cx="352" cy="200" r="13"/><circle cx="352" cy="282" r="13"/>
+    <circle cx="352" cy="364" r="13"/><circle cx="352" cy="446" r="13"/>
+  </g>
+  <g text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="16" fill="#2d2a32">
+    <text x="352" y="206">4</text><text x="352" y="288">3</text><text x="352" y="370">2</text><text x="352" y="452">1</text>
+  </g>
+  <g fill="#fff6d6" font-family="Georgia, serif" font-style="italic">
+    <text x="436" y="200" font-size="17">z</text><text x="448" y="186" font-size="13">z</text>
+  </g>
+  <rect x="200" y="520" width="440" height="180" fill="#e9d5b0" stroke="#5e3720" stroke-width="5"/>
+  <rect x="188" y="510" width="464" height="16" rx="4" fill="#b9774a" stroke="#5e3720" stroke-width="3"/>
+  <path d="M 250,700 V 622 A 40 40 0 0 1 330,622 V 700 Z" fill="#8a5233" stroke="#5e3720" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M 272,690 V 630 M 290,690 V 600 M 308,690 V 630" stroke="#9a5f37" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="318" cy="662" r="6" fill="#e9c46a" stroke="#5e3720" stroke-width="2.5"/>
+  <circle cx="290" cy="558" r="17" fill="#fffaf0" stroke="#5e3720" stroke-width="3"/>
+  <text x="290" y="565" text-anchor="middle" class="plate">0</text>
+  <rect x="470" y="566" width="130" height="94" rx="14" fill="url(#g-lamp)" stroke="#5e3720" stroke-width="5"/>
+  <rect x="462" y="656" width="146" height="10" rx="3" fill="#b9774a" stroke="#5e3720" stroke-width="2.5"/>
+  <g transform="translate(535 622)">
+    <rect x="-6" y="16" width="12" height="9" fill="#2d2a32"/>
+    <rect x="-15" y="24" width="30" height="5" rx="2" fill="#2d2a32"/>
+    <rect x="-26" y="-21" width="52" height="38" rx="7" fill="#264653" stroke="#2d2a32" stroke-width="3"/>
+    <rect class="screen s0" x="-19" y="-15" width="38" height="25" rx="4" fill="#bfeee5"/>
+    <path d="M -7,-7 v2 M 7,-7 v2 M -7,1 Q 0,8 7,1" stroke="#2d2a32" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+  </g>
+  <path d="M 528,474 L 548,562 L 574,474" fill="#fffaf0" stroke="#5e3720" stroke-width="3" stroke-linejoin="round"/>
+  <rect x="474" y="380" width="300" height="100" rx="44" fill="#fffaf0" stroke="#5e3720" stroke-width="3"/>
+  <rect x="531" y="470" width="40" height="14" fill="#fffaf0"/>
+  <g data-figure="spoke" transform="translate(182 698) scale(0.6)"></g>
+  <g data-figure="pin" transform="translate(722 792) scale(0.82)"></g>
+</svg>

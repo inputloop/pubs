@@ -1,0 +1,249 @@
+# when -- spread 9 of "So You Want To Build A Ghostwheel?"
+# Copyright 2026 Corwin Brust; CC-BY-SA-4.0
+# Facts about C4 come from C4 itself, read-only on Avalon (the c4 tree),
+# 2026-11-04T00:13:56Z; four rows cite the plan this book was made from, as
+# filed in c4's q/, and say so. Each [mark] on the fuller page opens its witness rows.
+kind: spread
+number: 9
+title: When
+part: Part One: how we say things
+
+== picture page ==
+Spoke sees it.
+Pin writes it down:
+what, and when,
+and where, and who.
+
+If only one friend sees it,
+Pin writes a small mark on it.
+
+When a new friend sees it too,
+the mark is gone.
+
+== layout ==
+# Pin's desk, the clock (when) and the map (where) fill the right; the words
+# run down the quiet wall on the left and end level with Pin's card and its
+# small mark. Pin faces left, back toward the words.
+picture: full
+words: wrap
+side: left
+outline: 70 0, 100 0, 100 100, 54 100, 54 58, 66 52, 70 50
+size: 3.8
+align: left
+ground: soft
+
+== fuller page ==
+Pin never writes a fact alone. Each note says what was said, when it was
+seen (in UTC, the world's shared clock), who or what saw it, where it came
+from (a file and its lines), that file's hash at that moment, and its state
+[row]. Tap any small mark in this book and those notes open.
+
+Why "seen" and not "true since"? We can rarely know when a fact changed in
+the world; we can always say when each witness saw it [seen].
+
+C4 already keeps its own date this way. Its DATE file is written by one
+tool, one line per roll, newest last: the date, the UTC time it was rolled,
+the host, and the date before it [date]. Its table tool stamps each column
+and row with the time the writer wrote down, kept apart from the file
+system's clock; a table is current only when the two agree [stamp].
+
+A fact seen by one hand only wears a small dagger, †, the mark Corwin's
+paper on diligence uses for "claims resting only on that single witness"
+[dagger]. It is a count, not a refusal: when a second, different hand writes
+a row, the dagger goes. A copy of your own note does not count; "a
+reflection is not a witness" [mirror].
+
+The shop has not built the register these rows will live in yet: when this
+page was read, the c4 tree had no c/seen [plan].
+
+== diagram ==
+kind: pair
+caption: Seven fields in one row. On the right, the very first note in this book, from the door, as Pin wrote it down.
+left: What Pin writes
+right: The book's first note
+fact | hosts
+said | The prototype design is 17 nodes
+seen | 2026-11-03T20:08:58Z
+by | Mentat (claude-opus-5-5), reading the c4 tree
+from | c4/facts/ghostwheel-ring-of-rings, line 3
+sha | sha256:6a70ea2b…
+state | seen
+
+== facts ==
+fact: row
+said: "The witness row. One line per sighting, seven fields, in plain words: atom ... said ... seen: when it was seen true, in UTC ... by: who or what saw it ... from: where ... sha: the hash of that record at that moment ... state: seen, ruled, superseded, could-not-check, or opened."
+seen: 2026-11-04T00:35:28Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/q/2026-11-03-atom-dates/PLAN.md, lines 34-42 (section 1)
+sha: sha256:c7173ccf4ca322b30683f6ffd129ac34bbb97ebd03cce0e597f9ca5514353451
+state: seen
+note: A design in the plan (filed in c4 as a dated q/ record, the same bytes as the copy beside this book), not yet a C4 register (see [plan]). The plan's first field is "atom"; this book's rows call it "fact".
+
+fact: row
+said: "fact: hosts (one block per witness row; a fact may have several)", then said, seen, by, from, sha, state, each on its own line.
+seen: 2026-11-04T00:30:07Z
+by: part-one (claude-opus-5-5), reading this book's own README
+from: ghostwheel-book/README.md, lines 98-105
+sha: sha256:800d471032d35f1c9f02402270522895731e815b3b9dcb01d6060d5c70bd8748
+state: seen
+
+fact: seen
+said: "Why "seen" and not "last changed". We can rarely know when a fact changed in the world. We can always say when each witness saw it."
+seen: 2026-11-04T00:35:28Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/q/2026-11-03-atom-dates/PLAN.md, lines 53-54 (section 1)
+sha: sha256:c7173ccf4ca322b30683f6ffd129ac34bbb97ebd03cce0e597f9ca5514353451
+state: seen
+note: The plan's reasoning, and a point on which it disagrees with Corwin's first ask ("the date that information was last changed"); the plan names the check that would settle it (its section 8, item 2).
+
+fact: date
+said: "DATE -- the shipboard date, recorded by itself before it is handed on. Written only by bin/da1te. One line per roll, newest last: <date> <rolled-at, 24h UTC> <host> from=<predecessor>". Newest line: "2026-11-03 2026-11-03T19:29Z claude from=2026-10-26".
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/DATE, lines 1-3 and 36
+sha: sha256:11cda311dc603676429dc2bc5fb5a09f816495bcbec33bc4406c3797708eab84
+state: seen
+
+fact: date
+said: "The date. Looks like: today. Actually: the shop's recorded date, read from the UTC clock and written down before anything uses it. In the evening in the Americas it is often a day ahead of your wall clock".
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/HELLO-C4.md, lines 32-35
+sha: sha256:970ce8423829a7032465869146ba07bf91b73f9dd6871577fe6213a121ce19c4
+state: seen
+note: True of this very page: its rows say 2026-11-04 (UTC) while it was written on the evening of 2026-11-03 in Minnesota.
+
+fact: stamp
+said: "sc/<col> and sr/<key>, one line each, the stamp it used ... (the time the writer wrote down; the cell's own mtime is the file system's, and a good made from this table is current only when the two agree)."
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/bin/tv1cr, lines 14-16 (the tool's header)
+sha: sha256:11ee262438373c975e1ad24faa018ba813aebad35247ee1e32680bbebd217ded
+state: seen
+
+fact: dagger
+said: "No one else has yet run the instrument against the ledger. Claims resting only on that single witness are marked †." And: "Due diligence claims are measurable if you have an instrument — and if someone other than its author can run it."
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the pub shelf on Avalon
+from: H:/pub/papers/ai-diligence-sysops/ai-diligence-sysops-v0.2.1.md, lines 169-170 and 175
+sha: sha256:c849e6d14b64670c4f3f3c26d3b8555f3fe163f300076c0b4cd2383c2c8da505
+state: seen
+
+fact: dagger
+said: "One by only earns the dagger (†, the paper's own mark for "Claims resting only on that single witness", line 170). The dagger is a gauge, printed and counted, never a refusal."
+seen: 2026-11-04T00:35:28Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/q/2026-11-03-atom-dates/PLAN.md, lines 62-65 (section 1)
+sha: sha256:c7173ccf4ca322b30683f6ffd129ac34bbb97ebd03cce0e597f9ca5514353451
+state: seen
+note: "A count, not a refusal" is the plan's rule for the book, borrowing the paper's mark; the paper itself only marks.
+
+fact: mirror
+said: "The flip side of dual-witness: do NOT pretend a reflection or photograph of an actor is a second party. A reflection is not a witness."
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/facts/two-readers-at-most, lines 16-17 (Corwin, 2026-09-17)
+sha: sha256:bcb6af309e0ca0145badaa16aa499f737139cf884bfe583e910e39ffc0efdf22
+state: seen
+note: The file is marked PROVISIONAL, UNBLESSED. It also says (lines 42-44) that it was landed in two stores and proven byte-identical, "two copies agreeing is the test": two copies prove the landing, not a second witness. Both lines are kept.
+
+fact: plan
+said: "Where the rows live. A register, proposed name c/seen, with its columns described in d/c/seen, as every C4 register is."
+seen: 2026-11-04T00:35:28Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/q/2026-11-03-atom-dates/PLAN.md, lines 48-49 (section 4 lists the seen command as missing)
+sha: sha256:c7173ccf4ca322b30683f6ffd129ac34bbb97ebd03cce0e597f9ca5514353451
+state: seen
+
+fact: plan
+said: "ls: cannot access 'c/seen': No such file or directory" (and the same for d/c/seen).
+seen: 2026-11-04T00:13:56Z
+by: ls, run read-only in the c4 tree on Avalon (part-one, claude-opus-5-5)
+from: the command "ls c/seen d/c/seen" in c4
+sha: none: an absence has no file to hash
+state: seen
+
+== narration ==
+# Take A, "the company talks to you": every voice speaks to the listener.
+[picture A]
+narrator: Here's Pin at the desk, with a clock on the wall and a map beside it.
+spoke: I saw it! Pin, write it down.
+pin: What you saw, and when, and where, and who saw it. All four, for you.
+narrator: If only one friend saw it, Pin writes a small mark on it. Can you find the little mark on the card?
+spoke: And when a new friend sees it too?
+pin: Then the mark is gone. Two friends, no mark.
+[fuller A]
+pin [row]: Every note I write says what was said, when it was seen, who saw it, where it came from, and a hash of that file. Tap a mark and you'll see.
+spoke [seen]: We write seen, not true since. We can't always know when a thing changed. We can always say when we saw it.
+narrator [date]: {C4|C four} keeps its own date this way. One line each time: the date, the time in UTC, the computer, and the date before.
+pin [stamp]: Its table tool writes down when it wrote, and keeps that apart from the file's own clock. When the two agree, the table is current.
+spoke [dagger]: A fact only one hand saw gets a little dagger. It isn't a no. It's just a count, until someone else looks.
+pin [mirror]: And a copy of my own note doesn't count as a second look. A reflection is not a witness.
+narrator [plan]: The place these notes will live in the shop isn't built yet. We looked, and it wasn't there. So we wrote that down too, for you.
+
+# Take B, "the lap reader": one close voice reads to you; Spoke and Pin
+# mostly talk to each other, and turn to you only in a short aside.
+[picture B]
+narrator: Spoke sees it. Pin writes it down: what, and when, and where, and who.
+spoke: Seen, Pin. Just now.
+pin: Just now isn't a time, Spoke. I'll write the clock.
+spoke: You wrote "before the start" for the odd one at the door. That isn't a time either.
+pin: He didn't stay long enough for a clock.
+narrator: If only one friend sees it, Pin writes a small mark on it.
+spoke: Shall I fetch someone?
+narrator: When a new friend sees it too, the mark is gone.
+[fuller B]
+narrator [row]: Pin never writes a fact alone. Each note says what was said, when it was seen, who or what saw it, where it came from, that file's hash at that moment, and its state.
+narrator [seen]: We can rarely know when a fact changed in the world. We can always say when each witness saw it.
+spoke [date]: The shop's date file is like your notes, Pin. One line per roll, newest last.
+pin [date]: The date, the time it rolled, the host, and the date before. I approve.
+narrator [stamp]: The table tool stamps each column and row with the time the writer wrote down, kept apart from the file system's clock.
+narrator [dagger]: A fact seen by one hand only wears a small dagger: the paper's mark for claims resting only on that single witness.
+spoke [mirror]: Can't you just copy it twice, Pin?
+pin [mirror]: No. A reflection is not a witness.
+narrator [plan]: The register these rows will live in is planned, not built. When this page was read, it was not there.
+
+== picture ==
+<svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="when-t">
+  <title id="when-t">Pin the mouse sits at a wooden desk on the right of the shop, writing. On the wall above hangs a round clock, and beside it a little map pinned up with a red dot on it. On the desk stands a note card with ruled lines and a small coral dagger mark in its corner. Spoke peeks round the right end of the desk.</title>
+  <rect width="800" height="800" fill="url(#g-wall)"/>
+  <rect y="640" width="800" height="160" fill="url(#g-floor)"/>
+  <rect y="634" width="800" height="9" fill="#c49a6c"/>
+  <g class="when-clock">
+    <circle cx="640" cy="176" r="70" fill="#fffaf0" stroke="#5e3720" stroke-width="7"/>
+    <circle cx="640" cy="176" r="58" fill="none" stroke="#e2c79c" stroke-width="2"/>
+    <g stroke="#5e3720" stroke-width="5" stroke-linecap="round">
+      <line x1="640" y1="122" x2="640" y2="132"/><line x1="694" y1="176" x2="684" y2="176"/>
+      <line x1="640" y1="230" x2="640" y2="220"/><line x1="586" y1="176" x2="596" y2="176"/>
+    </g>
+    <g stroke="#c49a6c" stroke-width="3" stroke-linecap="round">
+      <line x1="667" y1="129" x2="664" y2="134"/><line x1="687" y1="149" x2="682" y2="152"/><line x1="687" y1="203" x2="682" y2="200"/>
+      <line x1="667" y1="223" x2="664" y2="218"/><line x1="613" y1="223" x2="616" y2="218"/><line x1="593" y1="203" x2="598" y2="200"/>
+      <line x1="593" y1="149" x2="598" y2="152"/><line x1="613" y1="129" x2="616" y2="134"/>
+    </g>
+    <line x1="640" y1="176" x2="612" y2="152" stroke="#2d2a32" stroke-width="6" stroke-linecap="round"/>
+    <line x1="640" y1="176" x2="676" y2="146" stroke="#2d2a32" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="640" cy="176" r="6" fill="#e76f51" stroke="#2d2a32" stroke-width="2"/>
+  </g>
+  <g class="when-map" transform="translate(724 336) rotate(4)">
+    <rect x="-50" y="-40" width="100" height="80" rx="4" fill="#fff6d6" stroke="#4a3f38" stroke-width="3"/>
+    <path d="M -50,-12 L -16,-40 M 16,40 L 50,4" stroke="#e2c79c" stroke-width="3"/>
+    <path d="M -38,26 C -24,4 -6,22 6,4 C 16,-10 26,-6 34,-20" fill="none" stroke="#457b9d" stroke-width="3" stroke-dasharray="2 6" stroke-linecap="round"/>
+    <circle cx="34" cy="-20" r="7" fill="#e76f51" stroke="#5e3720" stroke-width="2.5"/>
+    <circle cy="-40" r="7" fill="#e76f51" stroke="#5e3720" stroke-width="2.5"/>
+  </g>
+  <g data-figure="spoke" transform="translate(740 560) scale(0.5)"></g>
+  <g data-figure="pin" transform="translate(616 592) scale(-1.25 1.25)"></g>
+  <g class="when-card" transform="translate(500 516) rotate(-6)">
+    <rect x="-46" y="-44" width="92" height="74" rx="5" fill="#fffdf6" stroke="#4a3f38" stroke-width="3"/>
+    <path d="M -34,-26 H 22 M -34,-16 H 30 M -34,-6 H 24 M -34,4 H 30 M -34,14 H 18" stroke="#9db4c0" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M 33,-38 V -14 M 27,-31 H 39" stroke="#e76f51" stroke-width="4" stroke-linecap="round"/>
+    <path d="M 33,-14 L 30,-20 H 36 Z" fill="#e76f51"/>
+  </g>
+  <g class="when-desk">
+    <rect x="440" y="560" width="350" height="18" rx="5" fill="#b9774a" stroke="#5e3720" stroke-width="3.5"/>
+    <rect x="454" y="578" width="322" height="62" fill="#8a5233" stroke="#5e3720" stroke-width="3"/>
+    <rect x="566" y="594" width="96" height="30" rx="4" fill="#9a6040" stroke="#5e3720" stroke-width="2.5"/>
+    <circle cx="614" cy="609" r="5" fill="#e9c46a" stroke="#5e3720" stroke-width="2"/>
+  </g>
+</svg>

@@ -1,0 +1,243 @@
+# witnesses -- spread 10 of "So You Want To Build A Ghostwheel?"
+# Copyright 2026 Corwin Brust; CC-BY-SA-4.0
+# Facts about C4 come from C4 itself, read-only on Avalon (the c4 tree),
+# 2026-11-04T00:13:56Z. Each [mark] on the fuller page opens its witness rows.
+# The last spread of Part One: it ends facing the door to Part Two.
+kind: spread
+number: 10
+title: Witnesses
+part: Part One: how we say things
+
+== picture page ==
+Spoke has a ladder.
+Pin has a ladder.
+
+Each one says how a ghostwheel wakes up.
+
+They are not the same.
+Pin keeps both.
+Where they are not the same, we learn a lot.
+
+Come and see who wakes up.
+
+== layout ==
+# The eye climbs: from Spoke at the top of the left ladder, down to the two
+# bottom rungs where the ladders agree, up the right ladder past the rungs
+# where they part, and over to the night doorway where a ghostwheel sleeps.
+picture: full
+words: scatter
+size: 3.6
+at: 4 4 24
+at: 3 60 25
+at: 60 4 36
+at: 60 35 34
+align: left
+ground: soft
+
+== fuller page ==
+Ask the c4 tree one question, "what are C4's run-levels?", and more than
+one witness answers. Pin keeps them side by side.
+
+Spoke's ladder is Corwin's own ghostwheel code. It counts what is standing
+up on a host: 0 bootstrapping, 1 containers, 2 components, 3
+configurations, 4 connections, 5 running [code]. Pin's ladder is the
+language document, C4-LANG. It counts a lifecycle: bootstrapping,
+containers, then configure, make, install, setup, self-test, enablement
+[lang].
+
+Two more answer too. A fact from 2026-09-11 counts locks, 0 read, 1
+present, 2 fresh, 3 digest, 4 signed, and calls everything above them
+virtual [tumbler]. And the ladder on spread seven counts where a broken
+promise is caught [promise].
+
+The first two agree at the bottom: bootstrapping, then containers. Then
+they part. One counts what is up; the other counts what has been done to
+the software. Neither is wrong. That they differ tells us where each one
+stands: a host, a build, a lock, a promise. (That reading is Pin's, not
+Corwin's.)
+
+His paper names the method: where two readings diverge, "that gap is not a
+defect in the argument. It is the argument's instrument" [instrument]. The
+shop's rule for measures that disagree is the same: show them side by side,
+"which is not a score" [crown].
+
+Part Two climbs Spoke's ladder, one rung at a time, as a ghostwheel wakes
+up.
+
+== diagram ==
+kind: pair
+caption: Two witnesses to one question. They agree on the first two rungs, then part. C4-LANG gives its rungs no numbers; setting them beside the code's, row by row, is ours.
+left: Spoke's ladder: the ghostwheel code
+right: Pin's ladder: C4-LANG
+0 bootstrapping | bootstrapping
+1 containers | containers
+2 components | configure
+3 configurations | make
+4 connections | install
+5 running | setup
+(no more rungs) | self-test
+(no more rungs) | enablement
+
+== facts ==
+fact: code
+said: "# (delayed overwrite register) system runlevel # 0..boostraping # 1..containers # 2..components # 3..configurations # 4..connections # 5..running" (his spelling kept)
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/p/c4fn/ghostwheel.fn.sh, lines 34-40 (his file: "Copyright (C)2026 Corwin Brust", line 3)
+sha: sha256:8458a930d67aec89593a830fafce187a268ce98e7e40f700377bcd5a7c6ae6b3
+state: seen
+
+fact: code
+said: "So it4c's 4 and ghostwheel.fn.sh's 5 ("running") are not two ladders: 5 is the host's "running" and the application's virtual levels live above it."
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/facts/run-levels-above-the-tumblers-are-virtual, lines 18-19 (2026-09-11)
+sha: sha256:d68f1300d815b6051ab1cff4bfe5bc2e2117ec3e3782bff49cc214bccf3e896d
+state: seen
+
+fact: lang
+said: "Capability is exposed in ordered levels — bootstrapping, containers, and upward through the real lifecycle: configure, make, install, setup, self-test, enablement. Each level is a signal, and what a caller may reach varies by the level in force."
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/C4-LANG.md, lines 223-225 (section 8)
+sha: sha256:d99139b865824ff3a6b3c21246d4226561354271263cecf2c7126e70bcc5667d
+state: seen
+note: The 2026-09-11 ruling joins the host ladder and the lock ladder into one; nothing found in the files read for this page joins C4-LANG's lifecycle list to either. That gap is the finding this page shows; it is not marked as an error.
+
+fact: tumbler
+said: "Run-levels 0..4 are the tumblers (host standpoint: 0 read · 1 present · 2 fresh · 3 digest · 4 signed). Anything above is VIRTUAL: an application on the ghostwheel simulating tumbler change for its own purposes while the host still reads it as "running"."
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/facts/run-levels-above-the-tumblers-are-virtual, lines 15-17 (2026-09-11)
+sha: sha256:d68f1300d815b6051ab1cff4bfe5bc2e2117ec3e3782bff49cc214bccf3e896d
+state: seen
+note: His ruling in the same file (lines 8-11), "The higher run-levels are virtual", belongs to Part Two, so this page only names it.
+
+fact: promise
+said: "Promise-breaks are caught on a LADDER, his words: testing → turn → build → install → run-time → bug reports."
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/facts/drift, lines 10-11 (2026-08-08)
+sha: sha256:ae8fef4fd79610775408a7c321754edd8bc3a19a40703812f3389abc231b7df8
+state: seen
+
+fact: instrument
+said: "Where the two readings converge, that is the finding. Where they diverge — where one register holds a claim the other cannot render — that gap is not a defect in the argument. It is the argument's instrument."
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the pub shelf on Avalon
+from: H:/pub/papers/ai-diligence-sysops/ai-diligence-sysops-v0.2.1.md, lines 23-25
+sha: sha256:c849e6d14b64670c4f3f3c26d3b8555f3fe163f300076c0b4cd2383c2c8da505
+state: seen
+
+fact: crown
+said: "THREE REACHABILITY GRAPHS ... DISAGREE about the SAME decks, and the disagreement is information. Collapsing them into one score would crown and condemn wrongly ... If a display is wanted, it shows all three side by side — which is not a score."
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/facts/three-graphs-disagree-and-none-may-crown, lines 6-10 (2026-08-05)
+sha: sha256:f6b6806392099b6ced71c8971e83e3db6f0e4ba75379d7b2c5035e5cee19f855
+state: seen
+note: Written about three graphs of decks, not about run-levels; this page borrows the rule, which is general in its own words ("No single metric may crown or condemn").
+
+== narration ==
+# Take A, "the company talks to you": every voice speaks to the listener.
+[picture A]
+narrator: Look, two ladders. Spoke is at the top of one. Pin is holding the other.
+spoke: My ladder says how a ghostwheel wakes up.
+pin: So does mine. But count the rungs with me. They're not the same.
+narrator: The bottom two match. Can you see the dotted lines? After that, they go their own ways.
+pin: I'm keeping both. Where they're not the same, we learn a lot.
+spoke: And over there, through that door, something is asleep. Come and see who wakes up.
+[fuller A]
+narrator: Ask the shop one question, what are the run-levels, and more than one answer comes back.
+spoke [code]: My ladder is Corwin's own ghostwheel code. Bootstrapping, containers, components, configurations, connections, running.
+pin [lang]: My ladder is the language book. Bootstrapping, containers, then configure, make, install, setup, self-test, enablement.
+narrator [tumbler]: A third answer counts locks: read, present, fresh, digest, signed. Everything above those is virtual.
+spoke [promise]: And a fourth is the promise ladder you met before, with testing at the bottom.
+pin: The first two agree at the bottom, and then they part. One counts what's up. The other counts what's been done. That's my reading, not Corwin's.
+narrator [instrument]: Corwin's paper says it best. Where two readings come apart, the gap is not a defect. It is the instrument.
+spoke [crown]: So we show them side by side, for you. Not as a score.
+narrator: Now turn the page. Part Two climbs Spoke's ladder, one rung at a time, as a ghostwheel wakes up.
+
+# Take B, "the lap reader": one close voice reads to you; Spoke and Pin
+# mostly talk to each other, and turn to you only in a short aside.
+[picture B]
+narrator: Spoke has a ladder. Pin has a ladder.
+narrator: Each one says how a ghostwheel wakes up.
+spoke: Pin, yours has more rungs than mine.
+pin: Eight to your six. The bottom two match.
+narrator: They are not the same. Pin keeps both. Where they are not the same, we learn a lot.
+spoke: Pin. Listen. Something by the door is snoring.
+narrator: Come and see who wakes up.
+[fuller B]
+narrator [code]: Corwin's own ghostwheel code counts what is standing up on a host: bootstrapping, containers, components, configurations, connections, running.
+narrator [lang]: The language document counts a lifecycle: bootstrapping, containers, then configure, make, install, setup, self-test, enablement.
+spoke [tumbler]: There's a third one, Pin. Read, present, fresh, digest, signed.
+pin [tumbler]: And everything above those is virtual. I have it written down.
+narrator [promise]: A fourth counts where a broken promise is caught, from testing up to bug reports.
+pin: The first two agree at the bottom, then part. One counts what is up; the other counts what has been done. That reading is mine.
+narrator [instrument]: Where two readings diverge, that gap is not a defect in the argument. It is the argument's instrument.
+spoke [crown]: Side by side, then. Not a score.
+pin: Not a score. Shall we go and see it wake?
+narrator: Part Two climbs Spoke's ladder, one rung at a time, as a ghostwheel wakes up.
+
+== picture ==
+<svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="witnesses-t">
+  <title id="witnesses-t">Two wooden ladders stand side by side in the shop. Spoke peeks over the top of the shorter left ladder; Pin holds the foot of the taller right one. Their bottom two rungs are the same colours and are joined by dotted lines; above that, the rungs differ in number and colour. On the right, an arched doorway opens onto a starry night, where a small ring of computers sleeps with closed eyes under a crescent moon.</title>
+  <rect width="800" height="800" fill="url(#g-wall)"/>
+  <rect y="720" width="800" height="80" fill="url(#g-floor)"/>
+  <rect y="714" width="800" height="9" fill="#c49a6c"/>
+  <g class="witnesses-left">
+    <g stroke="#2d2a32" stroke-width="2.5">
+      <rect x="244" y="660" width="54" height="13" rx="4" fill="#2a9d8f"/>
+      <rect x="244" y="592" width="54" height="13" rx="4" fill="#e9c46a"/>
+      <rect x="244" y="512" width="54" height="13" rx="4" fill="#f4a261"/>
+      <rect x="244" y="432" width="54" height="13" rx="4" fill="#e76f51"/>
+      <rect x="244" y="352" width="54" height="13" rx="4" fill="#8ab17d"/>
+      <rect x="244" y="272" width="54" height="13" rx="4" fill="#457b9d"/>
+    </g>
+    <rect x="230" y="200" width="16" height="518" rx="6" fill="#b9774a" stroke="#5e3720" stroke-width="3"/>
+    <rect x="296" y="200" width="16" height="518" rx="6" fill="#b9774a" stroke="#5e3720" stroke-width="3"/>
+  </g>
+  <g class="witnesses-right">
+    <g stroke="#2d2a32" stroke-width="2.5">
+      <rect x="400" y="660" width="54" height="13" rx="4" fill="#2a9d8f"/>
+      <rect x="400" y="592" width="54" height="13" rx="4" fill="#e9c46a"/>
+      <rect x="400" y="530" width="54" height="13" rx="4" fill="#6d6875"/>
+      <rect x="400" y="470" width="54" height="13" rx="4" fill="#f4a261"/>
+      <rect x="400" y="410" width="54" height="13" rx="4" fill="#457b9d"/>
+      <rect x="400" y="350" width="54" height="13" rx="4" fill="#e76f51"/>
+      <rect x="400" y="290" width="54" height="13" rx="4" fill="#8ab17d"/>
+      <rect x="400" y="230" width="54" height="13" rx="4" fill="#2a9d8f"/>
+    </g>
+    <rect x="386" y="140" width="16" height="578" rx="6" fill="#b9774a" stroke="#5e3720" stroke-width="3"/>
+    <rect x="452" y="140" width="16" height="578" rx="6" fill="#b9774a" stroke="#5e3720" stroke-width="3"/>
+  </g>
+  <g class="witnesses-agree" fill="none" stroke="#2a9d8f" stroke-width="3" stroke-dasharray="2 7" stroke-linecap="round">
+    <path d="M 316,666 H 382"/>
+    <path d="M 316,598 H 382" stroke="#c9a676"/>
+  </g>
+  <path d="M 349,530 l 5,11 11,5 -11,5 -5,11 -5,-11 -11,-5 11,-5 Z" fill="#fff1b8" stroke="#e9c46a" stroke-width="2"/>
+  <g data-figure="spoke" transform="translate(271 214) scale(0.55)"></g>
+  <g class="witnesses-night">
+    <path d="M 604,716 V 474 A 86 86 0 0 1 776,474 V 716 Z" fill="#26324f"/>
+    <circle cx="734" cy="440" r="20" fill="#fff6d6"/>
+    <circle cx="744" cy="434" r="18" fill="#26324f"/>
+    <g fill="#fff6d6"><circle cx="640" cy="440" r="2.5"/><circle cx="672" cy="414" r="2"/><circle cx="700" cy="470" r="2"/><circle cx="756" cy="500" r="2.5"/><circle cx="628" cy="500" r="2"/></g>
+    <circle cx="690" cy="624" r="52" fill="none" stroke="#6d7aa0" stroke-width="3" stroke-dasharray="2 8"/>
+    <g fill="#264653" stroke="#11161f" stroke-width="2.5">
+      <rect x="676" y="560" width="28" height="22" rx="5"/><rect x="726" y="598" width="28" height="22" rx="5"/>
+      <rect x="708" y="656" width="28" height="22" rx="5"/><rect x="644" y="656" width="28" height="22" rx="5"/>
+      <rect x="626" y="598" width="28" height="22" rx="5"/>
+    </g>
+    <g fill="#7f93a8"><rect x="680" y="564" width="20" height="13" rx="3"/><rect x="730" y="602" width="20" height="13" rx="3"/><rect x="712" y="660" width="20" height="13" rx="3"/><rect x="648" y="660" width="20" height="13" rx="3"/><rect x="630" y="602" width="20" height="13" rx="3"/></g>
+    <g fill="none" stroke="#11161f" stroke-width="1.6" stroke-linecap="round">
+      <path d="M 684,570 q 3,2 5,0 M 692,570 q 3,2 5,0"/><path d="M 734,608 q 3,2 5,0 M 742,608 q 3,2 5,0"/>
+      <path d="M 716,666 q 3,2 5,0 M 724,666 q 3,2 5,0"/><path d="M 652,666 q 3,2 5,0 M 660,666 q 3,2 5,0"/>
+      <path d="M 634,608 q 3,2 5,0 M 642,608 q 3,2 5,0"/>
+    </g>
+    <text x="712" y="538" font-family="sans-serif" font-weight="700" font-size="17" fill="#fff6d6">z</text>
+    <text x="726" y="520" font-family="sans-serif" font-weight="700" font-size="13" fill="#fff6d6">z</text>
+    <path d="M 604,716 V 474 A 86 86 0 0 1 776,474 V 716" fill="none" stroke="#5e3720" stroke-width="7" stroke-linejoin="round"/>
+  </g>
+  <g data-figure="pin" transform="translate(540 770) scale(0.95)"></g>
+</svg>

@@ -1,0 +1,85 @@
+# chad2 -- Chad's second intermezzo, at the start of Part Two.
+# Copyright 2026 Corwin Brust; CC-BY-SA-4.0
+#
+# Chad is Corwin's own character, brief, confident, a little out of place,
+# and he explains nothing. Part Two is how a ghostwheel wakes up, and Chad's
+# one new short thing is to tell everyone not to get up. He repeats his line.
+# (For the writers only, not the page: Part Two follows the run-levels per
+# PLAN.md section 9, fork F1, lean (c); that is the plan's lean, not his
+# ruling. Chad's line points at C4's backward consing, C4.md section 9,
+# 2026-08-25; it is meant to land at chad3, near C4QL, and nowhere sooner.)
+kind: intermezzo
+title: Chad
+part: Part Two: how a ghostwheel wakes up
+
+== picture page ==
+Oh! Chad is back.
+
+"Hi. Don't get up. I got this."
+
+"Last word first. Every time."
+
+Spoke looks at Pin.
+
+And then he was gone.
+
+== layout ==
+# As in chad1: the greeting on the quiet wall above the sleeping shelf, Chad's
+# first words beside his head in the spotlight, the rest along the floor.
+picture: top
+words: scatter
+size: 3.3
+at: 33 3 30
+at: 33 31 22
+at: 4 78 46
+at: 55 78 42
+at: 52 89 44
+align: left
+
+== narration ==
+[picture A]
+narrator: Part Two. How a ghostwheel wakes up.
+narrator: Shh. It's very early. The shop is still asleep.
+narrator: Oh! Chad is back.
+chad: Hi. Don't get up. I got this.
+spoke: Don't get up? Everyone's just about to.
+chad: Last word first. Every time.
+pin: I'm writing that down again for you. Chad, at dawn, before the first floor.
+narrator: And then he was gone.
+
+[picture B]
+narrator: Part Two. How a ghostwheel wakes up.
+narrator: Oh! Chad is back.
+chad: Hi. Don't get up. I got this.
+spoke: Pin. He said don't get up.
+pin: I heard.
+chad: Last word first. Every time.
+spoke: That again.
+pin: Writing it down. Again.
+narrator: And then he was gone.
+
+== picture ==
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="chad2-t">
+  <title id="chad2-t">Very early morning in the shop. Through a round window the sun is only just rising. On a shelf, three small computers are still asleep, their screens dark. Chad stands in a spotlight in the middle of the room, thumb up, cap on backwards, holding his card with the arrow that points left. Spoke, beside the window, looks at Pin; Pin, on the floor with a notebook, looks back.</title>
+  <defs><linearGradient id="chad2-dawn" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7d8fb8"/><stop offset="0.55" stop-color="#f4a261"/><stop offset="1" stop-color="#ffd98a"/></linearGradient></defs>
+  <rect width="800" height="600" fill="url(#g-wall)"/>
+  <rect y="478" width="800" height="122" fill="url(#g-floor)"/>
+  <rect y="472" width="800" height="9" fill="#c49a6c"/>
+  <circle cx="140" cy="180" r="104" fill="#8a5233" stroke="#5e3720" stroke-width="5"/>
+  <circle cx="140" cy="180" r="88" fill="url(#chad2-dawn)"/>
+  <circle cx="140" cy="240" r="28" fill="#fff2c4"/>
+  <path d="M 52,248 Q 100,232 140,244 Q 186,256 228,240 L 228,268 L 52,268 Z" fill="#8ab17d"/>
+  <path d="M 140,92 V 268 M 52,180 H 228" stroke="#5e3720" stroke-width="5"/>
+  <circle cx="140" cy="180" r="88" fill="none" stroke="#5e3720" stroke-width="4"/>
+  <rect x="268" y="196" width="230" height="12" rx="4" fill="#c49a6c" stroke="#5e3720" stroke-width="3"/>
+  <path d="M 290,208 L 300,232 M 476,208 L 466,232" stroke="#5e3720" stroke-width="4" stroke-linecap="round"/>
+  <g transform="translate(310 177)"><rect x="-26" y="-20" width="52" height="38" rx="7" fill="#264653" stroke="#2d2a32" stroke-width="3"/><rect x="-19" y="-14" width="38" height="24" rx="4" fill="#3b4a55"/><path d="M -10,-3 q 3,3 6,0 M 4,-3 q 3,3 6,0" stroke="#9db4c0" stroke-width="2" stroke-linecap="round" fill="none"/></g>
+  <g transform="translate(383 177)"><rect x="-26" y="-20" width="52" height="38" rx="7" fill="#264653" stroke="#2d2a32" stroke-width="3"/><rect x="-19" y="-14" width="38" height="24" rx="4" fill="#3b4a55"/><path d="M -10,-3 q 3,3 6,0 M 4,-3 q 3,3 6,0" stroke="#9db4c0" stroke-width="2" stroke-linecap="round" fill="none"/></g>
+  <g transform="translate(456 177)"><rect x="-26" y="-20" width="52" height="38" rx="7" fill="#264653" stroke="#2d2a32" stroke-width="3"/><rect x="-19" y="-14" width="38" height="24" rx="4" fill="#3b4a55"/><path d="M -10,-3 q 3,3 6,0 M 4,-3 q 3,3 6,0" stroke="#9db4c0" stroke-width="2" stroke-linecap="round" fill="none"/></g>
+  <g fill="#6d6875" font-family="Georgia, serif" font-style="italic"><text x="474" y="150" font-size="16">z</text><text x="486" y="136" font-size="12">z</text><text x="330" y="150" font-size="13">z</text></g>
+  <polygon points="540,0 660,0 780,560 420,560" fill="#fff6d6" opacity="0.5"/>
+  <ellipse cx="600" cy="560" rx="170" ry="26" fill="#fff6d6" opacity="0.8"/>
+  <g data-figure="chad" transform="translate(600 560) scale(1.3)"></g>
+  <g data-figure="spoke" transform="translate(150 470) scale(0.55)"></g>
+  <g data-figure="pin" transform="translate(330 556) scale(1.0)"></g>
+</svg>

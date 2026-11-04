@@ -1,0 +1,447 @@
+#+TITLE: sources: the C4 files the book's witness rows cite
+#+SUBTITLE: So You Want To Build A Ghostwheel? · books/build-a-ghostwheel/sources/
+#+AUTHOR: Corwin Brust · corwin@bru.st
+#+DATE: 2026-11-04
+
+* What this is
+
+Every fact in the book carries witness rows (=== facts ==== in each spread under =src/=), and each row
+names the file it came from (=from:=) and that file's sha256 when it was read (=sha:=). This folder
+holds those files, so a reader or researcher can check a row without access to the C4 tree it was read
+from. Corwin's word, 2026-11-04: "OK to publish underlying materials RE C4 so there is contunity for
+readers/researchers".
+
+- *Where*: a row's =from: c4/X= is the file =sources/c4/X= here, byte for byte as it stood in C4.
+- *When*: read from C4 on 2026-11-04 (the book's rows were seen on 2026-11-03 and 2026-11-04, UTC).
+- *Check one yourself*: =sha256sum sources/c4/facts/drift= and compare it with the hash below and with
+  the row's =sha:= line in =src/=.
+
+* Counted on 2026-11-04
+
+| C4 files the rows cite             |  36 |
+| here, in this folder               |  34 |
+| whose hash today matches the book's |  36 |
+| changed since the book read them   |   0 |
+| not here (held back)               |   2 |
+| witness rows in the book           | 159 |
+| rows that cite a C4 file           | 150 |
+| rows that cite something else      |   9 |
+
+A held-back file is one this publication does not carry; the book's rows about it stand as its record
+(what was said, when, from which lines, and the hash). Why each was held is kept with the keeper.
+
+* The files
+
+** =c4/facts/ghostwheel-ring-of-rings=
+- here: =sources/c4/facts/ghostwheel-ring-of-rings= (5,237 bytes)
+- sha256 the book recorded: =6a70ea2ba7fac4f1c20e39497ecb987dc440cf139285dda316405443709fa099=
+- sha256 on 2026-11-04: =6a70ea2ba7fac4f1c20e39497ecb987dc440cf139285dda316405443709fa099= (matches)
+- cited by 14 rows:
+  - door · hosts · line 3 (his words in chat, 2026-08-05)
+  - door · rings · lines 6-8
+  - door · lesser · lines 10-11
+  - door · edge · lines 18-21
+  - door · derive · lines 60-64 (his derivation, confirmed 2026-08-05)
+  - rings · both · lines 66-67 (the formalized derivation)
+  - rings · three · lines 6-8 (his words in chat, 2026-08-05)
+  - rings · arguable · lines 36 and 42-44
+  - rings · steer · lines 21-24 (his words)
+  - rings · bastion · lines 10-14 (his words)
+  - rings · bastion · lines 15-16
+  - rings · drop · lines 26-32
+  - wormholes · example · lines 30-32
+  - wormholes · opening · lines 53-56
+
+** =c4/C4.md=
+- here: =sources/c4/C4.md= (17,234 bytes)
+- sha256 the book recorded: =358ce65ce2539df9298a55ec3f6a00b11a9dad3e7d2ef559d54bb367738c9d42=
+- sha256 on 2026-11-04: =358ce65ce2539df9298a55ec3f6a00b11a9dad3e7d2ef559d54bb367738c9d42= (matches)
+- cited by 12 rows:
+  - door · public · line 55 (section 1a)
+  - door · noai · line 115 (section 2)
+  - letters · mt · line 106 (section 2)
+  - letters · nine · lines 161 and 169 (section 4)
+  - seams · three · lines 14-16 (section 1)
+  - seams · seam · lines 18-20 (section 1)
+  - seams · seam · lines 7-9
+  - seams · pin · lines 22-24 (section 1)
+  - seams · semaphore · lines 31-36 (section 1)
+  - seams · both · lines 62-65 (section 1a)
+  - proving · fails · lines 191-192 (section 5)
+  - floors · fourc · lines 62-65 (section 1a)
+
+** =c4/facts/ghostwheel-cloud-the-public-c4=
+- here: =sources/c4/facts/ghostwheel-cloud-the-public-c4= (6,846 bytes)
+- sha256 the book recorded: =a228fbf58318c8be91375f8beaceffc8b1eb735f22d46741c91592be26264f53=
+- sha256 on 2026-11-04: =a228fbf58318c8be91375f8beaceffc8b1eb735f22d46741c91592be26264f53= (matches)
+- cited by 1 row:
+  - door · public · lines 4-6
+
+** =c4/C4-LANG.md=
+- here: =sources/c4/C4-LANG.md= (15,442 bytes)
+- sha256 the book recorded: =d99139b865824ff3a6b3c21246d4226561354271263cecf2c7126e70bcc5667d=
+- sha256 on 2026-11-04: =d99139b865824ff3a6b3c21246d4226561354271263cecf2c7126e70bcc5667d= (matches)
+- cited by 28 rows:
+  - door · findable · line 254 (section 10)
+  - letters · seventeen · line 29 (section 1)
+  - letters · common · lines 29-31 (section 1)
+  - letters · namespace · lines 33-37 (section 1)
+  - seams · keep · lines 44-50 (section 1)
+  - doing · vtype · lines 58-59 (section 2)
+  - doing · vpress · lines 61-62 (section 2)
+  - doing · ll · lines 64-66 (section 2)
+  - doing · ledger · lines 68-70 (section 2)
+  - doing · six · lines 72-81 (section 2)
+  - spaces · two · lines 85-87 (section 3)
+  - spaces · binds · lines 91-99 (section 3)
+  - spaces · prose · lines 101-104 (section 3)
+  - spaces · quotes · lines 106-108 (section 3)
+  - spaces · case · lines 112-119 (section 3)
+  - spaces · terse · lines 121-124 (section 3)
+  - keeping · word · lines 130-135 (section 4)
+  - keeping · heights · lines 137-143 (section 4)
+  - keeping · honest · lines 145-147 (section 4)
+  - keeping · third · lines 245-246 (section 9)
+  - keeping · local · lines 149-154 (section 4, the LENS note of 2026-08-10)
+  - proving · fails · lines 202-203 (section 7)
+  - proving · inline · lines 173-176 (section 5)
+  - twice · twice · lines 215-217 (section 7)
+  - twice · onehand · lines 243-244 (section 9)
+  - witnesses · lang · lines 223-225 (section 8)
+  - floors · lang · lines 223-224 (section 8)
+  - running · smell · lines 224-226 (section 8)
+
+** =c4/m/t=
+- here: =sources/c4/m/t= (538 bytes)
+- sha256 the book recorded: =5c7d90f7bd6938e5733e06f3171a08ba23db0f1b875ac6c8fd3af6d50e203fc2=
+- sha256 on 2026-11-04: =5c7d90f7bd6938e5733e06f3171a08ba23db0f1b875ac6c8fd3af6d50e203fc2= (matches)
+- cited by 4 rows:
+  - letters · seventeen · (wc -l m/t)
+  - letters · srow · lines 1 and 15
+  - seams · semaphore · line 15
+  - doing · lrow · line 9
+
+** =c4/d/m/t=
+- here: =sources/c4/d/m/t= (34 bytes)
+- sha256 the book recorded: =2f312fe23314afca352fe870458568d51cc0ca65a7684d576e289836b80ec10e=
+- sha256 on 2026-11-04: =2f312fe23314afca352fe870458568d51cc0ca65a7684d576e289836b80ec10e= (matches)
+- cited by 1 row:
+  - letters · faces · (the whole file, one line)
+
+** =c4/m/v/t=
+- here: =sources/c4/m/v/t= (465 bytes)
+- sha256 the book recorded: =0c5637d96de9145bcf9d05435cbf11de3e42b2ec82a3f0e093455a5a99ad72f1=
+- sha256 on 2026-11-04: =0c5637d96de9145bcf9d05435cbf11de3e42b2ec82a3f0e093455a5a99ad72f1= (matches)
+- cited by 1 row:
+  - letters · nine · the whole file
+
+** =c4/facts/c4-demands-two-registers.md=
+- here: =sources/c4/facts/c4-demands-two-registers.md= (7,368 bytes)
+- sha256 the book recorded: =052bcf2ea8a34edd842f344509a4d7b54d8de880ec81d7e1fabee967cc1a3b8d=
+- sha256 on 2026-11-04: =052bcf2ea8a34edd842f344509a4d7b54d8de880ec81d7e1fabee967cc1a3b8d= (matches)
+- cited by 4 rows:
+  - letters · two · line 6
+  - proving · no · lines 114-124 ("Instrumented, same day", 2026-09-07)
+  - twice · balance · lines 67-68 ("Balance, made checkable (MINE, conf: high)")
+  - twice · opsci · lines 74-78
+
+** =c4/facts/c4-is-a-seam-and-that-is-the-feature=
+- here: =sources/c4/facts/c4-is-a-seam-and-that-is-the-feature= (5,543 bytes)
+- sha256 the book recorded: =077adb0c684f195b56f34d792e051a53d71420a750d9992ad60b2b0293e1143e=
+- sha256 on 2026-11-04: =077adb0c684f195b56f34d792e051a53d71420a750d9992ad60b2b0293e1143e= (matches)
+- cited by 2 rows:
+  - seams · keep · lines 5-12 (Corwin's correction of 2026-08-03, lines 1-3)
+  - seams · both · lines 60-62 (2026-08-19 addendum)
+
+** =c4/README.md=
+- here: =sources/c4/README.md= (15,440 bytes)
+- sha256 the book recorded: =37fa9d9f44f031c05233c7481c3fd266b2e5cee688fd7bfb15e01dac377a2549=
+- sha256 on 2026-11-04: =37fa9d9f44f031c05233c7481c3fd266b2e5cee688fd7bfb15e01dac377a2549= (matches)
+- cited by 3 rows:
+  - seams · readme · line 1
+  - wormholes · notyet · lines 107 and 110
+  - goodnight · c4ql · lines 110-112
+
+** =c4/facts/virtual-type-needs-no-taxonomy-slot=
+- here: =sources/c4/facts/virtual-type-needs-no-taxonomy-slot= (1,788 bytes)
+- sha256 the book recorded: =a01b8819b4f30a1fc4ec355d079fe55848d12ef6a9af1aef8eb666ac936a3aa0=
+- sha256 on 2026-11-04: =a01b8819b4f30a1fc4ec355d079fe55848d12ef6a9af1aef8eb666ac936a3aa0= (matches)
+- cited by 3 rows:
+  - doing · vpress · lines 3-6 (Q132's ruling, 2026-08-08)
+  - doing · lrow · lines 13-14
+  - doing · cand · lines 22-24 (l/l minted CANDIDATE, Q249, 2026-08-06, line 14)
+
+** =c4/l/l=
+- here: =sources/c4/l/l= (344 bytes)
+- sha256 the book recorded: =2db1478860bd8d827936a866825e8433c18e68082f54a63bc327e4c780333d70=
+- sha256 on 2026-11-04: =2db1478860bd8d827936a866825e8433c18e68082f54a63bc327e4c780333d70= (matches)
+- cited by 1 row:
+  - doing · ll · (the whole file); its column names, one path over in c4/d/l/l, read "TOKEN SHA1"
+
+** =c4/facts/space-binds-and-case-resolves=
+- here: =sources/c4/facts/space-binds-and-case-resolves= (5,532 bytes)
+- sha256 the book recorded: =7801ec39bdab1861187691db36fd1f72ea894463d60f232cb9199486f8383655=
+- sha256 on 2026-11-04: =7801ec39bdab1861187691db36fd1f72ea894463d60f232cb9199486f8383655= (matches)
+- cited by 3 rows:
+  - spaces · binds · lines 26-27
+  - spaces · found · lines 1-4 and 16-17 (2026-08-10)
+  - keeping · word · lines 65-67 (2026-08-10)
+
+** =c4/bin/sh1am=
+- here: =sources/c4/bin/sh1am= (4,228 bytes)
+- sha256 the book recorded: =a5b36aff41067d00083363d416efa0e54f2155b110434d941040f5fa8144b2db=
+- sha256 on 2026-11-04: =a5b36aff41067d00083363d416efa0e54f2155b110434d941040f5fa8144b2db= (matches)
+- cited by 2 rows:
+  - keeping · third · lines 27-29
+  - proving · liar · lines 15-18, 30 and 37-38 (the tool's header)
+
+** =c4/bin/tv1cr=
+- here: =sources/c4/bin/tv1cr= (53,226 bytes)
+- sha256 the book recorded: =11ee262438373c975e1ad24faa018ba813aebad35247ee1e32680bbebd217ded=
+- sha256 on 2026-11-04: =11ee262438373c975e1ad24faa018ba813aebad35247ee1e32680bbebd217ded= (matches)
+- cited by 4 rows:
+  - keeping · exit2 · lines 24-25 (the tool's header)
+  - keeping · trampled · line 14 (the tool's header)
+  - twice · writers · lines 2-3, 14 and 18-19 (the tool's header)
+  - when · stamp · lines 14-16 (the tool's header)
+
+** =c4/evidence/question-bank-iTNH.tsv=
+- here: *not in this folder* (held back)
+- sha256 the book recorded: =f0f67784cc1a5f71b090653ff29ab7675c0478a6a5fd2cd80e92bfdfe25f581c=
+- sha256 on 2026-11-04: =f0f67784cc1a5f71b090653ff29ab7675c0478a6a5fd2cd80e92bfdfe25f581c= (matches)
+- cited by 1 row:
+  - keeping · ruled · lines 926 and 931
+
+** =c4/facts/log-means-atomic-history=
+- here: =sources/c4/facts/log-means-atomic-history= (916 bytes)
+- sha256 the book recorded: =68290f5f64794c0c341203a5466bd61bddb363f4884d41eee7ca83274885a7a2=
+- sha256 on 2026-11-04: =68290f5f64794c0c341203a5466bd61bddb363f4884d41eee7ca83274885a7a2= (matches)
+- cited by 1 row:
+  - keeping · log · lines 3-6 ("From: Corwin, 2026-09-18", line 9)
+
+** =c4/HELLO-C4.md=
+- here: =sources/c4/HELLO-C4.md= (38,080 bytes)
+- sha256 the book recorded: =970ce8423829a7032465869146ba07bf91b73f9dd6871577fe6213a121ce19c4=
+- sha256 on 2026-11-04: =970ce8423829a7032465869146ba07bf91b73f9dd6871577fe6213a121ce19c4= (matches)
+- cited by 3 rows:
+  - proving · planted · lines 37-40 (chapter 01, "The stand-ins")
+  - twice · onehand · lines 42-46 (chapter 01, "The stand-ins")
+  - when · date · lines 32-35
+
+** =c4/p/c4fn/ghostwheel.fn.sh=
+- here: =sources/c4/p/c4fn/ghostwheel.fn.sh= (23,345 bytes)
+- sha256 the book recorded: =8458a930d67aec89593a830fafce187a268ce98e7e40f700377bcd5a7c6ae6b3=
+- sha256 on 2026-11-04: =8458a930d67aec89593a830fafce187a268ce98e7e40f700377bcd5a7c6ae6b3= (matches)
+- cited by 20 rows:
+  - proving · first · lines 19-21 (his file: "Copyright (C)2026 Corwin Brust", line 3)
+  - witnesses · code · lines 34-40 (his file: "Copyright (C)2026 Corwin Brust", line 3)
+  - zero · unset · line 23
+  - zero · zero · lines 34-40
+  - zero · only0 · line 254
+  - zero · names · lines 248-252
+  - zero · me · lines 460-462 (the function itself at lines 436-456)
+  - zero · count · the whole file
+  - zero · count · (grep -c -E '^\s*c4\.t\.b +"[a-z]*" +0', and the same with +[1-9])
+  - zero · exist · lines 898-900
+  - zero · nodie · line 10
+  - floors · floors · lines 34-40
+  - floors · count · (grep -c -E '^\s*c4\.t\.b +"[a-z]*" +0', and the same with +[1-9])
+  - floors · count · the whole file
+  - running · five · line 40
+  - running · sshfs · lines 884-895
+  - running · wheels · line 882
+  - running · licence · lines 3-4
+  - running · count · (grep -c -E '^\s*c4\.t\.b +"[a-z]*" +0', and the same with +[1-9])
+  - running · count · the whole file
+
+** =c4/facts/drift=
+- here: =sources/c4/facts/drift= (2,681 bytes)
+- sha256 the book recorded: =ae8fef4fd79610775408a7c321754edd8bc3a19a40703812f3389abc231b7df8=
+- sha256 on 2026-11-04: =ae8fef4fd79610775408a7c321754edd8bc3a19a40703812f3389abc231b7df8= (matches)
+- cited by 2 rows:
+  - proving · ladder · lines 10-11 (2026-08-08)
+  - witnesses · promise · lines 10-11 (2026-08-08)
+
+** =c4/facts/build-the-instrument-twice=
+- here: =sources/c4/facts/build-the-instrument-twice= (2,341 bytes)
+- sha256 the book recorded: =d380b895c38dcc16645ebb0761ce648d476615c409c71380bcf301c62e48f48f=
+- sha256 on 2026-11-04: =d380b895c38dcc16645ebb0761ce648d476615c409c71380bcf301c62e48f48f= (matches)
+- cited by 2 rows:
+  - twice · twice · lines 6-7 (2026-08-10)
+  - twice · corrected · lines 7-9 (the invent-computing pass, 2026-08-10)
+
+** =c4/q/2026-11-03-atom-dates/PLAN.md=
+- here: =sources/c4/q/2026-11-03-atom-dates/PLAN.md= (24,581 bytes)
+- a *q/* file: C4's q/ keeps Corwin's prompts, as he wrote them, beside what was made from them. This one
+  is the instrument's plan for the book, written from his prompt; it quotes his words. Published
+  because it is about this work and passed the sweep; flagged so it is seen.
+- sha256 the book recorded: =c7173ccf4ca322b30683f6ffd129ac34bbb97ebd03cce0e597f9ca5514353451=
+- sha256 on 2026-11-04: =c7173ccf4ca322b30683f6ffd129ac34bbb97ebd03cce0e597f9ca5514353451= (matches)
+- cited by 11 rows:
+  - when · row · lines 34-42 (section 1)
+  - when · seen · lines 53-54 (section 1)
+  - when · dagger · lines 62-65 (section 1)
+  - when · plan · lines 48-49 (section 4 lists the seen command as missing)
+  - floors · pairing · lines 322-326 (fork F1)
+  - wormholes · wormhole · lines 161-165 (section 5)
+  - wormholes · kept · lines 166-167
+  - wormholes · opened · line 169
+  - wormholes · home · lines 327-329 (fork F2)
+  - goodnight · rows · lines 34-42 (section 1)
+  - goodnight · days · line 105
+
+** =c4/DATE=
+- here: =sources/c4/DATE= (2,224 bytes)
+- sha256 the book recorded: =11cda311dc603676429dc2bc5fb5a09f816495bcbec33bc4406c3797708eab84=
+- sha256 on 2026-11-04: =11cda311dc603676429dc2bc5fb5a09f816495bcbec33bc4406c3797708eab84= (matches)
+- cited by 1 row:
+  - when · date · lines 1-3 and 36
+
+** =c4/facts/two-readers-at-most=
+- here: =sources/c4/facts/two-readers-at-most= (3,947 bytes)
+- sha256 the book recorded: =bcb6af309e0ca0145badaa16aa499f737139cf884bfe583e910e39ffc0efdf22=
+- sha256 on 2026-11-04: =bcb6af309e0ca0145badaa16aa499f737139cf884bfe583e910e39ffc0efdf22= (matches)
+- cited by 1 row:
+  - when · mirror · lines 16-17 (Corwin, 2026-09-17)
+
+** =c4/facts/run-levels-above-the-tumblers-are-virtual=
+- here: =sources/c4/facts/run-levels-above-the-tumblers-are-virtual= (1,332 bytes)
+- sha256 the book recorded: =d68f1300d815b6051ab1cff4bfe5bc2e2117ec3e3782bff49cc214bccf3e896d=
+- sha256 on 2026-11-04: =d68f1300d815b6051ab1cff4bfe5bc2e2117ec3e3782bff49cc214bccf3e896d= (matches)
+- cited by 10 rows:
+  - witnesses · code · lines 18-19 (2026-09-11)
+  - witnesses · tumbler · lines 15-17 (2026-09-11)
+  - floors · tumblers · lines 8-11
+  - floors · twoladders · lines 18-20
+  - floors · pairing · lines 15-16
+  - running · hostrunning · lines 18-19
+  - roof · virtual · lines 8-11
+  - roof · above · lines 16-17
+  - roof · five · lines 18-19
+  - roof · memory · lines 24-25
+
+** =c4/facts/three-graphs-disagree-and-none-may-crown=
+- here: =sources/c4/facts/three-graphs-disagree-and-none-may-crown= (2,299 bytes)
+- sha256 the book recorded: =f6b6806392099b6ced71c8971e83e3db6f0e4ba75379d7b2c5035e5cee19f855=
+- sha256 on 2026-11-04: =f6b6806392099b6ced71c8971e83e3db6f0e4ba75379d7b2c5035e5cee19f855= (matches)
+- cited by 1 row:
+  - witnesses · crown · lines 6-10 (2026-08-05)
+
+** =c4/p/c4fn/gw.rc=
+- here: =sources/c4/p/c4fn/gw.rc= (1,307 bytes)
+- sha256 the book recorded: =7fa7b1e4fd88f4b4dc11395a028d2a2f2ce65fd34654f22e15d8628c14b1a9f2=
+- sha256 on 2026-11-04: =7fa7b1e4fd88f4b4dc11395a028d2a2f2ce65fd34654f22e15d8628c14b1a9f2= (matches)
+- cited by 2 rows:
+  - zero · ready · lines 24-29 and 37-43
+  - running · spokes · lines 37-43
+
+** =c4/h/sg1pl=
+- here: =sources/c4/h/sg1pl= (15,820 bytes)
+- sha256 the book recorded: =1d17b2f7769e9175bf2706c1ed2617587dbefc8af04bb02f94dc9fbe20a569a5=
+- sha256 on 2026-11-04: =1d17b2f7769e9175bf2706c1ed2617587dbefc8af04bb02f94dc9fbe20a569a5= (matches)
+- cited by 2 rows:
+  - floors · locks · lines 43-49
+  - floors · below · line 43
+
+** =c4/model.md=
+- here: *not in this folder* (held back)
+- sha256 the book recorded: =de571c9694cd6f0f0ac18034b88aa7ed51d2567d03853afc97ab2ac185d963e7=
+- sha256 on 2026-11-04: =de571c9694cd6f0f0ac18034b88aa7ed51d2567d03853afc97ab2ac185d963e7= (matches)
+- cited by 1 row:
+  - floors · twoladders · line 1005 (held open #4)
+
+** =c4/p/c4fn/LICENSE=
+- here: =sources/c4/p/c4fn/LICENSE= (33,941 bytes)
+- sha256 the book recorded: =4ca481b3ef58d385d6e2cc2a64c6cea937bf1b6bcb2a33e6f62be75b04849d91=
+- sha256 on 2026-11-04: =4ca481b3ef58d385d6e2cc2a64c6cea937bf1b6bcb2a33e6f62be75b04849d91= (matches)
+- cited by 1 row:
+  - running · licence · lines 1-2
+
+** =c4/bin/ix0xi=
+- here: =sources/c4/bin/ix0xi= (13,449 bytes)
+- sha256 the book recorded: =af1bd0f6ded37f1194d06ac92442ac46635dbd7fa56491a750fab96ad03ffd8d=
+- sha256 on 2026-11-04: =af1bd0f6ded37f1194d06ac92442ac46635dbd7fa56491a750fab96ad03ffd8d= (matches)
+- cited by 3 rows:
+  - roof · elevator · line 2 and lines 50-54
+  - roof · dot · lines 59-60 and 71-73
+  - roof · many · lines 56-57
+
+** =c4/a/gw-rings=
+- here: =sources/c4/a/gw-rings= (486 bytes)
+- sha256 the book recorded: =a406b0b16ec593eb143088df67023fdd40dfc01a420c0f1a36d6d2e4d25694d8=
+- sha256 on 2026-11-04: =a406b0b16ec593eb143088df67023fdd40dfc01a420c0f1a36d6d2e4d25694d8= (matches)
+- cited by 1 row:
+  - rings · twothree · lines 3-5
+
+** =c4/facts/magic-numbers-is-itself-a-seam=
+- here: =sources/c4/facts/magic-numbers-is-itself-a-seam= (3,293 bytes)
+- sha256 the book recorded: =8419bfcebf533e06022f903dc67100dbdf688e7f55da7bd2cc5872b93790c0a0=
+- sha256 on 2026-11-04: =8419bfcebf533e06022f903dc67100dbdf688e7f55da7bd2cc5872b93790c0a0= (matches)
+- cited by 1 row:
+  - wormholes · nohits · line 42
+
+** =c4/facts/pin-both-is-cheaper-than-choosing=
+- here: =sources/c4/facts/pin-both-is-cheaper-than-choosing= (3,580 bytes)
+- sha256 the book recorded: =b8ed10d7f945e3cedec01e6c9eb00dc27c9730e9943c2b28999d8db7682b1116=
+- sha256 on 2026-11-04: =b8ed10d7f945e3cedec01e6c9eb00dc27c9730e9943c2b28999d8db7682b1116= (matches)
+- cited by 1 row:
+  - wormholes · nohits · lines 42-43
+
+** =c4/facts/secret-sweep-before-push=
+- here: =sources/c4/facts/secret-sweep-before-push= (1,231 bytes)
+- sha256 the book recorded: =790dbe929588bc03c142e204d9d99ef7af26e08faf761a1ed09c55370c40d183=
+- sha256 on 2026-11-04: =790dbe929588bc03c142e204d9d99ef7af26e08faf761a1ed09c55370c40d183= (matches)
+- cited by 1 row:
+  - wormholes · nohits · lines 8-9
+
+** =c4/h/c4qa.sh=
+- here: =sources/c4/h/c4qa.sh= (4,616 bytes)
+- sha256 the book recorded: =a8882a602587be51d416df8a02a20e6e692d4366107b2fb01d2853df19e76e93=
+- sha256 on 2026-11-04: =a8882a602587be51d416df8a02a20e6e692d4366107b2fb01d2853df19e76e93= (matches)
+- cited by 1 row:
+  - goodnight · c4ql · lines 2-9
+
+* Rows that cite something other than a C4 file
+
+- proving · book · cites: ghostwheel-book/checks/run.sh, lines 237-238
+  - this folder's =checks/run.sh=. Changed since the book read it (sha256 now =8c3fccca7792282767ff61e538fc84c4885d669570dd9159622df6b12838b05c=); the quoted lines are now 375-376.
+- when · row · cites: ghostwheel-book/README.md, lines 98-105
+  - this folder's =README.md=. Changed since the book read it (sha256 now =81a048204f0e60dd1d2794c2eb4a7f7c149cedddfde0117d1c3721de279fcde2=); the quoted lines are now 99-105.
+- when · dagger · cites: the pub shelf's papers/ai-diligence-sysops/ai-diligence-sysops-v0.2.1.md, lines 169-170 and 175
+  - the paper =papers/ai-diligence-sysops/ai-diligence-sysops-v0.2.1.md= in this repository. Its sha256 matches the row.
+- when · plan · cites: the command "ls c/seen d/c/seen" in c4
+  - a command that found nothing (an absence has no file to hash).
+- witnesses · instrument · cites: the pub shelf's papers/ai-diligence-sysops/ai-diligence-sysops-v0.2.1.md, lines 23-25
+  - the paper =papers/ai-diligence-sysops/ai-diligence-sysops-v0.2.1.md= in this repository. Its sha256 matches the row.
+- wormholes · noabandon · cites: the pub shelf's canon/principles/CANON.md, line 47
+  - =canon/principles/CANON.md= in this repository (signed; its =.asc= beside it). Its sha256 matches the row.
+- wormholes · nohits · cites: c4: grep -rli 'wormhol' facts c d/c evidence bin C4.md C4-LANG.md README.md model.md GHOSTWHEEL.org HELLO-C4.md
+  - a search across several C4 folders and files that found nothing; its =sha:= is the hash of =c4/README.md= (here, above), one of the files it searched.
+- goodnight · list · cites: src/book, and the == facts == section of each spread it lists, door to wormholes
+  - this folder's =src/=: the spreads, door to wormholes. =sh checks/run.sh inventory= recomputes the hash.
+- goodnight · days · cites: the seen: lines of the spreads named in src/book
+  - this folder's =src/=: the =seen:= lines of the spreads. Same hash as the row above.
+
+* What the sweep looked for, and what it let through on purpose
+
+Each file was read from C4 and swept before it was copied here: for secrets (keys, tokens, passwords,
+anything credential-like; also C4's own =bin/secret-sweep=, 0 HIGH and 0 warn over all of them), for
+anyone besides Corwin named in a private-life way, and for private repositories and the addresses of
+private hosts. These are published knowingly:
+
+- *Corwin's machine names* (=gw3= to =gw33=, =avalon=, =giza=): his rule is that his machines may be named.
+- *Public addresses*: =ghostwheel.cloud=, =c4.ghostwheel.cloud=, =scratch.ghostwheel.cloud=, =corwin.cloud=,
+  and =bru.st= in authors' e-mail lines and one setting's default.
+- *Repositories*: =inputloop/ta= and =inputloop/hello-taxgnomes=, both public (GitHub, 2026-11-04).
+- *Paths on Corwin's machine*, kept because each is the record of what a tool does or measured:
+  =c4/HELLO-C4.md= lines 188 (the mount root, as =bin/da1te= reads it) and 434 (the prefix =bin/where=
+  strips); =c4/q/2026-11-03-atom-dates/PLAN.md= line 288 (the long-path measurement on Avalon).
+- *People, all in work or community roles*: Bryant Frankford and K Smith as collaborators; Carl Hawkins
+  as the author of a style sheet; Erik for a framing; and, in =c4/facts/ghostwheel-cloud-the-public-c4=,
+  the people a ghostwheel host's console is shared with, as the public instance table at
+  https://ghostwheel.cloud/ lists them (checked 2026-11-04). Nan, June and Roz in the plan are reader
+  personas, not people.
+- =c4/p/c4fn/LICENSE= is the GNU AGPL version 3 text, verbatim: the record of that C4 folder's file, not
+  this item's licence.
+
+Mentat (for Corwin, claude-opus-5-5)

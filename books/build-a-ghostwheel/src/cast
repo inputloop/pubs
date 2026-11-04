@@ -1,0 +1,22 @@
+# The cast: who speaks, in which Piper voice.
+# Copyright 2026 Corwin Brust; CC-BY-SA-4.0
+#
+#   who: voice [speaker ID] [speed N] [fx FFMPEG-AUDIO-FILTER] [label NAME]
+#   who@A: ...           used in take A in place of "who"
+#   voice | voice | ...  a company: the role's lines pass from voice to voice
+#
+# speed is Piper's length scale: above 1 is slower. The settings lean slow
+# and close (his tone note, 2026-11-03 14:21: "intimate"); no echo, no hall.
+# Every voice here was chosen because its model card names free training
+# data AND says it was trained from scratch on it. COLOPHON.md quotes each
+# card. To change a voice, change one line.
+
+# Take A, "the company talks to you": the narration passes among three voices.
+narrator@A: en_US-ljspeech-high speed 1.12 | en_US-kristin-medium speed 1.06 | en_US-libritts-high speaker p8138 speed 1.06
+
+# Take B, "the lap reader": one close voice reads to you.
+narrator@B: en_US-ljspeech-high speed 1.14
+
+spoke: en_GB-cori-high speed 1.10
+pin:   en_US-libritts-high speaker p3032 speed 1.00
+chad:  en_US-norman-medium speed 0.98

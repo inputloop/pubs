@@ -1,0 +1,228 @@
+# doing -- spread 4 of "So You Want To Build A Ghostwheel?"
+# Copyright 2026 Corwin Brust; CC-BY-SA-4.0
+# Facts about C4 come from C4 itself, read-only on Avalon (the c4 tree),
+# 2026-11-04T00:13:56Z. Each [mark] on the fuller page opens its witness rows.
+kind: spread
+number: 4
+title: Doing
+part: Part One: how we say things
+
+== picture page ==
+The L door has four names.
+List is not one of them.
+
+But Pin can make a list!
+We can do it.
+List is a real word, too.
+
+== layout ==
+# The words sit in the quiet wall at the top right, between the L door's
+# name plate and Spoke, so the eye goes from the door's four names, across
+# the words, and down to Pin's list on the floor.
+picture: full
+words: inset
+size: 3.6
+at: 50 6 44
+align: left
+ground: soft
+
+== fuller page ==
+In C4, a word is a type when the system knows how to effect it: "give it
+real behavior, recognise it, use it." It does not need a row in the table
+[vtype]. Corwin's words: "a virtual type simply means a word that we honor
+as it was a word we know how to effect as a type within our taxonomy even
+though it does not appear as a taxonomy" [vpress].
+
+His chosen example is LIST. The L line of m/t reads LAYOUT, LIBRARY, LINK,
+LICENSE. It has no LIST, and none is due [lrow]. Yet the shop makes lists.
+A small file, l/l, pins each of eight brackets, ( ) [ ] { } < >, to its own
+hash, and that registry is what makes a list a list, with no table word
+anywhere in the loop [ll]. The file is on disk, and it is still marked
+CANDIDATE: the ruling settled the principle, not that one file [cand].
+
+This undoes a wrong question. "Is LIST in the table?" was checking the
+wrong ledger. The rule "decouples 'is this real?' from 'is this in the
+table?'" A type is real when something can do it [ledger].
+
+C4-LANG lists six such words so far, each a word and a promise: TYPE (or
+kind), theme, skin, QUERY, word and hunk [six]. One of them, word, holds the
+whole grammar together; it comes back on the keeping page.
+
+== diagram ==
+kind: pair
+caption: Four names on the L door, and no LIST among them. The shop makes lists anyway: eight brackets, each pinned to its own hash in l/l. Setting the two columns side by side, row by row, is only for the drawing.
+left: The L line in m/t
+right: LIST, done by l/l
+LAYOUT | ( and ), each pinned to its own hash
+LIBRARY | [ and ]
+LINK | { and }
+LICENSE | < and >
+
+== facts ==
+fact: vtype
+said: "A word is a type in C4 if the system knows how to effect it — give it real behavior, recognise it, use it. It does not need a row in m/t."
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/C4-LANG.md, lines 58-59 (section 2)
+sha: sha256:d99139b865824ff3a6b3c21246d4226561354271263cecf2c7126e70bcc5667d
+state: seen
+
+fact: vpress
+said: "a virtual type simply means a word that we honor as it was a word we know how to effect as a type within our taxonomy even though it does not appear as a taxonomy."
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/C4-LANG.md, lines 61-62 (section 2)
+sha: sha256:d99139b865824ff3a6b3c21246d4226561354271263cecf2c7126e70bcc5667d
+state: seen
+
+fact: vpress
+said: "a virtual type simply means a word that we honor as it was a word we know how to effect as a type within our taxonomy even though it does not appear as a taxnomony. LIST is the principle example provided with the system of actually doing that." (his spelling kept)
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/facts/virtual-type-needs-no-taxonomy-slot, lines 3-6 (Q132's ruling, 2026-08-08)
+sha: sha256:a01b8819b4f30a1fc4ec355d079fe55848d12ef6a9af1aef8eb666ac936a3aa0
+state: seen
+note: The two copies differ by one word: C4-LANG prints "taxonomy", the fact keeps his "taxnomony". A spelling, not a meaning; the page quotes C4-LANG.
+
+fact: lrow
+said: "L LAYOUT LIBRARY LINK LICENSE"
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/m/t, line 9
+sha: sha256:5c7d90f7bd6938e5733e06f3171a08ba23db0f1b875ac6c8fd3af6d50e203fc2
+state: seen
+
+fact: lrow
+said: "m/t's L row reads LAYOUT LIBRARY LINK LICENSE -- four facets, unchanged, no LIST, none due."
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/facts/virtual-type-needs-no-taxonomy-slot, lines 13-14
+sha: sha256:a01b8819b4f30a1fc4ec355d079fe55848d12ef6a9af1aef8eb666ac936a3aa0
+state: seen
+
+fact: ll
+said: 8 lines, one bracket and one 40-character hash each: ( ) [ ] { } < >.
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/l/l (the whole file); its column names, one path over in c4/d/l/l, read "TOKEN SHA1"
+sha: sha256:2db1478860bd8d827936a866825e8433c18e68082f54a63bc327e4c780333d70
+state: seen
+
+fact: ll
+said: "LIST is effected instead by a delimiter-to-hash registry — ( ) [ ] { } < > each pinned to its own SHA1 — with no taxonomy word anywhere in the loop."
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/C4-LANG.md, lines 64-66 (section 2)
+sha: sha256:d99139b865824ff3a6b3c21246d4226561354271263cecf2c7126e70bcc5667d
+state: seen
+
+fact: cand
+said: "l/l itself is still CANDIDATE, not promoted by this ruling -- the GENERAL principle (virtual types exist; m/t is not the only place a word becomes real) is what landed here".
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/facts/virtual-type-needs-no-taxonomy-slot, lines 22-24 (l/l minted CANDIDATE, Q249, 2026-08-06, line 14)
+sha: sha256:a01b8819b4f30a1fc4ec355d079fe55848d12ef6a9af1aef8eb666ac936a3aa0
+state: seen
+note: Seen in this fact only; no second record of l/l's status was looked for. One witness.
+
+fact: ledger
+said: "It decouples 'is this real?' from 'is this in the table?' Taxonomy-completeness questions were checking the wrong ledger. A type is real when something can do it."
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/C4-LANG.md, lines 68-70 (section 2)
+sha: sha256:d99139b865824ff3a6b3c21246d4226561354271263cecf2c7126e70bcc5667d
+state: seen
+
+fact: six
+said: "Virtual types minted so far, each a word and a promise": TYPE / kind, theme, skin, QUERY, word, hunk.
+seen: 2026-11-04T00:13:56Z
+by: part-one (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/C4-LANG.md, lines 72-81 (section 2)
+sha: sha256:d99139b865824ff3a6b3c21246d4226561354271263cecf2c7126e70bcc5667d
+state: seen
+note: "So far" is the file's own; C4-LANG's text carries 2026-08-10 and 2026-10-20, so the count is as of one of those, not as of this reading.
+
+== narration ==
+# Take A, "the company talks to you": every voice speaks to the listener.
+[picture A]
+narrator: Here's the L door. Can you count the four names on it?
+spoke: Layout, library, link, license. No list.
+narrator: List is not one of them.
+pin: But look what I've got. I can make a list, see? Brackets and all.
+narrator: We can do it. So list is a real word, too.
+spoke: A word we can do is a real word. Remember that one for me.
+[fuller A]
+narrator [vtype]: In {C4|C four}, a word is a type when the system knows how to do it. It doesn't need a row in the table.
+pin [vpress]: Corwin's own words: a virtual type is a word we honour as a word we know how to effect, even though it isn't in the taxonomy.
+spoke [lrow]: Look at the L line with me: layout, library, link, license. No list, and none is due.
+pin [ll]: But there's a little file, {l/l|ell ell}. It pins eight brackets, each one to its own hash. That's what makes a list a list.
+spoke [cand]: It's still marked candidate. The ruling settled the idea, not that one file.
+narrator [ledger]: So asking whether list is in the table was checking the wrong ledger. A type is real when something can do it.
+pin [six]: The language book counts six words like this so far. One of them, word, comes back soon. Watch for it with me.
+
+# Take B, "the lap reader": one close voice reads to you; Spoke and Pin
+# mostly talk to each other, and turn to you only in a short aside.
+[picture B]
+narrator: The L door has four names. List is not one of them.
+spoke: Pin, there's no list on the L door.
+pin: There's a list in my paws, though.
+narrator: But Pin can make a list. We can do it.
+spoke: Then list is a real word.
+pin: That's what I wrote.
+[fuller B]
+narrator [vtype]: In {C4|C four}, a word is a type when the system knows how to effect it: give it real behaviour, recognise it, use it. It does not need a row in the table.
+narrator [vpress]: Corwin put it this way: a virtual type simply means a word that we honor as a word we know how to effect, even though it does not appear in the taxonomy.
+spoke [lrow]: The L line says layout, library, link, license.
+pin [lrow]: No list. None due.
+narrator [ll]: Yet the shop makes lists. A small file, {l/l|ell ell}, pins each of eight brackets to its own hash, with no table word anywhere in the loop.
+pin [cand]: I wrote it down as candidate. The principle landed, not the file.
+narrator [ledger]: Is list in the table? That was the wrong ledger. A type is real when something can do it.
+spoke [six]: Six words like that so far, Pin.
+pin [six]: Six. Word is one of them. Hold on to that one.
+
+== picture ==
+<svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="doing-t">
+  <title id="doing-t">The tall teal L door, its round plate marked L and a cream sign on it listing four names: layout, library, link, license. On the floor beside it a small smiling computer reads brackets on its screen. Pin the mouse stands proudly by a long paper list unrolled across the floor, written with brackets, and Spoke floats above the list, looking.</title>
+  <rect width="800" height="800" fill="url(#g-wall)"/>
+  <rect y="640" width="800" height="160" fill="url(#g-floor)"/>
+  <rect y="634" width="800" height="9" fill="#c49a6c"/>
+  <g class="doing-door">
+    <path d="M 90,640 V 330 A 110 110 0 0 1 310,330 V 640 Z" fill="#2a9d8f" stroke="#5e3720" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M 112,622 V 336 A 88 88 0 0 1 288,336 V 622 Z" fill="none" stroke="#23766b" stroke-width="3"/>
+    <circle cx="282" cy="560" r="8" fill="#e9c46a" stroke="#5e3720" stroke-width="3"/>
+    <g transform="translate(200 288)"><circle r="28" fill="#fffaf0" stroke="#5e3720" stroke-width="4"/><text y="11" transform="scale(1.5)" text-anchor="middle" class="plate">L</text></g>
+    <rect x="128" y="372" width="144" height="160" rx="9" fill="#fffdf6" stroke="#5e3720" stroke-width="3"/>
+    <g fill="#e76f51"><circle cx="146" cy="403" r="5"/><circle cx="146" cy="437" r="5" fill="#e9c46a"/><circle cx="146" cy="471" r="5" fill="#8ab17d"/><circle cx="146" cy="505" r="5" fill="#457b9d"/></g>
+    <text transform="translate(158 410) scale(0.8)" class="plate">LAYOUT</text>
+    <text transform="translate(158 444) scale(0.8)" class="plate">LIBRARY</text>
+    <text transform="translate(158 478) scale(0.8)" class="plate">LINK</text>
+    <text transform="translate(158 512) scale(0.8)" class="plate">LICENSE</text>
+  </g>
+  <g transform="translate(362 690) scale(1.3)">
+    <rect x="-30" y="-28" width="60" height="46" rx="8" fill="#264653" stroke="#2d2a32" stroke-width="3"/>
+    <rect class="screen s3" x="-23" y="-21" width="46" height="31" rx="5" fill="#bfeee5"/>
+    <text transform="translate(0 -7) scale(0.62)" text-anchor="middle" class="plate">( )</text>
+    <path d="M -7,1 Q 0,6 7,1" stroke="#2d2a32" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+    <rect x="-14" y="18" width="28" height="8" rx="3" fill="#2d2a32"/>
+  </g>
+  <g class="doing-shelf">
+    <rect x="40" y="150" width="190" height="10" rx="4" fill="#c49a6c"/>
+    <path d="M 64,160 L 72,176 M 206,160 L 198,176" stroke="#b98f5a" stroke-width="5" stroke-linecap="round"/>
+    <g transform="translate(96 150)">
+      <path d="M -16,0 L -11,-26 H 11 L 16,0 Z" fill="#e76f51" stroke="#2d2a32" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M 0,-26 C -16,-44 -20,-58 -6,-68 M 0,-26 C 4,-50 14,-60 22,-64 M 0,-26 C -3,-44 3,-58 1,-74" fill="none" stroke="#2a9d8f" stroke-width="4" stroke-linecap="round"/>
+      <ellipse cx="-7" cy="-64" rx="8" ry="5" transform="rotate(-40 -7 -64)" fill="#2a9d8f"/>
+      <ellipse cx="21" cy="-61" rx="8" ry="5" transform="rotate(30 21 -61)" fill="#2a9d8f"/>
+      <ellipse cx="1" cy="-74" rx="5" ry="8" fill="#2a9d8f"/>
+    </g>
+    <rect x="150" y="118" width="24" height="32" rx="3" fill="#457b9d" stroke="#2d2a32" stroke-width="2.5"/>
+    <rect x="176" y="124" width="20" height="26" rx="3" fill="#e9c46a" stroke="#2d2a32" stroke-width="2.5"/>
+  </g>
+  <g class="doing-list">
+    <path d="M 560,676 C 610,668 660,684 712,676 C 736,672 754,676 768,678 L 772,712 C 756,710 738,708 714,712 C 662,720 612,704 562,712 Z" fill="#fffdf6" stroke="#4a3f38" stroke-width="3" stroke-linejoin="round"/>
+    <ellipse cx="770" cy="695" rx="9" ry="19" fill="#efe6d4" stroke="#4a3f38" stroke-width="3"/>
+    <text transform="translate(664 702) scale(1.05)" text-anchor="middle" class="plate">( )  [ ]  { }  &lt; &gt;</text>
+  </g>
+  <g data-figure="pin" transform="translate(500 712) scale(1.1)"></g>
+  <g data-figure="spoke" transform="translate(680 600) scale(0.6)"></g>
+</svg>

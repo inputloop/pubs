@@ -1,0 +1,11 @@
+# audio.pipeline -- an example of a second pipeline built from the same stages:
+# the narration, captions and mp3 only, for take B. No pictures, no video.
+# Copyright 2026 Corwin Brust; GPL-3.0-or-later
+# Run it with:  sh run -p audio.pipeline
+set takes=B
+
+voices    once  tools/voices.py
+narrate   each  tools/narrate.py
+captions  each  tools/captions.py
+mp3       each  tools/mp3.sh
+check     each  checks/run.sh words captions

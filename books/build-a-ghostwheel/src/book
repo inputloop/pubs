@@ -1,0 +1,35 @@
+# The book: its title, and the order of its spreads (one bare word each).
+# Copyright 2026 Corwin Brust; CC-BY-SA-4.0
+title: So You Want To Build A Ghostwheel?
+subtitle: A book in seventeen spreads
+copyright: Copyright 2026 Corwin Brust; CC-BY-SA-4.0 (words and pictures)
+# The dedication page faces the title page. Left empty, it is a blank page
+# with only the ghost light on it. The dedication is Corwin's to write.
+dedication:
+# Takes: two ways to voice the same pages (his tone note, 2026-11-03 14:21).
+take: A the company talks to you
+take: B the lap reader
+spread: cover
+# Part One: how we say things
+spread: chad
+spread: door
+spread: letters
+spread: seams
+spread: doing
+spread: spaces
+spread: keeping
+spread: proving
+spread: twice
+spread: when
+spread: witnesses
+# Part Two: how a ghostwheel wakes up
+spread: chad2
+spread: zero
+spread: floors
+spread: running
+spread: roof
+spread: rings
+spread: wormholes
+spread: chad3
+spread: goodnight
+spread: end

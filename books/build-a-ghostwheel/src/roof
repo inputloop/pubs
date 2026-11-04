@@ -1,0 +1,223 @@
+# roof -- spread 14 of "So You Want To Build A Ghostwheel?"
+# Copyright 2026 Corwin Brust; CC-BY-SA-4.0
+# Facts about C4 come from C4 itself, read-only on Avalon (the c4 tree),
+# seen 2026-11-04T00:19:40Z. Each [mark] on the fuller page opens its witness rows.
+kind: spread
+number: 14
+title: Roof
+part: Part Two: how a ghostwheel wakes up
+
+== picture page ==
+Above the roof are pretend floors!
+
+Things on the wheel can climb them,
+up, and up, and up.
+
+The computer still says one word:
+running.
+
+== layout ==
+# Look up (top left, beside the dashed floors), follow the climber (right of
+# the ladder), then come back down to the house and its one word (lower left).
+picture: full
+words: scatter
+size: 3.6
+at: 4 5 40
+at: 68 26 30
+at: 4 80 32
+align: left
+ground: soft
+
+== fuller page ==
+What if an application on the wheel wants floors of its own? Corwin has
+answered that "several times": "The higher run-levels are virtual allowing
+applications running on the ghostwheel to simulate tumbler change as for lower
+run-levels while staying in the "running" model from a host system
+standpoint" [virtual].
+
+So the roof does not move. The host still reads running. Above it, an
+application can climb pretend floors of its own and turn the same kinds of
+locks for its own purposes [above].
+
+One tool already rides them. ix0xi, the second index, calls itself an
+elevator. It quotes him: "virtual run levels above our max of four (>4 is all
+just RUNNING, to us ...)", so that moving among them "can simulate alternate
+index by ADDING LEADING DOTS" to a path [elevator]. One floor up, c4.m.map
+becomes .c4.m.map; two floors up, ..c4.m.map. That one dot means one floor is
+the tool author's reading, and the tool says so [dot].
+
+Pin has two notes here that differ by one floor. The ruling's file puts
+running at 5 and the pretend floors above it [five]. The elevator counts 1, 2,
+3 and MANY as real, and 5, 6, 7 as virtual [many]. From the host's side they
+agree: past 4, it is all running.
+
+The ruling's file says why it was written down at all: "A ruling that has to
+be re-answered is a memory failure, not a question" [memory].
+
+== diagram ==
+kind: ladder
+caption: Past 4 the host says "running". The elevator adds a dot per rung; which rung is the first pretend one, the two notes count differently.
+focus: 6 7
+7 | pretend | ...c4.m.map
+6 | pretend | ..c4.m.map
+5 | running | .c4.m.map, one rung up to the elevator
+4 | MANY | c4.m.map
+
+== facts ==
+fact: virtual
+said: Corwin, 2026-09-11: "I see a question about run-levels?   I have answered that one several times.  The higher run-levels are virtual allowing applications running on the ghostwheel to simulate tumbler change as for lower run-levels while staying in the "running" model from a host system standpoint."
+seen: 2026-11-04T00:19:40Z
+by: part-two (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/facts/run-levels-above-the-tumblers-are-virtual, lines 8-11
+sha: sha256:d68f1300d815b6051ab1cff4bfe5bc2e2117ec3e3782bff49cc214bccf3e896d
+state: seen
+
+fact: above
+said: "Anything above is VIRTUAL: an application on the ghostwheel simulating tumbler change for its own purposes while the host still reads it as "running"."
+seen: 2026-11-04T00:19:40Z
+by: part-two (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/facts/run-levels-above-the-tumblers-are-virtual, lines 16-17
+sha: sha256:d68f1300d815b6051ab1cff4bfe5bc2e2117ec3e3782bff49cc214bccf3e896d
+state: seen
+
+fact: elevator
+said: ix0xi -- "The second index: a mirror, and the elevator that rides it." Quoting him: "virtual run levels above our max of four (>4 is all just RUNNING, to us -- okay we designed so 1, 2, 3 MANY we are running!) so that movement among the virtual run-level can simulate alternate index by ADDING LEADING DOTS or dot-and-more and/or POSTFIXING to the path resolved"
+seen: 2026-11-04T00:19:40Z
+by: part-two (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/bin/ix0xi, line 2 and lines 50-54
+sha: sha256:af1bd0f6ded37f1194d06ac92442ac46635dbd7fa56491a750fab96ad03ffd8d
+state: seen
+note: The tool exists (usage at line 87: "ix0xi ride PATH RL   the elevator: decorate PATH for run-level RL"). This session read it and did not run it.
+
+fact: dot
+said: "`c4.m.map` at MANY becomes `.c4.m.map` one rung up, `..c4.m.map` two rungs up." And, under JOURNEY: "and that a virtual rung is exactly one prefix character."
+seen: 2026-11-04T00:19:40Z
+by: part-two (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/bin/ix0xi, lines 59-60 and 71-73
+sha: sha256:af1bd0f6ded37f1194d06ac92442ac46635dbd7fa56491a750fab96ad03ffd8d
+state: seen
+note: The tool splits what is his (MUST) from the author's reading (JOURNEY); one dot per rung is on the JOURNEY side.
+
+fact: five
+said: "5 is the host's "running" and the application's virtual levels live above it."
+seen: 2026-11-04T00:19:40Z
+by: part-two (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/facts/run-levels-above-the-tumblers-are-virtual, lines 18-19
+sha: sha256:d68f1300d815b6051ab1cff4bfe5bc2e2117ec3e3782bff49cc214bccf3e896d
+state: seen
+note: Differs from the row for [many] by one floor: here 5 is running and the virtual levels start above it.
+
+fact: many
+said: "1 2 3 MANY      real. MANY is 4-and-up; the shop does not count past "it is running". / 5, 6, 7 ...     VIRTUAL. Each rung above MANY adds one prefix character to the resolved path."
+seen: 2026-11-04T00:19:40Z
+by: part-two (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/bin/ix0xi, lines 56-57
+sha: sha256:af1bd0f6ded37f1194d06ac92442ac46635dbd7fa56491a750fab96ad03ffd8d
+state: seen
+note: Differs from the row for [five] by one floor: here 5 is already virtual. Both agree the host says "running" past 4. The tool dates from 2026-08-03; the ruling from 2026-09-11.
+
+fact: memory
+said: "He has answered this several times. A ruling that has to be re-answered is a memory failure, not a question."
+seen: 2026-11-04T00:19:40Z
+by: part-two (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/facts/run-levels-above-the-tumblers-are-virtual, lines 24-25
+sha: sha256:d68f1300d815b6051ab1cff4bfe5bc2e2117ec3e3782bff49cc214bccf3e896d
+state: seen
+
+== narration ==
+[picture A]
+narrator: Look up with me. Above the roof there are pretend floors!
+narrator: Things on the wheel can climb them, up, and up, and up.
+spoke: Can you see the little one on the ladder? It's climbing for you.
+narrator: But the computer still says one word. Running.
+pin: Every pretend floor has one more dot. Count them with me.
+spoke: And the house below just keeps on running.
+[fuller A]
+narrator [virtual]: What if something on the wheel wants floors of its own? Corwin has answered that several times. The higher run-levels are virtual.
+spoke [above]: So the roof doesn't move. The host still says running, and up above, an application can climb its own pretend floors.
+pin [elevator]: One tool already rides them. It's called {ix0xi|I X zero X I}, and it calls itself an elevator.
+spoke [dot]: One floor up, it puts a dot in front of a path. Two floors up, two dots. That part is the tool author's reading, and it says so.
+pin [five]: Now, I have two notes here for you. One puts running at five, with the pretend floors above it.
+spoke [many]: The other counts five as the first pretend floor. From the house's side, they agree. Past four, it's all running.
+narrator [memory]: And here's why the ruling was written down at all: a ruling that has to be re-answered is a memory failure, not a question.
+
+[picture B]
+narrator: Above the roof are pretend floors!
+narrator: Things on the wheel can climb them, up, and up, and up.
+spoke: Pin, there's someone on the ladder.
+pin: One of ours. Look, every floor has one more dot.
+narrator: The computer still says one word. Running.
+spoke: It doesn't even look up.
+[fuller B]
+narrator [virtual]: Corwin has answered this several times. The higher run-levels are virtual, letting applications on the ghostwheel simulate tumbler change while the host stays running.
+narrator [above]: So the roof does not move. Above it, an application climbs pretend floors of its own.
+narrator [elevator]: One tool already rides them. {ix0xi|I X zero X I}, the second index, calls itself an elevator.
+narrator [dot]: One floor up, {c4.m.map|C four dot M dot map} gets a dot in front. Two floors up, two dots. One dot per floor is the author's reading.
+spoke [five]: Pin, your notes don't agree.
+pin [many]: By one floor. The ruling starts the pretend floors above five. The elevator starts them at five.
+spoke: Which one's right?
+pin [memory]: Both are kept. And the ruling's file says a ruling that has to be re-answered is a memory failure, not a question.
+
+== picture ==
+<svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="roof-t">
+  <title id="roof-t">The top of the tall house at night. On the roof, the lit lantern room marked 5 glows, and a sign on the wall below reads "running". From the lantern a ladder rises into the sky through a stack of pretend floors drawn in dashed lines, each marked with more dots than the one below, fading as they go up. A small smiling computer climbs the ladder. Spoke sits on the roof looking up; Pin sits on a ledge nearby, writing.</title>
+  <defs><linearGradient id="roof-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1f2a45"/><stop offset="1" stop-color="#5a6b93"/></linearGradient></defs>
+  <rect width="800" height="800" fill="url(#roof-sky)"/>
+  <g fill="#fff6d6"><circle cx="380" cy="30" r="1.8"/><circle cx="560" cy="60" r="2.5"/><circle cx="700" cy="120" r="3.2"/><circle cx="760" cy="40" r="1.8"/><circle cx="600" cy="170" r="2.5"/><circle cx="30" cy="330" r="3.2"/><circle cx="120" cy="280" r="1.8"/><circle cx="250" cy="250" r="2.5"/><circle cx="300" cy="400" r="3.2"/><circle cx="700" cy="450" r="1.8"/><circle cx="760" cy="560" r="2.5"/><circle cx="560" cy="520" r="3.2"/><circle cx="90" cy="470" r="1.8"/><circle cx="220" cy="560" r="2.5"/><circle cx="640" cy="330" r="3.2"/></g>
+  <g opacity="0.95">
+    <rect x="360" y="430" width="160" height="70" rx="10" fill="#fff6d6" fill-opacity="0.08" stroke="#fff6d6" stroke-width="3" stroke-dasharray="10 8"/>
+    <rect x="360" y="494" width="160" height="6" fill="#fff6d6" fill-opacity="0.35"/>
+    <circle cx="384" cy="452" r="13" fill="#fffaf0" fill-opacity="0.85" stroke="#fff6d6" stroke-width="2"/>
+    <circle cx="384.0" cy="452" r="1.9" fill="#2d2a32"/>
+  </g>
+  <g opacity="0.8">
+    <rect x="360" y="345" width="160" height="70" rx="10" fill="#fff6d6" fill-opacity="0.08" stroke="#fff6d6" stroke-width="3" stroke-dasharray="10 8"/>
+    <rect x="360" y="409" width="160" height="6" fill="#fff6d6" fill-opacity="0.35"/>
+    <circle cx="384" cy="367" r="13" fill="#fffaf0" fill-opacity="0.85" stroke="#fff6d6" stroke-width="2"/>
+    <circle cx="381.9" cy="367" r="1.9" fill="#2d2a32"/><circle cx="386.1" cy="367" r="1.9" fill="#2d2a32"/>
+  </g>
+  <g opacity="0.62">
+    <rect x="360" y="260" width="160" height="70" rx="10" fill="#fff6d6" fill-opacity="0.08" stroke="#fff6d6" stroke-width="3" stroke-dasharray="10 8"/>
+    <rect x="360" y="324" width="160" height="6" fill="#fff6d6" fill-opacity="0.35"/>
+    <circle cx="384" cy="282" r="13" fill="#fffaf0" fill-opacity="0.85" stroke="#fff6d6" stroke-width="2"/>
+    <circle cx="379.8" cy="282" r="1.9" fill="#2d2a32"/><circle cx="384.0" cy="282" r="1.9" fill="#2d2a32"/><circle cx="388.2" cy="282" r="1.9" fill="#2d2a32"/>
+  </g>
+  <g opacity="0.45">
+    <rect x="360" y="175" width="160" height="70" rx="10" fill="#fff6d6" fill-opacity="0.08" stroke="#fff6d6" stroke-width="3" stroke-dasharray="10 8"/>
+    <rect x="360" y="239" width="160" height="6" fill="#fff6d6" fill-opacity="0.35"/>
+    <circle cx="384" cy="197" r="13" fill="#fffaf0" fill-opacity="0.85" stroke="#fff6d6" stroke-width="2"/>
+    <circle cx="377.7" cy="197" r="1.9" fill="#2d2a32"/><circle cx="381.9" cy="197" r="1.9" fill="#2d2a32"/><circle cx="386.1" cy="197" r="1.9" fill="#2d2a32"/><circle cx="390.3" cy="197" r="1.9" fill="#2d2a32"/>
+  </g>
+  <g opacity="0.28">
+    <rect x="360" y="100" width="160" height="60" rx="10" fill="#fff6d6" fill-opacity="0.08" stroke="#fff6d6" stroke-width="3" stroke-dasharray="10 8"/>
+    <rect x="360" y="154" width="160" height="6" fill="#fff6d6" fill-opacity="0.35"/>
+    <circle cx="384" cy="122" r="13" fill="#fffaf0" fill-opacity="0.85" stroke="#fff6d6" stroke-width="2"/>
+    <circle cx="375.6" cy="122" r="1.9" fill="#2d2a32"/><circle cx="379.8" cy="122" r="1.9" fill="#2d2a32"/><circle cx="384.0" cy="122" r="1.9" fill="#2d2a32"/><circle cx="388.2" cy="122" r="1.9" fill="#2d2a32"/><circle cx="392.4" cy="122" r="1.9" fill="#2d2a32"/>
+  </g>
+  <g stroke="#e9c46a" stroke-width="5" stroke-linecap="round">
+    <line x1="422" y1="560" x2="422" y2="430"/><line x1="458" y1="560" x2="458" y2="430"/>
+  </g>
+  <g stroke="#e9c46a" stroke-width="5" stroke-linecap="round" stroke-dasharray="14 9" opacity="0.8">
+    <line x1="422" y1="430" x2="422" y2="96"/><line x1="458" y1="430" x2="458" y2="96"/>
+  </g>
+  <g stroke="#e9c46a" stroke-width="3.5" stroke-linecap="round"><line x1="422" y1="110" x2="458" y2="110" opacity="0.6"/><line x1="422" y1="138" x2="458" y2="138" opacity="0.6"/><line x1="422" y1="166" x2="458" y2="166" opacity="0.6"/><line x1="422" y1="194" x2="458" y2="194" opacity="0.6"/><line x1="422" y1="222" x2="458" y2="222" opacity="0.6"/><line x1="422" y1="250" x2="458" y2="250" opacity="0.6"/><line x1="422" y1="278" x2="458" y2="278" opacity="0.6"/><line x1="422" y1="306" x2="458" y2="306" opacity="0.6"/><line x1="422" y1="334" x2="458" y2="334" opacity="0.6"/><line x1="422" y1="362" x2="458" y2="362" opacity="0.6"/><line x1="422" y1="390" x2="458" y2="390" opacity="0.6"/><line x1="422" y1="418" x2="458" y2="418" opacity="0.6"/><line x1="422" y1="446" x2="458" y2="446" opacity="0.95"/><line x1="422" y1="474" x2="458" y2="474" opacity="0.95"/><line x1="422" y1="502" x2="458" y2="502" opacity="0.95"/><line x1="422" y1="530" x2="458" y2="530" opacity="0.95"/><line x1="422" y1="558" x2="458" y2="558" opacity="0.95"/></g>
+  <g transform="translate(440 300)">
+    <path d="M -14,-6 L -18,-26 M 14,-6 L 18,-24" stroke="#2d2a32" stroke-width="4" stroke-linecap="round"/>
+    <path d="M -9,18 L -16,36 M 9,18 L 17,30" stroke="#2d2a32" stroke-width="4" stroke-linecap="round"/>
+    <rect x="-24" y="-18" width="48" height="36" rx="7" fill="#264653" stroke="#2d2a32" stroke-width="3"/>
+    <rect class="screen s2" x="-18" y="-12" width="36" height="22" rx="4" fill="#bfeee5"/>
+    <path d="M -6,-5 v1 M 6,-5 v1 M -6,2 Q 0,7 6,2" stroke="#2d2a32" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+  </g>
+  <circle cx="440" cy="560" r="90" fill="#fff2c4" opacity="0.1"/>
+  <rect x="300" y="696" width="280" height="110" fill="#d9c3a0" stroke="#5e3720" stroke-width="5"/>
+  <polygon points="280,702 440,604 600,702" fill="#b9774a" stroke="#5e3720" stroke-width="5" stroke-linejoin="round"/>
+  <rect x="408" y="560" width="64" height="62" rx="8" fill="url(#g-lamp)" stroke="#5e3720" stroke-width="5"/>
+  <polygon points="398,566 440,526 482,566" fill="#e76f51" stroke="#5e3720" stroke-width="4" stroke-linejoin="round"/>
+  <circle cx="386" cy="596" r="13" fill="#fffaf0" stroke="#5e3720" stroke-width="3"/>
+  <text x="386" y="602" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="16" fill="#2d2a32">5</text>
+  <rect x="370" y="728" width="140" height="36" rx="6" fill="#e9c46a" stroke="#5e3720" stroke-width="3"/>
+  <text x="440" y="753" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-weight="700" font-size="21" fill="#2d2a32">running</text>
+  <rect x="636" y="760" width="170" height="44" fill="#b9774a" stroke="#5e3720" stroke-width="4"/>
+  <g data-figure="spoke" transform="translate(566 672) scale(0.5)"></g>
+  <g data-figure="pin" transform="translate(724 762) scale(0.7)"></g>
+</svg>

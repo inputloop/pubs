@@ -1,0 +1,223 @@
+# door -- spread 1 of "So You Want To Build A Ghostwheel?"
+# Copyright 2026 Corwin Brust; CC-BY-SA-4.0
+# Facts about C4 come from C4 itself, read-only on Avalon (the c4 tree),
+# 2026-11-03T20:08:58Z. Each [mark] on the fuller page opens its witness rows.
+kind: spread
+number: 1
+title: Door
+part: Part One: how we say things
+
+== picture page ==
+This is the shop. Come in!
+
+A ghostwheel is a lot of small computers, in rings.
+Each one looks after its friends.
+
+Spoke lives at the middle and sees.
+Pin writes down what Spoke sees.
+
+== layout ==
+picture: top
+words: scatter
+size: 3.4
+at: 4 4 32
+at: 4 77 50
+at: 57 77 39
+align: left
+
+== fuller page ==
+A ghostwheel is a set of computers in rings, so that when one is away, the
+others carry on. The first design has seventeen of them [hosts]. Fifteen stand
+in three rings of five, and a ring is available while any three of its five
+are [rings]. The same fifteen also make five rings of three [lesser]. The edge
+ring holds all seventeen, in service or not: it is where hosts are added and
+taken away, and where the rings are built [edge].
+
+Nobody picked those numbers one by one. Take seventeen, keep two aside (one to
+build on, one to test on), and fifteen are left. Divide by three, and each big
+ring has five. Turn that over, and the small rings hold three [derive].
+
+What runs on the wheel is C4, published in 2025 as "Continuous Creation,
+Command & Control, a literate technology control framework" [public]. Its aim,
+in one line: make the thing findable later, by someone who was not there,
+without asking them to trust you [findable]. No AI is needed to use it [noai].
+
+Spoke and Pin are this book's two guides. Spoke sees. Pin writes down what
+Spoke saw, with when and where. Each small mark on this page opens what Pin
+wrote.
+
+== diagram ==
+kind: rings
+caption: Seventeen computers. Each shape is a ring of five; each colour is a ring of three. Two wait at the edge.
+hosts: 17
+reserve: 2
+many: 3
+
+== facts ==
+fact: hosts
+said: The prototype design is 17 nodes ("because of course it does").
+seen: 2026-11-03T20:08:58Z
+by: Mentat (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/facts/ghostwheel-ring-of-rings, line 3 (his words in chat, 2026-08-05)
+sha: sha256:6a70ea2ba7fac4f1c20e39497ecb987dc440cf139285dda316405443709fa099
+state: seen
+note: The record is a CANDIDATE fact, written by Claude from his chat note.
+
+fact: rings
+said: Greater rings: "3 rings of five servers where any 3/5 means available".
+seen: 2026-11-03T20:08:58Z
+by: Mentat (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/facts/ghostwheel-ring-of-rings, lines 6-8
+sha: sha256:6a70ea2ba7fac4f1c20e39497ecb987dc440cf139285dda316405443709fa099
+state: seen
+
+fact: lesser
+said: Lesser rings: "five rings of three servers".
+seen: 2026-11-03T20:08:58Z
+by: Mentat (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/facts/ghostwheel-ring-of-rings, lines 10-11
+sha: sha256:6a70ea2ba7fac4f1c20e39497ecb987dc440cf139285dda316405443709fa099
+state: seen
+note: "Any two of three" is a reading in the same file (marked arguable), not his words, so this page does not say it.
+
+fact: edge
+said: Edge ring: all hosts, in service or not; "the palette for adding and removing hosts ... and for building and manipulating the rings".
+seen: 2026-11-03T20:08:58Z
+by: Mentat (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/facts/ghostwheel-ring-of-rings, lines 18-21
+sha: sha256:6a70ea2ba7fac4f1c20e39497ecb987dc440cf139285dda316405443709fa099
+state: seen
+
+fact: derive
+said: "It has a dev and a test ... seventeen that has to be 15. Divide that by ... three ... five servers. Invert and we know the size of the lessor ring."
+seen: 2026-11-03T20:08:58Z
+by: Mentat (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/facts/ghostwheel-ring-of-rings, lines 60-64 (his derivation, confirmed 2026-08-05)
+sha: sha256:6a70ea2ba7fac4f1c20e39497ecb987dc440cf139285dda316405443709fa099
+state: seen
+
+fact: public
+said: "C4 is Continuous Creation, Command & Control, a literate technology control framework built atop OrgVM" (c4.ghostwheel.cloud, 2025-08-17).
+seen: 2026-11-03T20:08:58Z
+by: Mentat (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/C4.md, line 55 (section 1a)
+sha: sha256:358ce65ce2539df9298a55ec3f6a00b11a9dad3e7d2ef559d54bb367738c9d42
+state: seen
+
+fact: public
+said: The same definition, recorded as "THE CANONICAL PUBLIC DEFINITION, c4.ghostwheel.cloud, created 2025-08-17".
+seen: 2026-11-03T20:08:58Z
+by: Mentat (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/facts/ghostwheel-cloud-the-public-c4, lines 4-6
+sha: sha256:a228fbf58318c8be91375f8beaceffc8b1eb735f22d46741c91592be26264f53
+state: seen
+
+fact: findable
+said: "make the thing findable later, by someone who was not there, without asking them to trust you."
+seen: 2026-11-03T20:08:58Z
+by: Mentat (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/C4-LANG.md, line 254 (section 10)
+sha: sha256:d99139b865824ff3a6b3c21246d4226561354271263cecf2c7126e70bcc5667d
+state: seen
+
+fact: noai
+said: Corwin: "no AI is required whatsoever to use it."
+seen: 2026-11-03T20:08:58Z
+by: Mentat (claude-opus-5-5), reading the c4 tree on Avalon
+from: c4/C4.md, line 115 (section 2)
+sha: sha256:358ce65ce2539df9298a55ec3f6a00b11a9dad3e7d2ef559d54bb367738c9d42
+state: seen
+
+== narration ==
+# Take A, "the company talks to you": every voice speaks to the listener.
+[picture A]
+narrator: Come in. This is the shop, and we're glad you're here.
+narrator: A ghostwheel is a lot of small computers, in rings. Each one looks after its friends.
+spoke: Hello, you. I'm Spoke. I live at the middle of the wheel, and I see things.
+pin: And I'm Pin. I write down what Spoke sees, for you. And when. And where.
+[fuller A]
+pin [hosts]: Here is the first design. Seventeen computers.
+spoke [rings]: Fifteen of them stand in three rings of five. While any three of the five are there, the ring is up. Count them with me.
+pin [lesser]: The same fifteen also make five rings of three. Do you see the colours?
+spoke [edge]: And the edge ring holds all seventeen, working or not. That's where you would add a computer, or take one away.
+pin [derive]: Try it with me. Seventeen. Keep two aside, one to build on and one to test on. That leaves fifteen. Divide by three, and you get rings of five. Turn it over, and you get rings of three.
+narrator [public]: What runs on the wheel is called {C4|C four}.
+narrator [findable]: It is there so you can find a thing later, even if you weren't there, and no one has to ask you to trust them.
+spoke: Every little mark on this page opens what Pin wrote down.
+pin: When it was seen, who saw it, and which file it came from. It's all there for you.
+
+# Take B, "the lap reader": one close voice reads to you; Spoke and Pin
+# mostly talk to each other, and turn to you only in a short aside.
+[picture B]
+narrator: This is the shop. Come in.
+narrator: A ghostwheel is a lot of small computers, in rings. Each one looks after its friends.
+narrator: Spoke lives at the middle, and sees. Pin writes down what Spoke sees.
+spoke: Pin. Someone new, at the door.
+pin: I see them. Writing it down.
+spoke: Hello, you.
+[fuller B]
+narrator [hosts]: The first design has seventeen computers.
+narrator [rings]: Fifteen stand in three rings of five, and a ring is available while any three of its five are.
+narrator [lesser]: The same fifteen also make five rings of three.
+spoke [edge]: And the edge, Pin. Don't forget the edge ring. All seventeen, working or not.
+pin [edge]: Got it. That's where computers come and go.
+narrator [derive]: Nobody picked those numbers one by one. Take seventeen, and keep two aside, one to build on and one to test on. Fifteen are left. Divide by three, and each big ring has five. Turn that over, and the small rings hold three.
+narrator [public]: What runs on the wheel is {C4|C four}.
+narrator [findable]: Its aim is to make the thing findable later, by someone who was not there, without asking them to trust you.
+spoke: Who wrote all that down, Pin?
+pin: I did. I always do.
+pin: Every little mark on the page opens my notes. Go on, you can look.
+
+== picture ==
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="door-t">
+  <title id="door-t">An open round door, warm light inside. Above, a wheel of eight small smiling computers joined in a ring, with Spoke the ghost at the hub. Pin the mouse sits by the wall, writing.</title>
+  <rect width="800" height="600" fill="url(#g-wall)"/>
+  <rect y="478" width="800" height="122" fill="url(#g-floor)"/>
+  <rect y="472" width="800" height="9" fill="#c49a6c"/>
+  <g class="wheel">
+    <circle cx="530" cy="232" r="176" fill="none" stroke="#c9a676" stroke-width="3" stroke-dasharray="2 10" stroke-linecap="round"/>
+    <g stroke="#c9a676" stroke-width="5" stroke-linecap="round">
+      <line x1="530" y1="232" x2="530" y2="82"/>
+      <line x1="530" y1="232" x2="636" y2="126"/>
+      <line x1="530" y1="232" x2="680" y2="232"/>
+      <line x1="530" y1="232" x2="636" y2="338"/>
+      <line x1="530" y1="232" x2="530" y2="382"/>
+      <line x1="530" y1="232" x2="424" y2="338"/>
+      <line x1="530" y1="232" x2="380" y2="232"/>
+      <line x1="530" y1="232" x2="424" y2="126"/>
+    </g>
+    <circle cx="530" cy="232" r="150" fill="none" stroke="#b98f5a" stroke-width="7"/>
+    <g class="ring-nodes">
+      <g transform="translate(530 82)"><rect x="-24" y="-19" width="48" height="36" rx="7" fill="#264653" stroke="#2d2a32" stroke-width="3"/><rect class="screen s0" x="-18" y="-13" width="36" height="22" rx="4" fill="#bfeee5"/><path d="M -6,-5 v1 M 6,-5 v1 M -6,2 Q 0,7 6,2" stroke="#2d2a32" stroke-width="2.4" stroke-linecap="round" fill="none"/></g>
+      <g transform="translate(636 126)"><rect x="-24" y="-19" width="48" height="36" rx="7" fill="#264653" stroke="#2d2a32" stroke-width="3"/><rect class="screen s1" x="-18" y="-13" width="36" height="22" rx="4" fill="#bfeee5"/><path d="M -6,-5 v1 M 6,-5 v1 M -6,2 Q 0,7 6,2" stroke="#2d2a32" stroke-width="2.4" stroke-linecap="round" fill="none"/></g>
+      <g transform="translate(680 232)"><rect x="-24" y="-19" width="48" height="36" rx="7" fill="#264653" stroke="#2d2a32" stroke-width="3"/><rect class="screen s2" x="-18" y="-13" width="36" height="22" rx="4" fill="#bfeee5"/><path d="M -6,-5 v1 M 6,-5 v1 M -6,2 Q 0,7 6,2" stroke="#2d2a32" stroke-width="2.4" stroke-linecap="round" fill="none"/></g>
+      <g transform="translate(636 338)"><rect x="-24" y="-19" width="48" height="36" rx="7" fill="#264653" stroke="#2d2a32" stroke-width="3"/><rect class="screen s3" x="-18" y="-13" width="36" height="22" rx="4" fill="#bfeee5"/><path d="M -6,-5 v1 M 6,-5 v1 M -6,2 Q 0,7 6,2" stroke="#2d2a32" stroke-width="2.4" stroke-linecap="round" fill="none"/></g>
+      <g transform="translate(530 382)"><rect x="-24" y="-19" width="48" height="36" rx="7" fill="#264653" stroke="#2d2a32" stroke-width="3"/><rect class="screen s4" x="-18" y="-13" width="36" height="22" rx="4" fill="#bfeee5"/><path d="M -6,-5 v1 M 6,-5 v1 M -6,2 Q 0,7 6,2" stroke="#2d2a32" stroke-width="2.4" stroke-linecap="round" fill="none"/></g>
+      <g transform="translate(424 338)"><rect x="-24" y="-19" width="48" height="36" rx="7" fill="#264653" stroke="#2d2a32" stroke-width="3"/><rect class="screen s5" x="-18" y="-13" width="36" height="22" rx="4" fill="#bfeee5"/><path d="M -6,-5 v1 M 6,-5 v1 M -6,2 Q 0,7 6,2" stroke="#2d2a32" stroke-width="2.4" stroke-linecap="round" fill="none"/></g>
+      <g transform="translate(380 232)"><rect x="-24" y="-19" width="48" height="36" rx="7" fill="#264653" stroke="#2d2a32" stroke-width="3"/><rect class="screen s6" x="-18" y="-13" width="36" height="22" rx="4" fill="#bfeee5"/><path d="M -6,-5 v1 M 6,-5 v1 M -6,2 Q 0,7 6,2" stroke="#2d2a32" stroke-width="2.4" stroke-linecap="round" fill="none"/></g>
+      <g transform="translate(424 126)"><rect x="-24" y="-19" width="48" height="36" rx="7" fill="#264653" stroke="#2d2a32" stroke-width="3"/><rect class="screen s7" x="-18" y="-13" width="36" height="22" rx="4" fill="#bfeee5"/><path d="M -6,-5 v1 M 6,-5 v1 M -6,2 Q 0,7 6,2" stroke="#2d2a32" stroke-width="2.4" stroke-linecap="round" fill="none"/></g>
+    </g>
+    <circle cx="530" cy="232" r="44" fill="#fffaf0" stroke="#b98f5a" stroke-width="6"/>
+  </g>
+  <g data-figure="spoke" transform="translate(530 268) scale(0.52)"></g>
+  <path d="M 70,478 V 270 A 100 100 0 0 1 270,270 V 478 Z" fill="#8a5233" stroke="#5e3720" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M 88,478 V 274 A 82 82 0 0 1 252,274 V 478 Z" fill="url(#g-lamp)"/>
+  <path d="M 88,478 V 274 A 82 82 0 0 1 120,210 L 150,232 V 478 Z" fill="#b9774a" stroke="#5e3720" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M 104,300 V 450 M 128,262 V 460" stroke="#9a5f37" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="138" cy="372" r="7" fill="#e9c46a" stroke="#5e3720" stroke-width="3"/>
+  <polygon points="88,478 252,478 330,600 20,600" fill="#fff2c4" opacity="0.55"/>
+  <rect x="120" y="488" width="110" height="20" rx="8" fill="#e76f51" opacity="0.85"/>
+  <g transform="translate(170 214)">
+    <circle r="22" fill="#fffaf0" stroke="#5e3720" stroke-width="4"/>
+    <circle r="12" fill="none" stroke="#b98f5a" stroke-width="3"/>
+    <path d="M 0,-12 V 12 M -12,0 H 12 M -8.5,-8.5 L 8.5,8.5 M -8.5,8.5 L 8.5,-8.5" stroke="#b98f5a" stroke-width="2"/>
+  </g>
+  <g transform="translate(316 478)">
+    <path d="M -20,0 L -14,-34 H 14 L 20,0 Z" fill="#e76f51" stroke="#2d2a32" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M 0,-34 C -24,-60 -30,-80 -10,-96 M 0,-34 C 6,-70 20,-84 30,-90 M 0,-34 C -4,-60 4,-80 2,-104" fill="none" stroke="#2a9d8f" stroke-width="5" stroke-linecap="round"/>
+    <ellipse cx="-12" cy="-90" rx="10" ry="6" transform="rotate(-40 -12 -90)" fill="#2a9d8f"/>
+    <ellipse cx="28" cy="-86" rx="10" ry="6" transform="rotate(30 28 -86)" fill="#2a9d8f"/>
+    <ellipse cx="2" cy="-104" rx="6" ry="10" fill="#2a9d8f"/>
+  </g>
+  <g data-figure="pin" transform="translate(690 540) scale(1.05)"></g>
+</svg>

@@ -1,0 +1,112 @@
+<!-- figures.svg: the three characters, drawn once, pulled into each picture.
+     Copyright 2026 Corwin Brust; CC-BY-SA-4.0. Original drawings for this book.
+     Each figure stands with its feet at (0,0) and grows upward (negative y).
+     A picture places one with <g data-figure="NAME" transform="..."></g>.
+     Classes that move (only when motion is allowed): bob, pencil, lean, glowpulse. -->
+<defs id="fig-defs">
+  <radialGradient id="g-glow" cx="50%" cy="45%" r="50%">
+    <stop offset="0" stop-color="#d9d0ff" stop-opacity="0.9"/>
+    <stop offset="0.6" stop-color="#d9d0ff" stop-opacity="0.35"/>
+    <stop offset="1" stop-color="#d9d0ff" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="g-lamp" cx="50%" cy="60%" r="60%">
+    <stop offset="0" stop-color="#fff6d6"/>
+    <stop offset="1" stop-color="#ffd98a"/>
+  </radialGradient>
+  <linearGradient id="g-wall" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#f7ead3"/>
+    <stop offset="1" stop-color="#efdcbb"/>
+  </linearGradient>
+  <linearGradient id="g-floor" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#e2c79c"/>
+    <stop offset="1" stop-color="#d4b383"/>
+  </linearGradient>
+</defs>
+
+<g id="fig-spoke">
+  <ellipse class="shadow" cx="0" cy="16" rx="30" ry="5" fill="#2d2a32" opacity="0.12"/>
+  <g class="bob">
+    <ellipse cx="0" cy="-74" rx="84" ry="92" fill="url(#g-glow)"/>
+    <ellipse cx="-50" cy="-64" rx="11" ry="7" transform="rotate(-35 -50 -64)" fill="#fbf8ff" stroke="#3a3452" stroke-width="4"/>
+    <ellipse cx="50" cy="-64" rx="11" ry="7" transform="rotate(35 50 -64)" fill="#fbf8ff" stroke="#3a3452" stroke-width="4"/>
+    <path d="M -50,-12 C -52,-70 -46,-142 0,-142 C 46,-142 52,-70 50,-12 Q 37.5,6 25,-10 Q 12.5,6 0,-10 Q -12.5,6 -25,-10 Q -37.5,6 -50,-12 Z"
+          fill="#fbf8ff" stroke="#3a3452" stroke-width="4" stroke-linejoin="round"/>
+    <ellipse cx="-17" cy="-95" rx="7" ry="10" fill="#2b2640"/>
+    <ellipse cx="17" cy="-95" rx="7" ry="10" fill="#2b2640"/>
+    <circle cx="-15" cy="-99" r="2.6" fill="#ffffff"/>
+    <circle cx="19" cy="-99" r="2.6" fill="#ffffff"/>
+    <ellipse cx="-29" cy="-78" rx="8" ry="5" fill="#f7b6c8" opacity="0.8"/>
+    <ellipse cx="29" cy="-78" rx="8" ry="5" fill="#f7b6c8" opacity="0.8"/>
+    <path d="M -7,-80 Q 0,-72 7,-80" fill="none" stroke="#2b2640" stroke-width="3" stroke-linecap="round"/>
+  </g>
+</g><!-- end spoke -->
+
+<g id="fig-pin">
+  <ellipse cx="0" cy="2" rx="52" ry="7" fill="#2d2a32" opacity="0.12"/>
+  <path d="M -38,-10 C -84,-6 -90,-44 -62,-50 C -44,-54 -44,-32 -58,-32" fill="none" stroke="#8c7a6b" stroke-width="4.5" stroke-linecap="round"/>
+  <ellipse cx="-6" cy="-40" rx="38" ry="36" fill="#bfae9f" stroke="#4a3f38" stroke-width="4"/>
+  <ellipse cx="1" cy="-34" rx="22" ry="25" fill="#ece3d8"/>
+  <ellipse cx="-22" cy="-4" rx="13" ry="6.5" fill="#f2b8b0" stroke="#4a3f38" stroke-width="3"/>
+  <ellipse cx="14" cy="-4" rx="13" ry="6.5" fill="#f2b8b0" stroke="#4a3f38" stroke-width="3"/>
+  <circle cx="2" cy="-112" r="18" fill="#bfae9f" stroke="#4a3f38" stroke-width="4"/>
+  <circle cx="2" cy="-112" r="10.5" fill="#f2b8b0"/>
+  <circle cx="36" cy="-116" r="17" fill="#bfae9f" stroke="#4a3f38" stroke-width="4"/>
+  <circle cx="36" cy="-116" r="10" fill="#f2b8b0"/>
+  <ellipse cx="22" cy="-86" rx="30" ry="26" fill="#bfae9f" stroke="#4a3f38" stroke-width="4"/>
+  <ellipse cx="46" cy="-81" rx="15" ry="11" fill="#bfae9f"/>
+  <path d="M 36,-92 Q 60,-92 61,-82 Q 60,-70 40,-72" fill="none" stroke="#4a3f38" stroke-width="4" stroke-linejoin="round"/>
+  <circle cx="60" cy="-83" r="5" fill="#e88a9a" stroke="#4a3f38" stroke-width="2"/>
+  <circle cx="34" cy="-92" r="4.5" fill="#2b2640"/>
+  <circle cx="35.5" cy="-93.5" r="1.5" fill="#ffffff"/>
+  <path d="M 52,-76 L 76,-80 M 52,-73 L 78,-70 M 50,-70 L 72,-61" stroke="#4a3f38" stroke-width="1.6" stroke-linecap="round"/>
+  <g transform="rotate(-8 30 -44)">
+    <rect x="6" y="-60" width="44" height="32" rx="3" fill="#fffdf6" stroke="#4a3f38" stroke-width="3"/>
+    <path d="M 12,-51 H 44 M 12,-44 H 40 M 12,-37 H 34" stroke="#9db4c0" stroke-width="2"/>
+  </g>
+  <g transform="translate(40 -46) rotate(-38)">
+    <g class="pencil">
+      <polygon points="0,0 -4.5,-10 4.5,-10" fill="#e9c99a" stroke="#4a3f38" stroke-width="2" stroke-linejoin="round"/>
+      <polygon points="0,0 -1.6,-3.6 1.6,-3.6" fill="#2d2a32"/>
+      <rect x="-4.5" y="-42" width="9" height="32" fill="#f2c14e" stroke="#4a3f38" stroke-width="2"/>
+      <rect x="-4.5" y="-47" width="9" height="5" fill="#b9b9b9" stroke="#4a3f38" stroke-width="1.5"/>
+      <rect x="-4.5" y="-55" width="9" height="8" rx="2.5" fill="#f29bb0" stroke="#4a3f38" stroke-width="2"/>
+      <circle cx="-3" cy="-20" r="7" fill="#bfae9f" stroke="#4a3f38" stroke-width="3"/>
+    </g>
+  </g>
+</g><!-- end pin -->
+
+<g id="fig-chad">
+  <ellipse cx="0" cy="2" rx="50" ry="7" fill="#2d2a32" opacity="0.12"/>
+  <g class="lean">
+    <rect x="-26" y="-62" width="20" height="54" rx="9" fill="#3d5a80" stroke="#23303a" stroke-width="4"/>
+    <rect x="6" y="-62" width="20" height="54" rx="9" fill="#3d5a80" stroke="#23303a" stroke-width="4"/>
+    <ellipse cx="-19" cy="-7" rx="19" ry="9" fill="#ffffff" stroke="#23303a" stroke-width="4"/>
+    <ellipse cx="19" cy="-7" rx="19" ry="9" fill="#ffffff" stroke="#23303a" stroke-width="4"/>
+    <path d="M -30,-9 H -10 M 10,-9 H 30" stroke="#e76f51" stroke-width="3" stroke-linecap="round"/>
+    <path d="M -40,-138 Q -60,-120 -62,-98" fill="none" stroke="#23303a" stroke-width="26" stroke-linecap="round"/>
+    <path d="M -40,-138 Q -60,-120 -62,-98" fill="none" stroke="#2a9d8f" stroke-width="18" stroke-linecap="round"/>
+    <path d="M 40,-140 Q 66,-136 70,-160" fill="none" stroke="#23303a" stroke-width="26" stroke-linecap="round"/>
+    <path d="M 40,-140 Q 66,-136 70,-160" fill="none" stroke="#2a9d8f" stroke-width="18" stroke-linecap="round"/>
+    <rect x="-43" y="-168" width="86" height="118" rx="38" fill="#2a9d8f" stroke="#23303a" stroke-width="4"/>
+    <rect x="-41" y="-76" width="82" height="11" fill="#e9c46a"/>
+    <path d="M -16,-166 L 0,-148 L 16,-166" fill="none" stroke="#23303a" stroke-width="3.5" stroke-linejoin="round"/>
+    <g transform="rotate(-7 -74 -108)">
+      <rect x="-104" y="-130" width="58" height="40" rx="6" fill="#fffdf6" stroke="#23303a" stroke-width="3.5"/>
+      <path d="M -58,-110 H -92 M -92,-110 L -82,-119 M -92,-110 L -82,-101" fill="none" stroke="#e76f51" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <circle cx="-62" cy="-96" r="11" fill="#e8b48a" stroke="#23303a" stroke-width="3.5"/>
+    <rect x="65.5" y="-196" width="10" height="20" rx="5" fill="#e8b48a" stroke="#23303a" stroke-width="3.5"/>
+    <circle cx="70" cy="-168" r="12" fill="#e8b48a" stroke="#23303a" stroke-width="3.5"/>
+    <path d="M -32,-226 Q -64,-232 -74,-216 Q -54,-212 -34,-214 Z" fill="#c95a3e" stroke="#23303a" stroke-width="3.5" stroke-linejoin="round"/>
+    <circle cx="-40" cy="-204" r="8" fill="#e8b48a" stroke="#23303a" stroke-width="3.5"/>
+    <circle cx="40" cy="-204" r="8" fill="#e8b48a" stroke="#23303a" stroke-width="3.5"/>
+    <circle cx="0" cy="-206" r="40" fill="#e8b48a" stroke="#23303a" stroke-width="4"/>
+    <path d="M -40,-214 C -40,-256 40,-256 40,-214 Q 0,-222 -40,-214 Z" fill="#e76f51" stroke="#23303a" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M -11,-217 Q 0,-232 11,-217 Z" fill="#5a3b2a" stroke="#23303a" stroke-width="2.5" stroke-linejoin="round"/>
+    <circle cx="0" cy="-247" r="4" fill="#c95a3e" stroke="#23303a" stroke-width="2.5"/>
+    <path d="M -23,-208 Q -15,-216 -7,-208 M 7,-208 Q 15,-216 23,-208" fill="none" stroke="#23303a" stroke-width="4" stroke-linecap="round"/>
+    <ellipse cx="-25" cy="-193" rx="7" ry="4.5" fill="#f08f86" opacity="0.6"/>
+    <ellipse cx="25" cy="-193" rx="7" ry="4.5" fill="#f08f86" opacity="0.6"/>
+    <path d="M -19,-191 Q 0,-170 19,-191 Q 0,-186 -19,-191 Z" fill="#ffffff" stroke="#23303a" stroke-width="3.5" stroke-linejoin="round"/>
+  </g>
+</g><!-- end chad -->

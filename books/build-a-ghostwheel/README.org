@@ -1,0 +1,70 @@
+#+TITLE: So You Want To Build A Ghostwheel?
+#+SUBTITLE: publication stage · a picture book in seventeen spreads · <H>:/pub/books/build-a-ghostwheel/
+#+AUTHOR: Corwin Brust (written and drawn by Mentat for Corwin) · corwin@bru.st
+#+DATE: 2026-11-04
+
+* What this is
+
+*So You Want To Build A Ghostwheel?*, a picture book in seventeen spreads about how inputloop's tools
+say things, keep them and prove them: for a child on one page, and the curious adult on the facing one.
+Two guides, Spoke (a small ghost who sees) and Pin (a mouse with a pencil, who writes down what was
+seen, when, and from where), and Corwin's character Chad, who visits three times. Every fact on a
+fuller page carries its witness rows: what was said, when it was seen, by whom, from which file and
+lines, and that file's hash.
+
+Read it at https://ghostlights.theater/build-a-ghostwheel/ (the site serves this folder's =book.html=).
+Corwin, 2026-11-04: "I like the book very much to should make an excellent ghostlight demo/POC."
+
+* What travels
+
+- =book.html= -- the book: one self-contained page with its own Content Security Policy; it loads
+  nothing from anywhere. Open it in a browser. =book-hosted.html= is the same page for a host that
+  wraps it in its own skeleton and policy.
+- =src/= -- the sources, all plain text: one file per spread, their order and title (=src/book=), the
+  cast, the easy-word list, the figures, NEWS and the ChangeLog.
+- =tools/=, =checks/=, =run= and =book.pipeline= -- the pipeline that makes the book from =src/= and
+  checks it. =pilot.pipeline= and =audio.pipeline= (the narration and the video) come along as source;
+  their voices, recordings and videos are not part of this publication.
+- =sources/= -- the C4 files the witness rows cite, byte for byte at their C4 paths, with
+  =sources/INDEX.org=: each file, the rows that cite it, the hash the book recorded and the hash today.
+- =site/= -- the source of https://ghostlights.theater/ as it is deployed: =public/= and =deploy/=
+  (the nginx configuration and =install.sh=).
+- =README.md= (the pipeline's own manual), =WRITERS.md=, =COLOPHON.md= (voices, datasets, licences,
+  tools), =RECIPE.org= (how to pluck it and build it), this README, and =COPYING=.
+
+* Pluck it, build it
+
+Pubs are pluckable: copy this folder whole into any project and build it there. =RECIPE.org= says
+what it needs and what it makes; the one command is
+
+#+begin_src sh
+sh run -p book.pipeline
+#+end_src
+
+* Checking it
+
+=sh checks/run.sh= checks seven promises: the word limits, goodnight's inventory, that =book.html=
+is what the tools make from =src/= (=current=), that the site carries this book (=site=), that the
+cited C4 files are here byte for byte and the index tells the truth (=sources=), and, in a browser,
+that the book loads nothing from elsewhere and reads as a book should (=bookoffline=, =bookread=).
+=sh checks/run.sh --prove-red= plants 22 faults and requires each to turn its check red. On
+2026-11-04: CHECKS GREEN (7 of 7), PROVE-RED OK (22 of 22).
+
+* Why its sources travel
+
+=books/README.org= keeps an item's working sources in =.c4/=, and =.c4/= never leaves the shelf. This
+item's =src/=, pipeline and =sources/= travel on purpose: a pub is always pluckable (Corwin,
+2026-11-04: "general rule for pubs/ is that they are always pluckable"), and "OK to publish
+underlying materials RE C4 so there is contunity for readers/researchers" (the same message). Two
+cited C4 files were held back; the index marks them. The item's =.c4/= keeps the provenance rows
+and why each was held.
+
+* Status
+
+- Dedication: pending, Corwin's to write (=dedication:= in =src/book=; until then the page faces the
+  title with only the ghost light on it).
+- Part Two: "we're running with it until we see what is broken about it" (Corwin, 2026-11-04).
+- Pre-branding: see =COPYING=. The book's own files carry their terms: words and pictures
+  CC-BY-SA-4.0, code GPL-3.0-or-later (=COLOPHON.md=); the site's deploy files say
+  GPL-3.0-or-later OR LGPL-3.0-or-later.
+- Credit: Copyright 2026 Corwin Brust. Written and drawn by Mentat (for Corwin, claude-opus-5-5).

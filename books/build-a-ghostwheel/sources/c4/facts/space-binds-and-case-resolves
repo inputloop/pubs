@@ -1,0 +1,83 @@
+# FACT · space BINDS, case RESOLVES — how an unquoted C4QL run knows where it ends (2026-08-10)
+
+Read off three of his own TAG examples, minted the same day. This is my reading, offered back for
+correction — [ours — revisable] throughout. What is NOT mine is the material quoted verbatim.
+
+## The three specimens
+
+  1  [(TAG)TYPE(intern:["type","TYPE"],plural:["types","TYPES"]): "(virtual) a TERM (for C4: tag)
+     or word representing a means of persistence and/or transport encoding (for C4, usually: both)"
+     as VIRTUAL from KEYS toward TAXONOMY]
+  2  [(TAG)kind: representing … [[ … ]] as VIRTUAL from KEYS into HOST offering TAXONOMY]
+  3  [(TAG)theme: (virtual)taxonomy collection or reusable presentation typically providing
+     (visual or user facing) continuity among a set of treatments and components comprising a
+     (user) interface as(VIRTUAL) from KEYS toward TAXONOMY]
+
+His press: *"See if you pick-up the clues about significance of space… Modulo the inline test all
+three produce nearly identical virtual type/kind."*
+
+## 1 · SPACE is the binder, and its ABSENCE is what makes quoting optional
+
+  specimen 1   `as VIRTUAL`     spaced  — operator, then a separate operand
+  specimen 3   `as(VIRTUAL)`    BOUND   — operator applied to its argument, one group
+  specimen 1   `"(virtual) a TERM…"`  spaced INSIDE quotes — literal prose, nothing applied
+  specimen 3   `(virtual)taxonomy`    BOUND — a cast, C-style: the qualifier applies to the word
+
+**A `(` that follows a word character with no space is an OPERATOR. A `(` preceded by a space is
+LITERAL.** That single rule is what lets specimen 3 drop its quotes: `(visual or user facing)` and
+`(user)` are spaced, so the parser walks over them as text; `as(` cannot occur in ordinary English,
+so it is an unambiguous terminator even in the middle of unquoted prose.
+
+**Which answers his second question.** The unquoted run "collection or reusable … a (user)
+interface" is bounded exactly the way the quoted one is — it OPENS on the bound cast `(virtual)`
+and CLOSES on the bound operator `as(VIRTUAL)`. Quotes and binding are two delimiters for one job.
+And that is the shop law made good on: **FILE BY WORDS says quoting must never be load-bearing.**
+Specimen 3 is the proof that it isn't — the same declaration, with the quotes taken away.
+
+## 2 · CASE says whether to RESOLVE
+
+  UPPER  VIRTUAL · KEYS · TAXONOMY · HOST · TERM · TAG · THEMES     → resolve against the taxonomy
+  lower  as · from · toward · into · offering · intern · plural     → QL keywords, never looked up
+  lower  type · kind · theme · skin                                 → the name being MINTED, literal
+
+Specimen 1 shows both cases of one word in a single line: `(TAG)` at the head resolves; `tag` inside
+`(for C4: tag)` is literal. Same for `(VIRTUAL)` (resolve the mode) against `(virtual)` (a literal
+qualifier cast onto the next word).
+
+**And it explains why specimen 1 is the long one.** `TYPE` is minted in UPPERCASE, which collides
+head-on with the resolve convention — so it must carry `intern:["type","TYPE"]` and
+`plural:["types","TYPES"]` explicitly to say *these spellings are all this one thing.* Mint in
+lowercase, as `kind`, `theme` and `skin` do, and the case-fold and the plural come for free. That is
+his "continued catering to brevity in the default/most likely cases": **the terse form is not a
+shorthand for the verbose one — the verbose one is what you pay for choosing the harder case.**
+
+## 3 · `word` — the undefined vtype that makes the grammar TOTAL
+
+Specimen 1's definition says a TYPE is "a TERM (for C4: tag) **or word**". `word` is invoked and
+never defined, and the magic is that it is the **fallback**: any run that does not resolve is a
+`word`, and a `word` contributes ITSELF, literally, to the usage string.
+
+That is what lets an unquoted definition be reassembled byte-exact for the `T0ST … TS0T` compare.
+Every token either resolves to its usage or stands for itself, so nothing can fail to be
+representable — **`to_literal(to_tokens(x)) == x` is total, not merely usual.** Without `word` the
+round trip would have an error case; with it, it has none.
+
+**Found by accident, worth recording:** `h/tokenize.sh`, written the same day before this ruling,
+already says *"Bare word runs pass through as themselves; everything else is NAMED."* I implemented
+`word` without knowing it had a name. The instrument agreed with the grammar before I could.
+
+## 4 · The same shape, one layer up
+
+`bastian` (the panel/crawler) treats an unparseable line as a COMMENT rather than an error — his
+words, *"when there are not (valid) instructions (or the parser can't make them out, which is the
+same) then we treat as comment."* **That is `word` at the transport layer.** One rule, three
+heights: a token that will not resolve is a `word`; a line that will not parse is a comment; a
+representation that cannot be checked is reported, never asserted. The grammar has no error state
+because it always has somewhere honest to put what it could not read.
+
+## What I have NOT decoded, and am not guessing at
+
+`&1` reads as the first capture. `++TAG<-K:C4` reads as the terse routing tail — register as a TAG,
+sourced from K, scoped to C4 — the compressed twin of `as VIRTUAL from KEYS toward TAXONOMY`.
+`THEMES(L<-T)` reads per his own note: L's LINK facet fetching T's TAG facet, printed to `1>`.
+Whether `++` means append-to-register or something narrower was not pressed. Banked, not claimed.

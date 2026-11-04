@@ -1,0 +1,26 @@
+# FACT · a virtual type is a word honored as a type without an m/t taxonomy slot (2026-08-08)
+
+THE PRESS, verbatim (Q132's ruling, correcting what he called a key misunderstanding): "a virtual
+type simply means a word that we honor as it was a word we know how to effect as a type within our
+taxonomy even though it does not appear as a taxnomony. LIST is the principle example provided with
+the system of actually doing that." (his spelling kept)
+
+WHAT IT MEANS: not every word the shop treats as a type needs an m/t row/facet. A virtual type is
+effected -- given real behavior, recognized, actually usable as a type -- through some OTHER
+mechanism entirely, and m/t simply never gains a slot for it. Taxonomy-completeness questions were
+checking the wrong ledger for these words.
+
+THE EXAMPLE, confirmed on disk: LIST. m/t's L row reads LAYOUT LIBRARY LINK LICENSE -- four facets,
+unchanged, no LIST, none due. LIST is instead effected via l/l (minted CANDIDATE, Q249, 2026-08-06):
+a delimiter-to-SHA1 registry -- ( ) [ ] { } < > each pinned to its own hash -- the "dedicated-
+register list-encapsulation protocol from delimiter baselines" that IS list-typing, with no taxonomy
+word anywhere in the loop.
+
+WHAT THIS CLOSES: Q132 -- L does not gain LIST; the row stays four; the question's own premise
+(every effected type needs a taxonomy slot) was the misunderstanding.
+
+WHAT STAYS OPEN: l/l itself is still CANDIDATE, not promoted by this ruling -- the GENERAL principle
+(virtual types exist; m/t is not the only place a word becomes real) is what landed here, not a
+grant of settled status to any one instance. Worth a look, not yet asked: whether other words
+proposed for m/t slots (Q139's open registers among them) are actually virtual types in disguise --
+flagged, not claimed.

@@ -1,0 +1,48 @@
+2026-08-03 Corwin, on the way out the door: "What does 'magic numbers' mean to you? Is that a heavy
+hitter for us in any way?... if you can see how to instrument questions of this nature that'd be
+awesome to have a growing list of that we're passively tracking as my own vocabulary."
+
+WHAT IT MEANS TO ME — and the honest answer is that it means TWO OPPOSITE THINGS, which is why it
+belongs in the seam walk rather than in a glossary:
+
+  * **IN ORDINARY PROGRAMMING it is a SMELL.** A magic number is an UNEXPLAINED literal sitting in
+    code — `if (x > 17)` with no reason given. The remedy is to name it. Every style guide in the
+    world says so, and any programmer Bryant might hand this to arrives holding that meaning.
+  * **IN C4 IT IS A CLOSURE CLAIM, AND CLOSURE IS THE WHOLE POINT.** "Seventeen registers" does not
+    hide a reason — it ASSERTS one: *this set is complete, and anything that does not fit is a
+    finding rather than a footnote.* `26 = 17 + 9` says the alphabet is exactly consumed, so a
+    letter doing two jobs is a defect **you can detect by counting**.
+
+**SAME PHRASE. OPPOSITE VALENCE. That is a textbook seam** — and it is now filed as one, twice:
+`t/TAXONOMY/seam/magic-number--literal` (CONFUSED) and `magic-number--budget` (APPLIED).
+
+IS IT A HEAVY HITTER? **Yes, and it was load-bearing today without being named.** The J-and-U change
+was tested against `26 = 17 + 9` and **the arithmetic is what constrained the answer** — it ruled
+out J moving while U stayed a nine-member with four facets (that would be 27), and it forced the
+finding that BOTH must move together. **No other instrument in the shop could have said that.** A
+budget did work that a taste could not.
+
+**AND THE TEST THAT MAKES IT MORE THAN NUMEROLOGY: a budget you can exceed painlessly is not a
+budget.** Adding an eighteenth register costs something real — it breaks 26, it costs a letter from
+the nine, it forces a decision. That cost is the entire evidence that the seventeen mean anything.
+
+INSTRUMENTED, as he asked, and it needed a register rather than a note. **`k/v` + `d/k/v`**, register
+K — and the letter is not idle: **K is KEYBOARD, so a register of the keeper's own typed vocabulary
+is exactly what K is for.**
+
+    PHRASE WHEN KIND GLOSS STATE
+
+Fourteen rows on day one: **7 ADOPTED · 5 OPEN · 1 RETIRED · 1 ANSWERED.**
+KIND distinguishes **KEEPER** (his coinage, tracked), **SEAM** (means two opposite things),
+**MANUFACTURED** (mine, invented, must be retired). `noun-table` is the only MANUFACTURED row and it
+lasted about ninety minutes.
+
+**WHY PASSIVE TRACKING IS THE RIGHT SHAPE, and this is the part worth keeping.** Every entry in
+`k/v` arrived because he said a word and I noticed I could not look it up. **The list grows from
+FRICTION, not from a decision to build a glossary** — which is the same mechanism as a wormhole row
+and the same mechanism as `c4reg reg <word>` answering *at no register*. **Three instruments, one
+signal: a word we cannot resolve is the shop telling us where it is thin.**
+
+STATUS: DRAFT (Claude-minted 2026-08-03). The question is his; the two meanings, the heavy-hitter
+argument and the K placement are mine. Q253 asks whether K is right for this, given K is one of the
+nine and this is a seventeen-shaped map.

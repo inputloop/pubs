@@ -1,0 +1,49 @@
+# Resource Configuration for ghostwheel
+
+# check that spokes are up
+
+C4_I_USER=$LOGNAME
+
+if test -z "$HOME" ; then
+    : warn about unset HOME?
+else
+    C4_USER_RC_INHIBIT_SI=${C4_USER_RC_INHIBIT_SI:-.c4inhibitrc}
+
+    # Example: touch ~/.c4inhibitrc # diabled C4 login shell hook
+    if test ! -r "$HOME/$C4_USER_RC_INHIBIT_SI" 2>/dev/null ; then
+	# home is set and C$ is not disabled..
+
+	# several place to look for the shell function library
+	# Example: C4_USER_RC_SL=/path/to/my/copy-of-ghostwheel.fn.sh
+	C4_USER_RC_SL="${C4_USER_RC_SL:-$HOME/c4/p/gwfn/ghostwheel.fn.sh $HOME/gw.fn.sh /spokes/gw.fn.sh /spokes/gw14/storage/c4/f/ghostwheel.fn.sh}"
+
+	function c4_rc_try_source {
+	    test -r "$1" && source "$1" 2>/dev/null
+	}
+
+	function c4_rc_ready {
+	    # TODO: we assume any existing C4_ROOT contains the library; do better
+	    # test -n "$C4_ROOT" -a -d "$C4_ROOT"
+	    # ZZZ: done, probably
+	    c4.VERSION | grep -i ^c4 2>/dev/null
+	}
+	
+	if ! c4_rc_ready; then
+	    for f in $C4_USER_RC_SL; do
+		c4_rc_try_source "$f" && break;
+	    done
+	fi
+
+	# we are done trying to load functions, worked or it didn't..
+	if c4_rc_ready ; then
+
+	    #try probing for and setting up features..
+	    if test ! -r $HOME/.inhibitspokes 2>/dev/null ; then
+		c4.SPOKES_UP
+	    fi
+	    
+	fi
+    fi
+fi
+
+export C4_I_USER

@@ -1,0 +1,36 @@
+# DATE -- the shipboard date, recorded by itself before it is handed on.
+# Written only by bin/da1te.  One line per roll, newest last:
+#   <date>  <rolled-at, 24h UTC>  <host>  from=<predecessor>
+# Kept here because nothing down toward the present root kept one, so this is the top of context.
+2026-09-17	2026-09-17T20:01Z	claude	from=-
+# NOTE 2026-09-17: the first record names host `claude`, the reading shell -- a Linux VM on
+# avalon, reached through the desktop bridge.  Left standing rather than rewritten: a record is
+# not edited to look tidier.  Later rolls carry DA1TE_HOST=avalon.
+# NOTE: his day rolled and the clock did not.  He opened a fresh working day; UTC still reads
+# 2026-09-17, so `roll` correctly refused to invent a second value.  The divergence between the
+# shipboard day and the clock day is exactly what this file exists to make visible, and it showed
+# up on the first day it existed.  The second journal entry of 2026-09-17 is named -02- for it.
+2026-09-19	2026-09-19T09:57Z	claude	from=2026-09-17
+2026-09-22	2026-09-22T02:43Z	avalon	from=2026-09-19
+2026-09-23	2026-09-23T01:32Z	claude	from=2026-09-22
+2026-09-24	2026-09-24T02:33Z	claude	from=2026-09-23
+2026-09-25	2026-09-25T12:15Z	claude	from=2026-09-24
+2026-09-26	2026-09-26T06:27Z	claude	from=2026-09-25
+2026-09-27	2026-09-27T00:44Z	claude	from=2026-09-26
+2026-09-28	2026-09-28T01:20Z	claude	from=2026-09-27
+2026-09-29	2026-09-29T00:01Z	claude	from=2026-09-28
+2026-09-30	2026-09-30T00:10Z	avalon	from=2026-09-29
+2026-10-04	2026-10-04T07:04Z	avalon	from=2026-09-30
+2026-10-05	2026-10-05T21:21Z	claude	from=2026-10-04
+2026-10-06	2026-10-06T00:40Z	avalon	from=2026-10-05
+2026-10-09	2026-10-09T23:10Z	claude	from=2026-10-06
+2026-10-10	2026-10-10T06:51Z	claude	from=2026-10-09
+2026-10-12	2026-10-12T01:50Z	claude	from=2026-10-10
+2026-10-13	2026-10-13T03:18Z	claude	from=2026-10-12
+2026-10-14	2026-10-14T06:39Z	claude	from=2026-10-13
+2026-10-15	2026-10-15T04:04Z	claude	from=2026-10-14
+2026-10-20	2026-10-20T08:00Z	claude	from=2026-10-15
+2026-10-23	2026-10-23T01:01Z	claude	from=2026-10-20
+2026-10-24	2026-10-24T19:53Z	claude	from=2026-10-23
+2026-10-26	2026-10-26T10:18Z	claude	from=2026-10-24
+2026-11-03	2026-11-03T19:29Z	claude	from=2026-10-26

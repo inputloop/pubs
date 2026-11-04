@@ -1,0 +1,24 @@
+# pilot.pipeline -- the stages that make the pilot, one per line, in order.
+# Copyright 2026 Corwin Brust; GPL-3.0-or-later
+#
+#   set NAME=VALUE                        a setting; each tool sees it as GW_NAME
+#   STAGE  once|each  TOOL [ARGS...]      # what it makes
+#
+# "each" runs once per take; "once" runs on the first take's pass only.
+# Which takes, in what order: this one line. "B" alone, "A" alone, or both.
+set takes=B A
+set fps=25
+set xfade=0.8
+
+inventory once  tools/inventory.py  # src/goodnight from goodnight.in: every atom, by day
+voices    once  tools/voices.py     # fetch the Piper voices the cast names (md5-checked)
+narrate   each  tools/narrate.py    # one recording per line: narration.wav, timeline.json
+captions  each  tools/captions.py   # pilot-X.vtt, transcript-X.txt, chapters
+mp3       each  tools/mp3.sh        # pilot-X.mp3
+slides    once  tools/slides.py     # slides.html, the deck
+book      once  tools/book.py       # book.html, the picture book: facing pages, the map
+frames    each  tools/frames.js     # every video frame, drawn from the deck
+mp4       each  tools/mp4.sh        # pilot-X.mp4: crossfades, H.264 veryfast
+burn      each  tools/burn.sh       # pilot-X-captioned.mp4
+stills    each  tools/stills.js     # stills/X-*.png at twice the pixels
+check     each  checks/run.sh pilot # every promise of the pilot, media included

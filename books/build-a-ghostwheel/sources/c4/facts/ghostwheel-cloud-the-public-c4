@@ -1,0 +1,117 @@
+2026-08-03. Fetched `ghostwheel.cloud` and `c4.ghostwheel.cloud`. **The public C4 is older, more
+specific and further along than anything I had, and it answers four questions I had banked as open.**
+
+**THE CANONICAL PUBLIC DEFINITION, c4.ghostwheel.cloud, created 2025-08-17:**
+
+> **"C4 is Continuous Creation, Command & Control, a literate technology control framework built
+> atop OrgVM."**
+
+**THAT IS A FOURTH EXPANSION OF C4 AND IT IS THE PUBLISHED ONE.** My `facts/c4-is-a-seam-and-that-
+is-the-feature` lists eight meanings and does not have this one. The tally is now:
+
+    Collaborative Consent Continuity Controls        (in-tree)
+    Containers Components Configurations Connections (ghostwheel.fn.sh run-levels)
+    **Continuous Creation Command & Control**        (PUBLISHED, on the homepage)
+    Simon Brown's Context Container Component Code   (credited in the far seat's artifacts)
+
+**Four four-C sets.** The name is not merely oversubscribed; **it is oversubscribed with FOUR-C
+EXPANSIONS SPECIFICALLY**, which is a much stronger and stranger fact than "it means several things."
+
+**AND THE SITE'S MOTTO IS THE DEFINITION I HAD FILED AS A METHOD:**
+
+> *"Please restate the problem in terms of the solution." -variously attributed*
+
+It sits under the logo on **both** pages. I had this in the tree as `C4 = "restate the problem in
+terms of the solution"` and treated it as one gloss among many. **It is the site's epigraph.**
+
+**THE CONTEXTS LADDER, and `job` is already in it -- which bears directly on the J question:**
+
+    | Contexts | DNS network          |
+    |          | UNIVERSE DNS vendor  |
+    |          | system network host  |
+    |          | project program      |
+    |          | instance service job |
+
+**`host`, `project`, `program` are `m/t` words. `UNIVERSE` is the head of the ladder.** And **`job`
+is the terminal element** -- the smallest unit of work. Corwin proposed `J JIB JAR JOSTLE JOB` this
+week while unsure of his own reconstruction; **`job` was already load-bearing in the published
+contexts ladder, as the leaf.** Q269.
+
+**THE CAPABILITIES LIST ANSWERS THE UI/UX AND GAUGES QUESTIONS OUTRIGHT:**
+
+    [ ] document browser (for web)
+    [ ] CRUD API (over http/s)
+    [ ] in-line editor (for web)
+    [ ] **instrumentation (as svg)**
+    [ ] **controls (as html)**
+    [ ] whole-network CI (via TLS)
+
+I have been asking what shape the gauges take and predicting three steps to his preferred UI.
+**He wrote the answer down a year ago: instrumentation is SVG, controls are HTML, and the editor is
+in-line in the browser.** And on the parent site's dev list: *"build POC for status gauges"*,
+*"enable inline editor POC on scratch.ghostwheel.cloud"*.
+
+**ACCEPT IS AN HTTP VERB TABLE, and this is the man/machine boundary made mechanical:**
+
+    6. HTTP server is ready, **accept**:
+       POST, DELETE  - entire document      (requires AUTHORIZATION)
+       PATCH         - incremental          (requires APPROVAL)
+       PUT           - approve              (requires AUTHORIZATION)
+
+**Two different words -- AUTHORIZATION and APPROVAL -- and the incremental change is the one that
+needs APPROVAL while the wholesale replace needs only AUTHORIZATION.** That is a considered
+asymmetry: **you may be authorised to replace the whole document, and still need approval to change
+one line of it.** It is the consent doctrine, in HTTP, in 2025. And **`accept` is the survivor word
+from the code-of-communication hypothesis** -- the one that lived while `transactable`, `infer`,
+`willingness` and `impart` died.
+
+**THE BUILD FLOW IS THE "BEFORE AUTOTOOLS" DROP, ALREADY SEQUENCED:**
+
+    1. a c4 document created or changed
+    2. build and package
+    3. perform universal changes, e.g. to DNS
+    4. configure (virtualized) infrastructure
+    5. update hosted packages
+    6. HTTP server ready
+
+**Step 1 is a DOCUMENT changing and step 2 is BUILD.** My autotools fact argued C4 sits above
+`configure.ac`; **the published flow puts it above DNS and infrastructure as well.** Wider than I
+claimed.
+
+**SMALLER FINDS WORTH KEEPING:**
+ * `install.sh` uses `${C4NAME:="c4"}`, `${C4IB:=/var}`, `${C4RP:=./}` throughout -- **the
+   obey-existing-values idiom, everywhere, a year before I copied it out of `ghostwheel.fn.sh`.**
+ * It gates on freshness and **refuses**: `if test $input -nt $output; then ... ERROR ... exit 1`.
+   **A build that stops because the source is newer than the target.**
+ * `build.el` loads babel for **C, ditaa, dot, emacs-lisp, latex, js, perl, plantuml, shell** --
+   **nine languages, perl among them**, against the 17-language v1.0 goal.
+ * The parent site's Feature Index is a joke that is also the thesis:
+   `participle dangler` / `verb menacing engine` / `noun unbundler`, each with a health icon.
+   **A grammar-processing feature list with status gauges.**
+ * The Main Index column header is literally **`Universe`**.
+ * *"The ghostwheel is an adhoc network of people and (often, also networked) our computers"* --
+   **people first in the definition of the network.**
+
+**WHAT THIS DOES TO MY STANDING PICTURE.** `C4.md` says C4 is *"a way for two people to be deliberate
+about whose words govern, and to prove afterwards that they were."* **That is true and it is the
+LAB's C4.** The published C4 is *a literate technology control framework built atop OrgVM* that
+rebuilds a universe of hosts from a README.org. **These are not in conflict -- the lab is working on
+the vocabulary layer of a system whose plumbing is already specified and partly built** -- but I have
+been designing as though the plumbing were open. **It is not. It is written down, dated, and
+GPL'd.** Q270.
+
+STATUS: DRAFT (Claude-minted 2026-08-03). Every quotation is verbatim from the fetched pages, both
+authored by Corwin, both GPLv3+, design diagram CC-BY-4. Q269, Q270, Q271.
+
+2026-08-19 ADDENDUM (Claude): index rebuilt 2026-05-16 and the wheel filled in -- the Instance
+Index now shows THIRTY nodes (gw3-gw32): gw17 the PVE9 hypervisor carrying the 18-31 band; gw22
+PVE8 with 2x14TB data; gw19 consoled to Amin + EmacsConf (the 2020 bandali thread landed in
+hardware); consoles shared with FSFSYS, GSUS, Tigger, Alyx, adupree. Dev notes: ping report
+IMPLEMENTED (dsh.sh ping), deb-13 update done; still open: inline-editor POC (scratch.), the
+DYNAMIC LOGO GENERATOR, style-sheet selector web-control, status-gauges POC, OrgVM nginx proxy,
+dockerized emacsserver. The status logo's semantics arrived from the keeper in chat this night
+(recorded in the seam fact's addendum) and a generator draft now exists
+(outputs/gwstatuslogo-rework-2026-08-19.html -- feeds on the instance table; shape as the second
+band-channel, maintenance as a hollow state, words on every token). The ghostwheel-ux zip
+(Nov 2025) is intaken via Inbox; user-styles.js is Carl Hawkins's (GPLv3+) -- another hand on
+the wheel.

@@ -1,0 +1,76 @@
+# chad -- Chad's first intermezzo, at the start of Part One.
+# Copyright 2026 Corwin Brust; CC-BY-SA-4.0
+#
+# Chad is Corwin's own character: "a re-occurring character who shows up at
+# the start of chapters or for some brief intermezzo, initially seeming a
+# little out of place and slightly goofy", whose ideas make sense only near
+# C4's query language. Here he is brief, confident, and explains nothing.
+# (For the writers only, not the page: C4.md section 9, 2026-08-25, records
+# "C4 backward consing (rightmost token = the logical CAR ...)" under the
+# ASSY / C4QL / C4META stack. Whether this line pays off there is his call.)
+kind: intermezzo
+title: Chad
+part: Part One: how we say things
+
+== picture page ==
+Oh! Who is this?
+
+"Hi. I'm Chad. I got this."
+
+"Last word first. Every time."
+
+And then he was gone.
+
+== layout ==
+picture: top
+words: scatter
+at: 4 5 42
+at: 48 4 50
+at: 5 78 56
+at: 52 89 44
+align: left
+
+== narration ==
+[picture A]
+narrator: Part One. How we say things.
+chad: Hi! Chad. Don't get up. I got this.
+spoke: Did you see him come in? I didn't.
+chad: Last word first. Every time.
+pin: I'll write that down for you. Chad, at the door, before the start.
+narrator: And then he was gone.
+
+[picture B]
+narrator: Part One. How we say things.
+chad: Hi! Chad. Don't get up. I got this.
+spoke: Pin. Who is that?
+pin: No idea. He isn't on my list.
+chad: Last word first. Every time.
+pin: Writing it down. Chad, at the door, before the start.
+narrator: And then he was gone.
+
+== picture ==
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="chad-t">
+  <title id="chad-t">Chad, a tall smiling figure in a teal sweater and a cap worn backwards, stands in a spotlight by the shop door, thumb up, holding a card with an arrow that points left. Spoke peeks from behind the door frame; Pin writes it down.</title>
+  <rect width="800" height="600" fill="url(#g-wall)"/>
+  <rect y="478" width="800" height="122" fill="url(#g-floor)"/>
+  <rect y="472" width="800" height="9" fill="#c49a6c"/>
+  <polygon points="700,0 800,0 800,40 720,560 420,560" fill="#fff6d6" opacity="0.55"/>
+  <ellipse cx="610" cy="560" rx="170" ry="26" fill="#fff6d6" opacity="0.8"/>
+  <path d="M 40,478 V 290 A 100 100 0 0 1 240,290 V 478 Z" fill="#8a5233" stroke="#5e3720" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M 58,478 V 294 A 82 82 0 0 1 222,294 V 478 Z" fill="#b9774a" stroke="#5e3720" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M 140,214 V 478 M 96,250 V 470 M 184,250 V 470" stroke="#9a5f37" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="202" cy="392" r="7" fill="#e9c46a" stroke="#5e3720" stroke-width="3"/>
+  <g transform="translate(140 236)">
+    <circle r="22" fill="#fffaf0" stroke="#5e3720" stroke-width="4"/>
+    <circle r="12" fill="none" stroke="#b98f5a" stroke-width="3"/>
+    <path d="M 0,-12 V 12 M -12,0 H 12 M -8.5,-8.5 L 8.5,8.5 M -8.5,8.5 L 8.5,-8.5" stroke="#b98f5a" stroke-width="2"/>
+  </g>
+  <g fill="#c49a6c" opacity="0.7">
+    <ellipse cx="790" cy="540" rx="12" ry="5"/>
+    <ellipse cx="752" cy="552" rx="12" ry="5"/>
+    <ellipse cx="716" cy="538" rx="12" ry="5"/>
+  </g>
+  <g data-figure="spoke" transform="translate(290 300) scale(0.62)"></g>
+  <g data-figure="chad" transform="translate(600 560) scale(1.42)"></g>
+  <g data-figure="pin" transform="translate(330 556) scale(1.0)"></g>
+</svg>
