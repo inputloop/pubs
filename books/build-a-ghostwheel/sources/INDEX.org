@@ -404,9 +404,9 @@ A held-back file is one this publication does not carry; the book's rows about i
 * Rows that cite something other than a C4 file
 
 - proving · book · cites: ghostwheel-book/checks/run.sh, lines 237-238
-  - this folder's =checks/run.sh=. Changed since the book read it (sha256 now =7395d68cd3e0545e7efe6da5ab84a5d9835b205a4aa15a4ee2457c2a94f3f03a=); the quoted lines are now 412-413.
+  - this folder's =checks/run.sh=. Changed since the book read it (sha256 now =1e5b7b8d62779b4dcb2fa50c6b80029aa46f4bf94a50433eeb5251eb0085f1d5=); the quoted lines are now 415-416.
 - when · row · cites: ghostwheel-book/README.md, lines 98-105
-  - this folder's =README.md=. Changed since the book read it (sha256 now =635b82af4ea7513c307d5f82dc4331f496a074ca81504a0a639b50db4ba913bf=); the quoted lines are now 99-105.
+  - this folder's =README.md=. Changed since the book read it (sha256 now =3c6ca1a4324a59cf11b7c4339cada941502d0312709464a5ad16c8ffc1f17a82=); the quoted lines are now 99-105.
 - when · dagger · cites: the pub shelf's papers/ai-diligence-sysops/ai-diligence-sysops-v0.2.1.md, lines 169-170 and 175
   - the paper =papers/ai-diligence-sysops/ai-diligence-sysops-v0.2.1.md= in this repository. Its sha256 matches the row.
 - when · plan · cites: the command "ls c/seen d/c/seen" in c4

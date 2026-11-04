@@ -49,8 +49,8 @@ is what the tools make from =src/= (=current=), that its privacy note names exac
 (=privacy=), that the site carries this book and stores nothing itself (=site=), that the
 cited C4 files are here byte for byte and the index tells the truth (=sources=), and, in a browser,
 that the book loads nothing from elsewhere and reads as a book should, Forget my settings included
-(=bookoffline=, =bookread=). =sh checks/run.sh --prove-red= plants 29 faults and requires each to turn
-its check red. On 2026-11-04: CHECKS GREEN (8 of 8), PROVE-RED OK (29 of 29).
+(=bookoffline=, =bookread=). =sh checks/run.sh --prove-red= plants 31 faults and requires each to turn
+its check red. On 2026-11-04: CHECKS GREEN (8 of 8), PROVE-RED OK (31 of 31).
 
 * Why its sources travel
 
@@ -71,5 +71,6 @@ and why each was held.
   GPL-3.0-or-later OR LGPL-3.0-or-later.
 - What it stores: one key in the reader's browser, =gwbook.look= (the map view last picked), named in
   the note under the map with a Forget my settings button. Nothing is sent anywhere; the house page
-  stores nothing (Corwin, 2026-11-04: "Keep it, disclose it").
+  stores nothing (Corwin, 2026-11-04: "Keep it, disclose it"). Both notes add that the web server keeps
+  its usual request log, on the server, as corwin.cloud's note does.
 - Credit: Copyright 2026 Corwin Brust. Written and drawn by Mentat (for Corwin, claude-opus-5-5).

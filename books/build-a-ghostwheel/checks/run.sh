@@ -207,6 +207,8 @@ check_site() {  # SITEDIR BOOKHTML
   if grep -q 'href="/build-a-ghostwheel/#privacy"' "$1/public/index.html" 2>/dev/null; then
     echo "  the house pages carry no script; the front page links to the book's privacy note"
   else echo "  the front page does not link to the book's privacy note (/build-a-ghostwheel/#privacy)"; bad=1; fi
+  grep -q 'keeps its usual request log' "$1/public/index.html" 2>/dev/null ||
+    { echo "  the front page does not say the web server keeps its usual request log"; bad=1; }
   return $bad
 }
 
@@ -233,6 +235,7 @@ check_privacy() {  # HTML
   comm -13 "$pt/w" "$pt/named" | sed 's/^/  named in the note and not written: /' >> "$pt/miss"
   [ -s "$pt/miss" ] && { cat "$pt/miss"; bad=1; }
   grep -q 'id="forget"' "$pt/note" || { echo "  the note has no Forget my settings button (id=\"forget\")"; bad=1; }
+  grep -q 'keeps its usual request log' "$pt/note" || { echo "  the note does not say a web server keeps its usual request log"; bad=1; }
   [ $bad -eq 0 ] && echo "  the note names the $(wc -l < "$pt/w" | tr -d ' ') key(s) the script writes ($(tr '\n' ' ' < "$pt/w" | sed 's/ $//')), no cookie, and offers to forget"
   rm -rf "$pt"; return $bad
 }
@@ -485,11 +488,13 @@ prove_red() {
   expect_red "site: the show page one byte longer than book.html" check_site "$TMP/site1" "$OUT/book.html"
   rm -f "$TMP/site2/public/build-a-ghostwheel/index.html"
   expect_red "site: the show page missing" check_site "$TMP/site2" "$OUT/book.html"
-  for k in script nolink; do mkdir -p "$TMP/site-$k"; cp -R "$SITE/." "$TMP/site-$k/"; done
+  for k in script nolink nolog; do mkdir -p "$TMP/site-$k"; cp -R "$SITE/." "$TMP/site-$k/"; done
   sed -i 's#</body>#<script>localStorage.setItem("x", "1")</script></body>#' "$TMP/site-script/public/index.html"
   expect_red "site: a script on the front page" check_site "$TMP/site-script" "$OUT/book.html"
   sed -i 's#href="/build-a-ghostwheel/\#privacy"#href="/build-a-ghostwheel/"#' "$TMP/site-nolink/public/index.html"
   expect_red "site: the front page's link to the book's privacy note gone" check_site "$TMP/site-nolink" "$OUT/book.html"
+  sed -i 's# The web server keeps its usual request log: the address that asked, the time, and the page. That log is on the server, not in your browser.##' "$TMP/site-nolog/public/index.html"
+  expect_red "site: the front page's request-log line gone" check_site "$TMP/site-nolog" "$OUT/book.html"
   fi
 
   if want_pr privacy; then
@@ -498,6 +503,8 @@ prove_red() {
   expect_red "privacy: a key written (gwbook.seen) that the note does not name" check_privacy "$b"
   b=$(planted_book oldkey "s#(<code>gwbook.look</code>)#(<code>gwbook.look</code>, <code>gwbook.page</code>)#")
   expect_red "privacy: the note names a key (gwbook.page) that nothing writes" check_privacy "$b"
+  b=$(planted_book nolog "s#A web server that serves this book keeps its usual request log#A web server that serves this book keeps its usual log#")
+  expect_red "privacy: the note no longer says a web server keeps its request log" check_privacy "$b"
   fi
 
   if want_pr sources; then

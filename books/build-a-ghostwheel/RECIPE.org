@@ -53,7 +53,7 @@ Three stages, in order:
 
 #+begin_src sh
 sh checks/run.sh                 # the eight promises of this folder
-sh checks/run.sh --prove-red     # 29 planted faults, each must turn its check red; ends PROVE-RED OK
+sh checks/run.sh --prove-red     # 31 planted faults, each must turn its check red; ends PROVE-RED OK
 sh checks/run.sh book            # six, for a copy plucked without site/ and sources/
 sh checks/run.sh --prove-red words inventory book current
 #+end_src

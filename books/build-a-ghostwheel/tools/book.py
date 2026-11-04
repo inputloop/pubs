@@ -757,6 +757,8 @@ def main():
               f'A paper book stops at the page: the numbered marks (Pin\'s notes) and this map are where this one goes on past it.</p>'
               f'<p class="privacy" id="privacy" tabindex="-1">This book remembers which map view you last picked '
               f'(<code>gwbook.look</code>), in your browser only; nothing is sent anywhere. '
+              f'A web server that serves this book keeps its usual request log: the address that asked, the time, '
+              f'and the page. That log is on the server, not in your browser, and forgetting here does not touch it. '
               f'<button type="button" id="forget">Forget my settings</button> <span id="forgot" role="status"></span></p></div>')
     doc = f"""<!doctype html>
 <html lang="en">
