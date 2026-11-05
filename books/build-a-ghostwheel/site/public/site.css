@@ -16,6 +16,7 @@ a { color: var(--gold); }
 a:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
 .show { display: block; text-align: left; text-decoration: none; border: 1px solid var(--line); border-radius: 10px; padding: 1rem 1.1rem; background: rgba(255,207,106,0.05); }
 .show:hover { border-color: var(--gold); }
+.show + .show { margin-top: 0.8rem; }
 .show-title { display: block; font-size: 1.35rem; color: var(--gold); margin-bottom: 0.3rem; }
 .show-sub { display: block; color: var(--ink); }
 .howto { color: var(--dim); font-size: 0.95rem; margin-top: 0.8rem; }

@@ -1,0 +1,93 @@
+# WITNESSES -- the facts the show To the Two Readers rests on, one record each, in the form of
+# books/build-a-ghostwheel/src/door's == facts == (fact, said, seen, by, from, sha, state, note).
+# from: a path in this repository and its lines, or a thing held outside it (state: held), whose hash is
+# the one taken when it was received.  checks/run.sh re-reads every record whose from is a file here.
+# Copyright 2026 Corwin Brust; CC-BY-SA-4.0.  Mentat (for Corwin, claude-opus-5-5)
+
+fact: hand
+said: To th' TRUE READER / accross / TIME, with & SPACE standing on end beside TIME, and a hooked arrow from READER's last stroke
+seen: 2026-11-05T03:51:00Z
+by: Mentat (claude-opus-5-5), reading the photographs Corwin sent
+from: Corwin's message of 2026-11-04 21:51 CST, photograph 1 of 4 (04a2b660-image.jpg, 232076 bytes)
+sha: sha256:0c3805a931e4fbfa81025b8eaa632d64d4184986760e848d9d6c52ddcc61a498
+state: held
+note: "Toh" read as "To th'" is my reading. The mark spells "across"; the hand wrote "accross".
+
+fact: struck
+said: the same page, with TRUE struck through
+seen: 2026-11-05T03:51:00Z
+by: Mentat (claude-opus-5-5), reading the photographs Corwin sent
+from: Corwin's message of 2026-11-04 21:51 CST, photograph 2 of 4 (80070363-image.jpg, 235975 bytes)
+sha: sha256:342e0b53cfc5204b95bbafd66b2aca6c89b2b54ed53267ba971a2ed723d0a6dd
+state: held
+
+fact: turned
+said: the same page upside down; in his words, "one of the sample frames I show is photographed even worse than the others!"
+seen: 2026-11-05T03:51:00Z
+by: Mentat (claude-opus-5-5), reading the photographs Corwin sent
+from: Corwin's message of 2026-11-04 21:51 CST, photograph 3 of 4 (467efb2a-image.jpg, 234090 bytes)
+sha: sha256:c78c05b858a763ce536e4576e0ae072abb313d7dec9c838cf34d0b5047ff5e86
+state: held
+note: That this frame is the page as the reader across the table sees it, and that the hook is the page's turn, is my reading; he has not said so.
+
+fact: two
+said: TRUE struck, and "two" written above it in a second, blue ink
+seen: 2026-11-05T03:51:00Z
+by: Mentat (claude-opus-5-5), reading the photographs Corwin sent
+from: Corwin's message of 2026-11-04 21:51 CST, photograph 4 of 4 (e80b6ee5-image.jpg, 239426 bytes)
+sha: sha256:345c61256b93597fa55f447df88de1f54e3d2ccee632bd854fb1b16d77b62554
+state: held
+
+fact: channel
+said: you are not transmitting into them; you are
+seen: 2026-11-05T04:31:00Z
+by: Mentat (claude-opus-5-5), reading the pubs tree
+from: papers/two-readers/DISS-2026-09-27-two-readers-v0.2.md, lines 140-142
+sha: sha256:993ded96b68c7fa5fe177379b432923aafda91e5857ab9349e387838adac7258
+state: seen
+note: The caption quotes "you are not transmitting into them; you are emitting into a channel", which runs over the line break at 141-142.
+
+fact: never
+said: There are never more than two
+seen: 2026-11-05T04:31:00Z
+by: Mentat (claude-opus-5-5), reading the pubs tree
+from: papers/two-readers/DISS-2026-09-27-two-readers-v0.2.md, line 38
+sha: sha256:993ded96b68c7fa5fe177379b432923aafda91e5857ab9349e387838adac7258
+state: seen
+note: The paper is "Provisional — unblessed" (line 6).
+
+fact: reflection
+said: A reflection is not a witness.
+seen: 2026-11-05T04:31:00Z
+by: Mentat (claude-opus-5-5), reading the pubs tree
+from: papers/two-readers/DISS-2026-09-27-two-readers-v0.2.md, line 192
+sha: sha256:993ded96b68c7fa5fe177379b432923aafda91e5857ab9349e387838adac7258
+state: seen
+note: The paper asks that its review be read before §IV is cited (lines 18-20). The review and the experiment partly disagree; see the next two records.
+
+fact: moves
+said: A rerun is not a witness to what is *true*. It is a witness to
+seen: 2026-11-05T04:31:00Z
+by: Mentat (claude-opus-5-5), reading the pubs tree
+from: papers/two-readers/REVIEW-2026-09-27-two-readers-second-reader.md, lines 162-163
+sha: sha256:d5e24b2c2f331eec1c6f9c8d80eaaba7d1bb86cf72dc26cd9d58363b04ebb347
+state: seen
+note: The review's verdict on §IV: "Falsifier 5 partly fires." It is by the same model family as the paper (its own lines 15-16).
+
+fact: moves-paper
+said: A rerun of the same reader is not a witness
+seen: 2026-11-05T04:31:00Z
+by: Mentat (claude-opus-5-5), reading the pubs tree
+from: papers/two-readers/DISS-2026-09-27-two-readers-v0.2.md, line 214
+sha: sha256:993ded96b68c7fa5fe177379b432923aafda91e5857ab9349e387838adac7258
+state: seen
+note: Edition 0.2 took the review's finding in; the line continues "to what is true, but it is a witness to how far the answer moves."
+
+fact: wanted
+said: That reader is still
+seen: 2026-11-05T04:31:00Z
+by: Mentat (claude-opus-5-5), reading the pubs tree
+from: papers/two-readers/DISS-2026-09-27-two-readers-v0.2.md, lines 21-22
+sha: sha256:993ded96b68c7fa5fe177379b432923aafda91e5857ab9349e387838adac7258
+state: seen
+note: The paper's own provenance: neither its review nor its experiment is "the second reader it asks for". The caption quotes "That reader is still wanted.", which runs over the line break.
