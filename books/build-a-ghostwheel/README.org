@@ -71,6 +71,8 @@ and why each was held.
   GPL-3.0-or-later OR LGPL-3.0-or-later.
 - What it stores: one key in the reader's browser, =gwbook.look= (the map view last picked), named in
   the note under the map with a Forget my settings button. Nothing is sent anywhere; the house page
-  stores nothing (Corwin, 2026-11-04: "Keep it, disclose it"). Both notes add that the web server keeps
-  its usual request log, on the server, as corwin.cloud's note does.
+  stores nothing (Corwin, 2026-11-04: "Keep it, disclose it"). Both notes say what the web server at
+  ghostlights.theater keeps, each in one sentence of its own rendered from the logreq register
+  (=src/privacy-log= for the book, =site/privacy-log= for the front page): his pick A+agent, live on gw33
+  since run 20261104T225156Z.
 - Credit: Copyright 2026 Corwin Brust. Written and drawn by Mentat (for Corwin, claude-opus-5-5).

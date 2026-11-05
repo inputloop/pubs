@@ -35,6 +35,12 @@ else TAKES=$(awk '/^take:/{print $2}' "$SRC/book"); fi
 fdur() { ffprobe -v error -show_entries format=duration -of csv=p=0 "$1" 2>/dev/null; }
 vdur() { ffprobe -v error -select_streams v:0 -show_entries stream=duration -of csv=p=0 "$1" 2>/dev/null; }
 sfx() { [ "$1" = "-" ] && echo "" || echo "-$1"; }
+# A request-log sentence file (lo1re render ... notefile): line 1 a stamp ending "sha256 HEX", line 2 the
+# sentence. stamp_ok: the sentence is the one its stamp names. html_line: the sentence as a page carries it.
+stamp_ok() { [ -s "$1" ] || return 1
+  st=$(sed -n '1s/.*sha256 \([0-9a-f]\{64\}\) *$/\1/p' "$1"); [ -n "$st" ] || return 1
+  [ "$(sed -n 2p "$1" | tr -d '\n' | sha256sum | cut -c1-64)" = "$st" ]; }
+html_line() { sed -n 2p "$1" | sed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g'; }
 
 # --- promise 1: every output exists ------------------------------------------
 check_outputs() {  # DIR TAKE...
@@ -192,7 +198,7 @@ check_current() {  # SRCDIR OUTDIR
 check_site() {  # SITEDIR BOOKHTML
   sp="$1/public/build-a-ghostwheel/index.html"; bad=0
   [ -s "$1/public/index.html" ] || { echo "  missing or empty: the site's front page, $1/public/index.html"; bad=1; }
-  for f in install.sh nginx-ghostlights.theater.conf ghostlights.theater.interim.conf; do
+  for f in install.sh nginx-ghostlights.theater.conf ghostlights.theater.interim.conf logrotate-ghostlights.theater; do
     [ -s "$1/deploy/$f" ] || { echo "  missing or empty: $1/deploy/$f"; bad=1; }
   done
   if [ ! -s "$sp" ]; then echo "  missing or empty: the site's show page, $sp"; bad=1
@@ -207,8 +213,13 @@ check_site() {  # SITEDIR BOOKHTML
   if grep -q 'href="/build-a-ghostwheel/#privacy"' "$1/public/index.html" 2>/dev/null; then
     echo "  the house pages carry no script; the front page links to the book's privacy note"
   else echo "  the front page does not link to the book's privacy note (/build-a-ghostwheel/#privacy)"; bad=1; fi
-  grep -q 'keeps its usual request log' "$1/public/index.html" 2>/dev/null ||
-    { echo "  the front page does not say the web server keeps its usual request log"; bad=1; }
+  # The front page's request-log sentence is site/privacy-log's (rendered from the logreq register), and
+  # that file is the one its stamp names: one home for the words, never edited by hand.
+  if ! stamp_ok "$1/privacy-log"; then
+    echo "  site/privacy-log: the sentence is not the one its stamp names (render it again from the register)"; bad=1
+  elif grep -qF -- "$(html_line "$1/privacy-log")" "$1/public/index.html" 2>/dev/null; then
+    echo "  the front page carries site/privacy-log's sentence, which matches its stamp"
+  else echo "  the front page does not carry site/privacy-log's sentence"; bad=1; fi
   return $bad
 }
 
@@ -235,7 +246,13 @@ check_privacy() {  # HTML
   comm -13 "$pt/w" "$pt/named" | sed 's/^/  named in the note and not written: /' >> "$pt/miss"
   [ -s "$pt/miss" ] && { cat "$pt/miss"; bad=1; }
   grep -q 'id="forget"' "$pt/note" || { echo "  the note has no Forget my settings button (id=\"forget\")"; bad=1; }
-  grep -q 'keeps its usual request log' "$pt/note" || { echo "  the note does not say a web server keeps its usual request log"; bad=1; }
+  # The request-log sentence is src/privacy-log's (rendered from the logreq register), matching its stamp,
+  # and tools/book.py types none of its own. A planted book beside its own src/ and tools/ is read there.
+  d=$(dirname "$h"); pl=$SRCA/privacy-log; [ -f "$d/src/privacy-log" ] && pl=$d/src/privacy-log
+  bp=$HERE/tools/book.py; [ -f "$d/tools/book.py" ] && bp=$d/tools/book.py
+  if ! stamp_ok "$pl"; then echo "  src/privacy-log: the sentence is not the one its stamp names (render it again from the register)"; bad=1
+  elif ! grep -qF -- "$(html_line "$pl")" "$pt/note"; then echo "  the note does not carry src/privacy-log's sentence"; bad=1; fi
+  if grep -q 'web server' "$bp"; then echo "  tools/book.py types a request-log sentence of its own; the words live in src/privacy-log"; bad=1; fi
   [ $bad -eq 0 ] && echo "  the note names the $(wc -l < "$pt/w" | tr -d ' ') key(s) the script writes ($(tr '\n' ' ' < "$pt/w" | sed 's/ $//')), no cookie, and offers to forget"
   rm -rf "$pt"; return $bad
 }
@@ -488,13 +505,17 @@ prove_red() {
   expect_red "site: the show page one byte longer than book.html" check_site "$TMP/site1" "$OUT/book.html"
   rm -f "$TMP/site2/public/build-a-ghostwheel/index.html"
   expect_red "site: the show page missing" check_site "$TMP/site2" "$OUT/book.html"
-  for k in script nolink nolog; do mkdir -p "$TMP/site-$k"; cp -R "$SITE/." "$TMP/site-$k/"; done
+  for k in script nolink nolog stamp norot; do mkdir -p "$TMP/site-$k"; cp -R "$SITE/." "$TMP/site-$k/"; done
   sed -i 's#</body>#<script>localStorage.setItem("x", "1")</script></body>#' "$TMP/site-script/public/index.html"
   expect_red "site: a script on the front page" check_site "$TMP/site-script" "$OUT/book.html"
   sed -i 's#href="/build-a-ghostwheel/\#privacy"#href="/build-a-ghostwheel/"#' "$TMP/site-nolink/public/index.html"
   expect_red "site: the front page's link to the book's privacy note gone" check_site "$TMP/site-nolink" "$OUT/book.html"
-  sed -i 's# The web server keeps its usual request log: the address that asked, the time, and the page. That log is on the server, not in your browser.##' "$TMP/site-nolog/public/index.html"
-  expect_red "site: the front page's request-log line gone" check_site "$TMP/site-nolog" "$OUT/book.html"
+  sed -i 's# The web server at ghostlights.theater keeps a log of each request: [^<]*##' "$TMP/site-nolog/public/index.html"
+  expect_red "site: the front page's request-log sentence gone" check_site "$TMP/site-nolog" "$OUT/book.html"
+  sed -i '2s/14 days/15 days/' "$TMP/site-stamp/privacy-log"
+  expect_red "site: site/privacy-log edited by hand (its stamp no longer holds)" check_site "$TMP/site-stamp" "$OUT/book.html"
+  rm -f "$TMP/site-norot/deploy/logrotate-ghostlights.theater"
+  expect_red "site: the site's rotation file missing" check_site "$TMP/site-norot" "$OUT/book.html"
   fi
 
   if want_pr privacy; then
@@ -503,8 +524,10 @@ prove_red() {
   expect_red "privacy: a key written (gwbook.seen) that the note does not name" check_privacy "$b"
   b=$(planted_book oldkey "s#(<code>gwbook.look</code>)#(<code>gwbook.look</code>, <code>gwbook.page</code>)#")
   expect_red "privacy: the note names a key (gwbook.page) that nothing writes" check_privacy "$b"
-  b=$(planted_book nolog "s#A web server that serves this book keeps its usual request log#A web server that serves this book keeps its usual log#")
-  expect_red "privacy: the note no longer says a web server keeps its request log" check_privacy "$b"
+  b=$(planted_book typed "s#{E(book_log, quote=False)} #A web server that serves this book keeps its usual request log. #")
+  expect_red "privacy: a request-log sentence typed into tools/book.py" check_privacy "$b"
+  b=$(planted_book stamp "" 'sed -i "2s/14 days/15 days/" "$D/privacy-log"')
+  expect_red "privacy: src/privacy-log edited by hand (its stamp no longer holds)" check_privacy "$b"
   fi
 
   if want_pr sources; then

@@ -14,6 +14,10 @@ swap() {  # swap CONF: install it as the site; on nginx -t failure put the previ
   else if [ $had = 1 ]; then sudo install -m 644 "$prev" "$SITE"; else sudo rm -f "$N/sites-enabled/ghostlights.theater"; fi
        rm -f "$prev"; echo "nginx -t failed with $1: the previous site file is back" >&2; exit 1; fi
 }
+# The site's own request and error logs (logreq A+agent, 2026-11-04): their folder must exist before nginx -t,
+# and their rotation file sits beside the stock one.
+sudo install -d -m 0755 -o root -g adm /var/log/nginx/ghostlights.theater
+sudo install -m 644 "$here/logrotate-ghostlights.theater" /etc/logrotate.d/nginx-ghostlights.theater
 sudo mkdir -p "$WWW"
 if sudo test -d "$WWW/public"; then sudo cp -a "$WWW/public" "$WWW/public.before-$(date -u +%Y%m%d-%H%M%S)"; fi
 sudo rsync -a --delete "$here/../public/" "$WWW/public/"

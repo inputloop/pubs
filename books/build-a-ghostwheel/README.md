@@ -187,13 +187,16 @@ files: **sources** (every C4 file a witness row cites has an entry in `sources/I
 `sha:` is its entry's recorded hash, each copy in `sources/` hashes to its entry, and nothing sits there
 unlisted; planted: a copy a byte long, a row's `sha:` changed, and an unlisted file). The same day the
 book gained a privacy note (Corwin's choice: "Keep it, disclose it"): **privacy** (the note in the map
-names exactly the keys the page's script writes, the page sets no cookie, and the note says a web
-server keeps its usual request log; planted: a second key written, a key named that nothing writes,
-and the request-log line gone), the browser promise **forget** in `checks/book.js`
+names exactly the keys the page's script writes, the page sets no cookie, and the note carries the
+request-log sentence of `src/privacy-log`, which matches its stamp, with no copy typed into
+`tools/book.py`; planted: a second key written, a key named that nothing writes, a sentence typed into
+the book's code, and the sentence file edited by hand), the browser promise **forget** in `checks/book.js`
 (opening the map stores nothing, a picked view is stored, Forget my settings removes every `gwbook.`
 key and says so, and `#privacy` opens the map at the note; planted: one fault for each of the last
 three), and more for **site** (the house pages carry no script, and the front page links to the note and
-names the request log; planted: a script on the front page, the link gone, and the log line gone).
+carries the sentence of `site/privacy-log`, which matches its stamp; planted: a script on the front page,
+the link gone, the sentence gone, and the sentence file edited by hand). Both sentences are rendered by
+lo1re from the logreq register (his pick A+agent, live on gw33 since run 20261104T225156Z).
 
 | Promise | Check | Planted faults |
 |---|---|---|

@@ -731,6 +731,11 @@ JS = r"""
 
 def main():
     meta, spreads = spread.read_book()
+    # The request-log sentence is the book's own: lo1re renders it from the logreq register into
+    # src/privacy-log (line 1: the rows it came from and the sentence's sha256; line 2: the sentence).
+    # It is read here and typed nowhere else; checks/run.sh privacy holds the note to it and it to its stamp.
+    with open(os.path.join(spread.SRC, "privacy-log"), encoding="utf-8") as fh:
+        book_log = fh.read().split("\n")[1]
     defs, figs = slides.load_figures()
     views, css, rooms = build(meta, spreads, figs)
     style = CSS + "\n" + "\n".join(css)
@@ -757,8 +762,7 @@ def main():
               f'A paper book stops at the page: the numbered marks (Pin\'s notes) and this map are where this one goes on past it.</p>'
               f'<p class="privacy" id="privacy" tabindex="-1">This book remembers which map view you last picked '
               f'(<code>gwbook.look</code>), in your browser only; nothing is sent anywhere. '
-              f'A web server that serves this book keeps its usual request log: the address that asked, the time, '
-              f'and the page. That log is on the server, not in your browser, and forgetting here does not touch it. '
+              f'{E(book_log, quote=False)} '
               f'<button type="button" id="forget">Forget my settings</button> <span id="forgot" role="status"></span></p></div>')
     doc = f"""<!doctype html>
 <html lang="en">
