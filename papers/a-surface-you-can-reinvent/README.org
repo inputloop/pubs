@@ -1,0 +1,24 @@
+#+TITLE: A surface you can reinvent
+#+SUBTITLE: publication stage · papers · <H>:/pub/papers/a-surface-you-can-reinvent/
+#+AUTHOR: Corwin Brust (keeper) · written with Mentat · corwin@bru.st
+#+DATE: 2026-11-12
+
+* What this is
+
+An argument, with build instructions and checks, for the C4 surface: a chamber of display segments, a two-handed controller with an Emacs-style xframe, and firmaments that raise familiar frames by degrees; reviewed by an editorial council in two rounds and revised after being built.
+
+* What travels
+
+- =DISS-2026-11-12-a-surface-you-can-reinvent.md=
+- =REVIEW-2026-11-12-editorial-council.md=
+- =MODEL-2026-11-12-xframe-controller.md=
+- this README, and =COPYING=.
+
+* Checking it
+
+=.c4/PROVENANCE.tsv= names where each file came from and its hash when it was lifted; =pb1ck=
+re-hashes them and reads the item for anything of the machine it was made on.
+
+* Status
+
+Pre-branding: see =COPYING=.
