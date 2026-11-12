@@ -157,11 +157,17 @@ element exists because a reaction makes it. There is no list of elements to keep
 
 ** Add a reaction
 
+Sea and sun make nothing yet. Make them make salt:
+
 #+begin_src sh
-mkdir -p alchemy/decks/classic/rx/fire
-printf 'steam\nWater that fire has lifted.\n' > alchemy/decks/classic/rx/fire/water
-sh h/al1ch check classic
+mkdir -p alchemy/decks/classic/rx/sea
+printf 'salt\nWhat the sun leaves when it takes the sea.\n' > alchemy/decks/classic/rx/sea/sun
+sh h/al1ch check classic          # 64 elements now, 65 reactions, and salt is a new dead end
+sh h/al1ch split classic salt
 #+end_src
+
+Leave out the why and =check= refuses it. Write =rx/sun/sea= and it refuses that too: a pair is
+kept in byte order.
 
 ** Play it at a shell
 
