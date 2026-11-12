@@ -1,0 +1,207 @@
+#!/bin/sh
+# al1ch -- ALCHEMY 1 CHEMIST: the alchemy game's decks, kept as atoms, combined, split and checked.
+#
+# usage: al1ch decks                  every deck: its name and title
+#        al1ch start DECK             the first matter: what a player starts with
+#        al1ch combine DECK A B       what A and B make together (exit 1: nothing)
+#        al1ch split DECK X           every pair that makes X, and why (exit 1: nothing makes it)
+#        al1ch uses DECK X            everything X goes into
+#        al1ch reach DECK             each element and the fewest combinations from first matter to it
+#        al1ch fold DECK              the deck as one table (TSV, below); the web game reads this
+#        al1ch check DECK             the deck's promises (below); exit 1 on any broken one
+#        al1ch --prove-red            plant one fault per promise in a throwaway deck; ends PROVE-RED OK
+#
+# A deck is a folder: about (title: line, a blank line, one sentence), start/ID (one file per element
+# of first matter), names/ID (a display name, when the ID alone reads badly), and rx/A/B (one file per
+# reaction, A <= B in byte order: line 1 the product's ID, line 2 why, nothing else). An ID is
+# [a-z0-9]+. DECK is a name under $AL1CH_DECKS (default <c4>/alchemy/decks) or a path to a folder.
+#
+# fold prints, in this order, each part sorted bytewise:
+#   about TAB deck TAB title TAB sentence
+#   start TAB id
+#   name TAB id TAB display
+#   rx TAB a TAB b TAB product TAB why
+#
+# check's promises: 1 every ID is [a-z0-9]+; 2 every pair is ordered (a <= b); 3 every reaction file is
+# exactly two non-empty lines; 4 about has a title and a sentence; 5 there is first matter, and no
+# reaction makes first matter; 6 every reaction fires (both its ingredients can be made from first
+# matter); 7 every names/ file names an element of the deck.
+#
+# The spec both readers follow is c4/man/al1ch.md; the second reader is c4/t/al1ch-spec.pl.
+# Disable: AL1CH=0.
+#
+# Copyright 2026 INPUTLOOP; Corwin Brust <corwin@bru.st>, Bryant Frankford and Contributors;
+# GPL-3.0-or-later OR LGPL-3.0-or-later. Mentat (for Corwin, claude-opus-5-5)
+set -u
+[ "${AL1CH:-1}" = 0 ] && { echo "al1ch: disabled (AL1CH=0); NOT CHECKED"; exit 0; }
+LC_ALL=C; export LC_ALL
+here=$(cd "$(dirname "$0")/.." && pwd)
+DECKS=${AL1CH_DECKS:-$here/alchemy/decks}
+TAB=$(printf '\t')
+die() { echo "al1ch: $*" >&2; exit 2; }
+isid() { case $1 in ''|*[!a-z0-9]*) return 1 ;; esac; return 0; }
+
+deckdir() {
+  case $1 in */*) d=$1 ;; *) d=$DECKS/$1 ;; esac
+  [ -d "$d" ] && [ -f "$d/about" ] || die "no deck at $d (a deck is a folder with an about file)"
+  echo "$d"
+}
+
+fold() {   # $1 = deck folder
+  d=$1; n=${d%/}; n=${n##*/}
+  title=$(sed -n 's/^title: *//p' "$d/about" | head -n 1)
+  says=$(awk 'f && NF { print; exit } /^$/ { f = 1 }' "$d/about")
+  printf 'about\t%s\t%s\t%s\n' "$n" "$title" "$says"
+  for f in "$d"/start/*; do [ -f "$f" ] && printf 'start\t%s\n' "${f##*/}"; done | sort
+  for f in "$d"/names/*; do [ -f "$f" ] && printf 'name\t%s\t%s\n' "${f##*/}" "$(sed -n 1p "$f")"; done | sort
+  for a in "$d"/rx/*; do
+    [ -d "$a" ] || continue
+    for b in "$a"/*; do
+      [ -f "$b" ] || continue
+      printf 'rx\t%s\t%s\t%s\t%s\n' "${a##*/}" "${b##*/}" "$(sed -n 1p "$b")" "$(sed -n 2p "$b")"
+    done
+  done | sort
+}
+
+# the reach table: id TAB level, by the fewest combinations from first matter (awk over the fold)
+reach_awk='
+BEGIN { FS = "\t" }
+$1 == "start" { lv[$2] = 0 }
+$1 == "rx"    { n++; A[n] = $2; B[n] = $3; P[n] = $4 }
+END {
+  do {
+    ch = 0
+    for (i = 1; i <= n; i++) if ((A[i] in lv) && (B[i] in lv)) {
+      l = (lv[A[i]] > lv[B[i]] ? lv[A[i]] : lv[B[i]]) + 1
+      if (!(P[i] in lv) || l < lv[P[i]]) { lv[P[i]] = l; ch = 1 }
+    }
+  } while (ch)
+  for (k in lv) printf "%d\t%s\n", lv[k], k
+}'
+
+check() {   # $1 = deck folder; prints problems, then one summary line
+  d=$1; n=${d%/}; n=${n##*/}; bad=0
+  say() { echo "al1ch check $n: FAIL: $*"; bad=1; }
+  title=$(sed -n 's/^title: *//p' "$d/about" | head -n 1)
+  says=$(awk 'f && NF { print; exit } /^$/ { f = 1 }' "$d/about")
+  [ -n "$title" ] || say "about has no title: line"
+  [ -n "$says" ] || say "about has no sentence after its blank line"
+  for f in "$d"/start/* "$d"/names/*; do
+    [ -f "$f" ] || continue; isid "${f##*/}" || say "not an ID: ${f#$d/}"
+  done
+  for a in "$d"/rx/*; do
+    [ -e "$a" ] || continue
+    [ -d "$a" ] || { say "not a folder: ${a#$d/}"; continue; }
+    isid "${a##*/}" || say "not an ID: ${a#$d/}"
+    for b in "$a"/*; do
+      [ -e "$b" ] || continue
+      r=${b#$d/}
+      isid "${b##*/}" || say "not an ID: $r"
+      [ "${a##*/}" \> "${b##*/}" ] && say "pair out of order (a <= b): $r"
+      lines=$(awk 'END { print NR }' "$b")
+      p=$(sed -n 1p "$b"); w=$(sed -n 2p "$b")
+      [ "$lines" -eq 2 ] || say "$r has $lines lines, not 2"
+      [ -n "$w" ] || say "$r has no why on line 2"
+      isid "$p" || say "$r makes '$p', not an ID"
+    done
+  done
+  tbl=$(fold "$d")
+  echo "$tbl" | awk -F "$TAB" -v n="$n" '
+    $1 == "start" { s[$2] = 1; ns++ }
+    $1 == "rx" && ($4 in s) { printf "al1ch check %s: FAIL: rx/%s/%s makes first matter (%s)\n", n, $2, $3, $4 }
+    END { if (!ns) printf "al1ch check %s: FAIL: no first matter (start/ is empty)\n", n }' > "${TMPDIR:-/tmp}/al1ch.$$"
+  [ -s "${TMPDIR:-/tmp}/al1ch.$$" ] && { cat "${TMPDIR:-/tmp}/al1ch.$$"; bad=1; }
+  { echo "$tbl"; echo "$tbl" | awk "$reach_awk" | sed 's/^/lv	/'; } | awk -F "$TAB" -v n="$n" '
+    $1 == "lv" { lv[$3] = $2; next }
+    $1 == "start" { el[$2] = 1 }
+    $1 == "rx" { r++; A[r] = $2; B[r] = $3; el[$4] = 1 }
+    $1 == "name" { nm[$2] = 1 }
+    END {
+      for (i = 1; i <= r; i++) if (!(A[i] in lv) || !(B[i] in lv))
+        printf "al1ch check %s: FAIL: rx/%s/%s never fires (an ingredient cannot be made)\n", n, A[i], B[i]
+      for (k in nm) if (!(k in el)) printf "al1ch check %s: FAIL: names/%s names no element of the deck\n", n, k
+    }' > "${TMPDIR:-/tmp}/al1ch.$$"
+  [ -s "${TMPDIR:-/tmp}/al1ch.$$" ] && { sort "${TMPDIR:-/tmp}/al1ch.$$"; bad=1; }
+  rm -f "${TMPDIR:-/tmp}/al1ch.$$"
+  if [ $bad = 0 ]; then
+    { echo "$tbl"; echo "$tbl" | awk "$reach_awk" | sed 's/^/lv	/'; } | awk -F "$TAB" -v n="$n" '
+      $1 == "lv" { e++; if ($2 > dp) dp = $2; next }
+      $1 == "start" { s++ }
+      $1 == "rx" { r++; used[$2] = 1; used[$3] = 1; el[$4] = 1 }
+      END { for (k in el) if (!(k in used)) de++
+            printf "al1ch check %s: %d elements (%d first matter), %d reactions, depth %d, %d dead ends: OK\n", n, e, s, r, dp, de + 0 }'
+    return 0
+  fi
+  echo "al1ch check $n: NOT OK"; return 1
+}
+
+display() {   # $1 deck folder, $2 id
+  if [ -f "$1/names/$2" ]; then sed -n 1p "$1/names/$2"; else echo "$2"; fi
+}
+
+prove_red() {
+  t=$(mktemp -d "${TMPDIR:-/tmp}/al1ch-red.XXXXXX") || die "no temp folder"
+  trap 'rm -rf "$t"' EXIT
+  me=$0; fails=0
+  mk() {   # a small clean deck in $t/$1
+    rm -rf "$t/$1"; mkdir -p "$t/$1/start" "$t/$1/rx/air" "$t/$1/rx/energy" "$t/$1/names"
+    printf 'title: Red\n\nA deck made to be broken.\n' > "$t/$1/about"
+    echo first > "$t/$1/start/air"; echo first > "$t/$1/start/fire"
+    printf 'energy\nAir feeds fire.\n' > "$t/$1/rx/air/fire"
+    printf 'light\nEnergy that glows.\n' > "$t/$1/rx/energy/fire"
+    echo 'the light' > "$t/$1/names/light"
+  }
+  expect() {   # $1 label, $2 0|1 wanted exit, rest the command
+    l=$1; want=$2; shift 2
+    if "$@" > "$t/out" 2>&1; then got=0; else got=1; fi
+    if [ "$got" = "$want" ]; then echo "  held:  $l"; else echo "  FAILED: $l (exit $got, wanted $want)"; sed 's/^/    /' "$t/out"; fails=$((fails + 1)); fi
+  }
+  mk clean; expect "a clean deck checks OK" 0 sh "$me" check "$t/clean"
+  expect "combine finds air + fire = energy (either order)" 0 sh -c "sh '$me' combine '$t/clean' fire air | grep -q '= energy'"
+  expect "combine with nothing to make exits 1" 1 sh "$me" combine "$t/clean" air air
+  expect "split of first matter says so" 0 sh -c "sh '$me' split '$t/clean' air | grep -q 'first matter'"
+  expect "split shows the pair and its why" 0 sh -c "sh '$me' split '$t/clean' light | grep -q 'energy + fire'"
+  mk p1; mv "$t/p1/rx/air/fire" "$t/p1/rx/air/Fire";                       expect "1 a bad ID goes red" 1 sh "$me" check "$t/p1"
+  mk p2; mkdir -p "$t/p2/rx/fire"; mv "$t/p2/rx/air/fire" "$t/p2/rx/fire/air"; expect "2 a pair out of order goes red" 1 sh "$me" check "$t/p2"
+  mk p3; echo extra >> "$t/p3/rx/air/fire";                                 expect "3 a third line goes red" 1 sh "$me" check "$t/p3"
+  mk p3b; printf 'energy\n' > "$t/p3b/rx/air/fire";                         expect "3 a missing why goes red" 1 sh "$me" check "$t/p3b"
+  mk p4; printf '\n\n' > "$t/p4/about";                                      expect "4 an about with no title goes red" 1 sh "$me" check "$t/p4"
+  mk p5; printf 'fire\nCircular.\n' > "$t/p5/rx/energy/fire";               expect "5 making first matter goes red" 1 sh "$me" check "$t/p5"
+  mk p5b; rm "$t/p5b/start/"*;                                               expect "5 no first matter goes red" 1 sh "$me" check "$t/p5b"
+  mk p6; mkdir -p "$t/p6/rx/ghost"; printf 'boo\nNever.\n' > "$t/p6/rx/ghost/ghost"; expect "6 a reaction that never fires goes red" 1 sh "$me" check "$t/p6"
+  mk p7; echo 'nobody' > "$t/p7/names/nobody";                               expect "7 a name for no element goes red" 1 sh "$me" check "$t/p7"
+  [ $fails = 0 ] && { echo "PROVE-RED OK"; return 0; }
+  echo "PROVE-RED FAILED: $fails"; return 1
+}
+
+cmd=${1:-}; [ $# -gt 0 ] && shift
+case $cmd in
+  decks)
+    for d in "$DECKS"/*/; do [ -f "$d/about" ] && printf '%s\t%s\n' "$(basename "$d")" "$(sed -n 's/^title: *//p' "$d/about" | head -n 1)"; done ;;
+  start)   [ $# = 1 ] || die "usage: al1ch start DECK"; d=$(deckdir "$1") || exit 2
+           for f in "$d"/start/*; do [ -f "$f" ] && display "$d" "${f##*/}"; done ;;
+  combine) [ $# = 3 ] || die "usage: al1ch combine DECK A B"; d=$(deckdir "$1") || exit 2
+           isid "$2" && isid "$3" || die "an ID is [a-z0-9]+"
+           x=$2; y=$3; [ "$x" \> "$y" ] && { x=$3; y=$2; }
+           if [ -f "$d/rx/$x/$y" ]; then
+             p=$(sed -n 1p "$d/rx/$x/$y")
+             echo "$(display "$d" "$x") + $(display "$d" "$y") = $(display "$d" "$p")"
+             echo "  $(sed -n 2p "$d/rx/$x/$y")"
+           else echo "$(display "$d" "$x") + $(display "$d" "$y"): nothing comes of it"; exit 1; fi ;;
+  split)   [ $# = 2 ] || die "usage: al1ch split DECK X"; d=$(deckdir "$1") || exit 2; isid "$2" || die "an ID is [a-z0-9]+"
+           [ -f "$d/start/$2" ] && { echo "$(display "$d" "$2") is first matter: it does not split."; exit 0; }
+           fold "$d" | awk -F "$TAB" -v x="$2" '$1 == "rx" && $4 == x { print $2 "\t" $3 "\t" $5 }' > "${TMPDIR:-/tmp}/al1ch.s$$"
+           [ -s "${TMPDIR:-/tmp}/al1ch.s$$" ] || { rm -f "${TMPDIR:-/tmp}/al1ch.s$$"; echo "$(display "$d" "$2"): nothing makes it"; exit 1; }
+           while IFS="$TAB" read -r a b w; do echo "$(display "$d" "$2") = $(display "$d" "$a") + $(display "$d" "$b")"; echo "  $w"; done < "${TMPDIR:-/tmp}/al1ch.s$$"
+           rm -f "${TMPDIR:-/tmp}/al1ch.s$$" ;;
+  uses)    [ $# = 2 ] || die "usage: al1ch uses DECK X"; d=$(deckdir "$1") || exit 2; isid "$2" || die "an ID is [a-z0-9]+"
+           fold "$d" | awk -F "$TAB" -v x="$2" '$1 == "rx" && ($2 == x || $3 == x) { o = ($2 == x ? $3 : $2); print x "\t" o "\t" $4 }' |
+           while IFS="$TAB" read -r a b p; do echo "$(display "$d" "$a") + $(display "$d" "$b") = $(display "$d" "$p")"; done ;;
+  reach)   [ $# = 1 ] || die "usage: al1ch reach DECK"; d=$(deckdir "$1") || exit 2
+           fold "$d" | awk "$reach_awk" | sort -t "$TAB" -k1,1n -k2,2 ;;
+  fold)    [ $# = 1 ] || die "usage: al1ch fold DECK"; d=$(deckdir "$1") || exit 2; fold "$d" ;;
+  check)   [ $# = 1 ] || die "usage: al1ch check DECK"; d=$(deckdir "$1") || exit 2; check "$d" ;;
+  --prove-red) prove_red ;;
+  ''|-h|--help) sed -n '2,/^# Disable/p' "$0" | sed 's/^# \{0,1\}//' ;;
+  *) die "unknown command: $cmd (al1ch --help)" ;;
+esac

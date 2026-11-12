@@ -1,0 +1,254 @@
+#+TITLE: alchemy — the recipe
+#+SUBTITLE: a combine-and-split game, made C4 style · software · <H>:/pub/software/alchemy/
+#+AUTHOR: Corwin Brust (keeper) · written with Mentat · corwin@bru.st
+#+DATE: 2026-11-12
+#+OPTIONS: toc:2 num:t
+
+* What this is
+
+A game for one person with nothing to buy. You start with four things. Put two together and you may
+find a third. Pull one apart and you see every pair that makes it, and why. That's the whole game.
+
+It began with a request from someone who has played the phone games of this kind for years, with his
+wife Dee: "recreate the game alchemy C4 style [...] We'd like to be able to use it to discover
+functionality thinking of seperate/decompose as well as combine/compose." (Corwin, 2026-11-11.)
+
+This file is the recipe: what the genre already knew, what we chose and what we turned down, what
+the decks measure, and how to make the thing again from this folder. The game runs at
+corwin.cloud/alchemy. Its page is public, in the repository github.com/inputloop/corwin.cloud.
+
+* Two people at the table
+
+Two characters from the game books on this shelf read every choice below. They are fiction and they
+are used here as lenses, not as authors. Their sheets are quoted, not ventriloquised.
+
+*Oscar Pell* (/Six Sides and a Pencil/) plays alone at a kitchen table and has one rule: "a game must
+not require anything the reader would have to buy." He also says of himself that he assumes "every
+arrangement is built to take something from somebody. Not people — arrangements." A phone game that
+sells hints is just such an arrangement. Pell's question for every feature here: what does it cost
+the player, and who decided that?
+
+*Kirra Vanth* (/The Commons at the Table/) spent eleven years writing letters that began "It has come
+to our attention", then read a licence, found it sound, and changed sides. Her question: what here
+is an idea anyone may use, and what is somebody's work?
+
+* What the genre already knew (research)
+
+| game | made by | what it showed | source |
+|------+---------+----------------+--------|
+| Alchemy (1997, DOS) | not named in the source | the predecessor whose play inspired Doodle God | the Doodle God article (Wikipedia mirror) |
+| Doodle God (2010, iOS and Flash, then many more) | JoyBits | the four classical elements; 249 elements in 26 categories; "a hint is available every few minutes" | same |
+| Little Alchemy (around 2010, browser) | — | the same play, in a browser | same |
+| Zed's Alchemy (iOS; free and premium editions on Android, by a reviewer's account) | Andrey "Zed" Zaikin | "You have only four basic elements: Fire, Water, Earth and Air"; 380 elements | its App Store page |
+
+What they share: four kinds of first matter, combining as the only move, and a count of what you
+have found. At least one rations its hints by the clock ("a hint is available every few minutes").
+One sells a premium edition, by a reviewer's account.
+
+None of the sources read here describes a *split*: a move that takes a thing apart to show what
+made it and why. That move is what this game adds.
+
+Sources: [[https://apps.apple.com/us/app/zeds-alchemy/id436454373][Zed's Alchemy on the App Store]];
+[[https://wiki.riteme.site/wiki/Doodle_God][Doodle God (a Wikipedia mirror)]]. The Giant Bomb page for
+Little Alchemy could not be read when this was written; its date here rests on the Doodle God article.
+
+** Vanth's reading: the idea, and the list
+
+"Combine four elements and discover more" is an idea, and an idea is free to use. A finished list of
+what makes what, with its names and its order, is someone's work. So the rule here: *every reaction
+was written for these decks*. Some will match other games' (fire and water make steam in every
+kitchen), because the world is shared. None was copied from a list. If you find a run of ours that
+follows one game's list closely, that is a defect. Say so and it will be rewritten.
+
+* What we chose (ideation, with the losers kept)
+
+The requests were combine and decompose. Each question below was grown with the G/G/G stretch. The
+options that lost are kept, because a recipe that hides its losers can't be argued with.
+
+** What does /split/ do?
+
+| option | verdict | why |
+|--------+---------+-----|
+| show every pair that makes it, each with why | *chosen* | it is the decompose that was asked for, and on the C4 deck it reads as an explanation |
+| name an ingredient you haven't found as "something not found yet" | *chosen* | a clue that costs nothing; Pell's rule |
+| give you back the ingredients | lost | you must already have had them to make the thing, so it gives nothing, unless a second recipe uses something new, and then the first row already shows it |
+| cost something (a turn, a wait) | lost | Pell's rule. A wait is a price. |
+| split into the two halves picked at random | lost | it hides the other road; "stone" can be made two ways and the player should see both |
+
+** Where do the recipes live?
+
+| option | verdict | why |
+|--------+---------+-----|
+| one file per reaction, =rx/A/B= holding the product and why | *chosen* | adding is one file; a stranger needs no program to read it (=ls rx/person=); two people adding two reactions never conflict |
+| one JSON file | lost (kept as the fold the browser reads) | easy for a browser, hard for a person: one missing comma breaks the whole deck |
+| a spreadsheet | lost | the format is someone else's program |
+
+** Hints?
+
+None that cost anything. Split is the hint. There is no timer, no advert, no store and no account,
+and nothing is sent anywhere. The page keeps what you found in your own browser, under one name it
+discloses, and one press on the site's note forgets it.
+
+** Decks
+
+| deck | first matter | for |
+|------+--------------+-----|
+| =classic= | air, earth, fire, water | the game as people know it |
+| =c4= | file, word, key, person | C4's working parts. Compose a capability; split one to read what it is made of |
+
+The C4 deck is where "discover functionality" lives. Split /consent/ and the game says: /person +
+record/: "A person standing behind a record of what they agreed to." Split /record/: /note + seal/.
+Split /seal/: /file + signature/. Three presses walk you from a word on a box to the mechanism under
+it. That is the use Corwin asked for, and it is the reason split is a move and not a hint.
+
+* What the decks measure (analytics)
+
+Every number here was read by the tool on 2026-11-12, not typed from memory. =sh h/al1ch reach DECK=
+gives each element the fewest combinations it takes from first matter (its level).
+
+| measure | classic | c4 |
+|---------+---------+----|
+| elements | 63 | 42 |
+| first matter | 4 | 4 |
+| reactions | 64 | 39 |
+| depth (the deepest level) | 11 | 7 |
+| dead ends (made, but used in nothing) | 14 | 12 |
+| made two ways | stone, glass, life, sky, sand | c4 |
+| most-used ingredient | fire (8 reactions) | key (6) |
+| deepest element | philosopher's stone (11) | alchemy (7) |
+
+Elements at each level:
+
+| level | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 |
+|-------+---+---+---+---+---+---+---+---+---+---+----+----|
+| classic | 4 | 10 | 6 | 11 | 8 | 10 | 5 | 3 | 2 | 2 | 1 | 1 |
+| c4 | 4 | 8 | 7 | 7 | 7 | 5 | 3 | 1 | | | | |
+
+What I read in them, each with what would prove it wrong:
+
+1. *The classic deck is wide early and narrow late.* Thirty-one of its 63 elements are found by
+   level 3. A new player finds things quickly and the last few take thought. /Wrong if/ players
+   watched at the table stall before level 3.
+2. *In the C4 deck, keys are everywhere.* Key is the most-used ingredient: signatures, identity,
+   doors, control, the magic word. That is C4's own claim in game form: who agreed to what is pinned
+   by a key. /Wrong if/ a deck written by someone else with no C4 knowledge puts something else at
+   the centre and reads as truer.
+3. *The farthest thing from first matter, in the C4 deck, is this game.* /alchemy/ = /game + recipe/
+   sits at level 7, past C4 itself (level 5). /Wrong if/ that is an accident of how I wrote the deck
+   rather than a fair picture. A second author's deck is the test.
+4. *Dead ends are endings, not bugs.* Ash, the phoenix, the philosopher's stone, the byline: you can
+   find them, but you can't use them. The check counts them so a deck that is all endings shows up.
+   /Wrong if/ players read a dead end as broken.
+
+* The recipe: how it is made
+
+** A deck is a folder of atoms
+
+#+begin_src text
+alchemy/decks/classic/
+  about                 title: Classic, a blank line, one sentence
+  start/air             first matter, one file each
+  names/philosopherstone  a display name, when the ID reads badly
+  rx/fire/water         line 1: steam   line 2: Water that fire has lifted.
+#+end_src
+
+An ID is =[a-z0-9]+=. A pair is kept once, in byte order (=rx/fire/water=, never =rx/water/fire=). An
+element exists because a reaction makes it. There is no list of elements to keep in step.
+
+** Add a reaction
+
+#+begin_src sh
+mkdir -p alchemy/decks/classic/rx/fire
+printf 'steam\nWater that fire has lifted.\n' > alchemy/decks/classic/rx/fire/water
+sh h/al1ch check classic
+#+end_src
+
+** Play it at a shell
+
+#+begin_src sh
+sh h/al1ch start classic
+sh h/al1ch combine classic water fire      # fire + water = steam, and why
+sh h/al1ch split c4 consent                # consent = person + record, and why
+sh h/al1ch uses c4 key                     # everything a key goes into
+sh h/al1ch reach c4                        # each element's level
+#+end_src
+
+** The seven promises, and the two readers
+
+=sh h/al1ch check DECK= holds a deck to seven promises (=man/al1ch.md=): IDs well formed; pairs in
+order; each reaction exactly a product and a why; an about with a title; first matter that nothing
+makes; every reaction able to fire from first matter; every display name naming an element.
+
+A check written once can be wrong in the same way as the code it checks. So a second reader, in
+Perl, reads the atoms itself and must agree byte for byte with the sh tool:
+
+#+begin_src sh
+sh h/al1ch --prove-red            # each promise broken in a throwaway deck, and seen to fail
+perl t/al1ch-spec.pl              # both readers agree on every deck
+perl t/al1ch-spec.pl --prove-red  # each planted fault turns both readers red, together
+#+end_src
+
+The browser game is the third reader. Its checks walk a real browser through every reaction of both
+decks until the counter says "all of them" (=tests/alchemy-browser.cjs= in the corwin.cloud
+repository).
+
+** The page
+
+The site's build reads each deck's fold (=sh h/al1ch fold DECK=: one TAB-separated table) and writes
+=alchemy.html= and the decks file the script asks for. Its rules are the site's own: one script,
+labelled for GNU LibreJS, served from the site, no inline script or style, nothing from another
+host. With scripts off the page explains the game and carries both recipe books.
+
+The page answers at its short address, corwin.cloud/alchemy, because the web server tries
+=$uri.html= before giving up:
+
+#+begin_src nginx
+location / {
+    try_files $uri $uri.html $uri/ =404;
+}
+#+end_src
+
+Nobody typing an address should have to remember a file name, so the page also links the short form.
+
+* Pluck it
+
+Everything the game needs, except the web page, travels in this folder, laid out as it is in c4, so
+the commands above run from here unchanged:
+
+| path | what |
+|------+------|
+| =h/al1ch= | the tool (POSIX sh and awk) |
+| =t/al1ch-spec.pl= | the second reader (Perl) |
+| =man/al1ch.md= | the spec both follow |
+| =alchemy/decks/= | the two decks, one file per reaction |
+| =alchemy/README.md= | the decks' front door |
+
+To make a deck of your own, copy =alchemy/decks/classic= to a new folder, empty =rx/=, and start
+writing. Pell would add one thing: play it on paper first.
+
+* How this recipe can fail (falsifiers)
+
+- =perl t/al1ch-spec.pl= disagrees with =sh h/al1ch= on a deck: one reader drifted from the spec.
+- A planted fault in either =--prove-red= leaves a deck green.
+- A number in the analytics table differs from what =sh h/al1ch check= and =reach= print today:
+  the table is stale. The tool is right, and the table gets rewritten.
+- A run of reactions follows another game's published list: Vanth's rule is broken. Rewrite it.
+- The page asks another host for anything, or keeps a name its site's note does not list.
+
+* Open
+
+- Release: a tarball of this folder with its detached signature, as =software/seams= carries, is the
+  keeper's act.
+- Putting the page in corwin.cloud's menu, on aboutcorwin.com and on inputloop's GitHub profiles
+  waits on an ENHANCE in c4 (=h/enhance/sites/2026-11-12-alchemy-into-the-sites.md=).
+- A second author's C4 deck would test the claims above.
+
+* Credits
+
+Asked for by Corwin, who plays this kind of game with Dee. Made at INPUTLOOP, where Bryant Frankford
+and Corwin Brust work together. Read through the sheets of Oscar Pell and Kirra Vanth, characters of
+the game books on this shelf.
+
+Copyright 2026 INPUTLOOP: Corwin Brust, Bryant Frankford and Contributors. Code GPL-3.0-or-later OR
+LGPL-3.0-or-later; decks and prose CC-BY-SA-4.0 (pre-branding on this shelf: see =COPYING=).
+Mentat (for Corwin, claude-opus-5-5)

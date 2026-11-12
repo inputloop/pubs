@@ -1,0 +1,30 @@
+#+TITLE: alchemy, a combine-and-split game
+#+SUBTITLE: publication stage · software · <H>:/pub/software/alchemy/
+#+AUTHOR: Corwin Brust (keeper) · written with Mentat · corwin@bru.st
+#+DATE: 2026-11-12
+
+* What this is
+
+Start with four things. Put two together and you may find a third. Pull one apart and you see every
+pair that makes it, and why. Two decks: the classic four elements, and C4's working parts, where
+splitting a capability shows what it is made of. Play it at corwin.cloud/alchemy.
+
+=RECIPE.org= is the recipe: the research, the choices and the ones that lost, what the decks measure,
+and how to make it again from this folder.
+
+* What travels
+
+- =RECIPE.org=, this README and =COPYING=
+- =h/al1ch=, =t/al1ch-spec.pl=, =man/al1ch.md=: the tool, its second reader, the spec
+- =alchemy/README.md= and =alchemy/decks/=: the two decks, one file per reaction
+
+* Checking it
+
+: sh h/al1ch check classic && sh h/al1ch check c4 && perl t/al1ch-spec.pl
+
+=.c4/PROVENANCE.tsv= names where each file came from and its hash when it was lifted; =pb1ck=
+re-hashes them and reads the item for anything of the machine it was made on.
+
+* Status
+
+Pre-branding: see =COPYING=.
