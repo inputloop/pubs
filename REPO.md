@@ -8,5 +8,8 @@ This repository is a copy of that folder, refreshed by `sh refresh.sh` (run from
 the folder). It carries no history of its own beyond refreshes; the folder is the working copy.
 Left out on purpose: `sites/` (13 GB, a site's tree, not a repository's), every `.c4/` (the working sets and provenance rows the shelf keeps but does not let travel), and any item the shelf holds back for now (its hold list is kept in the shelf's own `.c4/`, so held items are not named here). A refresh also removes what the shelf no longer carries. Its promises are checked by `python3 tests/refresh_test.py` (`--prove-red` shows the checks can fail). The shelf's RECIPE.org, section PUBS, says how to rebuild this copy from nothing.
 
-Terms: the collection's TERMS v2 (code GPL-3.0-or-later OR LGPL-3.0-or-later; writing CC-BY-SA-4.0) unless an item
-says otherwise; a 0-byte COPYING is a tombstone (only Corwin installs licence text).
+Terms: the collection's TERMS v3 (2026-11-10; stated whole in RECIPE.org): writing and art CC-BY-SA-4.0, code
+GPL-3.0-or-later, parts made for other people's programs also LGPL-3.0-or-later, the TA model alone CC-BY-4.0.
+Each item's own COPYING says which. Since 2026-11-13 the house terms go on when an item lands (his word of
+2026-11-03); a COPYING that begins `TOMBSTONE -- HELD:` grants no licence yet and names the hold that keeps it so.
+(Before then, a tombstone was every new item's default until a separate branding motion.)

@@ -34,5 +34,5 @@ signed them afterwards as they stood, so the signature, not the label, says what
 
 * Status
 
-Pre-branding: see =COPYING=. The open shelf declared CC BY 4.0 for its pieces; the keeper brands
+License: CC BY-SA 4.0, with an additional permission; see =COPYING=. The open shelf declared CC BY 4.0 for its pieces; the keeper brands
 this item when he chooses.

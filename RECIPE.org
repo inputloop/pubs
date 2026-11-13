@@ -23,6 +23,8 @@ From =.seed=: =/= (the pub root) is the "finished publications stage, instructio
 the =.c4/= dot-folder inside each item. An item not ready for branding "may so indicate with a
 'tombstone' (zero byte) COPYING or by creating that file with whatever informational context
 is needed to scope these contexts".
+(Since 2026-11-13 the shelf reads that "may" as a hold an item asks for, not every item's default:
+see BRANDING, and rule 6 of WHAT LANDS.)
 
 And the rule this whole recipe serves, his: do not leak "details of my systems
 unnecessarily with these materials in publication apparatus (nor content proper, obviously,
@@ -80,8 +82,12 @@ shelf, checked, where he reads. The rule:
    - other people's words that they have not cleared for publication; a work may act on what a
      reader asked, but the reader's text stays where it was kept;
    - his answer surfaces: the execute-brief page and its worksheet, which are tools, not writing.
-6. *Status on landing*: a tombstone =COPYING= and no branding. His 2026-09-25 bless covered "the
-   writing projects so far"; a new piece is branded when he blesses it (see BRANDING).
+6. *Status on landing*: the house terms. Once =pb1ck= reads CLEAN, =pb2pk= brands the item by kind
+   (TERMS v3: software GPL-3.0-or-later, every other kind CC-BY-SA-4.0). A tombstone stays only as a
+   HOLD that names its bound; it begins =TOMBSTONE -- HELD:= (see BRANDING). Until 2026-11-13 every
+   new piece landed a tombstone and waited for a bless; his word of 2026-11-03 had already said
+   "Everything in inputloop is our licenses unless you see a COPYING file that explains the licensing terms."
+   and on 2026-11-13: "we need to correct the licensing issues".
 7. *The check is the landing's receipt.* =pb1ck= runs inside =pb2pk=; its verdict goes into the
    Papers section of =.c4/TODO.org= beside the item, NOT CLEAN included, with what fired. A NOT
    CLEAN item stays landed (he reads it here) and is simply not released until it reads CLEAN.
@@ -113,6 +119,7 @@ The writing of 2026-09-27 and after, where each lab piece lands:
 | =c4/h/LENS-2026-09-29-acknowledgements-lane.md= | =papers/acknowledgements-lane/= |
 | =c4/h/LENS-2026-09-29-ingest-two-firings.md= | =papers/ingest-two-firings/= |
 | =c4/writing/door-images/= legs-check.sh, boot-receipt.sh, receipts (2026-10-13) | =papers/guix-and-arch-as-doors/= (added) |
+| =c4/writing/surface-ui/= (DISS 0.4, REVIEW by the editorial council, MODEL; editions and council notes as sources, 2026-11-12) | =papers/a-surface-you-can-reinvent/= (CLEAN; branded CC-BY-SA-4.0 2026-11-13) |
 
 This table names the lab home where one is known. It is not the whole list: the =papers/= folder is
 (41 items on 2026-11-01), and each item's =.c4/PROVENANCE.tsv= names where its files came from.
@@ -177,9 +184,10 @@ README.org".
 2. *=README.org= is the front door.* Built to be walked up to: what this is, the thesis or
    product in one screen, status, and enough context that a reader need not hold the shop
    vocabulary.
-3. *=COPYING= carries branding or a tombstone.* Either the real license and a dated copyright
-   line, or the informational tombstone scoping the pre-branding state. Branding is his
-   signing motion; key at https://savannah.gnu.org/u/carlc.
+3. *=COPYING= carries the licence, or a tombstone that names its hold.* Either the licence and a
+   dated copyright line (the house terms by default, since 2026-11-13), or a =TOMBSTONE -- HELD:=
+   line saying what keeps it unlicensed for now. A signature over the shelf is still his signing
+   motion; key at https://savannah.gnu.org/u/carlc.
 4. *=.c4/= never travels* — that is what the dot-folder is for. The exception is explicit: the
    item names travelling paths, one per line, in =.c4/travels=. Nothing else under =.c4/=
    leaves, and the check enforces the same reading.
@@ -214,7 +222,8 @@ bin/pb2ld --all AS4CE0001/book/games                  # land (or re-land) the wh
    the known trees is named, not located). A re-landing re-hashes: unchanged files are left alone,
    a changed one is re-lifted and its row keeps the old hash -- the observable tear.
 5. *README.org and COPYING are written only when absent.* The front door is the keeper's to edit
-   and is never overwritten; COPYING stays a tombstone until he brands it.
+   and is never overwritten; COPYING is branded with the house terms once the item reads CLEAN
+   (a held item, or one that is not CLEAN, keeps a tombstone that says why).
 6. *=.c4/leakwords= comes from the root's* (=<H>:/pub/.c4/leakwords=, one string per line: host
    names, and a user name only as a PATH -- a bare user name that is part of the keeper's own name
    fires on every byline). Then =pb1ck= runs; its verdict is the book's.
@@ -242,8 +251,8 @@ c4/bin/pb2ps --scrub --brand SHEET.md [SHEET.md ...]   # land, check, then brand
 - =--scrub= writes machine paths in placeholder form (=<F>:\...=, =<home>=, =<mnt>/=) in the
   travelling copy /only/, and says so in the item's README and PROVENANCE. Names are never rewritten.
   A sheet that names this machine stays NOT CLEAN until its keeper changes it.
-- =--brand= brands an item only once it reads CLEAN (=pb2br --license CC-BY-SA-4.0=, writing; as of
-  2026-10-10 pb2br knows only the TA model's ID, so it refuses this one until it learns it).
+- =--brand= brands an item only once it reads CLEAN (=pb2br --license CC-BY-SA-4.0=, writing; pb2br
+  learned that ID on 2026-11-13 and now defaults to it).
 - The shelf also offers the build's =TERMS-OF-SERVICE.md= and =PRIVACY.md= (minted by the plugin's
   =bin/tp2mt= at =make dist=) and the contributing personality, =corwin/=.
 - Tests: =c4/tests/pb2ps-tests.sh= (and =AS4CE0001/tests/tp2mt-tests.sh= for the minted pair).
@@ -307,11 +316,19 @@ Feedback on fit (grades, readers' reactions) is welcome at any time and never ga
 
 * BRANDING — licensing an item (=bin/pb2br=, =bin/tm1ck=)
 
-An item lands with a TOMBSTONE =COPYING= and is branded when its keeper blesses it: "The writing
-projects so far: bless. License them per our defaults" (2026-09-25).
+An item is branded when it lands: =pb2pk= runs =pb2br= by kind once =pb1ck= reads CLEAN. His words:
+"The writing projects so far: bless. License them per our defaults" (2026-09-25);
+"Everything in inputloop is our licenses unless you see a COPYING file that explains the licensing terms." (2026-11-03); "we need to correct the licensing issues" (2026-11-13, after the trace in c4
+=h/pins/2026-11-13-copying-tombstone-vs-house-terms.md=). Before 2026-11-13 an item landed with a
+tombstone and waited for a separate bless; 20 waiting items were branded that day and 14 were left
+held, each tombstone naming why.
+
+A tombstone now is a HOLD, and a hold names its bound (CREDITS AND HOLDS): =pb2pk --hold REASON=, a row
+in =.c4/pubs-hold=, or a check that did not read CLEAN. Its first line is =TOMBSTONE -- HELD: <bound>=,
+and a later =pb2pk= of the same item leaves it held. Releasing one is =pb2br <kind>/<item>=.
 
 #+begin_src sh
-c4/bin/pb2br --license CC-BY-SA-4.0 <kind>/<item>       # writing (pb2br must learn this ID first)
+c4/bin/pb2br <kind>/<item>                             # writing and art: CC-BY-SA-4.0, the default
 c4/bin/pb2br --license CC-BY-4.0 <kind>/<item>          # the TA model only
 c4/bin/pb2br --license GPL-3.0-or-later <kind>/<item>   # software
 c4/bin/pb2br --license LGPL-3.0-or-later <kind>/<item>  # parts others link or copy in
@@ -390,7 +407,7 @@ git status --short
 
 =refresh.sh= copies the travelling files and then removes any file in the repository that the shelf no
 longer carries, so a withdrawn or newly held item does not stay public. It never touches the
-repository's own files: =REPO.md=, =refresh.sh=, =COPYING= (a tombstone), =tests/=, =.github/=.
+repository's own files: =REPO.md=, =refresh.sh=, =COPYING=, =tests/=, =.github/=.
 (Before 2026-11-01 it only ever added: it had no hold list and removed nothing.)
 
 ** Steps, from nothing
@@ -501,8 +518,8 @@ The report echoes matches, so the report is local. Do not put it in the item.
 
 * Terms
 
-# TERMS:begin v2 2026-10-10
-TERMS (default licensing, v2, 2026-10-10). Corwin Brust and Bryant Frankford pool their tools,
+# TERMS:begin v3 2026-11-10
+TERMS (default licensing, v3, 2026-11-10). Bryant Frankford and Corwin Brust pool their tools,
 writing and models into one shared collection and offer it together. Unless a work says
 otherwise, everything in the collection, and what our tools make for us, is offered under
 these terms:
@@ -512,10 +529,14 @@ these terms:
   Commons Attribution-ShareAlike 4.0 International (CC-BY-SA-4.0).
 - Code -- scripts, programs, libraries, templates, and the configuration and data that run
   them -- under the GNU General Public License as published by the Free Software Foundation,
-  either version 3 of the License, or (at your option) any later version; or, at your choice,
-  under the GNU Lesser General Public License, version 3 or (at your option) any later
-  version (GPL-3.0-or-later OR LGPL-3.0-or-later). The Lesser licence is offered so that an
-  application can take our parts in without taking on more.
+  either version 3 of the License, or (at your option) any later version (GPL-3.0-or-later).
+- Parts made to be taken into other people's programs -- a library or module, a reader or
+  writer for a format or protocol we want widely used, the templates and door text our tools
+  copy into other people's files -- are offered also, at your choice, under the GNU Lesser
+  General Public License, version 3 or (at your option) any later version, and each such part
+  says so in its own header (GPL-3.0-or-later OR LGPL-3.0-or-later). The Lesser offer is made
+  part by part, so that more people can use those parts; it never loosens the GPL on a whole
+  program.
 - The Technology Architecture (TA) model alone, written for companies to take in, under
   Creative Commons Attribution 4.0 International (CC-BY-4.0), without ShareAlike. Essays
   already published keep the licence they went out with.
@@ -525,7 +546,7 @@ to other people. Using a thing -- running an application built with these parts,
 use a ticket machine or a cash machine -- is not publishing it, and changes you keep to
 yourself stay yours. What our tools make for you is yours, under whatever terms you choose.
 
-Credit for the collection: Corwin Brust and Bryant Frankford, with K Smith as editor of the
+Credit for the collection: Bryant Frankford and Corwin Brust, with K Smith as editor of the
 works she edited. Each work names its own makers, first the one whose work it most is.
 
 Two permissions Corwin adds for the parts he holds the copyright on:

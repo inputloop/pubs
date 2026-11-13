@@ -22,4 +22,4 @@ re-hashes them and reads the item for anything of the machine it was made on.
 The copies here write the machine paths their masters name in placeholder form (=<F>:\...=, =<f>:/...=,
 =<home>=, =<mnt>/=); the masters keep them, and =.c4/PROVENANCE.tsv= says so.
 
-Pre-branding: see =COPYING=.
+License: CC BY-SA 4.0, with an additional permission; see =COPYING=.

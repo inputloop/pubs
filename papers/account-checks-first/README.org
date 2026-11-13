@@ -20,4 +20,4 @@ re-hashes them and reads the item for anything of the machine it was made on.
 
 * Status
 
-Pre-branding: see =COPYING=.
+License: CC BY-SA 4.0, with an additional permission; see =COPYING=.

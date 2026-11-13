@@ -27,4 +27,4 @@ re-hashes them and reads the item for anything of the machine it was made on.
 
 * Status
 
-Pre-branding: see =COPYING=.
+License: GPL-3.0-or-later; see =COPYING=.
